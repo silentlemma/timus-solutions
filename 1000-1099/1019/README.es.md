@@ -71,6 +71,14 @@ Se reúnen 0, 10⁹ y todos los extremos, se ordenan y eliminan duplicados. Cada
 
 Las variantes DSU procesan los repintados al revés. Una estructura de sucesores encuentra el primer tramo aún no asignado por una operación posterior; tras pintarlo lo enlaza al siguiente. Cada tramo se pinta una sola vez. Ordenar y buscar extremos cuesta O(N log N), con O(N) de espacio. Go Accepted usa 592 KB y 0.031 s, frente a 1784 KB y 0.031 s de la versión directa: 66.8% menos memoria. Se conservan los DSU aceptados de C++ y Python. Python DSU usa 3560 KB y 0.078 s; el nuevo sencillo, 5 464 KB y 0.093 s. Se conserva para enseñar aunque ambas métricas empeoren. C++ DSU usa 212 KB frente a 208 KB del directo; 0.031 frente a 0.015 s es un solo salto del temporizador, así que su admisión rápida se basa en la clasificación guardada y no en un supuesto 30% de mejora temporal.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1019_sorting_implementation_optimized.rs`. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328969 (Rust 1.75 x64): **0.015 s / 624 KB**. Comparación archivada: `1019_sorting.rs` (Rust 1.75 x64) — 0.046 s / 692 KB (#11278240).
+
 ## Notas por lenguaje
 
 El pintado directo sencillo ya tiene Accepted en los cinco lenguajes. DSU es otro algoritmo con nombres propios. El nuevo DSU Go usa manejadores estándar y arreglos primitivos compactos. Se conservan todos los archivos anteriores y sus métricas Accepted históricas. Los asteriscos señalan fuentes del conjunto rápido que aún no alcanzan la meta de su lenguaje.
@@ -85,17 +93,16 @@ Procesar las operaciones en orden inverso. La estructura de conjuntos disjuntos 
 |---|---|---|---|---|---|---|---|
 | [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB | 11278218 |
 | [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB | 11278227 |
-| [1019_sorting.java](1019_sorting.java) \* | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
+| [1019_sorting.java](1019_sorting.java) | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
 | [1019_sorting.py](1019_sorting.py) | Python 3.12 x64 | sorting | O(N²) after sorting | AC | 0.093 s | 5 464 KB | 11314812 |
-| [1019_sorting.rs](1019_sorting.rs) \* | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
+| [1019_sorting.rs](1019_sorting.rs) | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
-| [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
-| [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+| [1019_dsu_sorting.go](1019_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
+| [1019_dsu_sorting.py](1019_dsu_sorting.py) | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
 | [1019_dsu_sorting.java](1019_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.109 s | 644 KB | 11324217 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1019_sorting_implementation_optimized.rs](1019_sorting_implementation_optimized.rs) | Rust 1.75 x64 | sorting, implementation | O(N^2) after sorting | AC | 0.015 s | 624 KB | 11328969 |

@@ -71,6 +71,14 @@ Collect 0, 10⁹ and every repainting endpoint, then sort and deduplicate them. 
 
 The DSU variants process repaintings backwards. A successor structure finds the first piece not yet assigned by a later repainting; after assigning it, link it to its next piece. Every piece is painted at most once. Sorting and endpoint searches give O(N log N) time and O(N) space. The accepted Go source uses 592 KB at 0.031 s, versus 1784 KB at 0.031 s for direct painting: 66.8% less memory. C++ and Python retain their original accepted DSU sources. Python DSU uses 3560 KB at 0.078 s; the new elementary Python uses 5 464 KB at 0.093 s. The simpler algorithm is kept for teaching despite both worse measurements. C++ DSU uses 212 KB versus 208 KB for direct painting; its 0.031-to-0.015 s difference is one timer tick, so its fast-set admission comes from the saved ranking rule rather than a claimed 30% timing gain.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1019_sorting_implementation_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328969 (Rust 1.75 x64): **0.015 s / 624 KB**. Archived comparison: `1019_sorting.rs` (Rust 1.75 x64) — 0.046 s / 692 KB (#11278240).
+
 ## Language notes
 
 Simple direct painting now has Accepted in all five languages. DSU is an alternative algorithm with its own names. The new Go DSU uses standard handles and compact primitive arrays. All previous files and their historical Accepted metrics are preserved. Stars mark only sources selected for the fast set that still miss the language rating target.
@@ -85,17 +93,16 @@ Process repaintings in reverse. A disjoint-set structure skips pieces whose fina
 |---|---|---|---|---|---|---|---|
 | [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB | 11278218 |
 | [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB | 11278227 |
-| [1019_sorting.java](1019_sorting.java) \* | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
+| [1019_sorting.java](1019_sorting.java) | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
 | [1019_sorting.py](1019_sorting.py) | Python 3.12 x64 | sorting | O(N²) after sorting | AC | 0.093 s | 5 464 KB | 11314812 |
-| [1019_sorting.rs](1019_sorting.rs) \* | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
+| [1019_sorting.rs](1019_sorting.rs) | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
-| [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
-| [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+| [1019_dsu_sorting.go](1019_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
+| [1019_dsu_sorting.py](1019_dsu_sorting.py) | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
 | [1019_dsu_sorting.java](1019_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.109 s | 644 KB | 11324217 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1019_sorting_implementation_optimized.rs](1019_sorting_implementation_optimized.rs) | Rust 1.75 x64 | sorting, implementation | O(N^2) after sorting | AC | 0.015 s | 624 KB | 11328969 |

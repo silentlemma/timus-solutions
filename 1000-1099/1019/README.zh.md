@@ -68,6 +68,14 @@
 
 DSU 版本逆序处理涂色。后继结构找到尚未被后续操作赋值的第一段，赋值后将其连接到下一段，每段最多涂一次。排序与端点查找共耗时 O(N log N)，空间 O(N)。Accepted 的 Go 源码使用 592 KB、0.031 秒，直接涂色为 1784 KB、0.031 秒，内存减少 66.8%。保留原有 Accepted C++、Python DSU。Python DSU 为 3560 KB、0.078 秒，新简单版本为 5 464 KB、0.093 秒。虽两项指标更差，仍保留更简单的算法用于教学。C++ DSU 使用 212 KB，直接版为 208 KB；0.031 到 0.015 秒只差一个计时刻度，因此快速集合的收录依据是保存的排名规则，不宣称已证明 30% 时间收益。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1019_sorting_implementation_optimized.rs`. C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328969 (Rust 1.75 x64): **0.015 s / 624 KB**. 历史对照: `1019_sorting.rs` (Rust 1.75 x64) — 0.046 s / 692 KB (#11278240).
+
 ## 各语言说明
 
 简单的直接涂色现已在五种语言全部获得 Accepted。DSU 是另一算法，使用独立文件名。新的 Go DSU 使用标准句柄和紧凑基本类型数组。保留全部旧文件及其历史 Accepted 指标。星号只标记选入快速集合但尚未达到该语言目标排名的源码。
@@ -82,17 +90,16 @@ DSU 版本逆序处理涂色。后继结构找到尚未被后续操作赋值的�
 |---|---|---|---|---|---|---|---|
 | [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB | 11278218 |
 | [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB | 11278227 |
-| [1019_sorting.java](1019_sorting.java) \* | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
+| [1019_sorting.java](1019_sorting.java) | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
 | [1019_sorting.py](1019_sorting.py) | Python 3.12 x64 | sorting | O(N²) after sorting | AC | 0.093 s | 5 464 KB | 11314812 |
-| [1019_sorting.rs](1019_sorting.rs) \* | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
+| [1019_sorting.rs](1019_sorting.rs) | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
-| [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
-| [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+| [1019_dsu_sorting.go](1019_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
+| [1019_dsu_sorting.py](1019_dsu_sorting.py) | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
 | [1019_dsu_sorting.java](1019_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.109 s | 644 KB | 11324217 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1019_sorting_implementation_optimized.rs](1019_sorting_implementation_optimized.rs) | Rust 1.75 x64 | sorting, implementation | O(N^2) after sorting | AC | 0.015 s | 624 KB | 11328969 |
