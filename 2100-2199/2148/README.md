@@ -94,6 +94,14 @@ In the earlier comparison snapshot, the base implementations [2148_geometry.go](
 
 Use the equal distances to the centre to reduce the feasibility test to a squared-length comparison. Accepted submission 11324242 took 0.093 s and used 444 KB. The simple version took 0.093 s and used 524 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2148_geometry_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328635 (Java 1.8): **0.109 s / 504 KB**. Archived comparison: `2148_geometry.java` (Java 1.8) — 0.14 s / 1800 KB (#11295013).
+
 ## Solutions
 
 ### Simple
@@ -101,9 +109,9 @@ Use the equal distances to the centre to reduce the feasibility test to a square
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB | 11295009 |
-| [2148_geometry.go](2148_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
-| [2148_geometry.java](2148_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
-| [2148_geometry.py](2148_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
+| [2148_geometry.go](2148_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
+| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
+| [2148_geometry.py](2148_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
 | [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB | 11295014 |
 
 ### Optimized
@@ -111,6 +119,5 @@ Use the equal distances to the centre to reduce the feasibility test to a square
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
-| [2148_geometry_optimized.py](2148_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2148_geometry_optimized.py](2148_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
+| [2148_geometry_optimized.java](2148_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11328635 |

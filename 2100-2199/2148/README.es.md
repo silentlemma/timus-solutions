@@ -95,6 +95,14 @@ En la instantánea de comparación anterior, las implementaciones base [2148_geo
 
 Usar la igualdad de distancias al centro para reducir la prueba de viabilidad a comparar longitudes al cuadrado. El envío aceptado 11324242 tardó 0.093 s y usó 444 KB. La versión sencilla tardó 0.093 s y usó 524 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2148_geometry_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328635 (Java 1.8): **0.109 s / 504 KB**. Comparación archivada: `2148_geometry.java` (Java 1.8) — 0.14 s / 1800 KB (#11295013).
+
 ## Soluciones
 
 ### Sencillas
@@ -102,9 +110,9 @@ Usar la igualdad de distancias al centro para reducir la prueba de viabilidad a 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB | 11295009 |
-| [2148_geometry.go](2148_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
-| [2148_geometry.java](2148_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
-| [2148_geometry.py](2148_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
+| [2148_geometry.go](2148_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
+| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
+| [2148_geometry.py](2148_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
 | [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB | 11295014 |
 
 ### Optimizadas
@@ -112,6 +120,5 @@ Usar la igualdad de distancias al centro para reducir la prueba de viabilidad a 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
-| [2148_geometry_optimized.py](2148_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2148_geometry_optimized.py](2148_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
+| [2148_geometry_optimized.java](2148_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11328635 |

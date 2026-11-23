@@ -74,6 +74,14 @@ C++ 保持同一角平分线反射点。令 a=A−C、b=B−C、w=a+b，等距�
 
 利用到圆心的距离相等，将可行性判断化为长度平方的比较。通过的提交 11324242 用时 0.093 秒、占用 444 KB；简单版用时 0.093 秒、占用 524 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2148_geometry_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328635 (Java 1.8): **0.109 s / 504 KB**. 历史对照: `2148_geometry.java` (Java 1.8) — 0.14 s / 1800 KB (#11295013).
+
 ## 解答
 
 ### 简单版本
@@ -81,9 +89,9 @@ C++ 保持同一角平分线反射点。令 a=A−C、b=B−C、w=a+b，等距�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB | 11295009 |
-| [2148_geometry.go](2148_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
-| [2148_geometry.java](2148_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
-| [2148_geometry.py](2148_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
+| [2148_geometry.go](2148_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
+| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
+| [2148_geometry.py](2148_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
 | [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB | 11295014 |
 
 ### 优化版本
@@ -91,6 +99,5 @@ C++ 保持同一角平分线反射点。令 a=A−C、b=B−C、w=a+b，等距�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
-| [2148_geometry_optimized.py](2148_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [2148_geometry_optimized.py](2148_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
+| [2148_geometry_optimized.java](2148_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11328635 |
