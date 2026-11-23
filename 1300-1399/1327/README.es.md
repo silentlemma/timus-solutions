@@ -81,6 +81,14 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 
 Frente a `1327_math.py`: tiempo 0.062 s → 0.125 s; memoria 404 KB → 208 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1327_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11329104 (Go 1.14 x64): **0.015 s / 796 KB**. Comparación archivada: `1327_math.go` (Go 1.14 x64) — 0.031 s / 1060 KB (#11284982).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -107,5 +115,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1327_math_optimized.java](1327_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 304 KB | 11303741 |
 | [1327_math_optimized.py](1327_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 208 KB | 11324836 |
+| [1327_parsing_optimized.go](1327_parsing_optimized.go) | Go 1.14 x64 | parsing | O(1) | AC | 0.015 s | 796 KB | 11329104 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
