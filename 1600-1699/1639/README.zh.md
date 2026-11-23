@@ -67,6 +67,22 @@
 
 从字节输入读取两个维度，直接判断巧克力块数的奇偶性。通过的提交 11301875 用时 0.078 秒、占用 404 KB；简单版用时 0.078 秒、占用 412 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1639_games_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328578 (Go 1.14 x64): **0.031 s / 908 KB**. 历史对照: `1639_games.go` (Go 1.14 x64) — 0.031 s / 1132 KB (#11288462).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1639_parsing_implementation_optimized.rs`. 通过有界原生缓冲直接读取两个整数，以字节写出固定奇偶答案，不分配完整输入。
+
+Accepted #11329177 (Rust 1.75 x64): **0.031 s / 52 KB**. 历史对照: `1639_games.rs` (Rust 1.75 x64) — 0.046 s / 236 KB (#11303478).
+
 ## 解答
 
 ### 简单版本
@@ -84,6 +100,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
-| [1639_games_optimized.py](1639_games_optimized.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1639_games_optimized.py](1639_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
+| [1639_games_optimized.go](1639_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 908 KB | 11328578 |
+| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 52 KB | 11329177 |

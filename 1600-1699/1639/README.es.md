@@ -75,6 +75,22 @@ es la contraria de la paridad del número de jugadas `m · n − 1`.
 
 Leer las dos dimensiones como bytes y comprobar directamente la paridad del número de piezas. El envío aceptado 11301875 tardó 0.078 s y usó 404 KB. La versión sencilla tardó 0.078 s y usó 412 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1639_games_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328578 (Go 1.14 x64): **0.031 s / 908 KB**. Comparación archivada: `1639_games.go` (Go 1.14 x64) — 0.031 s / 1132 KB (#11288462).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1639_parsing_implementation_optimized.rs`. Los dos enteros se leen directamente con un búfer nativo acotado y la respuesta fija de paridad se escribe en bytes, sin almacenar toda la entrada.
+
+Accepted #11329177 (Rust 1.75 x64): **0.031 s / 52 KB**. Comparación archivada: `1639_games.rs` (Rust 1.75 x64) — 0.046 s / 236 KB (#11303478).
+
 ## Soluciones
 
 ### Sencillas
@@ -92,6 +108,6 @@ Leer las dos dimensiones como bytes y comprobar directamente la paridad del núm
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
-| [1639_games_optimized.py](1639_games_optimized.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1639_games_optimized.py](1639_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
+| [1639_games_optimized.go](1639_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 908 KB | 11328578 |
+| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 52 KB | 11329177 |
