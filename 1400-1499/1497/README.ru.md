@@ -92,6 +92,14 @@ C++ и Go проверяют четыре направления за один �
 
 Сохранённые принятые базовые реализации [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) также проходят строгий критерий быстрого набора в сохранённой выборке: первые десять мест или топ 15% по требуемым метрикам. Они используются без одинаковых копий; остальные учебные исходники сохранены. Звёздочка обозначает отдельную рейтинговую цель языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1497_bitmask_optimized.py`. Каждая двоичная строка просматривается один раз. Поиск в байтах выявляет горизонтальные инверсии, маски столбцов — вертикальные относительно предыдущих строк. Те же четыре направления проверяются за O(n²) времени с O(n) состоянием вместо хранения матрицы. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11328775 (Python 3.12 x64): **0.093 s / 832 KB**. Архивное сравнение: `1497_implementation.py` (Python 3.12 x64) — 0.109 s / 4276 KB (#11287235).
+
 ## Решения
 
 ### Простые
@@ -100,8 +108,8 @@ C++ и Go проверяют четыре направления за один �
 |---|---|---|---|---|---|---|---|
 | [1497_implementation.cpp](1497_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.031 s | 868 KB | 11287233 |
 | [1497_implementation.go](1497_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 2192 KB | 11287234 |
-| [1497_implementation.java](1497_implementation.java) \* | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
-| [1497_implementation.py](1497_implementation.py) \* | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
+| [1497_implementation.java](1497_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
+| [1497_implementation.py](1497_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
 | [1497_implementation.rs](1497_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 2116 KB | 11287237 |
 
 ### Оптимизированные
@@ -109,6 +117,5 @@ C++ и Go проверяют четыре направления за один �
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
-| [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1497_implementation_optimized.go](1497_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
+| [1497_bitmask_optimized.py](1497_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(n²) time; O(n) row/bit state | AC | 0.093 s | 832 KB | 11328775 |

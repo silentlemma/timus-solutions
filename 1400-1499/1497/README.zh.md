@@ -85,6 +85,14 @@ C++ 和 Go 一趟检查四个方向。横向相邻格颜色不同时，该轴上
 
 保留的已接受基础实现 [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) 在保存的比较中满足严格快速版本收录：所需指标前十名或前 15%。直接复用，不创建相同副本；其他教学源代码保留。星号表示单独的语言排名目标。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1497_bitmask_optimized.py`. 每行只扫描一次：字节查找检查水平逆序，列位掩码检测相对前面各行的垂直逆序。仍检查四个方向，时间 O(n²)，行及位状态空间 O(n)，不保留整张矩阵。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328775 (Python 3.12 x64): **0.093 s / 832 KB**. 历史对照: `1497_implementation.py` (Python 3.12 x64) — 0.109 s / 4276 KB (#11287235).
+
 ## 解答
 
 ### 简单版本
@@ -93,8 +101,8 @@ C++ 和 Go 一趟检查四个方向。横向相邻格颜色不同时，该轴上
 |---|---|---|---|---|---|---|---|
 | [1497_implementation.cpp](1497_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.031 s | 868 KB | 11287233 |
 | [1497_implementation.go](1497_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 2192 KB | 11287234 |
-| [1497_implementation.java](1497_implementation.java) \* | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
-| [1497_implementation.py](1497_implementation.py) \* | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
+| [1497_implementation.java](1497_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
+| [1497_implementation.py](1497_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
 | [1497_implementation.rs](1497_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 2116 KB | 11287237 |
 
 ### 优化版本
@@ -102,6 +110,5 @@ C++ 和 Go 一趟检查四个方向。横向相邻格颜色不同时，该轴上
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
-| [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1497_implementation_optimized.go](1497_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
+| [1497_bitmask_optimized.py](1497_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(n²) time; O(n) row/bit state | AC | 0.093 s | 832 KB | 11328775 |

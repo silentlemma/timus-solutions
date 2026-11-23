@@ -94,6 +94,14 @@ C++ y Go comprueban los cuatro sentidos en una sola pasada. En una pareja horizo
 
 Las bases aceptadas conservadas [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) cumplen la admisión estricta en la comparación guardada: diez primeros puestos o 15% superior en los indicadores requeridos. Se reutilizan sin copias idénticas y se conservan los otros fuentes didácticos. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1497_bitmask_optimized.py`. Se recorre cada fila binaria una vez. Las búsquedas en bytes comprueban inversiones horizontales y las máscaras de columnas las verticales respecto a filas anteriores. Se verifican las mismas cuatro direcciones en O(n²) tiempo y O(n) espacio sin guardar la matriz. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328775 (Python 3.12 x64): **0.093 s / 832 KB**. Comparación archivada: `1497_implementation.py` (Python 3.12 x64) — 0.109 s / 4276 KB (#11287235).
+
 ## Soluciones
 
 ### Sencillas
@@ -102,8 +110,8 @@ Las bases aceptadas conservadas [1497_implementation.go](1497_implementation.go)
 |---|---|---|---|---|---|---|---|
 | [1497_implementation.cpp](1497_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.031 s | 868 KB | 11287233 |
 | [1497_implementation.go](1497_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 2192 KB | 11287234 |
-| [1497_implementation.java](1497_implementation.java) \* | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
-| [1497_implementation.py](1497_implementation.py) \* | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
+| [1497_implementation.java](1497_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
+| [1497_implementation.py](1497_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
 | [1497_implementation.rs](1497_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 2116 KB | 11287237 |
 
 ### Optimizadas
@@ -111,6 +119,5 @@ Las bases aceptadas conservadas [1497_implementation.go](1497_implementation.go)
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
-| [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1497_implementation_optimized.go](1497_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
+| [1497_bitmask_optimized.py](1497_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(n²) time; O(n) row/bit state | AC | 0.093 s | 832 KB | 11328775 |

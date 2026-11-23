@@ -92,6 +92,14 @@ C++ and Go check all four directions in one pass. At a horizontal color boundary
 
 The retained accepted base implementations [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies; the other teaching sources remain. An asterisk denotes the separate language rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1497_bitmask_optimized.py`. Scan each binary row once. Byte searches test horizontal inversions; column bitmasks detect vertical inversions against earlier rows. The same four possible directions are checked in O(n²) time with O(n) row/bit state instead of a retained matrix. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328775 (Python 3.12 x64): **0.093 s / 832 KB**. Archived comparison: `1497_implementation.py` (Python 3.12 x64) — 0.109 s / 4276 KB (#11287235).
+
 ## Solutions
 
 ### Simple
@@ -100,8 +108,8 @@ The retained accepted base implementations [1497_implementation.go](1497_impleme
 |---|---|---|---|---|---|---|---|
 | [1497_implementation.cpp](1497_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.031 s | 868 KB | 11287233 |
 | [1497_implementation.go](1497_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 2192 KB | 11287234 |
-| [1497_implementation.java](1497_implementation.java) \* | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
-| [1497_implementation.py](1497_implementation.py) \* | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
+| [1497_implementation.java](1497_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.109 s | 2952 KB | 11287236 |
+| [1497_implementation.py](1497_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.109 s | 4276 KB | 11287235 |
 | [1497_implementation.rs](1497_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 2116 KB | 11287237 |
 
 ### Optimized
@@ -109,6 +117,5 @@ The retained accepted base implementations [1497_implementation.go](1497_impleme
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
-| [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1497_implementation_optimized.go](1497_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
+| [1497_bitmask_optimized.py](1497_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(n²) time; O(n) row/bit state | AC | 0.093 s | 832 KB | 11328775 |
