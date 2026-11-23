@@ -76,6 +76,14 @@ G++ 13.2 x64 №11317399 (`2183_dp.cpp`) · G++ 13.2 x64 №11326641 (`2183_dp_o
 
 Python 3.12 x64 №11321738 · G++ 13.2 x64 №11321929 · Java 1.8 №11321932 · Rust 1.75 x64 №11321934.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2183_binary_search_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328647 (Java 1.8): **0.109 s / 1208 KB**. 历史对照: `2183_binary_search.java` (Java 1.8) — 0.14 s / 1296 KB (#11321932).
+
 ## 解答
 
 ### 简单版本
@@ -95,7 +103,8 @@ Python 3.12 x64 №11321738 · G++ 13.2 x64 №11321929 · Java 1.8 №11321932 
 | [2183_dp.cpp](2183_dp.cpp) \* | G++ 13.2 x64 | dp | O(n) | AC | 0.093 s | 116 KB | 11317399 |
 | [2183_dp_optimized.cpp](2183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 96 KB | 11326641 |
 | [2183_dp.go](2183_dp.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1008 KB | 11317402 |
-| [2183_dp.rs](2183_dp.rs) \* | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 208 KB | 11317407 |
+| [2183_dp.rs](2183_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 208 KB | 11317407 |
 | [2183_dp.java](2183_dp.java) \* | Java 1.8 | dp | O(n) | AC | 0.14 s | 416 KB | 11317412 |
+| [2183_binary_search_optimized.java](2183_binary_search_optimized.java) | Java 1.8 | binary_search | O(n log C) | AC | 0.109 s | 1208 KB | 11328647 |
 
-\* 带星号的解法尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
