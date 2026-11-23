@@ -70,6 +70,14 @@ C++ keeps the same edge-cut sum, storing a flat forward-star tree. Each directed
 
 In the earlier comparison snapshot, the base implementations [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1371_dp_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328658 (Go 1.14 x64): **0.046 s / 10744 KB**. Archived comparison: `1371_dp.go` (Go 1.14 x64) — 0.109 s / 10604 KB (#11285602).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -86,9 +94,9 @@ Peel leaves from the tree. At a leaf, the XOR accumulators recover its last neig
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1371_dp.cpp](1371_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.078 s | 3976 KB | 11285601 |
-| [1371_dp.go](1371_dp.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB | 11285602 |
+| [1371_dp.go](1371_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB | 11285602 |
 | [1371_dp.java](1371_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 3308 KB | 11285604 |
-| [1371_dp.py](1371_dp.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB | 11285603 |
+| [1371_dp.py](1371_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB | 11285603 |
 | [1371_dp.rs](1371_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.046 s | 9444 KB | 11285607 |
 
 ### Optimized
@@ -97,5 +105,4 @@ Peel leaves from the tree. At a leaf, the XOR accumulators recover its last neig
 |---|---|---|---|---|---|---|---|
 | [1371_dp_optimized.cpp](1371_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 1120 KB | 11315476 |
 | [1371_graphs.py](1371_graphs.py) | PyPy 3.10 x64 | graphs | O(N) | AC | 0.156 s | 5 856 KB | 11324213 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1371_dp_optimized.go](1371_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 10744 KB | 11328658 |

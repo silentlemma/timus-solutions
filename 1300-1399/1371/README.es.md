@@ -73,6 +73,14 @@ C++ conserva la suma por cortes con estrella plana. Cada arista dirigida tiene s
 
 En la instantánea de comparación anterior, las implementaciones base [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1371_dp_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328658 (Go 1.14 x64): **0.046 s / 10744 KB**. Comparación archivada: `1371_dp.go` (Go 1.14 x64) — 0.109 s / 10604 KB (#11285602).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -89,9 +97,9 @@ Retirar las hojas del árbol. En cada hoja, los acumuladores XOR recuperan su ú
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1371_dp.cpp](1371_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.078 s | 3976 KB | 11285601 |
-| [1371_dp.go](1371_dp.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB | 11285602 |
+| [1371_dp.go](1371_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB | 11285602 |
 | [1371_dp.java](1371_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 3308 KB | 11285604 |
-| [1371_dp.py](1371_dp.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB | 11285603 |
+| [1371_dp.py](1371_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB | 11285603 |
 | [1371_dp.rs](1371_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.046 s | 9444 KB | 11285607 |
 
 ### Optimizadas
@@ -100,5 +108,4 @@ Retirar las hojas del árbol. En cada hoja, los acumuladores XOR recuperan su ú
 |---|---|---|---|---|---|---|---|
 | [1371_dp_optimized.cpp](1371_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 1120 KB | 11315476 |
 | [1371_graphs.py](1371_graphs.py) | PyPy 3.10 x64 | graphs | O(N) | AC | 0.156 s | 5 856 KB | 11324213 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1371_dp_optimized.go](1371_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 10744 KB | 11328658 |
