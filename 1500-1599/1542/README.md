@@ -92,6 +92,14 @@ C++ stores words in fixed-size records, looks up only queried prefix lengths by 
 
 Go stores words in fixed-size records, looks up only queried prefix lengths by string view, and streams the suggestions. Go 1.14 x64, submission 11322389. Time 0.187 → 0.109 s, memory 11308 → 10108 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1542_sorting_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328642 (Java 1.8): **0.531 s / 23760 KB**. Archived comparison: `1542_sorting.java` (Java 1.8) — 0.484 s / 36648 KB (#11321814).
+
 ## Solutions
 
 ### Simple
@@ -108,9 +116,8 @@ Go stores words in fixed-size records, looks up only queried prefix lengths by s
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1542_sorting_optimized.py](1542_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.562 s | 17632 KB | 11317220 |
+| [1542_sorting_optimized.py](1542_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.562 s | 17632 KB | 11317220 |
 | [1542_sorting_optimized.rs](1542_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.062 s | 9652 KB | 11317222 |
 | [1542_sorting_optimized.cpp](1542_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.093 s | 4104 KB | 11322388 |
 | [1542_sorting_optimized.go](1542_sorting_optimized.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.109 s | 10108 KB | 11322389 |
-
-\* Python ranks sixth by time and first by memory in the saved rating. It meets the memory improvement criterion.
+| [1542_sorting_optimized.java](1542_sorting_optimized.java) | Java 1.8 | sorting | O(N log N + 15 N + M) | AC | 0.531 s | 23760 KB | 11328642 |
