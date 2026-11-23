@@ -77,6 +77,14 @@ The optimized C++ solution prints every root as soon as it is found
 instead of collecting the roots in a vector: 128 KB instead of 196 KB,
 with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1110_bruteforce_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328498 (Go 1.14 x64): **0.031 s / 944 KB**. Archived comparison: `1110_bruteforce.go` (Go 1.14 x64) — 0.015 s / 1104 KB (#11279203).
+
 ## Language notes
 
 - Python uses the built-in three-argument `pow`; the other languages
@@ -100,6 +108,5 @@ with the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
 | [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) time; O(M) auxiliary space | AC | 0.078 s | 304 KB | 11327344 |
-| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
-
-\* The marked solutions can improve their target rankings.
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
+| [1110_bruteforce_optimized.go](1110_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(M log N) | AC | 0.031 s | 944 KB | 11328498 |

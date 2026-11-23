@@ -70,6 +70,14 @@
 优化的 C++ 解法每找到一个根就立即输出，而不是先把根收集到 vector 里：
 128 KB，而不是 196 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1110_bruteforce_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328498 (Go 1.14 x64): **0.031 s / 944 KB**. 历史对照: `1110_bruteforce.go` (Go 1.14 x64) — 0.015 s / 1104 KB (#11279203).
+
 ## 语言说明
 
 - Python 使用内置的三参数 `pow`；其他语言自带一个小的幂函数。
@@ -92,6 +100,5 @@
 |----|----|----|-----|------|----|----|------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
 | [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) time; O(M) auxiliary space | AC | 0.078 s | 304 KB | 11327344 |
-| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
+| [1110_bruteforce_optimized.go](1110_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(M log N) | AC | 0.031 s | 944 KB | 11328498 |
