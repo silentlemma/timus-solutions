@@ -76,6 +76,14 @@ Go 版本直接把坐标读成以百分之一为单位的整数，并沿用各�
 
 已通过评测的基础实现 [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1489_geometry_optimized.py`. 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328558 (Python 3.12 x64): **0.078 s / 896 KB**. 历史对照: `1489_geometry.py` (Python 3.12 x64) — 0.093 s / 572 KB (#11287178).
+
 ## 解答
 
 ### 简单版本
@@ -84,8 +92,8 @@ Go 版本直接把坐标读成以百分之一为单位的整数，并沿用各�
 |---|---|---|---|---|---|---|---|
 | [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB | 11287173 |
 | [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB | 11287175 |
-| [1489_geometry.java](1489_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
-| [1489_geometry.py](1489_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
+| [1489_geometry.java](1489_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
+| [1489_geometry.py](1489_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
 | [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB | 11287180 |
 
 ### 优化版本
@@ -93,6 +101,7 @@ Go 版本直接把坐标读成以百分之一为单位的整数，并沿用各�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
-| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
+| [1489_geometry_optimized.java](1489_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
+| [1489_geometry_optimized.py](1489_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 896 KB | 11328558 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

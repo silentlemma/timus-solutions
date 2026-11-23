@@ -88,6 +88,14 @@ La versión Go lee las coordenadas directamente como centésimas enteras y aplic
 
 Las implementaciones base aceptadas [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1489_geometry_optimized.py`. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328558 (Python 3.12 x64): **0.078 s / 896 KB**. Comparación archivada: `1489_geometry.py` (Python 3.12 x64) — 0.093 s / 572 KB (#11287178).
+
 ## Soluciones
 
 ### Sencillas
@@ -96,8 +104,8 @@ Las implementaciones base aceptadas [1489_geometry.cpp](1489_geometry.cpp), [148
 |---|---|---|---|---|---|---|---|
 | [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB | 11287173 |
 | [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB | 11287175 |
-| [1489_geometry.java](1489_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
-| [1489_geometry.py](1489_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
+| [1489_geometry.java](1489_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
+| [1489_geometry.py](1489_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
 | [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB | 11287180 |
 
 ### Optimizadas
@@ -105,6 +113,7 @@ Las implementaciones base aceptadas [1489_geometry.cpp](1489_geometry.cpp), [148
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
-| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
+| [1489_geometry_optimized.java](1489_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
+| [1489_geometry_optimized.py](1489_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 896 KB | 11328558 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
