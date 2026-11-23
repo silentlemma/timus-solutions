@@ -85,6 +85,14 @@ C++ 和 Go 沿用精确的缩放半径判定。先检查每个盘子在边框高
 
 已通过评测的基础实现 [1793_geometry.java](1793_geometry.java), [1793_geometry.py](1793_geometry.py), [1793_geometry.rs](1793_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1793_geometry_implementation_optimized.rs`. C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328965 (Rust 1.75 x64): **0.031 s / 172 KB**. 历史对照: `1793_geometry.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11325607).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
@@ -101,8 +109,8 @@ C++ 和 Go 沿用精确的缩放半径判定。先检查每个盘子在边框高
 |---|---|---|---|---|---|---|---|
 | [1793_geometry.cpp](1793_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 368 KB | 11325581 |
 | [1793_geometry.go](1793_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1076 KB | 11289865 |
-| [1793_geometry.java](1793_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1592 KB | 11289867 |
-| [1793_geometry.py](1793_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 432 KB | 11289866 |
+| [1793_geometry.java](1793_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1592 KB | 11289867 |
+| [1793_geometry.py](1793_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 432 KB | 11289866 |
 | [1793_geometry.rs](1793_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 216 KB | 11325607 |
 
 ### 优化版本
@@ -111,6 +119,7 @@ C++ 和 Go 沿用精确的缩放半径判定。先检查每个盘子在边框高
 |---|---|---|---|---|---|---|---|
 | [1793_geometry_optimized.cpp](1793_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 104 KB | 11310893 |
 | [1793_geometry_optimized.go](1793_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 312 KB | 11311212 |
-| [1793_geometry_optimized.java](1793_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11324814 |
+| [1793_geometry_optimized.java](1793_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11324814 |
+| [1793_geometry_implementation_optimized.rs](1793_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(1) | AC | 0.031 s | 172 KB | 11328965 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -102,6 +102,14 @@ C++ y Go conservan la misma prueba exacta con radios escalados. Primero comprueb
 
 Las implementaciones base aceptadas [1793_geometry.java](1793_geometry.java), [1793_geometry.py](1793_geometry.py), [1793_geometry.rs](1793_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1793_geometry_implementation_optimized.rs`. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328965 (Rust 1.75 x64): **0.031 s / 172 KB**. Comparación archivada: `1793_geometry.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11325607).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
@@ -118,8 +126,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1793_geometry.cpp](1793_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 368 KB | 11325581 |
 | [1793_geometry.go](1793_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1076 KB | 11289865 |
-| [1793_geometry.java](1793_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1592 KB | 11289867 |
-| [1793_geometry.py](1793_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 432 KB | 11289866 |
+| [1793_geometry.java](1793_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1592 KB | 11289867 |
+| [1793_geometry.py](1793_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 432 KB | 11289866 |
 | [1793_geometry.rs](1793_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 216 KB | 11325607 |
 
 ### Optimizadas
@@ -128,6 +136,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1793_geometry_optimized.cpp](1793_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 104 KB | 11310893 |
 | [1793_geometry_optimized.go](1793_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 312 KB | 11311212 |
-| [1793_geometry_optimized.java](1793_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11324814 |
+| [1793_geometry_optimized.java](1793_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11324814 |
+| [1793_geometry_implementation_optimized.rs](1793_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(1) | AC | 0.031 s | 172 KB | 11328965 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
