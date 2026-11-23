@@ -68,6 +68,14 @@ The optimized Java solution parses the numbers byte by byte from
 
 Compared with `2066_bruteforce.py`: time 0.078 s → 0.14 s; memory 532 KB → 208 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2066_math_implementation_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328943 (Rust 1.75 x64): **0.031 s / 152 KB**. Archived comparison: `2066_bruteforce.rs` (Rust 1.75 x64) — 0.046 s / 224 KB (#11303808).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -94,5 +102,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2066_bruteforce_optimized.java](2066_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 400 KB | 11303798 |
 | [2066_math.py](2066_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 208 KB | 11324830 |
+| [2066_math_implementation_optimized.rs](2066_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(1) | AC | 0.031 s | 152 KB | 11328943 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

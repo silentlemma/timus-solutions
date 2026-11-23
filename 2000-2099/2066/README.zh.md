@@ -57,6 +57,14 @@
 
 与 `2066_bruteforce.py` 相比：时间 0.078 s → 0.14 s；内存 532 KB → 208 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2066_math_implementation_optimized.rs`. C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328943 (Rust 1.75 x64): **0.031 s / 152 KB**. 历史对照: `2066_bruteforce.rs` (Rust 1.75 x64) — 0.046 s / 224 KB (#11303808).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -83,5 +91,6 @@
 |----|----|----|-----|------|----|----|------|
 | [2066_bruteforce_optimized.java](2066_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 400 KB | 11303798 |
 | [2066_math.py](2066_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 208 KB | 11324830 |
+| [2066_math_implementation_optimized.rs](2066_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(1) | AC | 0.031 s | 152 KB | 11328943 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
