@@ -69,6 +69,14 @@ n、k、u 和 v。
 
 与 `1602_implementation.java` 相比：时间 0.125 s → 0.109 s；内存 1680 KB → 500 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1602_implementation_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328574 (Rust 1.75 x64): **0.015 s / 252 KB**. 历史对照: `1602_implementation.rs` (Rust 1.75 x64) — 0.062 s / 236 KB (#11288123).
+
 ## 解答
 
 ### 简单版本
@@ -77,16 +85,15 @@ n、k、u 和 v。
 |---|---|---|---|---|---|---|---|
 | [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB | 11288118 |
 | [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB | 11288119 |
-| [1602_implementation.java](1602_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
-| [1602_implementation.py](1602_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
-| [1602_implementation.rs](1602_implementation.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
+| [1602_implementation.java](1602_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
+| [1602_implementation.py](1602_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
+| [1602_implementation.rs](1602_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
-| [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
-| [1602_implementation_optimized.java](1602_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1602_math.go](1602_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+| [1602_implementation_optimized.java](1602_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
+| [1602_implementation_optimized.rs](1602_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 252 KB | 11328574 |

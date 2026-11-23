@@ -84,6 +84,14 @@ Las implementaciones base aceptadas [1602_implementation.java](1602_implementati
 
 Frente a `1602_implementation.java`: tiempo 0.125 s → 0.109 s; memoria 1680 KB → 500 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1602_implementation_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328574 (Rust 1.75 x64): **0.015 s / 252 KB**. Comparación archivada: `1602_implementation.rs` (Rust 1.75 x64) — 0.062 s / 236 KB (#11288123).
+
 ## Soluciones
 
 ### Sencillas
@@ -92,16 +100,15 @@ Frente a `1602_implementation.java`: tiempo 0.125 s → 0.109 s; memoria 1680 KB
 |---|---|---|---|---|---|---|---|
 | [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB | 11288118 |
 | [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB | 11288119 |
-| [1602_implementation.java](1602_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
-| [1602_implementation.py](1602_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
-| [1602_implementation.rs](1602_implementation.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
+| [1602_implementation.java](1602_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
+| [1602_implementation.py](1602_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
+| [1602_implementation.rs](1602_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
-| [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
-| [1602_implementation_optimized.java](1602_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1602_math.go](1602_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+| [1602_implementation_optimized.java](1602_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
+| [1602_implementation_optimized.rs](1602_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 252 KB | 11328574 |
