@@ -78,6 +78,14 @@ The optimized Java solution parses the number byte by byte from
 
 Compared with `1225_dp.py`: time 0.093 s → 0.14 s; memory 372 KB → 224 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1225_dp_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328525 (Go 1.14 x64): **0.015 s / 920 KB**. Archived comparison: `1225_dp.go` (Go 1.14 x64) — 0.031 s / 1072 KB (#11283711).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -104,6 +112,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1225_dp_optimized.java](1225_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 316 KB | 11303728 |
 | [1225_dp_optimized.py](1225_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.14 s | 224 KB | 11324831 |
-| [1225_math.py](1225_math.py) \* | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 644 KB | 11327782 |
+| [1225_math.py](1225_math.py) | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 644 KB | 11327782 |
+| [1225_dp_optimized.go](1225_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.015 s | 920 KB | 11328525 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
