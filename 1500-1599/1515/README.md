@@ -76,6 +76,14 @@ All five teaching versions use the linear greedy scan on the already sorted inpu
 
 Compared with `1515_greedy.rs`: time 0.015 s → 0.031 s; memory 220 KB → 64 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1515_greedy_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328888 (Go 1.14 x64): **0.015 s / 936 KB**. Archived comparison: `1515_greedy.go` (Go 1.14 x64) — 0.031 s / 1072 KB (#11307979).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -100,7 +108,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1515_greedy_optimized.py](1515_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(N) time; O(N) input tokens | AC | 0.125 s | 244 KB | 11309746 |
-| [1515_greedy_optimized.rs](1515_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.031 s | 64 KB | 11325100 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1515_greedy_optimized.py](1515_greedy_optimized.py) | PyPy 3.10 x64 | greedy | O(N) time; O(N) input tokens | AC | 0.125 s | 244 KB | 11309746 |
+| [1515_greedy_optimized.rs](1515_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.031 s | 64 KB | 11325100 |
+| [1515_greedy_parsing_optimized.go](1515_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(N) | AC | 0.015 s | 936 KB | 11328888 |
