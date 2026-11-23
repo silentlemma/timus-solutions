@@ -85,6 +85,14 @@ C++ 和 Go 从后向前填充每段除数，把结束偏移量变成起始偏移
 
 已通过评测的基础实现 [2062_fenwick.java](2062_fenwick.java), [2062_fenwick.rs](2062_fenwick.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2062_fenwick_parsing_optimized.rs`. 有界因数表的位置及游标改用 32 位，替代机器字长索引。计数及查找算法不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 此版本保留常规 Rust 启动和清理，同时使用相同的紧凑算法状态。
+
+Accepted #11328996 (Rust 1.75 x64): **0.39 s / 10716 KB**. 历史对照: `2062_fenwick.rs` (Rust 1.75 x64) — 0.406 s / 27256 KB (#11294065).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -101,9 +109,9 @@ C++ 和 Go 从后向前填充每段除数，把结束偏移量变成起始偏移
 |---|---|---|---|---|---|---|---|
 | [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
 | [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
-| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.75 s | 14896 KB | 11328340 |
+| [2062_fenwick.java](2062_fenwick.java) | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.75 s | 14896 KB | 11328340 |
 | [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
-| [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
+| [2062_fenwick.rs](2062_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
 
 ### 优化版本
 
@@ -112,5 +120,6 @@ C++ 和 Go 从后向前填充每段除数，把结束偏移量变成起始偏移
 | [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
 | [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
 | [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+| [2062_fenwick_parsing_optimized.rs](2062_fenwick_parsing_optimized.rs) | Rust 1.75 x64 | fenwick, parsing | O(n log n + q tau_max log n) | AC | 0.39 s | 10716 KB | 11328996 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

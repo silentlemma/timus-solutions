@@ -131,6 +131,14 @@ El envío aceptado en G++ 13.2 x64 tarda 0.453 s frente a 0.437 s de la base y u
 
 Las implementaciones base aceptadas [2062_fenwick.java](2062_fenwick.java), [2062_fenwick.rs](2062_fenwick.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2062_fenwick_parsing_optimized.rs`. Las posiciones y cursores de la tabla acotada de divisores usan 32 bits en lugar del tamaño de máquina. No cambian el recuento ni las consultas. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. Esta alternativa conserva el inicio y cierre habituales de Rust con el mismo estado compacto.
+
+Accepted #11328996 (Rust 1.75 x64): **0.39 s / 10716 KB**. Comparación archivada: `2062_fenwick.rs` (Rust 1.75 x64) — 0.406 s / 27256 KB (#11294065).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -159,9 +167,9 @@ porque CPython es demasiado lento en las pruebas más grandes.
 |---|---|---|---|---|---|---|---|
 | [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
 | [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
-| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.75 s | 14896 KB | 11328340 |
+| [2062_fenwick.java](2062_fenwick.java) | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.75 s | 14896 KB | 11328340 |
 | [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
-| [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
+| [2062_fenwick.rs](2062_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
 
 ### Optimizadas
 
@@ -170,5 +178,6 @@ porque CPython es demasiado lento en las pruebas más grandes.
 | [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
 | [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
 | [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+| [2062_fenwick_parsing_optimized.rs](2062_fenwick_parsing_optimized.rs) | Rust 1.75 x64 | fenwick, parsing | O(n log n + q tau_max log n) | AC | 0.39 s | 10716 KB | 11328996 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
