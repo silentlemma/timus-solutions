@@ -115,6 +115,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 Frente a `1112_greedy.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 64 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1112_greedy_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328499 (Go 1.14 x64): **0.015 s / 1000 KB**. Comparación archivada: `1112_greedy.go` (Go 1.14 x64) — 0.015 s / 1156 KB (#11279213).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -141,7 +149,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1112_greedy_optimized.cpp](1112_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 112 KB | 11307228 |
 | [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
-| [1112_greedy_optimized.rs](1112_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
+| [1112_greedy_optimized.rs](1112_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
 | [1112_greedy_optimized.py](1112_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n log n) time; O(n) space | AC | 0.125 s | 272 KB | 11325703 |
+| [1112_greedy_optimized.go](1112_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1000 KB | 11328499 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
