@@ -88,6 +88,14 @@ Accepted точного исходника (G++ 13.2 x64, #11326643: 0.031 s / 1
 
 Принятые базовые реализации [1439_binary_search.java](1439_binary_search.java) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1439_binary_search_optimized.java`. Алгоритм сохранён, Scanner заменён буферизованным байтовым вводом. Там, где достаточно обычного преобразования числа, вывод не использует Formatter. Конец файла корректно обрабатывается и без завершающего перевода строки; простой исходник сохранён.
+
+Accepted #11328637 (Java 1.8): **0.14 s / 5792 KB**. Архивное сравнение: `1439_binary_search.java` (Java 1.8) — 0.171 s / 10132 KB (#11286253).
+
 ## Решения
 
 ### Простые
@@ -96,7 +104,7 @@ Accepted точного исходника (G++ 13.2 x64, #11326643: 0.031 s / 1
 |---|---|---|---|---|---|---|---|
 | [1439_binary_search.cpp](1439_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D^2) | AC | 0.156 s | 424 KB | 11286248 |
 | [1439_binary_search.go](1439_binary_search.go) | Go 1.14 x64 | binary_search | O(M log D + D^2) | AC | 0.171 s | 5708 KB | 11286251 |
-| [1439_binary_search.java](1439_binary_search.java) \* | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB | 11286253 |
+| [1439_binary_search.java](1439_binary_search.java) | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB | 11286253 |
 | [1439_binary_search.py](1439_binary_search.py) | Python 3.12 x64 | binary_search | O(M log D + D^2) | AC | 0.421 s | 21004 KB | 11286252 |
 | [1439_binary_search.rs](1439_binary_search.rs) | Rust 1.75 x64 | binary_search | O(M log D + D^2) | AC | 0.031 s | 4664 KB | 11286256 |
 
@@ -106,7 +114,8 @@ Accepted точного исходника (G++ 13.2 x64, #11326643: 0.031 s / 1
 |---|---|---|---|---|---|---|---|
 | [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 188 KB | 11326643 |
 | [1439_binary_search_optimized.go](1439_binary_search_optimized.go) \* | Go 1.14 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 404 KB | 11314850 |
-| [1439_binary_search_optimized.py](1439_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
-| [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) \* | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |
+| [1439_binary_search_optimized.py](1439_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
+| [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |
+| [1439_binary_search_optimized.java](1439_binary_search_optimized.java) | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.14 s | 5792 KB | 11328637 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
