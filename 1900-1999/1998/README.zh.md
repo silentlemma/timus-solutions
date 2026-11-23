@@ -80,6 +80,22 @@
 
 保留的已接受基础实现 [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) 在保存的比较中也满足严格快速版本收录：所需指标位于前十名或前 15%。直接复用，不创建相同副本。Java 使用上面的独立优化源文件，教学版保留。星号表示单独的语言排名目标。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1998_two_pointers_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328615 (Go 1.14 x64): **0.046 s / 8976 KB**. 历史对照: `1998_two_pointers.go` (Go 1.14 x64) — 0.125 s / 6872 KB (#11292424).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1998_two_pointers_implementation_optimized.rs`. 在操作数界限内用 32 位保存回退历史索引，替代机器字长整数。模拟更新顺序不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328961 (Rust 1.75 x64): **0.031 s / 2644 KB**. 历史对照: `1998_two_pointers.rs` (Rust 1.75 x64) — 0.031 s / 6272 KB (#11292427).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
@@ -95,16 +111,16 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers.cpp](1998_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 2740 KB | 11292423 |
-| [1998_two_pointers.go](1998_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
-| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
-| [1998_two_pointers.py](1998_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
-| [1998_two_pointers.rs](1998_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
+| [1998_two_pointers.go](1998_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
+| [1998_two_pointers.java](1998_two_pointers.java) | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
+| [1998_two_pointers.py](1998_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
+| [1998_two_pointers.rs](1998_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
-| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
+| [1998_two_pointers_optimized.go](1998_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.046 s | 8976 KB | 11328615 |
+| [1998_two_pointers_implementation_optimized.rs](1998_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(n+m) | AC | 0.031 s | 2644 KB | 11328961 |

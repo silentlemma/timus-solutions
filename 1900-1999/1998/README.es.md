@@ -123,6 +123,22 @@ La versión optimizada de C++ conserva el algoritmo de dos punteros. Al leer los
 
 Las bases aceptadas conservadas [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) también cumplen la admisión estricta del conjunto rápido en la comparación guardada: diez primeros puestos o 15% superior en las métricas requeridas. Se reutilizan sin copias idénticas. Java utiliza el fuente optimizado separado de arriba y conserva el didáctico. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1998_two_pointers_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328615 (Go 1.14 x64): **0.046 s / 8976 KB**. Comparación archivada: `1998_two_pointers.go` (Go 1.14 x64) — 0.125 s / 6872 KB (#11292424).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1998_two_pointers_implementation_optimized.rs`. Los índices del historial de retirada usan 32 bits según la cota de operaciones, en lugar del tamaño de máquina. La simulación no cambia. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328961 (Rust 1.75 x64): **0.031 s / 2644 KB**. Comparación archivada: `1998_two_pointers.rs` (Rust 1.75 x64) — 0.031 s / 6272 KB (#11292427).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
@@ -138,16 +154,16 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers.cpp](1998_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 2740 KB | 11292423 |
-| [1998_two_pointers.go](1998_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
-| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
-| [1998_two_pointers.py](1998_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
-| [1998_two_pointers.rs](1998_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
+| [1998_two_pointers.go](1998_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
+| [1998_two_pointers.java](1998_two_pointers.java) | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
+| [1998_two_pointers.py](1998_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
+| [1998_two_pointers.rs](1998_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
-| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
+| [1998_two_pointers_optimized.go](1998_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.046 s | 8976 KB | 11328615 |
+| [1998_two_pointers_implementation_optimized.rs](1998_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(n+m) | AC | 0.031 s | 2644 KB | 11328961 |
