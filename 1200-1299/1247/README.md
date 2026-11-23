@@ -90,6 +90,14 @@ Keep the older dynamic-programming alternatives and all five simpler streaming p
 - `1247_prefix_sums_optimized.cpp`: 0.015 s / 64 KB; base `1247_prefix_sums.cpp`: 0.031 s / 104 KB; relative change: time -51.6%, memory -38.5%.
 - `1247_prefix_sums_optimized.py`: 0.078 s / 416 KB; base `1247_prefix_sums.py`: 0.109 s / 328 KB; relative change: time -28.4%, memory +26.8%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1247_parsing_optimized.rs`. Specialize direct output to the answer types actually used, avoiding generic formatting dispatch and temporary answer strings. Fixed text uses native writes; numeric writers handle the required signed or unsigned magnitudes exactly. Mathematical decisions and archived simple versions are preserved. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329217 (Rust 1.75 x64): **0.015 s / 52 KB**. Archived comparison: `1247_prefix_sums.rs` (Rust 1.75 x64) — 0.031 s / 468 KB (#11308248).
+
 ## Language notes
 
 The saved snapshots are from 2 and 4 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
@@ -134,3 +142,4 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1247_prefix_sums_optimized.cpp](1247_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(S) time; O(1) working storage | AC | 0.015 s | 64 KB | 11309382 |
 | [1247_prefix_sums_optimized.py](1247_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(S) time; O(1) working storage | AC | 0.078 s | 416 KB | 11309921 |
+| [1247_parsing_optimized.rs](1247_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(S) | AC | 0.015 s | 52 KB | 11329217 |

@@ -83,6 +83,14 @@ Rust 另保留输入文本缓冲。所有旧 Accepted 源码逐字节保留：�
 - `1247_prefix_sums_optimized.cpp`: 0.015 s / 64 KB; 基础 `1247_prefix_sums.cpp`: 0.031 s / 104 KB; 相对变化: 时间 -51.6%, 内存 -38.5%.
 - `1247_prefix_sums_optimized.py`: 0.078 s / 416 KB; 基础 `1247_prefix_sums.py`: 0.109 s / 328 KB; 相对变化: 时间 -28.4%, 内存 +26.8%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1247_parsing_optimized.rs`. 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329217 (Rust 1.75 x64): **0.015 s / 52 KB**. 历史对照: `1247_prefix_sums.rs` (Rust 1.75 x64) — 0.031 s / 468 KB (#11308248).
+
 ## 各语言说明
 
 排名快照保存于 2026 年 11 月 2 日和 4 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
@@ -127,3 +135,4 @@ Rust 另保留输入文本缓冲。所有旧 Accepted 源码逐字节保留：�
 |---|---|---|---|---|---|---|---|
 | [1247_prefix_sums_optimized.cpp](1247_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(S) time; O(1) working storage | AC | 0.015 s | 64 KB | 11309382 |
 | [1247_prefix_sums_optimized.py](1247_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(S) time; O(1) working storage | AC | 0.078 s | 416 KB | 11309921 |
+| [1247_parsing_optimized.rs](1247_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(S) | AC | 0.015 s | 52 KB | 11329217 |
