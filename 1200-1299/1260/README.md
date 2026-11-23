@@ -96,6 +96,14 @@ least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1260_dp_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328530 (Go 1.14 x64): **0.031 s / 936 KB**. Archived comparison: `1260_dp.go` (Go 1.14 x64) — 0.046 s / 1076 KB (#11284124).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -122,8 +130,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1260_dp_optimized.java](1260_dp_optimized.java) \* | Java 1.8 | dp | O(N) time; O(1) auxiliary space | AC | 0.093 s | 340 KB | 11327453 |
-| [1260_dp_optimized.py](1260_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 564 KB | 11327021 |
-| [1260_dp_optimized.rs](1260_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) time; O(1) auxiliary space | AC | 0.093 s | 340 KB | 11327453 |
+| [1260_dp_optimized.py](1260_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 564 KB | 11327021 |
+| [1260_dp_optimized.rs](1260_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
+| [1260_dp_optimized.go](1260_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 936 KB | 11328530 |
