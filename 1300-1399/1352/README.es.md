@@ -93,6 +93,14 @@ enunciado.
 
 Frente a `1352_number_theory.rs`: tiempo 0.001 s → 0.001 s; memoria 216 KB → 56 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1352_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Comparación archivada: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
+
 ## Notas por lenguaje
 
 El código CPython sin cambios se midió tres veces más: (0.078 s, 468 KB), (0.093 s, 400 KB) y (0.046 s, 312 KB). La tabla usa el último par real Accepted; repetir la medición no constituye una mejora algorítmica. En la muestra guardada de intérpretes actuales comparables, esa ejecución comparte el puesto 1/30 en tiempo y ocupa el 11/30 en memoria. Por debajo de 1 MiB, la admisión considera el puesto por tiempo. La versión sencilla ya cumple el criterio, por lo que no se añade una copia Python con nombre optimized.
@@ -119,7 +127,5 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |

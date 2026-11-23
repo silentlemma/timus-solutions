@@ -91,6 +91,14 @@ and agree with the example and the entries named in the statement.
 
 Compared with `1352_number_theory.rs`: time 0.001 s → 0.001 s; memory 216 KB → 56 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1352_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Archived comparison: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
+
 ## Language notes
 
 The unchanged CPython source was measured three more times: (0.078 s, 468 KB), (0.093 s, 400 KB), and (0.046 s, 312 KB). The table records the last actual Accepted pair; these repeated measurements do not constitute an algorithmic speedup. In the saved comparable current-interpreter sample, that run shares time place 1/30 and has memory place 11/30. With memory below 1 MiB, admission uses the time ranking. The readable baseline already meets it, so no duplicate optimized Python source is added.
@@ -117,7 +125,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |

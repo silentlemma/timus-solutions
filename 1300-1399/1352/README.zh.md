@@ -85,6 +85,14 @@ T 行，每行一个指数。
 
 与 `1352_number_theory.rs` 相比：时间 0.001 s → 0.001 s；内存 216 KB → 56 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1352_parsing_optimized.go`. 在 256 字节补充缓冲上直接进行类型化转换，并完整写出紧凑输出。负整数直接以负值累积，覆盖有符号最小值，无需反射式输入或通用输出分派。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. 历史对照: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
+
 ## 各语言说明
 
 完全未修改的 CPython 源码又运行三次，结果依次为 (0.078 s, 468 KB)、(0.093 s, 400 KB)、(0.046 s, 312 KB)。表格记录最后一次真实 Accepted 的成对指标；重复测量并不代表算法本身加速。在保存的当前解释器可比样本中，该次提交按时间并列第 1/30，按内存第 11/30。内存不超过 1 MiB 时，准入仅看时间排名。清晰的基础实现已经满足条件，因此不添加重复的 optimized Python 源文件。
@@ -111,7 +119,5 @@ T 行，每行一个指数。
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
