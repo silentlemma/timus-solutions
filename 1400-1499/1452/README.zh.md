@@ -82,6 +82,14 @@ G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · P
 
 优化版 Python 在值域密集时使用整数位集。对于稀疏数据，先用哈希表检查所需的末项，再延伸等差数列。提交 11322818 用时 0.109 秒、占用 1884 KB，简单版本则为 0.140 秒、1608 KB。在公开的 Python/PyPy 榜单中，两项指标均排名第一。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1452_hashing_parsing_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328641 (Java 1.8): **0.171 s / 644 KB**. 历史对照: `1452_hashing.java` (Java 1.8) — 0.187 s / 924 KB (#11322328).
+
 ## 解答
 
 ### 简单版本
@@ -99,9 +107,10 @@ G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · P
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.015 s | 168 KB | 11326982 |
-| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
-| [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
+| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
+| [1452_hashing_optimized.go](1452_hashing_optimized.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
 | [1452_bitmask_hashing.py](1452_bitmask_hashing.py) | Python 3.12 x64 | bitmask, hashing | O(N + m^2) | AC | 0.109 s | 1884 KB | 11322818 |
+| [1452_hashing_parsing_optimized.java](1452_hashing_parsing_optimized.java) | Java 1.8 | hashing, parsing | O(N + m^2) | AC | 0.171 s | 644 KB | 11328641 |
 
-\* 已通过评测，尚未达到 C++ 排名目标。 Rust 尚未达到排名目标。 Go 尚未达到排名目标。 Java 尚未达到排名目标。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

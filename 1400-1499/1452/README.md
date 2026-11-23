@@ -97,6 +97,14 @@ G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · P
 
 The optimized Python version uses integer bitsets for values in a dense interval. For sparse values it uses hashing to check the necessary endpoint before extending a progression. Submission 11322818 took 0.109 s and used 1884 KB, versus 0.140 s and 1608 KB for the simple version. It ranks first by both metrics in the public Python/PyPy table.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1452_hashing_parsing_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328641 (Java 1.8): **0.171 s / 644 KB**. Archived comparison: `1452_hashing.java` (Java 1.8) — 0.187 s / 924 KB (#11322328).
+
 ## Solutions
 
 ### Simple
@@ -114,9 +122,10 @@ The optimized Python version uses integer bitsets for values in a dense interval
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.015 s | 168 KB | 11326982 |
-| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
-| [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
+| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
+| [1452_hashing_optimized.go](1452_hashing_optimized.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
 | [1452_bitmask_hashing.py](1452_bitmask_hashing.py) | Python 3.12 x64 | bitmask, hashing | O(N + m^2) | AC | 0.109 s | 1884 KB | 11322818 |
+| [1452_hashing_parsing_optimized.java](1452_hashing_parsing_optimized.java) | Java 1.8 | hashing, parsing | O(N + m^2) | AC | 0.171 s | 644 KB | 11328641 |
 
-\* Accepted. The C++ rating target remains open. The Rust rating target remains open. The Go rating target remains open. The Java rating target remains open.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
