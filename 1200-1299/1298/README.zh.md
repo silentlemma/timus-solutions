@@ -132,6 +132,14 @@ Java 用 long 掩码及按深度保存的基本类型候选、度数数组，避
 时间从 0.156 降至 0.125 s，少 19.9%。两者各有一项满足准入条件，五份简单
 源码全部逐字节保留。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1298_backtracking_parsing_optimized.go`. 回溯前拒绝2×2、3×3及4×4棋盘，独立子集及终点 DP 验证其不存在骑士哈密顿路径；其他尺寸保留精确搜索和稳定平局顺序。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11329146 (Go 1.14 x64): **0.015 s / 804 KB**. 历史对照: `1298_backtracking.go` (Go 1.14 x64) — 0.015 s / 4468 KB (#11284709).
+
 ## 各语言说明
 
 五份旧程序保留清晰的坐标搜索及其已接受路径，两个掩码版可能输出不同合法顺序。
@@ -157,7 +165,6 @@ Java 用 long 掩码及按深度保存的基本类型候选、度数数组，避
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1298_backtracking_optimized.py](1298_backtracking_optimized.py) \* | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
-| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
+| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |

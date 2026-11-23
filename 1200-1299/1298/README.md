@@ -154,6 +154,14 @@ but memory is 636 versus 544 KB (16.9% more). Java uses 396 versus 7116 KB
 (94.4% less memory), with time 0.125 versus 0.156 s (19.9% less). Both
 qualify by at least one metric; all five simple sources remain unchanged.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1298_backtracking_parsing_optimized.go`. Reject 2x2, 3x3 and 4x4 square boards before backtracking. Independent subset/endpoint dynamic programming verifies that these boards have no Hamiltonian knight path. Preserve exact search and stable move ties for all remaining sizes. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11329146 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `1298_backtracking.go` (Go 1.14 x64) — 0.015 s / 4468 KB (#11284709).
+
 ## Language notes
 
 The original five implementations retain their readable coordinate-based
@@ -184,7 +192,6 @@ own same-language simple base, with no artificial optimized copies.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1298_backtracking_optimized.py](1298_backtracking_optimized.py) \* | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
-| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
+| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |
