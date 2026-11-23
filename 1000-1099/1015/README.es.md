@@ -106,6 +106,14 @@ El nuevo C++ genera una vez las mismas 24 rotaciones propias y clasifica las 720
 
 Las implementaciones base aceptadas [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1015_hashing_optimized.py`. Se codifican las seis caras con tres bits por cara. Las 24 rotaciones se generan al ejecutar para normalizar cada permutación; los dados se agrupan en flujo con arreglos compactos de índices. No se incrusta una tabla calculada fuera del programa. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328767 (Python 3.12 x64): **0.093 s / 1060 KB**. Comparación archivada: `1015_hashing.py` (Python 3.12 x64) — 0.093 s / 2748 KB (#11278138).
+
 ## Notas por lenguaje
 
 Las bases C++, Go, Java y Rust prueban24 rotaciones por dado; Python ya precalcula720 claves. El nuevo C++ también precalcula las permutaciones, guarda un byte por dado e imprime mediante recorridos por grupo.
@@ -119,7 +127,7 @@ Las bases C++, Go, Java y Rust prueban24 rotaciones por dado; Python ya precalcu
 | [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB | 11278124 |
 | [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB | 11278132 |
 | [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB | 11278141 |
-| [1015_hashing.py](1015_hashing.py) \* | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
+| [1015_hashing.py](1015_hashing.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
 | [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB | 11278146 |
 
 ### Optimizadas
@@ -127,5 +135,4 @@ Las bases C++, Go, Java y Rust prueban24 rotaciones por dado; Python ya precalcu
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 1060 KB | 11328767 |

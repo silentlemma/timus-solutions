@@ -90,6 +90,14 @@
 
 已通过评测的基础实现 [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1015_hashing_optimized.py`. 每面用三位，把六个面标签编码为整数；运行时生成全部 24 种旋转以规范化排列，再用紧凑索引数组分组流式读取的骰子。不嵌入离线结果表。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328767 (Python 3.12 x64): **0.093 s / 1060 KB**. 历史对照: `1015_hashing.py` (Python 3.12 x64) — 0.093 s / 2748 KB (#11278138).
+
 ## 各语言说明
 
 普通 C++、Go、Java、Rust 每骰子测试24旋转；普通 Python 已预计算720键。新 C++ 也预计算全部排列，每骰子存一字节组号，并按组扫描流式输出。
@@ -103,7 +111,7 @@
 | [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB | 11278124 |
 | [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB | 11278132 |
 | [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB | 11278141 |
-| [1015_hashing.py](1015_hashing.py) \* | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
+| [1015_hashing.py](1015_hashing.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
 | [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB | 11278146 |
 
 ### 优化版本
@@ -111,5 +119,4 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 1060 KB | 11328767 |
