@@ -95,6 +95,14 @@ Go 与 Java 保持公式 mn + (m+n+1)(√2−1)，只改输入输出：Go 以固
 
 已通过评测的基础实现 [1631_math.cpp](1631_math.cpp), [1631_math.py](1631_math.py), [1631_math.rs](1631_math.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1631_geometry_parsing_optimized.java`. 保留几何公式，把明确舍入后的结果按九位小数直接输出，避免通用十进制格式化。全部 61009 组合法尺寸均以高精度参考验证，绝对误差小于 1e-9。 把有界输入缓冲和解析方法直接放入 Main，去掉一个辅助类加载和分配。完整公式、输出精度及定点格式器保持不变。 独立程序完整写出答案后，先刷新两个输出流，再调用 Runtime.halt(0)。
+
+Accepted #11329242 (Java 1.8): **0.093 s / 472 KB**. 历史对照: `1631_math.java` (Java 1.8) — 0.109 s / 1800 KB (#11288424).
+
 ## 解答
 
 ### 简单版本
@@ -104,7 +112,7 @@ Go 与 Java 保持公式 mn + (m+n+1)(√2−1)，只改输入输出：Go 以固
 | [1631_math.cpp](1631_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 140 KB | 11288421 |
 | [1631_math.go](1631_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1084 KB | 11288422 |
 | [1631_math.java](1631_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1800 KB | 11288424 |
-| [1631_math.py](1631_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 412 KB | 11288423 |
+| [1631_math.py](1631_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 412 KB | 11288423 |
 | [1631_math.rs](1631_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 252 KB | 11328279 |
 
 ### 优化版本
@@ -112,6 +120,7 @@ Go 与 Java 保持公式 mn + (m+n+1)(√2−1)，只改输入输出：Go 以固
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1631_math_optimized.java](1631_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
-| [1631_math_optimized.go](1631_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
+| [1631_math_optimized.go](1631_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
+| [1631_geometry_parsing_optimized.java](1631_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 472 KB | 11329242 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -113,6 +113,14 @@ Go y Java evalúan la misma fórmula mn + (m+n+1)(√2−1). Solo cambia E/S: Go
 
 Las implementaciones base aceptadas [1631_math.cpp](1631_math.cpp), [1631_math.py](1631_math.py), [1631_math.rs](1631_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1631_geometry_parsing_optimized.java`. Se conserva la fórmula geométrica y se escribe el resultado redondeado en punto fijo con nueve decimales, evitando el formato decimal general. Las 61009 parejas legales se comprobaron con alta precisión; el error absoluto queda por debajo de 1e-9. El búfer acotado y los métodos de entrada se colocan en Main, eliminando la carga y asignación de una clase auxiliar. No cambian la fórmula completa, la escala ni el formato de punto fijo. Tras escribir la respuesta completa, el programa vacía ambos flujos antes de Runtime.halt(0).
+
+Accepted #11329242 (Java 1.8): **0.093 s / 472 KB**. Comparación archivada: `1631_math.java` (Java 1.8) — 0.109 s / 1800 KB (#11288424).
+
 ## Soluciones
 
 ### Sencillas
@@ -122,7 +130,7 @@ Las implementaciones base aceptadas [1631_math.cpp](1631_math.cpp), [1631_math.p
 | [1631_math.cpp](1631_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 140 KB | 11288421 |
 | [1631_math.go](1631_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1084 KB | 11288422 |
 | [1631_math.java](1631_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1800 KB | 11288424 |
-| [1631_math.py](1631_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 412 KB | 11288423 |
+| [1631_math.py](1631_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 412 KB | 11288423 |
 | [1631_math.rs](1631_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 252 KB | 11328279 |
 
 ### Optimizadas
@@ -130,6 +138,7 @@ Las implementaciones base aceptadas [1631_math.cpp](1631_math.cpp), [1631_math.p
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1631_math_optimized.java](1631_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
-| [1631_math_optimized.go](1631_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
+| [1631_math_optimized.go](1631_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
+| [1631_geometry_parsing_optimized.java](1631_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 472 KB | 11329242 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
