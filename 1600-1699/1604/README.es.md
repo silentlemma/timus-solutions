@@ -133,6 +133,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1604_greedy_optimized.rs`: reducción de tiempo -313.33%; reducción de
   memoria +56.70%; base: `1604_greedy.rs`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1604_greedy_parsing_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328575 (Rust 1.75 x64): **0.031 s / 988 KB**. Comparación archivada: `1604_greedy.rs` (Rust 1.75 x64) — 0.015 s / 1044 KB (#11288144).
+
 ## Soluciones
 
 ### Sencillas
@@ -151,9 +159,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [1604_greedy_optimized.cpp](1604_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 148 KB | 11304457 |
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
-| [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
+| [1604_greedy_optimized.java](1604_greedy_optimized.java) | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
 | [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
-| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_parsing_optimized.rs](1604_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n log k) | AC | 0.031 s | 988 KB | 11328575 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

@@ -132,6 +132,14 @@ k, затем n₁, …, nₖ, где 1 ≤ k ≤ 10000, каждое nᵢ по�
 - `1604_greedy_optimized.rs`: сокращение времени -313.33%; сокращение
   памяти +56.70%; база: `1604_greedy.rs`.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1604_greedy_parsing_optimized.rs`. Алгоритм и типы целых чисел сохранены. Десятичные токены разбираются напрямую вместо универсального строкового парсера; отрицательное значение накапливается со знаком, поэтому минимальное знаковое число остаётся представимым. Хранение ввода и асимптотика алгоритма прежние.
+
+Accepted #11328575 (Rust 1.75 x64): **0.031 s / 988 KB**. Архивное сравнение: `1604_greedy.rs` (Rust 1.75 x64) — 0.015 s / 1044 KB (#11288144).
+
 ## Решения
 
 ### Простые
@@ -150,9 +158,10 @@ k, затем n₁, …, nₖ, где 1 ≤ k ≤ 10000, каждое nᵢ по�
 |---|---|---|---|---|---|---|---|
 | [1604_greedy_optimized.cpp](1604_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 148 KB | 11304457 |
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
-| [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
+| [1604_greedy_optimized.java](1604_greedy_optimized.java) | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
 | [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
-| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_parsing_optimized.rs](1604_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n log k) | AC | 0.031 s | 988 KB | 11328575 |
 
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

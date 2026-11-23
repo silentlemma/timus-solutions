@@ -101,6 +101,14 @@ lambda 第一次使用时会加载运行时的额外机制。放置一个种类�
 
 - `1604_greedy_optimized.rs`: 时间降低 -313.33%; 内存降低 +56.70%; 基础版本: `1604_greedy.rs`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1604_greedy_parsing_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328575 (Rust 1.75 x64): **0.031 s / 988 KB**. 历史对照: `1604_greedy.rs` (Rust 1.75 x64) — 0.015 s / 1044 KB (#11288144).
+
 ## 解答
 
 ### 简单版本
@@ -119,9 +127,10 @@ lambda 第一次使用时会加载运行时的额外机制。放置一个种类�
 |---|---|---|---|---|---|---|---|
 | [1604_greedy_optimized.cpp](1604_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 148 KB | 11304457 |
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
-| [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
+| [1604_greedy_optimized.java](1604_greedy_optimized.java) | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
 | [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
-| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+| [1604_greedy_parsing_optimized.rs](1604_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n log k) | AC | 0.031 s | 988 KB | 11328575 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
