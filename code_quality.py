@@ -294,7 +294,7 @@ def formatter(tool, language, files, root, write):
     elif language == "go":
         args = [tool, "-w" if write else "-l"]
     elif language == "python":
-        args = [tool, "format", "--config", str(root / "ruff.toml")]
+        args = [tool, "format", "--no-cache", "--config", str(root / "ruff.toml")]
         if not write:
             args.append("--check")
     else:
@@ -372,18 +372,32 @@ def check_go_files(paths, root, tools, work):
     env = os.environ.copy()
     env["GO111MODULE"] = "off"
     env["GOGC"] = "50"
-    command = [tools["golangci-lint"], "run", "--no-config", "--disable-all",
-               "--enable=govet,staticcheck,ineffassign,unused", "--concurrency=1",
+    command = [
+        tools["golangci-lint"],
+        "run",
+        "--no-config",
+        "--disable-all",
+        "--enable=govet,staticcheck,ineffassign,unused",
+        "--concurrency=1",
         "--max-issues-per-linter=0",
         "--max-same-issues=0",
-               "--timeout=15m", "--out-format=json", "./..."]
+        "--timeout=15m",
+        "--out-format=json",
+        "./...",
+    ]
     print(f"Checking {len(paths)} isolated Go packages in one golangci-lint run.", flush=True)
     process = run(command, packages, env)
     try:
         output = json.loads(process.stdout)
     except ValueError:
-        return [{"language": "go", "check": "golangci-lint",
-                 "output": process.stdout, "exit_code": process.returncode}]
+        return [
+            {
+                "language": "go",
+                "check": "golangci-lint",
+                "output": process.stdout,
+                "exit_code": process.returncode,
+            }
+        ]
     failures = {}
     for issue in output.get("Issues") or []:
         position = issue["Pos"]
@@ -393,11 +407,19 @@ def check_go_files(paths, root, tools, work):
         source = mapping[key].relative_to(root).as_posix()
         message = f"{source}:{position['Line']}:{position['Column']}: {issue['Text']} ({issue['FromLinter']})"
         failures.setdefault(source, []).append(message)
-    result = [{"file": path, "language": "go", "output": "\n".join(messages), "exit_code": 1}
-              for path, messages in sorted(failures.items())]
+    result = [
+        {"file": path, "language": "go", "output": "\n".join(messages), "exit_code": 1}
+        for path, messages in sorted(failures.items())
+    ]
     if process.returncode not in (0, 1) or (process.returncode and not result):
-        result.append({"language": "go", "check": "golangci-lint",
-                       "output": process.stdout, "exit_code": process.returncode})
+        result.append(
+            {
+                "language": "go",
+                "check": "golangci-lint",
+                "output": process.stdout,
+                "exit_code": process.returncode,
+            }
+        )
     return result
 
 
@@ -480,7 +502,8 @@ def main():
         python = groups.get("python", [])
         for batch in batches(python):
             process = run(
-                [tools["ruff"], "check", "--config", str(root / "ruff.toml")] + batch, root
+                [tools["ruff"], "check", "--no-cache", "--config", str(root / "ruff.toml")] + batch,
+                root,
             )
             if process.returncode:
                 print(process.stdout, flush=True)
@@ -554,7 +577,8 @@ def main():
                     formatted.add(root / item["file"], arcname=item["file"], recursive=False)
         report["complete"] = True
         (Path("/reports") / (args.mode + "-report.json")).write_text(
-            json.dumps(report, indent=2) + "\n", encoding="utf8")
+            json.dumps(report, indent=2) + "\n", encoding="utf8"
+        )
     if args.mode != "format" and changed:
         raise RuntimeError("A lint tool changed a source file.")
     print(f"{len(files)} files, {len(changed)} changed, {len(failures)} failed checks.", flush=True)
