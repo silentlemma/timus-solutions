@@ -55,6 +55,14 @@ N mod 7。
 个数读成字符串，并把一位数的答案作为两个字节输出：0.015 s，而不是 0.046 s；
 912 KB，而不是 1060 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1243_math_optimized.rs`. 保留相同的数学递推，按字节读取数字并直接输出有界长度的数值答案，避免通用数字格式化。原先更直观的实现仍然保留。
+
+Accepted #11328705 (Rust 1.75 x64): **0.031 s / 192 KB**. 历史对照: `1243_math.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11283909).
+
 ## 各语言说明
 
 - Python 的整数能精确表示 N，所以直接用 `int(N) % 7`；其他语言逐位折叠。
@@ -79,6 +87,5 @@ N mod 7。
 |----|----|----|-----|------|----|----|------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
-| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1243_math_optimized.py](1243_math_optimized.py) | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+| [1243_math_optimized.rs](1243_math_optimized.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.031 s | 192 KB | 11328705 |

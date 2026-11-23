@@ -59,6 +59,14 @@ buffered reader instead of reading the number as a string with
 `fmt.Scan`, and writes the one-digit answer as two bytes: 0.015 s
 instead of 0.046 s and 912 KB instead of 1060 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1243_math_optimized.rs`. Keep the same mathematical recurrence. Read numeric tokens from bytes and write the bounded numeric answer directly, avoiding general-purpose numeric output formatting. The clearer archived implementation remains alongside it.
+
+Accepted #11328705 (Rust 1.75 x64): **0.031 s / 192 KB**. Archived comparison: `1243_math.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11283909).
+
 ## Language notes
 
 - Python's integers hold N exactly, so it just takes `int(N) % 7`; the
@@ -84,6 +92,5 @@ Update the remainder digit by digit with Horner’s rule, keeping only the remai
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
-| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
-
-\* The marked solutions can improve their target rankings.
+| [1243_math_optimized.py](1243_math_optimized.py) | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+| [1243_math_optimized.rs](1243_math_optimized.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.031 s | 192 KB | 11328705 |

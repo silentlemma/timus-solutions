@@ -60,6 +60,14 @@ con búfer de 128 bytes en lugar de leer el número como cadena con
 `fmt.Scan`, y escribe la respuesta de una cifra como dos bytes: 0.015 s
 en lugar de 0.046 s y 912 KB en lugar de 1060 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1243_math_optimized.rs`. Se conserva la misma recurrencia matemática. Se leen los números desde bytes y se escribe directamente la respuesta numérica de tamaño acotado, evitando el formato numérico general. Se mantiene la implementación más sencilla.
+
+Accepted #11328705 (Rust 1.75 x64): **0.031 s / 192 KB**. Comparación archivada: `1243_math.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11283909).
+
 ## Notas por lenguaje
 
 - Los enteros de Python guardan N exactamente, así que basta
@@ -85,6 +93,5 @@ Actualizar el resto dígito a dígito mediante la regla de Horner, conservando s
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
-| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1243_math_optimized.py](1243_math_optimized.py) | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+| [1243_math_optimized.rs](1243_math_optimized.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.031 s | 192 KB | 11328705 |
