@@ -81,6 +81,14 @@ n（1 ≤ n ≤ 10⁹）。
 
 - `1683_greedy_optimized.cpp`: 时间降低 +0.00%; 内存降低 +47.92%; 基础版本: `1683_greedy.cpp`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1683_greedy_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328881 (Go 1.14 x64): **0.015 s / 916 KB**. 历史对照: `1683_greedy.go` (Go 1.14 x64) — 0.031 s / 1096 KB (#11288848).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -108,8 +116,7 @@ n（1 ≤ n ≤ 10⁹）。
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1683_greedy_optimized.cpp](1683_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(log n) | AC | 0.015 s | 100 KB | 11304447 |
-| [1683_greedy_optimized.java](1683_greedy_optimized.java) \* | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
-| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
-| [1683_greedy_optimized.rs](1683_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1683_greedy_optimized.java](1683_greedy_optimized.java) | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
+| [1683_greedy_optimized.py](1683_greedy_optimized.py) | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
+| [1683_greedy_optimized.rs](1683_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
+| [1683_greedy_parsing_optimized.go](1683_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(log n) | AC | 0.015 s | 916 KB | 11328881 |

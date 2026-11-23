@@ -94,6 +94,14 @@ n ≤ 10⁹ < 2³⁰ не больше 30 делений пополам свод
 - `1683_greedy_optimized.cpp`: сокращение времени +0.00%; сокращение
   памяти +47.92%; база: `1683_greedy.cpp`.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1683_greedy_parsing_optimized.go`. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены.
+
+Accepted #11328881 (Go 1.14 x64): **0.015 s / 916 KB**. Архивное сравнение: `1683_greedy.go` (Go 1.14 x64) — 0.031 s / 1096 KB (#11288848).
+
 ## Особенности языков
 
 Новые исходники сравниваются по срезу от 18 ноября 2026 года с другими авторами на текущих компиляторах судьи. Порогов по ID посылки или дате нет. Ничьи делят место, времена меньше 0.015 с при сравнении считаются 0.015 с. Приведённые ниже места относятся к новым версиям; прежние исходники сохраняют собственные исторические метрики Accepted.
@@ -121,8 +129,7 @@ n ≤ 10⁹ < 2³⁰ не больше 30 делений пополам свод
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1683_greedy_optimized.cpp](1683_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(log n) | AC | 0.015 s | 100 KB | 11304447 |
-| [1683_greedy_optimized.java](1683_greedy_optimized.java) \* | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
-| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
-| [1683_greedy_optimized.rs](1683_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1683_greedy_optimized.java](1683_greedy_optimized.java) | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
+| [1683_greedy_optimized.py](1683_greedy_optimized.py) | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
+| [1683_greedy_optimized.rs](1683_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
+| [1683_greedy_parsing_optimized.go](1683_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(log n) | AC | 0.015 s | 916 KB | 11328881 |
