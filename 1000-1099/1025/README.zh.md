@@ -89,6 +89,14 @@
 
 与 `1025_greedy_sorting.go` 相比：时间 0.031 s → 0.015 s；内存 1076 KB → 796 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1025_greedy_sorting_optimized.rs`. 保留相同的数学递推，按字节读取数字并直接输出有界长度的数值答案，避免通用数字格式化。原先更直观的实现仍然保留。
+
+Accepted #11328488 (Rust 1.75 x64): **0.001 s / 204 KB**. 历史对照: `1025_greedy_sorting.rs` (Rust 1.75 x64) — 0.031 s / 220 KB (#11278307).
+
 ## 各语言说明
 
 各语言都是同样的排序与求和。
@@ -109,8 +117,7 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
+| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
 | [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11328361 |
-| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
+| [1025_greedy_sorting_optimized.rs](1025_greedy_sorting_optimized.rs) | Rust 1.75 x64 | greedy, sorting | O(K log K) | AC | 0.001 s | 204 KB | 11328488 |

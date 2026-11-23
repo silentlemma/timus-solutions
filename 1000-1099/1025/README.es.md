@@ -97,6 +97,14 @@ Accepted exacto Java 1.8 #11327343: 0.093 s / 320 KB. Comparación guardada del 
 
 Frente a `1025_greedy_sorting.go`: tiempo 0.031 s → 0.015 s; memoria 1076 KB → 796 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1025_greedy_sorting_optimized.rs`. Se conserva la misma recurrencia matemática. Se leen los números desde bytes y se escribe directamente la respuesta numérica de tamaño acotado, evitando el formato numérico general. Se mantiene la implementación más sencilla.
+
+Accepted #11328488 (Rust 1.75 x64): **0.001 s / 204 KB**. Comparación archivada: `1025_greedy_sorting.rs` (Rust 1.75 x64) — 0.031 s / 220 KB (#11278307).
+
 ## Notas por lenguaje
 
 La misma ordenación y suma en todos los lenguajes.
@@ -117,8 +125,7 @@ La misma ordenación y suma en todos los lenguajes.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
+| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
 | [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11328361 |
-| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
+| [1025_greedy_sorting_optimized.rs](1025_greedy_sorting_optimized.rs) | Rust 1.75 x64 | greedy, sorting | O(K log K) | AC | 0.001 s | 204 KB | 11328488 |
