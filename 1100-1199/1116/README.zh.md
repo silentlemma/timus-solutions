@@ -69,6 +69,22 @@ C++ 和 Go 版本用三个有符号 16 位整数表示每个区间。保存第�
 
 已通过评测的基础实现 [1116_two_pointers.java](1116_two_pointers.java), [1116_two_pointers.py](1116_two_pointers.py), [1116_two_pointers.rs](1116_two_pointers.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1116_two_pointers_optimized.py`. 将区间三元组存入覆盖坐标范围的有符号 16 位数组，流式读取区间并分块输出；双指针裁剪逻辑不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328769 (Python 3.12 x64): **0.187 s / 1332 KB**. 历史对照: `1116_two_pointers.py` (Python 3.12 x64) — 0.14 s / 13144 KB (#11279238).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1116_two_pointers_implementation_optimized.rs`. 在条件范围内以有符号 16 位保存区间端点，通过有界写缓冲输出，避免大答案字符串。区间处理不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328958 (Rust 1.75 x64): **0.015 s / 688 KB**. 历史对照: `1116_two_pointers.rs` (Rust 1.75 x64) — 0.015 s / 2112 KB (#11279241).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -83,15 +99,15 @@ C++ 和 Go 版本用三个有符号 16 位整数表示每个区间。保存第�
 |---|---|---|---|---|---|---|---|
 | [1116_two_pointers.cpp](1116_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.046 s | 1880 KB | 11279235 |
 | [1116_two_pointers.go](1116_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 6832 KB | 11279236 |
-| [1116_two_pointers.java](1116_two_pointers.java) \* | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 5400 KB | 11279239 |
-| [1116_two_pointers.py](1116_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.140 s | 13144 KB | 11279238 |
-| [1116_two_pointers.rs](1116_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 2112 KB | 11279241 |
+| [1116_two_pointers.java](1116_two_pointers.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 5400 KB | 11279239 |
+| [1116_two_pointers.py](1116_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.140 s | 13144 KB | 11279238 |
+| [1116_two_pointers.rs](1116_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 2112 KB | 11279241 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1116_two_pointers_optimized.cpp](1116_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 412 KB | 11326648 |
-| [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
+| [1116_two_pointers_optimized.py](1116_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.187 s | 1332 KB | 11328769 |
+| [1116_two_pointers_implementation_optimized.rs](1116_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(N1 + N2) | AC | 0.015 s | 688 KB | 11328958 |

@@ -85,6 +85,22 @@ Las versiones en C++ y Go guardan cada intervalo como tres enteros de 16 bits co
 
 Las implementaciones base aceptadas [1116_two_pointers.java](1116_two_pointers.java), [1116_two_pointers.py](1116_two_pointers.py), [1116_two_pointers.rs](1116_two_pointers.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1116_two_pointers_optimized.py`. Las ternas de intervalos se guardan en arreglos con signo de 16 bits, suficientes para los límites de coordenadas. Se leen en flujo y se escribe por bloques, manteniendo el recorte con dos punteros. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328769 (Python 3.12 x64): **0.187 s / 1332 KB**. Comparación archivada: `1116_two_pointers.py` (Python 3.12 x64) — 0.14 s / 13144 KB (#11279238).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1116_two_pointers_implementation_optimized.rs`. Los extremos acotados usan enteros con signo de 16 bits y la salida se transmite con búfer acotado, evitando una gran cadena de respuesta. No cambia el tratamiento de intervalos. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328958 (Rust 1.75 x64): **0.015 s / 688 KB**. Comparación archivada: `1116_two_pointers.rs` (Rust 1.75 x64) — 0.015 s / 2112 KB (#11279241).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -100,15 +116,15 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1116_two_pointers.cpp](1116_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.046 s | 1880 KB | 11279235 |
 | [1116_two_pointers.go](1116_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 6832 KB | 11279236 |
-| [1116_two_pointers.java](1116_two_pointers.java) \* | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 5400 KB | 11279239 |
-| [1116_two_pointers.py](1116_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.140 s | 13144 KB | 11279238 |
-| [1116_two_pointers.rs](1116_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 2112 KB | 11279241 |
+| [1116_two_pointers.java](1116_two_pointers.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 5400 KB | 11279239 |
+| [1116_two_pointers.py](1116_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.140 s | 13144 KB | 11279238 |
+| [1116_two_pointers.rs](1116_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 2112 KB | 11279241 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1116_two_pointers_optimized.cpp](1116_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 412 KB | 11326648 |
-| [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
+| [1116_two_pointers_optimized.py](1116_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.187 s | 1332 KB | 11328769 |
+| [1116_two_pointers_implementation_optimized.rs](1116_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(N1 + N2) | AC | 0.015 s | 688 KB | 11328958 |
