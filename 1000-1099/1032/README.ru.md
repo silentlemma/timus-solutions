@@ -101,6 +101,14 @@ Accepted точного исходника Python 3.12 x64 №11327433: 0.078 с
 
 По сравнению с `1032_prefix_sums.java`: время 0.156 s → 0.109 s; память 944 KB → 592 KB.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1032_prefix_sums_optimized.rs`. Алгоритм и типы целых чисел сохранены. Десятичные токены разбираются напрямую вместо универсального строкового парсера; отрицательное значение накапливается со знаком, поэтому минимальное знаковое число остаётся представимым. Хранение ввода и асимптотика алгоритма прежние.
+
+Accepted #11328489 (Rust 1.75 x64): **0.031 s / 456 KB**. Архивное сравнение: `1032_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 464 KB (#11278437).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -115,15 +123,14 @@ Accepted точного исходника Python 3.12 x64 №11327433: 0.078 с
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB | 11278431 |
 | [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB | 11278432 |
-| [1032_prefix_sums.java](1032_prefix_sums.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
+| [1032_prefix_sums.java](1032_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
 | [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB | 11278433 |
-| [1032_prefix_sums.rs](1032_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
+| [1032_prefix_sums.rs](1032_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) time; O(N) storage + bounded output chunk | AC | 0.078 s | 820 KB | 11327433 |
-| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
+| [1032_prefix_sums_optimized.rs](1032_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 456 KB | 11328489 |

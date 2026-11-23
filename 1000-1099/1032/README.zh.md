@@ -93,6 +93,14 @@
 
 与 `1032_prefix_sums.java` 相比：时间 0.156 s → 0.109 s；内存 944 KB → 592 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1032_prefix_sums_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328489 (Rust 1.75 x64): **0.031 s / 456 KB**. 历史对照: `1032_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 464 KB (#11278437).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -107,15 +115,14 @@
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB | 11278431 |
 | [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB | 11278432 |
-| [1032_prefix_sums.java](1032_prefix_sums.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
+| [1032_prefix_sums.java](1032_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
 | [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB | 11278433 |
-| [1032_prefix_sums.rs](1032_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
+| [1032_prefix_sums.rs](1032_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) time; O(N) storage + bounded output chunk | AC | 0.078 s | 820 KB | 11327433 |
-| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
+| [1032_prefix_sums_optimized.rs](1032_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 456 KB | 11328489 |

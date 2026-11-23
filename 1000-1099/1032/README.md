@@ -101,6 +101,14 @@ The accepted base implementations [1032_prefix_sums.cpp](1032_prefix_sums.cpp), 
 
 Compared with `1032_prefix_sums.java`: time 0.156 s → 0.109 s; memory 944 KB → 592 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1032_prefix_sums_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328489 (Rust 1.75 x64): **0.031 s / 456 KB**. Archived comparison: `1032_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 464 KB (#11278437).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -115,15 +123,14 @@ The same pass everywhere.
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB | 11278431 |
 | [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB | 11278432 |
-| [1032_prefix_sums.java](1032_prefix_sums.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
+| [1032_prefix_sums.java](1032_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
 | [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB | 11278433 |
-| [1032_prefix_sums.rs](1032_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
+| [1032_prefix_sums.rs](1032_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) time; O(N) storage + bounded output chunk | AC | 0.078 s | 820 KB | 11327433 |
-| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
+| [1032_prefix_sums_optimized.rs](1032_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 456 KB | 11328489 |
