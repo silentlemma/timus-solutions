@@ -79,6 +79,14 @@ Go 和 Rust 读取路径时只累计三个方向的总长度。将零限制到 a
 
 已通过评测的基础实现 [1140_geometry.cpp](1140_geometry.cpp), [1140_geometry.java](1140_geometry.java), [1140_geometry.py](1140_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1140_geometry_implementation_optimized.py`. 按有界块读取字节词元，直接累计两轴总量，保留几何公式而不保存完整输入。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329035 (Python 3.12 x64): **0.062 s / 828 KB**. 历史对照: `1140_geometry.py` (Python 3.12 x64) — 0.125 s / 776 KB (#11279441).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -94,14 +102,13 @@ Go 和 Rust 读取路径时只累计三个方向的总长度。将零限制到 a
 | [1140_geometry.cpp](1140_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 188 KB | 11279439 |
 | [1140_geometry.go](1140_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1348 KB | 11279440 |
 | [1140_geometry.java](1140_geometry.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 828 KB | 11279442 |
-| [1140_geometry.py](1140_geometry.py) \* | Python 3.12 x64 | geometry | O(n) | AC | 0.125 s | 776 KB | 11279441 |
+| [1140_geometry.py](1140_geometry.py) | Python 3.12 x64 | geometry | O(n) | AC | 0.125 s | 776 KB | 11279441 |
 | [1140_geometry.rs](1140_geometry.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 344 KB | 11279443 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1140_geometry_optimized.go](1140_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 908 KB | 11311067 |
-| [1140_geometry_optimized.rs](1140_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 188 KB | 11311072 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1140_geometry_optimized.go](1140_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 908 KB | 11311067 |
+| [1140_geometry_optimized.rs](1140_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 188 KB | 11311072 |
+| [1140_geometry_implementation_optimized.py](1140_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(n) | AC | 0.062 s | 828 KB | 11329035 |
