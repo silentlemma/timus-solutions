@@ -96,6 +96,14 @@ Go 用二分查找确定可行区间的边界，只探索与观测位置相符�
 
 Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 · Go 1.14 x64 №11322101 · Python 3.12 x64 №11322103.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1064_binary_search_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328490 (Rust 1.75 x64): **0.015 s / 240 KB**. 历史对照: `1064_binary_search.rs` (Rust 1.75 x64) — 0.031 s / 240 KB (#11322383).
+
 ## 题解代码
 
 ### 简单版本
@@ -113,8 +121,9 @@ Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 ·
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1064_binary_search.cpp](1064_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 192 KB | 11317375 |
-| [1064_binary_search.py](1064_binary_search.py) \* | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
+| [1064_binary_search.py](1064_binary_search.py) | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
 | [1064_binary_search.go](1064_binary_search.go) \* | Go 1.14 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 416 KB | 11322862 |
 | [1064_binary_search.rs](1064_binary_search.rs) \* | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.031 s | 240 KB | 11322383 |
+| [1064_binary_search_optimized.rs](1064_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 240 KB | 11328490 |
 
-\* Python 版本已通过评测，尚未达到目标排名，仍可优化。 Go 版本已通过评测，尚未达到目标排名，仍可优化。 Rust 版本已通过评测，尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

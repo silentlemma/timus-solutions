@@ -108,6 +108,14 @@ Go busca por binario los límites de cada intervalo válido y sigue solo las ram
 
 Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 · Go 1.14 x64 №11322101 · Python 3.12 x64 №11322103.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1064_binary_search_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328490 (Rust 1.75 x64): **0.015 s / 240 KB**. Comparación archivada: `1064_binary_search.rs` (Rust 1.75 x64) — 0.031 s / 240 KB (#11322383).
+
 ## Soluciones
 
 ### Sencillas
@@ -125,8 +133,9 @@ Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 ·
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1064_binary_search.cpp](1064_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 192 KB | 11317375 |
-| [1064_binary_search.py](1064_binary_search.py) \* | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
+| [1064_binary_search.py](1064_binary_search.py) | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
 | [1064_binary_search.go](1064_binary_search.go) \* | Go 1.14 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 416 KB | 11322862 |
 | [1064_binary_search.rs](1064_binary_search.rs) \* | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.031 s | 240 KB | 11322383 |
+| [1064_binary_search_optimized.rs](1064_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 240 KB | 11328490 |
 
-\* La solución en Python fue aceptada y aún puede mejorar en la clasificación objetivo. La solución en Go fue aceptada y aún puede mejorar en la clasificación objetivo. La solución en Rust fue aceptada y aún puede mejorar en la clasificación objetivo.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
