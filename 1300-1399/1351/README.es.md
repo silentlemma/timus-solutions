@@ -94,6 +94,14 @@ C++, Go y Rust conservan la distancia al cuadrado y las dos pruebas de producto 
 
 Las implementaciones base aceptadas [1351_geometry.java](1351_geometry.java), [1351_geometry.py](1351_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1351_geometry_optimized.py`. Se leen los puntos en flujo con un lector acotado y se escriben bloques de hasta 1024 líneas. Las pruebas geométricas no cambian; ya no se retienen todos los puntos y respuestas. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328774 (Python 3.12 x64): **0.093 s / 1172 KB**. Comparación archivada: `1351_geometry.py` (Python 3.12 x64) — 0.093 s / 6832 KB (#11285173).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -111,8 +119,8 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB | 11285165 |
 | [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB | 11285171 |
-| [1351_geometry.java](1351_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
-| [1351_geometry.py](1351_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
+| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
+| [1351_geometry.py](1351_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
 | [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB | 11285179 |
 
 ### Optimizadas
@@ -120,7 +128,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1351_geometry_optimized.cpp](1351_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 76 KB | 11315502 |
-| [1351_geometry_optimized.go](1351_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
-| [1351_geometry_optimized.rs](1351_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1351_geometry_optimized.go](1351_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
+| [1351_geometry_optimized.rs](1351_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
+| [1351_geometry_optimized.py](1351_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 1172 KB | 11328774 |
