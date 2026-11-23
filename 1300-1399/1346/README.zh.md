@@ -66,6 +66,14 @@ A 和 B，然后是 F(A), …, F(B)，以空格或换行分隔。
 
 已通过评测的基础实现 [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1346_greedy_optimized.py`. 流式处理序列，只保留前值、当前单调方向及区间数。相等值不设定方向，方向反转时开始新区间。时间线性，算法状态为常数空间。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. 历史对照: `1346_greedy.py` (Python 3.12 x64) — 0.14 s / 11140 KB (#11285126).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -80,15 +88,14 @@ A 和 B，然后是 F(A), …, F(B)，以空格或换行分隔。
 |---|---|---|---|---|---|---|---|
 | [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
 | [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
-| [1346_greedy.java](1346_greedy.java) \* | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
-| [1346_greedy.py](1346_greedy.py) \* | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
-| [1346_greedy.rs](1346_greedy.rs) \* | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
+| [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
+| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(B-A+1) time; O(1) auxiliary storage | AC | 0.015 s | 92 KB | 11327408 |
-| [1346_greedy_optimized.go](1346_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1346_greedy_optimized.go](1346_greedy_optimized.go) | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
+| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.109 s | 724 KB | 11328773 |
