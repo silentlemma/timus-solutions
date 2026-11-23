@@ -87,6 +87,14 @@ asterisk concerns the rating target only.
 - `1084_geometry_optimized.java`: time reduction +25.60%; memory
   reduction +49.11%; base: `1084_geometry.java`.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1084_geometry_parsing_optimized.rs`. Replace scanf with bounded integer byte input, preserving the circle-area formula.
+
+Accepted #11328987 (Rust 1.75 x64): **0.015 s / 88 KB**. Archived comparison: `1084_geometry.rs` (Rust 1.75 x64) — 0.031 s / 268 KB (#11279037).
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -118,3 +126,4 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1084_geometry_optimized.java](1084_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 912 KB | 11304545 |
+| [1084_geometry_parsing_optimized.rs](1084_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 88 KB | 11328987 |

@@ -88,6 +88,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1084_geometry_optimized.java`: reducción de tiempo +25.60%; reducción
   de memoria +49.11%; base: `1084_geometry.java`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1084_geometry_parsing_optimized.rs`. Se sustituye scanf por lectura entera de bytes acotada, conservando la fórmula del área.
+
+Accepted #11328987 (Rust 1.75 x64): **0.015 s / 88 KB**. Comparación archivada: `1084_geometry.rs` (Rust 1.75 x64) — 0.031 s / 268 KB (#11279037).
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -121,3 +129,4 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1084_geometry_optimized.java](1084_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 912 KB | 11304545 |
+| [1084_geometry_parsing_optimized.rs](1084_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 88 KB | 11328987 |

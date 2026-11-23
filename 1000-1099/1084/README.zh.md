@@ -71,6 +71,14 @@
 
 - `1084_geometry_optimized.java`: 时间降低 +25.60%; 内存降低 +49.11%; 基础版本: `1084_geometry.java`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1084_geometry_parsing_optimized.rs`. 用有界整数按字节读取替代 scanf，保留圆面积公式。
+
+Accepted #11328987 (Rust 1.75 x64): **0.015 s / 88 KB**. 历史对照: `1084_geometry.rs` (Rust 1.75 x64) — 0.031 s / 268 KB (#11279037).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -99,3 +107,4 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1084_geometry_optimized.java](1084_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 912 KB | 11304545 |
+| [1084_geometry_parsing_optimized.rs](1084_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 88 KB | 11328987 |
