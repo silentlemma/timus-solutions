@@ -88,6 +88,14 @@ G++ 13.2 x64 №11318364 · Java 1.8 №11318369 · Rust 1.75 x64 №11318371.
 
 La DP por subconjuntos de C++ lee y escribe por bloques y enlaza en un solo arreglo los índices de cada tipo de cóctel. G++ 13.2 x64, envío 11321988. Tiempo 0,078 → 0,015 s, memoria 420 → 516 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2071_bitmask_dp_implementation_optimized.py`. Se almacenan los recuentos de bits de las máscaras pequeñas y se usan listas para costes y predecesores. Las transiciones y la reconstrucción no cambian; las listas intercambian memoria por acceso más barato. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328669 (Python 3.12 x64): **0.093 s / 1428 KB**. Comparación archivada: `2071_bitmask_dp_optimized.py` (Python 3.12 x64) — 0.109 s / 1408 KB (#11317276).
+
 ## Soluciones
 
 ### Sencillas
@@ -105,10 +113,11 @@ La DP por subconjuntos de C++ lee y escribe por bloques y enlaza en un solo arre
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2071_bruteforce.cpp](2071_bruteforce.cpp) \* | G++ 13.2 x64 | bruteforce | O(n) | AC | 0.046 s | 560 KB | 11317118 |
-| [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) \* | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
-| [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) \* | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
+| [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
+| [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
 | [2071_bitmask_dp_optimized.py](2071_bitmask_dp_optimized.py) \* | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.109 s | 1408 KB | 11317276 |
 | [2071_bitmask_dp_optimized.rs](2071_bitmask_dp_optimized.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.046 s | 584 KB | 11317274 |
 | [2071_bitmask_dp_optimized.cpp](2071_bitmask_dp_optimized.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.015 s | 516 KB | 11321988 |
+| [2071_bitmask_dp_implementation_optimized.py](2071_bitmask_dp_implementation_optimized.py) | Python 3.12 x64 | bitmask, dp, implementation | O(n) | AC | 0.093 s | 1428 KB | 11328669 |
 
-\* Aceptada. Aún queda por alcanzar el objetivo de clasificación de C++. El objetivo de clasificación de Python sigue pendiente. El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

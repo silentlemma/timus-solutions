@@ -68,6 +68,14 @@ G++ 13.2 x64 №11318364 · Java 1.8 №11318369 · Rust 1.75 x64 №11318371.
 
 C++ 子集动态规划版本分块读写，并在一个数组中按鸡尾酒种类链接杯子下标。 G++ 13.2 x64（提交 11321988）的运行时间从 0.078 秒变为 0.015 秒，内存从 420 KB 变为 516 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2071_bitmask_dp_implementation_optimized.py`. 缓存小掩码的位计数，并用列表存储 DP 代价和前驱，减少转换及访问开销。转移和答案恢复不变，列表以空间换取较低访问成本。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328669 (Python 3.12 x64): **0.093 s / 1428 KB**. 历史对照: `2071_bitmask_dp_optimized.py` (Python 3.12 x64) — 0.109 s / 1408 KB (#11317276).
+
 ## 解答
 
 ### 简单版本
@@ -85,10 +93,11 @@ C++ 子集动态规划版本分块读写，并在一个数组中按鸡尾酒种�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [2071_bruteforce.cpp](2071_bruteforce.cpp) \* | G++ 13.2 x64 | bruteforce | O(n) | AC | 0.046 s | 560 KB | 11317118 |
-| [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) \* | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
-| [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) \* | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
+| [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
+| [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
 | [2071_bitmask_dp_optimized.py](2071_bitmask_dp_optimized.py) \* | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.109 s | 1408 KB | 11317276 |
 | [2071_bitmask_dp_optimized.rs](2071_bitmask_dp_optimized.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.046 s | 584 KB | 11317274 |
 | [2071_bitmask_dp_optimized.cpp](2071_bitmask_dp_optimized.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.015 s | 516 KB | 11321988 |
+| [2071_bitmask_dp_implementation_optimized.py](2071_bitmask_dp_implementation_optimized.py) | Python 3.12 x64 | bitmask, dp, implementation | O(n) | AC | 0.093 s | 1428 KB | 11328669 |
 
-\* 已通过评测，尚未达到 C++ 排名目标。 Python 仍有提升排名的空间。 Go 仍有提升排名的空间。 Java 仍有提升排名的空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
