@@ -88,6 +88,14 @@ The optimized C++ solution reads `n` with `getchar` and prints the
 digits one by one with `putchar` instead of using `iostream` and
 building a string: 88 KB instead of 368 KB, with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2031_bruteforce_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328623 (Go 1.14 x64): **0.015 s / 944 KB**. Archived comparison: `2031_bruteforce.go` (Go 1.14 x64) — 0.031 s / 1152 KB (#11303665).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -116,6 +124,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2031_bruteforce_optimized.cpp](2031_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 88 KB | 11303668 |
 | [2031_bruteforce_optimized.py](2031_bruteforce_optimized.py) \* | PyPy 3.10 x64 | bruteforce | O(99+n), fixed two-digit bound | AC | 0.14 s | 232 KB | 11325493 |
-| [2031_bruteforce_optimized.rs](2031_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(99+n) time; O(1) auxiliary space | AC | 0.015 s | 56 KB | 11325510 |
+| [2031_bruteforce_optimized.rs](2031_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(99+n) time; O(1) auxiliary space | AC | 0.015 s | 56 KB | 11325510 |
+| [2031_bruteforce_optimized.go](2031_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(100+n) | AC | 0.015 s | 944 KB | 11328623 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
