@@ -66,6 +66,14 @@ desde `stdin().lock()` en lugar de leer toda la entrada en una cadena:
 
 Leer las distancias en bloques de bytes, acumularlas al leerlas y elevar el total al cuadrado. El envío aceptado 11302204 tardó 0.125 s y usó 388 KB. La versión sencilla tardó 0.156 s y usó 488 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2111_math_parsing_implementation_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo.
+
+Accepted #11328908 (Go 1.14 x64): **0.046 s / 996 KB**. Comparación archivada: `2111_math.go` (Go 1.14 x64) — 0.062 s / 2776 KB (#11294777).
+
 ## Soluciones
 
 ### Sencillas
@@ -85,6 +93,5 @@ Leer las distancias en bloques de bytes, acumularlas al leerlas y elevar el tota
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
-| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [2111_math_optimized.java](2111_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+| [2111_math_parsing_implementation_optimized.go](2111_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(n) | AC | 0.046 s | 996 KB | 11328908 |

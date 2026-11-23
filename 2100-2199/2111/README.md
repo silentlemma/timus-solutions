@@ -66,6 +66,14 @@ time.
 
 Read the distances in fixed byte blocks, summing them as they arrive before squaring the total. Accepted submission 11302204 took 0.125 s and used 388 KB. The simple version took 0.156 s and used 488 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2111_math_parsing_implementation_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Use an 8192-byte refillable input buffer instead of retaining the entire input. Tokens and partial/EOF reads retain their original meaning.
+
+Accepted #11328908 (Go 1.14 x64): **0.046 s / 996 KB**. Archived comparison: `2111_math.go` (Go 1.14 x64) — 0.062 s / 2776 KB (#11294777).
+
 ## Solutions
 
 ### Simple
@@ -85,6 +93,5 @@ Read the distances in fixed byte blocks, summing them as they arrive before squa
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
-| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
-
-\* The marked solutions can improve their target rankings.
+| [2111_math_optimized.java](2111_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+| [2111_math_parsing_implementation_optimized.go](2111_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(n) | AC | 0.046 s | 996 KB | 11328908 |

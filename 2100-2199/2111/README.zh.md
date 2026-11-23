@@ -57,6 +57,14 @@ n 个城市由长为 dᵢ 的道路与首都相连，城市 i 需要 dᵢ 吨货
 
 分块读取距离，边读边累加，最后将总和平方。通过的提交 11302204 用时 0.125 秒、占用 388 KB；简单版用时 0.156 秒、占用 488 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2111_math_parsing_implementation_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328908 (Go 1.14 x64): **0.046 s / 996 KB**. 历史对照: `2111_math.go` (Go 1.14 x64) — 0.062 s / 2776 KB (#11294777).
+
 ## 解答
 
 ### 简单版本
@@ -76,6 +84,5 @@ n 个城市由长为 dᵢ 的道路与首都相连，城市 i 需要 dᵢ 吨货
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
-| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [2111_math_optimized.java](2111_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+| [2111_math_parsing_implementation_optimized.go](2111_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(n) | AC | 0.046 s | 996 KB | 11328908 |
