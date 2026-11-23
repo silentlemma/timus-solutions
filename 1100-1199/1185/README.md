@@ -88,6 +88,22 @@ The Go version shifts both coordinates by 10,000 and packs each point into one 3
 
 The accepted base implementations [1185_geometry.cpp](1185_geometry.cpp), [1185_geometry.java](1185_geometry.java), [1185_geometry.py](1185_geometry.py), [1185_geometry.rs](1185_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1185_geometry_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328893 (Go 1.14 x64): **0.015 s / 1072 KB**. Archived comparison: `1185_geometry.go` (Go 1.14 x64) — 0.031 s / 1204 KB (#11283369).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1185_geometry_implementation_parsing_optimized.rs`. Use native bounded input and complete native output writes, with binary Windows descriptors and a C entry. Numeric-only input is converted directly from bytes into signed integers without token allocation; line-sensitive input retains complete lines. Sort points with the unstable in-place sorter; equal points are interchangeable in the unchanged convex hull.
+
+Accepted #11329170 (Rust 1.75 x64): **0.015 s / 124 KB**. Archived comparison: `1185_geometry.rs` (Rust 1.75 x64) — 0.031 s / 264 KB (#11283379).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -104,15 +120,17 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1185_geometry.cpp](1185_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 236 KB | 11283368 |
 | [1185_geometry.go](1185_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1204 KB | 11283369 |
-| [1185_geometry.java](1185_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 3144 KB | 11283377 |
+| [1185_geometry.java](1185_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 3144 KB | 11283377 |
 | [1185_geometry.py](1185_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 752 KB | 11283372 |
-| [1185_geometry.rs](1185_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 264 KB | 11283379 |
+| [1185_geometry.rs](1185_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 264 KB | 11283379 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1185_geometry_optimized.go](1185_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
-| [1185_geometry_optimized.java](1185_geometry_optimized.java) \* | Java 1.8 | geometry | O(N+S(N)) | AC | 0.109 s | 556 KB | 11325011 |
+| [1185_geometry_optimized.java](1185_geometry_optimized.java) | Java 1.8 | geometry | O(N+S(N)) | AC | 0.109 s | 556 KB | 11325011 |
+| [1185_geometry_parsing_optimized.go](1185_geometry_parsing_optimized.go) | Go 1.14 x64 | geometry, parsing | O(N log N) | AC | 0.015 s | 1072 KB | 11328893 |
+| [1185_geometry_implementation_parsing_optimized.rs](1185_geometry_implementation_parsing_optimized.rs) | Rust 1.75 x64 | geometry, implementation, parsing | O(N log N) | AC | 0.015 s | 124 KB | 11329170 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
