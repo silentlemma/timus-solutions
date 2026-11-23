@@ -73,6 +73,14 @@ Go reutiliza una fila de distancias de256 bytes, cola256 y tabla de vecinos256×
 
 Las implementaciones base aceptadas [1400_graphs.cpp](1400_graphs.cpp), [1400_graphs.java](1400_graphs.java), [1400_graphs.py](1400_graphs.py), [1400_graphs.rs](1400_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1400_graphs_optimized.rs`. La reflexión v → n−1−v conserva las aristas horizontales cíclicas y las verticales válidas. Basta ejecutar BFS desde la mitad de las celdas. Se reutilizan distancia y cola y se suma al descubrir; el primer mínimo sigue siendo un inicio óptimo válido.
+
+Accepted #11328701 (Rust 1.75 x64): **0.031 s / 264 KB**. Comparación archivada: `1400_graphs.rs` (Rust 1.75 x64) — 0.062 s / 324 KB (#11286020).
+
 ## Soluciones
 
 ### Sencillas
@@ -81,14 +89,13 @@ Las implementaciones base aceptadas [1400_graphs.cpp](1400_graphs.cpp), [1400_gr
 |---|---|---|---|---|---|---|---|
 | [1400_graphs.cpp](1400_graphs.cpp) | G++ 13.2 x64 | graphs | O(N^2) | AC | 0.015 s | 216 KB | 11286012 |
 | [1400_graphs.go](1400_graphs.go) | Go 1.14 x64 | graphs | O(N^2) | AC | 0.031 s | 2780 KB | 11286015 |
-| [1400_graphs.java](1400_graphs.java) \* | Java 1.8 | graphs | O(N^2) | AC | 0.125 s | 4384 KB | 11286018 |
-| [1400_graphs.py](1400_graphs.py) \* | Python 3.12 x64 | graphs | O(N^2) | AC | 0.125 s | 516 KB | 11286016 |
-| [1400_graphs.rs](1400_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N^2) | AC | 0.062 s | 324 KB | 11286020 |
+| [1400_graphs.java](1400_graphs.java) | Java 1.8 | graphs | O(N^2) | AC | 0.125 s | 4384 KB | 11286018 |
+| [1400_graphs.py](1400_graphs.py) | Python 3.12 x64 | graphs | O(N^2) | AC | 0.125 s | 516 KB | 11286016 |
+| [1400_graphs.rs](1400_graphs.rs) | Rust 1.75 x64 | graphs | O(N^2) | AC | 0.062 s | 324 KB | 11286020 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1400_graphs_optimized.go](1400_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 916 KB | 11315773 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1400_graphs_optimized.go](1400_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 916 KB | 11315773 |
+| [1400_graphs_optimized.rs](1400_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(n²) time; O(n) space | AC | 0.031 s | 264 KB | 11328701 |

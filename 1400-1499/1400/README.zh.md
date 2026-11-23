@@ -65,6 +65,14 @@ Go 复用256字节距离行、256字节队列、256×4字节邻接表。水平�
 
 已通过评测的基础实现 [1400_graphs.cpp](1400_graphs.cpp), [1400_graphs.java](1400_graphs.java), [1400_graphs.py](1400_graphs.py), [1400_graphs.rs](1400_graphs.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1400_graphs_optimized.rs`. 映射 v → n−1−v 保持循环水平边及有效垂直边，因此只需从一半起点运行 BFS。复用距离及队列缓冲，发现节点时累加距离；第一个最小值仍给出有效最优起点。
+
+Accepted #11328701 (Rust 1.75 x64): **0.031 s / 264 KB**. 历史对照: `1400_graphs.rs` (Rust 1.75 x64) — 0.062 s / 324 KB (#11286020).
+
 ## 解答
 
 ### 简单版本
@@ -73,14 +81,13 @@ Go 复用256字节距离行、256字节队列、256×4字节邻接表。水平�
 |---|---|---|---|---|---|---|---|
 | [1400_graphs.cpp](1400_graphs.cpp) | G++ 13.2 x64 | graphs | O(N^2) | AC | 0.015 s | 216 KB | 11286012 |
 | [1400_graphs.go](1400_graphs.go) | Go 1.14 x64 | graphs | O(N^2) | AC | 0.031 s | 2780 KB | 11286015 |
-| [1400_graphs.java](1400_graphs.java) \* | Java 1.8 | graphs | O(N^2) | AC | 0.125 s | 4384 KB | 11286018 |
-| [1400_graphs.py](1400_graphs.py) \* | Python 3.12 x64 | graphs | O(N^2) | AC | 0.125 s | 516 KB | 11286016 |
-| [1400_graphs.rs](1400_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N^2) | AC | 0.062 s | 324 KB | 11286020 |
+| [1400_graphs.java](1400_graphs.java) | Java 1.8 | graphs | O(N^2) | AC | 0.125 s | 4384 KB | 11286018 |
+| [1400_graphs.py](1400_graphs.py) | Python 3.12 x64 | graphs | O(N^2) | AC | 0.125 s | 516 KB | 11286016 |
+| [1400_graphs.rs](1400_graphs.rs) | Rust 1.75 x64 | graphs | O(N^2) | AC | 0.062 s | 324 KB | 11286020 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1400_graphs_optimized.go](1400_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 916 KB | 11315773 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1400_graphs_optimized.go](1400_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 916 KB | 11315773 |
+| [1400_graphs_optimized.rs](1400_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(n²) time; O(n) space | AC | 0.031 s | 264 KB | 11328701 |
