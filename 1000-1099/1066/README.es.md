@@ -107,6 +107,14 @@ Python identifica en tiempo constante la lámpara que toca el suelo al comparar 
 
 Go localiza el mínimo de la restricción de altura cerca de la raíz cuadrada de la primera altura y calcula la última con la fórmula factorizada. Go 1.14 x64, envío 11322851. Tiempo 0,031 → 0,031 s, memoria 1100 → 300 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1066_math_parsing_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328659 (Go 1.14 x64): **0.015 s / 936 KB**. Comparación archivada: `1066_math.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11322191).
+
 ## Soluciones
 
 ### Sencillas
@@ -123,8 +131,9 @@ Go localiza el mínimo de la restricción de altura cerca de la raíz cuadrada d
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1066_math_optimized.java](1066_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
+| [1066_math_optimized.java](1066_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
 | [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
 | [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+| [1066_math_parsing_optimized.go](1066_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(N) | AC | 0.015 s | 936 KB | 11328659 |
 
-\* En el corte de clasificación, Java ocupa el segundo lugar en tiempo y el primero en memoria. La versión cumple el criterio de ahorro de memoria.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

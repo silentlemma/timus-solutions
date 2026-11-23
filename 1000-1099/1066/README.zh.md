@@ -92,6 +92,14 @@ Python 比较首盏灯高度平方根附近的两个整数下标，在常数时�
 
 Go 在首个高度的平方根附近确定高度约束的最小值，再用因式分解后的公式计算最后的高度。 Go 1.14 x64（提交 11322851）的运行时间从 0.031 秒变为 0.031 秒，内存从 1100 KB 变为 300 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1066_math_parsing_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328659 (Go 1.14 x64): **0.015 s / 936 KB**. 历史对照: `1066_math.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11322191).
+
 ## 题解代码
 
 ### 简单版本
@@ -108,8 +116,9 @@ Go 在首个高度的平方根附近确定高度约束的最小值，再用因�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1066_math_optimized.java](1066_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
+| [1066_math_optimized.java](1066_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
 | [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
 | [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+| [1066_math_parsing_optimized.go](1066_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(N) | AC | 0.015 s | 936 KB | 11328659 |
 
-\* 在排名快照中，Java 版本的用时排名第二，内存排名第一。该版本满足内存优化标准。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

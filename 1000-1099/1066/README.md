@@ -107,6 +107,14 @@ Python finds the binding lamp in constant time by comparing the two integer indi
 
 Go finds the minimum of the height constraint around the square root of the first height, then computes the last height in factored form. Go 1.14 x64, submission 11322851. Time 0.031 → 0.031 s, memory 1100 → 300 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1066_math_parsing_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328659 (Go 1.14 x64): **0.015 s / 936 KB**. Archived comparison: `1066_math.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11322191).
+
 ## Solutions
 
 ### Simple
@@ -123,8 +131,9 @@ Go finds the minimum of the height constraint around the square root of the firs
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1066_math_optimized.java](1066_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
+| [1066_math_optimized.java](1066_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
 | [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
 | [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+| [1066_math_parsing_optimized.go](1066_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(N) | AC | 0.015 s | 936 KB | 11328659 |
 
-\* Java ranks second by time and first by memory in the saved rating. It meets the memory improvement criterion.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
