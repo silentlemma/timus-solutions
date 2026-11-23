@@ -90,6 +90,14 @@ C++、Java 用有限字节缓冲直接读入 32 位数组，跳过长度词的�
 单独准入。Java 0.125→0.093 s，Python 仍 0.078 s，Rust 仍 0.015 s。
 四版均凭实测内存而非计时噪声满足条件。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1184_binary_search_parsing_implementation_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328934 (Go 1.14 x64): **0.031 s / 1332 KB**. 历史对照: `1184_binary_search.go` (Go 1.14 x64) — 0.031 s / 1688 KB (#11283358).
+
 ## 各语言说明
 
 五份旧实现保留直接的二分。新 Python 使用 Accepted 的 CPython 3.12，
@@ -116,7 +124,6 @@ C++、Java 用有限字节缓冲直接读入 32 位数组，跳过长度词的�
 |---|---|---|---|---|---|---|---|
 | [1184_binary_search_optimized.cpp](1184_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N log C) | AC | 0.015 s | 168 KB | 11308739 |
 | [1184_binary_search_optimized.java](1184_binary_search_optimized.java) | Java 1.8 | binary_search | O(N log C) | AC | 0.093 s | 448 KB | 11308743 |
-| [1184_binary_search_optimized.py](1184_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
+| [1184_binary_search_optimized.py](1184_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
 | [1184_binary_search_optimized.rs](1184_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N log C) | AC | 0.015 s | 220 KB | 11308751 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11328934 |

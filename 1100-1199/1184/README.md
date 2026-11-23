@@ -115,6 +115,14 @@ only one judge tick, so time alone is not used for admission. Java is
 0.125→0.093 s; Python stays 0.078 s and Rust stays 0.015 s. All four
 qualify independently by measured memory, not by timing noise.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1184_binary_search_parsing_implementation_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Use an 8192-byte refillable input buffer instead of retaining the entire input. Tokens and partial/EOF reads retain their original meaning.
+
+Accepted #11328934 (Go 1.14 x64): **0.031 s / 1332 KB**. Archived comparison: `1184_binary_search.go` (Go 1.14 x64) — 0.031 s / 1688 KB (#11283358).
+
 ## Language notes
 
 The original five implementations retain their straightforward search.
@@ -145,7 +153,6 @@ unchanged same-language simple Accepted base.
 |---|---|---|---|---|---|---|---|
 | [1184_binary_search_optimized.cpp](1184_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N log C) | AC | 0.015 s | 168 KB | 11308739 |
 | [1184_binary_search_optimized.java](1184_binary_search_optimized.java) | Java 1.8 | binary_search | O(N log C) | AC | 0.093 s | 448 KB | 11308743 |
-| [1184_binary_search_optimized.py](1184_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
+| [1184_binary_search_optimized.py](1184_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
 | [1184_binary_search_optimized.rs](1184_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N log C) | AC | 0.015 s | 220 KB | 11308751 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11328934 |
