@@ -83,6 +83,14 @@ Read both values directly as integers and evaluate the parity condition. Accepte
 
 Python splits the raw input into two byte tokens and uses the same parity condition. Accepted submission 11301784 took 0.078 s and used 392 KB. The simple version took 0.093 s and used 404 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1877_implementation_optimized.rs`. Keep the same mathematical recurrence. Read numeric tokens from bytes and write the bounded numeric answer directly, avoiding general-purpose numeric output formatting. The clearer archived implementation remains alongside it.
+
+Accepted #11328604 (Rust 1.75 x64): **0.015 s / 216 KB**. Archived comparison: `1877_implementation.rs` (Rust 1.75 x64) — 0.031 s / 232 KB (#11303805).
+
 ## Solutions
 
 ### Simple
@@ -100,7 +108,6 @@ Python splits the raw input into two byte tokens and uses the same parity condit
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1877_implementation_optimized.java](1877_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 336 KB | 11303782 |
-| [1877_implementation_optimized.go](1877_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 904 KB | 11301778 |
-| [1877_implementation_optimized.py](1877_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 392 KB | 11301784 |
-
-\* The marked solutions can improve their target rankings.
+| [1877_implementation_optimized.go](1877_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 904 KB | 11301778 |
+| [1877_implementation_optimized.py](1877_implementation_optimized.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 392 KB | 11301784 |
+| [1877_implementation_optimized.rs](1877_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.015 s | 216 KB | 11328604 |
