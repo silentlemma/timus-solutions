@@ -126,6 +126,14 @@ Go retains segmented factorization and the complete proven cap M=300n. Each comp
 
 The accepted base implementations [2047_number_theory.cpp](2047_number_theory.cpp), [2047_number_theory.java](2047_number_theory.java), [2047_number_theory.py](2047_number_theory.py), [2047_number_theory.rs](2047_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2047_number_theory_implementation_optimized.py`. Run on PyPy and extend the history with complete count blocks, removing repeated per-item integer conversions and maximum calls. The number-theoretic construction and prefix sums are unchanged. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11329020 (PyPy 3.10 x64): **0.359 s / 13156 KB**. Archived comparison: `2047_number_theory.py` (PyPy 3.10 x64) — 0.437 s / 11296 KB (#11295874).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -155,14 +163,13 @@ time limit on the judge's test 13, while PyPy 3.10 is accepted in
 |---|---|---|---|---|---|---|---|
 | [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB | 11293483 |
 | [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB | 11293485 |
-| [2047_number_theory.java](2047_number_theory.java) \* | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13488 KB | 11328339 |
-| [2047_number_theory.py](2047_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB | 11295874 |
+| [2047_number_theory.java](2047_number_theory.java) | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13488 KB | 11328339 |
+| [2047_number_theory.py](2047_number_theory.py) | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB | 11295874 |
 | [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB | 11293497 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2047_number_theory_optimized.go](2047_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(M log M + n) | AC | 0.062 s | 4100 KB | 11315346 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2047_number_theory_optimized.go](2047_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(M log M + n) | AC | 0.062 s | 4100 KB | 11315346 |
+| [2047_number_theory_implementation_optimized.py](2047_number_theory_implementation_optimized.py) | PyPy 3.10 x64 | number_theory, implementation | O(M log M+n) | AC | 0.359 s | 13156 KB | 11329020 |
