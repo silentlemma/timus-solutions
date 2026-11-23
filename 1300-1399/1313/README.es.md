@@ -69,6 +69,18 @@ un `bytearray`, prepara el texto de cada color una sola vez y construye
 la respuesta como bytes: 484 KB en lugar de 1892 KB, con el mismo
 tiempo.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1313_implementation_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328649 (Go 1.14 x64): **0.001 s / 1248 KB**. Comparación archivada: `1313_implementation.go` (Go 1.14 x64) — 0.046 s / 1352 KB (#11303290).
+
+`1313_implementation_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328537 (Rust 1.75 x64): **0.015 s / 580 KB**. Comparación archivada: `1313_implementation.rs` (Rust 1.75 x64) — 0.031 s / 588 KB (#11284910).
+
 ## Notas por lenguaje
 
 - Salvo en C++ y en las soluciones optimizadas en Java y Python, los
@@ -92,3 +104,5 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1313_implementation_optimized.java](1313_implementation_optimized.java) | Java 1.8 | implementation | O(N^2) | AC | 0.093 s | 392 KB | 11303592 |
 | [1313_implementation_optimized.py](1313_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.062 s | 484 KB | 11303739 |
+| [1313_implementation_optimized.go](1313_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.001 s | 1248 KB | 11328649 |
+| [1313_implementation_optimized.rs](1313_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.015 s | 580 KB | 11328537 |

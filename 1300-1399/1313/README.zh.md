@@ -60,6 +60,18 @@ min(s, N − 1) 递减到 max(0, s − N + 1)，列号为 s − i。`O(N²)`。
 优化的 Python 解法把最多为 100 的颜色值放在 `bytearray` 中，每种颜色的文本只生成
 一次，并以字节构造答案：484 KB，而不是 1892 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1313_implementation_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328649 (Go 1.14 x64): **0.001 s / 1248 KB**. 历史对照: `1313_implementation.go` (Go 1.14 x64) — 0.046 s / 1352 KB (#11303290).
+
+`1313_implementation_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328537 (Rust 1.75 x64): **0.015 s / 580 KB**. 历史对照: `1313_implementation.rs` (Rust 1.75 x64) — 0.031 s / 588 KB (#11284910).
+
 ## 各语言说明
 
 - 除 C++ 以及优化的 Java 和 Python 解法外，数字都按文本原样搬运：从来不需要把它
@@ -83,3 +95,5 @@ min(s, N − 1) 递减到 max(0, s − N + 1)，列号为 s − i。`O(N²)`。
 |----|----|----|-----|------|----|----|------|
 | [1313_implementation_optimized.java](1313_implementation_optimized.java) | Java 1.8 | implementation | O(N^2) | AC | 0.093 s | 392 KB | 11303592 |
 | [1313_implementation_optimized.py](1313_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.062 s | 484 KB | 11303739 |
+| [1313_implementation_optimized.go](1313_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.001 s | 1248 KB | 11328649 |
+| [1313_implementation_optimized.rs](1313_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.015 s | 580 KB | 11328537 |

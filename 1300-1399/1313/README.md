@@ -68,6 +68,18 @@ The optimized Python solution keeps the colours, at most 100, in a
 `bytearray`, makes the text of each colour once and builds the answer as
 bytes: 484 KB instead of 1892 KB, with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1313_implementation_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328649 (Go 1.14 x64): **0.001 s / 1248 KB**. Archived comparison: `1313_implementation.go` (Go 1.14 x64) — 0.046 s / 1352 KB (#11303290).
+
+`1313_implementation_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328537 (Rust 1.75 x64): **0.015 s / 580 KB**. Archived comparison: `1313_implementation.rs` (Rust 1.75 x64) — 0.031 s / 588 KB (#11284910).
+
 ## Language notes
 
 - Except in C++ and in the optimized Java and Python solutions, the
@@ -91,3 +103,5 @@ bytes: 484 KB instead of 1892 KB, with the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1313_implementation_optimized.java](1313_implementation_optimized.java) | Java 1.8 | implementation | O(N^2) | AC | 0.093 s | 392 KB | 11303592 |
 | [1313_implementation_optimized.py](1313_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.062 s | 484 KB | 11303739 |
+| [1313_implementation_optimized.go](1313_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.001 s | 1248 KB | 11328649 |
+| [1313_implementation_optimized.rs](1313_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.015 s | 580 KB | 11328537 |
