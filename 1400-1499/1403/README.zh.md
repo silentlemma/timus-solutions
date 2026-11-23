@@ -65,6 +65,14 @@ Go 按报酬从高到低处理订单，把每个订单安排在期限内最晚�
 
 已通过评测的基础实现 [1403_greedy.cpp](1403_greedy.cpp), [1403_greedy.java](1403_greedy.java), [1403_greedy.py](1403_greedy.py), [1403_greedy.rs](1403_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1403_greedy_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328547 (Rust 1.75 x64): **0.015 s / 276 KB**. 历史对照: `1403_greedy.rs` (Rust 1.75 x64) — 0.046 s / 268 KB (#11286037).
+
 ## 解答
 
 ### 简单版本
@@ -74,13 +82,12 @@ Go 按报酬从高到低处理订单，把每个订单安排在期限内最晚�
 | [1403_greedy.cpp](1403_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 228 KB | 11286033 |
 | [1403_greedy.go](1403_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1348 KB | 11286034 |
 | [1403_greedy.java](1403_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 2860 KB | 11286036 |
-| [1403_greedy.py](1403_greedy.py) \* | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB | 11286035 |
-| [1403_greedy.rs](1403_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB | 11286037 |
+| [1403_greedy.py](1403_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB | 11286035 |
+| [1403_greedy.rs](1403_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB | 11286037 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1403_dsu_greedy.go](1403_dsu_greedy.go) \* | Go 1.14 x64 | dsu, greedy | O(N log N) | AC | 0.031 s | 936 KB | 11310421 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1403_dsu_greedy.go](1403_dsu_greedy.go) | Go 1.14 x64 | dsu, greedy | O(N log N) | AC | 0.031 s | 936 KB | 11310421 |
+| [1403_greedy_optimized.rs](1403_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 276 KB | 11328547 |
