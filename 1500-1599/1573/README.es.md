@@ -97,6 +97,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 Frente a `1573_math.py`: tiempo 0.078 s → 0.109 s; memoria 452 KB → 232 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1573_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328571 (Go 1.14 x64): **0.015 s / 948 KB**. Comparación archivada: `1573_math.go` (Go 1.14 x64) — 0.015 s / 1084 KB (#11287815).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -122,8 +130,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
-| [1573_math_optimized.java](1573_math_optimized.java) \* | Java 1.8 | math | O(K) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327456 |
+| [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327456 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
 | [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
+| [1573_math_optimized.go](1573_math_optimized.go) | Go 1.14 x64 | math | O(K) | AC | 0.015 s | 948 KB | 11328571 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
