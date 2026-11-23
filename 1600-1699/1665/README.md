@@ -88,6 +88,14 @@ The new Go source keeps the factor-count parity classification but sieves odd tr
 
 The accepted base implementations [1665_number_theory.cpp](1665_number_theory.cpp), [1665_number_theory.java](1665_number_theory.java), [1665_number_theory.py](1665_number_theory.py), [1665_number_theory.rs](1665_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1665_number_theory_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328584 (Rust 1.75 x64): **0.015 s / 216 KB**. Archived comparison: `1665_number_theory.rs` (Rust 1.75 x64) — 0.046 s / 192 KB (#11325612).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
@@ -105,14 +113,13 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1665_number_theory.cpp](1665_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 112 KB | 11325587 |
 | [1665_number_theory.go](1665_number_theory.go) | Go 1.14 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 1084 KB | 11288647 |
 | [1665_number_theory.java](1665_number_theory.java) | Java 1.8 | number_theory | O(T sqrt N) | AC | 0.14 s | 420 KB | 11325559 |
-| [1665_number_theory.py](1665_number_theory.py) \* | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.078 s | 452 KB | 11325597 |
+| [1665_number_theory.py](1665_number_theory.py) | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.078 s | 452 KB | 11325597 |
 | [1665_number_theory.rs](1665_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.046 s | 192 KB | 11325612 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1665_number_theory_optimized.go](1665_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(R log log R + T·π(R)) | AC | 0.015 s | 288 KB | 11315121 |
-| [1665_number_theory_optimized.java](1665_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(T·sqrt N) | AC | 0.093 s | 508 KB | 11325020 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1665_number_theory_optimized.go](1665_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(R log log R + T·π(R)) | AC | 0.015 s | 288 KB | 11315121 |
+| [1665_number_theory_optimized.java](1665_number_theory_optimized.java) | Java 1.8 | number_theory | O(T·sqrt N) | AC | 0.093 s | 508 KB | 11325020 |
+| [1665_number_theory_optimized.rs](1665_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 216 KB | 11328584 |
