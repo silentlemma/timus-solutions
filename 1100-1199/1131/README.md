@@ -79,6 +79,14 @@ The optimized Java solution parses the two numbers byte by byte from
 
 Compared with `1131_math.py`: time 0.078 s → 0.125 s; memory 424 KB → 196 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1131_math_implementation_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328944 (Rust 1.75 x64): **0.015 s / 180 KB**. Archived comparison: `1131_math.rs` (Rust 1.75 x64) — 0.046 s / 216 KB (#11279381).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -105,5 +113,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1131_math_optimized.java](1131_math_optimized.java) | Java 1.8 | math | O(log min(N, K)) | AC | 0.093 s | 344 KB | 11303712 |
 | [1131_math_optimized.py](1131_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 196 KB | 11324846 |
+| [1131_math_implementation_optimized.rs](1131_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(log min(N, K)) | AC | 0.015 s | 180 KB | 11328944 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
