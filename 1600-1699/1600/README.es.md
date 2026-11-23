@@ -98,6 +98,14 @@ Descripción y mediciones históricas de la revisión anterior: C++ calcula la s
 
 Rust escala la entrada decimal a enteros. Si todos los valores escalados tienen magnitud de hasta 500 000 000, calcula el discriminante exactamente con enteros de 128 bits. En los demás casos usa enteros de precisión arbitraria.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1600_geometry_math_optimized.rs`. Se elige el cálculo exacto acotado en i128 antes de reservar dígitos de enteros grandes. Se mantienen la cota de coordenadas y el discriminante exacto; valores mayores o escalas más finas usan la ruta de precisión arbitraria conservada. Permanecen ambas versiones públicas anteriores.
+
+Accepted #11328703 (Rust 1.75 x64): **0.015 s / 380 KB**. Comparación archivada: `1600_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 560 KB (#11322367).
+
 ## Soluciones
 
 ### Sencillas
@@ -114,11 +122,12 @@ Rust escala la entrada decimal a enteros. Si todos los valores escalados tienen 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
-| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
-| [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
-| [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
+| [1600_geometry_optimized.py](1600_geometry_optimized.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
+| [1600_geometry_optimized.java](1600_geometry_optimized.java) | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
+| [1600_geometry_optimized.go](1600_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
 | [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+| [1600_geometry_math_optimized.rs](1600_geometry_math_optimized.rs) | Rust 1.75 x64 | geometry, math | O(n²) | AC | 0.015 s | 380 KB | 11328703 |
 
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

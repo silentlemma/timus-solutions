@@ -83,6 +83,14 @@ Go 跳过正在远离的飞机对。对于接近相切的飞机对，直接从�
 
 Rust 将十进制输入缩放为整数。若缩放后各数的绝对值均不超过 500,000,000，则用 128 位整数精确计算判别式，否则使用任意精度整数。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1600_geometry_math_optimized.rs`. 在分配任意精度整数位之前选择有界精确 i128 路径，使用相同坐标界和精确判别式。更大数值或更细小数尺度仍使用原任意精度路径；此前两个公开版本均保留。
+
+Accepted #11328703 (Rust 1.75 x64): **0.015 s / 380 KB**. 历史对照: `1600_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 560 KB (#11322367).
+
 ## 解答
 
 ### 简单版本
@@ -99,11 +107,12 @@ Rust 将十进制输入缩放为整数。若缩放后各数的绝对值均不超
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
-| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
-| [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
-| [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
+| [1600_geometry_optimized.py](1600_geometry_optimized.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
+| [1600_geometry_optimized.java](1600_geometry_optimized.java) | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
+| [1600_geometry_optimized.go](1600_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
 | [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+| [1600_geometry_math_optimized.rs](1600_geometry_math_optimized.rs) | Rust 1.75 x64 | geometry, math | O(n²) | AC | 0.015 s | 380 KB | 11328703 |
 
-\* 带星号的解法尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

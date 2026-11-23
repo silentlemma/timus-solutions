@@ -98,6 +98,14 @@ Go пропускает удаляющиеся пары. Для пар вбли�
 
 Rust приводит десятичный ввод к целым числам. Если каждое значение после масштабирования не превосходит по модулю 500 000 000, дискриминант точно вычисляется в 128-битных целых. Для остальных входов используется длинная арифметика.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1600_geometry_math_optimized.rs`. Ограниченный точный расчёт i128 выбирается до выделения разрядов длинных чисел. Ограничение координат и точный дискриминант прежние; большие значения или более мелкий десятичный масштаб используют сохранённый путь длинной арифметики. Обе прежние публичные версии сохранены.
+
+Accepted #11328703 (Rust 1.75 x64): **0.015 s / 380 KB**. Архивное сравнение: `1600_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 560 KB (#11322367).
+
 ## Решения
 
 ### Простые
@@ -114,11 +122,12 @@ Rust приводит десятичный ввод к целым числам. 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
-| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
-| [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
-| [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
+| [1600_geometry_optimized.py](1600_geometry_optimized.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
+| [1600_geometry_optimized.java](1600_geometry_optimized.java) | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
+| [1600_geometry_optimized.go](1600_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
 | [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+| [1600_geometry_math_optimized.rs](1600_geometry_math_optimized.rs) | Rust 1.75 x64 | geometry, math | O(n²) | AC | 0.015 s | 380 KB | 11328703 |
 
-\* Отмеченные решения пока не достигли целевого рейтинга.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
