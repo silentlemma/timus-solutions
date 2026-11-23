@@ -114,6 +114,14 @@ Keep all five matrix teaching algorithms, including the already accepted Rust in
 - `1013_dp_math.py`: 0.109 s / 272 KB; base `1013_matrix.py`: 0.078 s / 400 KB; relative change: time +39.7%, memory -32.0%.
 - `1013_dp_math.rs`: 0.031 s / 44 KB; base `1013_matrix.rs`: 0.031 s / 200 KB; relative change: time -0.0%, memory -78.0%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1013_matrix_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328484 (Rust 1.75 x64): **0.015 s / 224 KB**. Archived comparison: `1013_matrix.rs` (Rust 1.75 x64) — 0.031 s / 200 KB (#11308297).
+
 ## Solutions
 
 ### Simple
@@ -130,9 +138,10 @@ Keep all five matrix teaching algorithms, including the already accepted Rust in
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
+| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
 | [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |
+| [1013_matrix_optimized.rs](1013_matrix_optimized.rs) | Rust 1.75 x64 | matrix | O(log N) | AC | 0.015 s | 224 KB | 11328484 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

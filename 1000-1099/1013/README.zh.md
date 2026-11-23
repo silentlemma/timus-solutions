@@ -107,6 +107,14 @@ Go 用 `bits.Mul64` 得高低字，再用 `bits.Div64` 求余；高字小于 `M`
 - `1013_dp_math.py`: 0.109 s / 272 KB; 基础 `1013_matrix.py`: 0.078 s / 400 KB; 相对变化: 时间 +39.7%, 内存 -32.0%.
 - `1013_dp_math.rs`: 0.031 s / 44 KB; 基础 `1013_matrix.rs`: 0.031 s / 200 KB; 相对变化: 时间 -0.0%, 内存 -78.0%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1013_matrix_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328484 (Rust 1.75 x64): **0.015 s / 224 KB**. 历史对照: `1013_matrix.rs` (Rust 1.75 x64) — 0.031 s / 200 KB (#11308297).
+
 ## 解答
 
 ### 简单版本
@@ -123,9 +131,10 @@ Go 用 `bits.Mul64` 得高低字，再用 `bits.Div64` 求余；高字小于 `M`
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
+| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
 | [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |
+| [1013_matrix_optimized.rs](1013_matrix_optimized.rs) | Rust 1.75 x64 | matrix | O(log N) | AC | 0.015 s | 224 KB | 11328484 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
