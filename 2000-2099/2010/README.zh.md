@@ -68,6 +68,14 @@ Queen: 23
 
 与 `2010_math.rs` 相比：时间 0.046 s → 0.046 s；内存 236 KB → 60 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2010_math_parsing_implementation_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328932 (Go 1.14 x64): **0.031 s / 908 KB**. 历史对照: `2010_math.go` (Go 1.14 x64) — 0.046 s / 1120 KB (#11292488).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -93,6 +101,5 @@ Queen: 23
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
-| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2010_math_optimized.rs](2010_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+| [2010_math_parsing_implementation_optimized.go](2010_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(1) | AC | 0.031 s | 908 KB | 11328932 |

@@ -107,6 +107,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 Frente a `2010_math.rs`: tiempo 0.046 s → 0.046 s; memoria 236 KB → 60 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2010_math_parsing_implementation_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo.
+
+Accepted #11328932 (Go 1.14 x64): **0.031 s / 908 KB**. Comparación archivada: `2010_math.go` (Go 1.14 x64) — 0.046 s / 1120 KB (#11292488).
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -140,6 +148,5 @@ constante de valores y se ejecuta en CPython.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
-| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2010_math_optimized.rs](2010_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+| [2010_math_parsing_implementation_optimized.go](2010_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(1) | AC | 0.031 s | 908 KB | 11328932 |

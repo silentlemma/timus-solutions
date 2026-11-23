@@ -107,6 +107,14 @@ asterisk concerns the rating target only.
 
 Compared with `2010_math.rs`: time 0.046 s → 0.046 s; memory 236 KB → 60 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2010_math_parsing_implementation_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Use an 8192-byte refillable input buffer instead of retaining the entire input. Tokens and partial/EOF reads retain their original meaning.
+
+Accepted #11328932 (Go 1.14 x64): **0.031 s / 908 KB**. Archived comparison: `2010_math.go` (Go 1.14 x64) — 0.046 s / 1120 KB (#11292488).
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -141,6 +149,5 @@ Python uses constant memory and runs under CPython.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
-| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2010_math_optimized.rs](2010_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+| [2010_math_parsing_implementation_optimized.go](2010_math_parsing_implementation_optimized.go) | Go 1.14 x64 | math, parsing, implementation | O(1) | AC | 0.031 s | 908 KB | 11328932 |
