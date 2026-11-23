@@ -68,6 +68,14 @@ Camelot
 
 按字节逐行读取并直接加入集合，保留名称里的空格。通过的提交 11324219 用时 0.078 秒、占用 456 KB；简单版用时 0.078 秒、占用 516 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1563_hashing_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328568 (Rust 1.75 x64): **0.031 s / 464 KB**. 历史对照: `1563_hashing.rs` (Rust 1.75 x64) — 0.046 s / 476 KB (#11287697).
+
 ## 解答
 
 ### 简单版本
@@ -85,6 +93,5 @@ Camelot
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1563_hashing_optimized.cpp](1563_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N) | AC | 0.015 s | 300 KB | 11303620 |
-| [1563_hashing_optimized.py](1563_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1563_hashing_optimized.py](1563_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
+| [1563_hashing_optimized.rs](1563_hashing_optimized.rs) | Rust 1.75 x64 | hashing | O(N) | AC | 0.031 s | 464 KB | 11328568 |

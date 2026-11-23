@@ -74,6 +74,14 @@ line character by character into a buffer of 30 characters instead of
 
 Read each name as bytes and insert it directly into a set, keeping spaces within the name. Accepted submission 11324219 took 0.078 s and used 456 KB. The simple version took 0.078 s and used 516 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1563_hashing_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328568 (Rust 1.75 x64): **0.031 s / 464 KB**. Archived comparison: `1563_hashing.rs` (Rust 1.75 x64) — 0.046 s / 476 KB (#11287697).
+
 ## Solutions
 
 ### Simple
@@ -91,6 +99,5 @@ Read each name as bytes and insert it directly into a set, keeping spaces within
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1563_hashing_optimized.cpp](1563_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N) | AC | 0.015 s | 300 KB | 11303620 |
-| [1563_hashing_optimized.py](1563_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
-
-\* The marked solutions can improve their target rankings.
+| [1563_hashing_optimized.py](1563_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
+| [1563_hashing_optimized.rs](1563_hashing_optimized.rs) | Rust 1.75 x64 | hashing | O(N) | AC | 0.031 s | 464 KB | 11328568 |

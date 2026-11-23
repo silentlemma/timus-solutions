@@ -75,6 +75,14 @@ lugar de 512 KB, con el mismo tiempo.
 
 Leer cada nombre como bytes y añadirlo directamente a un conjunto, conservando los espacios del nombre. El envío aceptado 11324219 tardó 0.078 s y usó 456 KB. La versión sencilla tardó 0.078 s y usó 516 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1563_hashing_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328568 (Rust 1.75 x64): **0.031 s / 464 KB**. Comparación archivada: `1563_hashing.rs` (Rust 1.75 x64) — 0.046 s / 476 KB (#11287697).
+
 ## Soluciones
 
 ### Sencillas
@@ -92,6 +100,5 @@ Leer cada nombre como bytes y añadirlo directamente a un conjunto, conservando 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1563_hashing_optimized.cpp](1563_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N) | AC | 0.015 s | 300 KB | 11303620 |
-| [1563_hashing_optimized.py](1563_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1563_hashing_optimized.py](1563_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
+| [1563_hashing_optimized.rs](1563_hashing_optimized.rs) | Rust 1.75 x64 | hashing | O(N) | AC | 0.031 s | 464 KB | 11328568 |
