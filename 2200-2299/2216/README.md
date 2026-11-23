@@ -96,6 +96,14 @@ Rust submission 11317747 took 0.015 s and used 596 KB. The simple version took 0
 
 G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · Python 3.12 x64 №11322090 · Rust 1.75 x64 №11322092.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2216_prefix_sums_parsing_optimized.py`. Stream the input into a compact signed-int floor-difference array; retain the original prefix accumulation and gap minimum calculation. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328766 (Python 3.12 x64): **0.14 s / 972 KB**. Archived comparison: `2216_prefix_sums.py` (Python 3.12 x64) — 0.14 s / 14948 KB (#11322090).
+
 ## Solutions
 
 ### Simple
@@ -115,5 +123,6 @@ G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · P
 | [2216_prefix_sums_optimized.py](2216_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.156 s | 1560 KB | 11317733 |
 | [2216_prefix_sums_optimized.go](2216_prefix_sums_optimized.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 1312 KB | 11317737 |
 | [2216_prefix_sums_optimized.rs](2216_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 596 KB | 11317747 |
+| [2216_prefix_sums_parsing_optimized.py](2216_prefix_sums_parsing_optimized.py) | Python 3.12 x64 | prefix_sums, parsing | O(N + K) | AC | 0.14 s | 972 KB | 11328766 |
 
-\* The marked solutions can improve their target rankings.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

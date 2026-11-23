@@ -96,6 +96,14 @@ El envío 11317747 en Rust tardó 0.015 s y usó 596 KB. La versión sencilla ta
 
 G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · Python 3.12 x64 №11322090 · Rust 1.75 x64 №11322092.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2216_prefix_sums_parsing_optimized.py`. Se lee la entrada en flujo hacia un arreglo compacto de diferencias con signo por planta. Se conservan la acumulación prefija y el mínimo en los intervalos. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328766 (Python 3.12 x64): **0.14 s / 972 KB**. Comparación archivada: `2216_prefix_sums.py` (Python 3.12 x64) — 0.14 s / 14948 KB (#11322090).
+
 ## Soluciones
 
 ### Sencillas
@@ -115,5 +123,6 @@ G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · P
 | [2216_prefix_sums_optimized.py](2216_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.156 s | 1560 KB | 11317733 |
 | [2216_prefix_sums_optimized.go](2216_prefix_sums_optimized.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 1312 KB | 11317737 |
 | [2216_prefix_sums_optimized.rs](2216_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 596 KB | 11317747 |
+| [2216_prefix_sums_parsing_optimized.py](2216_prefix_sums_parsing_optimized.py) | Python 3.12 x64 | prefix_sums, parsing | O(N + K) | AC | 0.14 s | 972 KB | 11328766 |
 
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
