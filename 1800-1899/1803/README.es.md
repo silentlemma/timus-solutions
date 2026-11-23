@@ -92,6 +92,14 @@ Go 1.14 x64, envío 11322008. Tiempo 0,609 → 0,312 s, memoria 12108 → 2564 K
 
 Java 1.8, envío 11322348. Tiempo 0,562 → 0,89 s, memoria 9876 → 3796 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1803_math_implementation_optimized.rs`. Para bases que no son potencias de dos, el límite de la base de bloques baja de un millón a 200000; se elige la mayor potencia de la base de numeración dentro de él. Reduce la caché a cambio de más bloques; se conservan las sumas exactas, la recurrencia y la ruta de potencias de dos. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos.
+
+Accepted #11328979 (Rust 1.75 x64): **0.125 s / 732 KB**. Comparación archivada: `1803_math_optimized.rs` (Rust 1.75 x64) — 0.187 s / 1420 KB (#11320179).
+
 ## Soluciones
 
 ### Sencillas
@@ -110,8 +118,9 @@ Java 1.8, envío 11322348. Tiempo 0,562 → 0,89 s, memoria 9876 → 3796 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1803_math_optimized.cpp](1803_math_optimized.cpp) | G++ 13.2 x64 | math | O(T+n²/log B+n log n) time; O(T+n) space | AC | 0.171 s | 620 KB | 11326993 |
 | [1803_math_optimized.rs](1803_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^2 / log B) | AC | 0.187 s | 1420 KB | 11320179 |
-| [1803_math_optimized.py](1803_math_optimized.py) \* | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
+| [1803_math_optimized.py](1803_math_optimized.py) | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
 | [1803_math_optimized.go](1803_math_optimized.go) | Go 1.14 x64 | math | O(n^2 / log B) | AC | 0.312 s | 2564 KB | 11322008 |
 | [1803_math_optimized.java](1803_math_optimized.java) | Java 1.8 | math | O(n^2 / log B) | AC | 0.89 s | 3796 KB | 11322348 |
+| [1803_math_implementation_optimized.rs](1803_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(n^2 / log B) | AC | 0.125 s | 732 KB | 11328979 |
 
-\* Las versiones marcadas aún pueden mejorar su clasificación.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

@@ -76,6 +76,14 @@ Go 1.14 x64（提交 11322008）的运行时间从 0.609 秒变为 0.312 秒，�
 
 Java 1.8（提交 11322348）的运行时间从 0.562 秒变为 0.89 秒，内存从 9876 KB 变为 3796 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1803_math_implementation_optimized.rs`. 对于非二次幂进制，把分块基数上限从一百万降至 200000，并选取不超上限的最大进制幂。以处理更多块为代价缩小数字和缓存；精确数字和、递推及二次幂路径不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。
+
+Accepted #11328979 (Rust 1.75 x64): **0.125 s / 732 KB**. 历史对照: `1803_math_optimized.rs` (Rust 1.75 x64) — 0.187 s / 1420 KB (#11320179).
+
 ## 解答
 
 ### 简单版本
@@ -94,8 +102,9 @@ Java 1.8（提交 11322348）的运行时间从 0.562 秒变为 0.89 秒，内�
 |----|----|----|-----|------|----|----|---|
 | [1803_math_optimized.cpp](1803_math_optimized.cpp) | G++ 13.2 x64 | math | O(T+n²/log B+n log n) time; O(T+n) space | AC | 0.171 s | 620 KB | 11326993 |
 | [1803_math_optimized.rs](1803_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^2 / log B) | AC | 0.187 s | 1420 KB | 11320179 |
-| [1803_math_optimized.py](1803_math_optimized.py) \* | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
+| [1803_math_optimized.py](1803_math_optimized.py) | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
 | [1803_math_optimized.go](1803_math_optimized.go) | Go 1.14 x64 | math | O(n^2 / log B) | AC | 0.312 s | 2564 KB | 11322008 |
 | [1803_math_optimized.java](1803_math_optimized.java) | Java 1.8 | math | O(n^2 / log B) | AC | 0.89 s | 3796 KB | 11322348 |
+| [1803_math_implementation_optimized.rs](1803_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(n^2 / log B) | AC | 0.125 s | 732 KB | 11328979 |
 
-\* 带星号的版本仍有提升排名的空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
