@@ -104,6 +104,14 @@ The new C++, Go and Rust versions keep a separate frontier queue for each side a
 
 The accepted base implementations [1923_bfs.java](1923_bfs.java), [1923_bfs.py](1923_bfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1923_dfs_optimized.rs`. Use bounded linked frontier stacks instead of separately allocated vectors for each color. The offer flags, flood closure and areas are unchanged.
+
+Accepted #11328990 (Rust 1.75 x64): **0.015 s / 80 KB**. Archived comparison: `1923_bfs_optimized.rs` (Rust 1.75 x64) — 0.046 s / 80 KB (#11314872).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -122,7 +130,7 @@ use dynamic lists or vectors. All searches are iterative.
 |---|---|---|---|---|---|---|---|
 | [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB | 11291513 |
 | [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB | 11291514 |
-| [1923_bfs.java](1923_bfs.java) \* | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
+| [1923_bfs.java](1923_bfs.java) | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
 | [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB | 11291518 |
 | [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB | 11291522 |
 
@@ -133,5 +141,6 @@ use dynamic lists or vectors. All searches are iterative.
 | [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
 | [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
 | [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+| [1923_dfs_optimized.rs](1923_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n·m + l) | AC | 0.015 s | 80 KB | 11328990 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

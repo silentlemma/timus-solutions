@@ -87,6 +87,14 @@ n×m 网格的每格颜色为数字 0..9。通过公共边连通的同色格构�
 
 已通过评测的基础实现 [1923_bfs.java](1923_bfs.java), [1923_bfs.py](1923_bfs.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1923_dfs_optimized.rs`. 用有界链接边界栈替代每种颜色的独立向量，保留加入标记、洪泛闭包及面积。
+
+Accepted #11328990 (Rust 1.75 x64): **0.015 s / 80 KB**. 历史对照: `1923_bfs_optimized.rs` (Rust 1.75 x64) — 0.046 s / 80 KB (#11314872).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -104,7 +112,7 @@ Java 使用两个容量足够的扁平数组，其他版本使用动态列表或
 |---|---|---|---|---|---|---|---|
 | [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB | 11291513 |
 | [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB | 11291514 |
-| [1923_bfs.java](1923_bfs.java) \* | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
+| [1923_bfs.java](1923_bfs.java) | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
 | [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB | 11291518 |
 | [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB | 11291522 |
 
@@ -115,5 +123,6 @@ Java 使用两个容量足够的扁平数组，其他版本使用动态列表或
 | [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
 | [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
 | [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+| [1923_dfs_optimized.rs](1923_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n·m + l) | AC | 0.015 s | 80 KB | 11328990 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

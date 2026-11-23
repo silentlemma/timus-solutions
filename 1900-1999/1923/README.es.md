@@ -99,6 +99,14 @@ Las nuevas versiones C++, Go y Rust mantienen una cola de frontera por bando y c
 
 Las implementaciones base aceptadas [1923_bfs.java](1923_bfs.java), [1923_bfs.py](1923_bfs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1923_dfs_optimized.rs`. Pilas enlazadas acotadas sustituyen vectores separados por color; se conservan las marcas, el cierre de inundación y las áreas.
+
+Accepted #11328990 (Rust 1.75 x64): **0.015 s / 80 KB**. Comparación archivada: `1923_bfs_optimized.rs` (Rust 1.75 x64) — 0.046 s / 80 KB (#11314872).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -117,7 +125,7 @@ listas o vectores dinámicos. Todos los recorridos son iterativos.
 |---|---|---|---|---|---|---|---|
 | [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB | 11291513 |
 | [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB | 11291514 |
-| [1923_bfs.java](1923_bfs.java) \* | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
+| [1923_bfs.java](1923_bfs.java) | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 656 KB | 11328322 |
 | [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB | 11291518 |
 | [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB | 11291522 |
 
@@ -128,5 +136,6 @@ listas o vectores dinámicos. Todos los recorridos son iterativos.
 | [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
 | [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
 | [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+| [1923_dfs_optimized.rs](1923_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n·m + l) | AC | 0.015 s | 80 KB | 11328990 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
