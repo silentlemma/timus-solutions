@@ -89,6 +89,14 @@ El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.001 s de la base y us
 
 Las implementaciones base aceptadas [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1221_implementation_optimized.py`. Las filas y sus sumas prefijas se guardan en arreglos compactos de bytes. Se procesan las cuadrículas sucesivamente, conservando la búsqueda de la figura mayor y sus condiciones. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. Comparación archivada: `1221_implementation.py` (Python 3.12 x64) — 0.14 s / 1908 KB (#11283692).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -105,13 +113,12 @@ Estas notas describen las implementaciones sencillas.
 | [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
 | [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
 | [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
-| [1221_implementation.py](1221_implementation.py) \* | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
 | [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1221_prefix_sums.go](1221_prefix_sums.go) \* | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1221_prefix_sums.go](1221_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
+| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.156 s | 924 KB | 11328771 |

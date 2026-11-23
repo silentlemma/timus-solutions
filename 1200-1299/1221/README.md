@@ -86,6 +86,14 @@ The accepted Go 1.14 x64 run takes 0.031 s versus 0.001 s for the base and uses 
 
 The accepted base implementations [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1221_implementation_optimized.py`. Store grid rows as bytes and row-prefix counts in compact byte arrays. Stream successive grids while retaining the original largest-figure search and its acceptance conditions. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. Archived comparison: `1221_implementation.py` (Python 3.12 x64) — 0.14 s / 1908 KB (#11283692).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -102,13 +110,12 @@ These notes describe the simple implementations.
 | [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
 | [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
 | [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
-| [1221_implementation.py](1221_implementation.py) \* | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
 | [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1221_prefix_sums.go](1221_prefix_sums.go) \* | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1221_prefix_sums.go](1221_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
+| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.156 s | 924 KB | 11328771 |
