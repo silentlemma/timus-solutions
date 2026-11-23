@@ -98,6 +98,14 @@ Compared with `1731_constructive.py`: time 0.093 s → 0.125 s; memory 416 KB �
 
 Compared with `1731_constructive.rs`: time 0.046 s → 0.031 s; memory 220 KB → 56 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1731_constructive_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328592 (Go 1.14 x64): **0.031 s / 972 KB**. Archived comparison: `1731_constructive.go` (Go 1.14 x64) — 0.046 s / 1104 KB (#11289416).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -127,6 +135,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1731_constructive_optimized.cpp](1731_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n + m) | AC | 0.015 s | 124 KB | 11304262 |
 | [1731_constructive_optimized.java](1731_constructive_optimized.java) | Java 1.8 | constructive | O(n + m) | AC | 0.093 s | 376 KB | 11304040 |
 | [1731_constructive_optimized.py](1731_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n+m) | AC | 0.125 s | 208 KB | 11325001 |
-| [1731_constructive_optimized.rs](1731_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n+m) | AC | 0.031 s | 56 KB | 11325108 |
+| [1731_constructive_optimized.rs](1731_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n+m) | AC | 0.031 s | 56 KB | 11325108 |
+| [1731_constructive_optimized.go](1731_constructive_optimized.go) | Go 1.14 x64 | constructive | O(n + m) | AC | 0.031 s | 972 KB | 11328592 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
