@@ -100,6 +100,14 @@ Go conserva la arista AB de la envolvente convexa y ordena los demás puntos por
 
 Las implementaciones base aceptadas [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1103_geometry_implementation_optimized.rs`. Se usa un único vector de puntos: los dos puntos elegidos de la envolvente pasan al inicio y se selecciona in situ la mediana angular del resto. Las comparaciones exactas i128 evitan copias de puntos y claves. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. Comparación archivada: `1103_geometry.rs` (Rust 1.75 x64) — 0.015 s / 1160 KB (#11279171).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -116,9 +124,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
 | [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
-| [1103_geometry.java](1103_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
 | [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
-| [1103_geometry.rs](1103_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
+| [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
 
 ### Optimizadas
 
@@ -126,5 +134,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.015 s | 980 KB | 11328264 |
 | [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
+| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 236 KB | 11328975 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

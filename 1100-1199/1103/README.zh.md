@@ -85,6 +85,14 @@ Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切�
 
 已通过评测的基础实现 [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1103_geometry_implementation_optimized.rs`. 只保留一个点向量，把选定的两个凸包点移到前端，在剩余切片内原地选择角度中位点。使用精确 i128 比较，避免复制点及比较键。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. 历史对照: `1103_geometry.rs` (Rust 1.75 x64) — 0.015 s / 1160 KB (#11279171).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -101,9 +109,9 @@ Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切�
 |---|---|---|---|---|---|---|---|
 | [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
 | [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
-| [1103_geometry.java](1103_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
 | [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
-| [1103_geometry.rs](1103_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
+| [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
 
 ### 优化版本
 
@@ -111,5 +119,6 @@ Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切�
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.015 s | 980 KB | 11328264 |
 | [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
+| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 236 KB | 11328975 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
