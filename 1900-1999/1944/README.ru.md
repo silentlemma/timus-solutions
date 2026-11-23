@@ -112,6 +112,14 @@ W=R−L+1 символов, всего H=U−D+1 строк. Вывести то
 - `1944_implementation_optimized.java`: 0.125 s / 476 KB; база `1944_implementation.java`: 0.125 s / 844 KB; изменение относительно базы: время -0.0%, память -43.6%.
 - `1944_implementation_optimized.py`: 0.140 s / 332 KB; база `1944_implementation.py`: 0.093 s / 636 KB; изменение относительно базы: время +50.5%, память -47.8%.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1944_implementation_parsing_optimized.py`. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11328765 (Python 3.12 x64): **0.078 s / 904 KB**. Архивное сравнение: `1944_implementation.py` (Python 3.12 x64) — 0.093 s / 636 KB (#11291907).
+
 ## Особенности языков
 
 Новые исходники сравниваются по срезу от 18 ноября 2026 года с другими авторами на текущих компиляторах судьи. Порогов по ID посылки или дате нет. Ничьи делят место, времена меньше 0.015 с при сравнении считаются 0.015 с. Приведённые ниже места относятся к новым версиям; прежние исходники сохраняют собственные исторические метрики Accepted.
@@ -139,9 +147,10 @@ W=R−L+1 символов, всего H=U−D+1 строк. Вывести то
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
-| [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
-| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) \* | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
+| [1944_implementation_optimized.java](1944_implementation_optimized.java) \* | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
-| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
+| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
+| [1944_implementation_parsing_optimized.py](1944_implementation_parsing_optimized.py) | Python 3.12 x64 | implementation, parsing | O(n+WH) | AC | 0.078 s | 904 KB | 11328765 |
 
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

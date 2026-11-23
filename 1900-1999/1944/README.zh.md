@@ -97,6 +97,14 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 - `1944_implementation_optimized.java`: 0.125 s / 476 KB; 基础版 `1944_implementation.java`: 0.125 s / 844 KB; 相对基础版的变化: 时间 -0.0%, 内存 -43.6%.
 - `1944_implementation_optimized.py`: 0.140 s / 332 KB; 基础版 `1944_implementation.py`: 0.093 s / 636 KB; 相对基础版的变化: 时间 +50.5%, 内存 -47.8%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1944_implementation_parsing_optimized.py`. 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328765 (Python 3.12 x64): **0.078 s / 904 KB**. 历史对照: `1944_implementation.py` (Python 3.12 x64) — 0.093 s / 636 KB (#11291907).
+
 ## 语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -124,9 +132,10 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
-| [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
-| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) \* | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
+| [1944_implementation_optimized.java](1944_implementation_optimized.java) \* | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
-| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
+| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
+| [1944_implementation_parsing_optimized.py](1944_implementation_parsing_optimized.py) | Python 3.12 x64 | implementation, parsing | O(n+WH) | AC | 0.078 s | 904 KB | 11328765 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
