@@ -87,6 +87,14 @@ Go/Python 保留两标志扫描，改读有界4096字节块，标志跨块保留
 
 已通过评测的基础实现 [1038_implementation.cpp](1038_implementation.cpp), [1038_implementation.java](1038_implementation.java), [1038_implementation.rs](1038_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1038_implementation_parsing_optimized.rs`. 读取原生输入块时统计大小写错误，仅跨块保留句子和单词状态。ASCII 字母及标点规则不变，不保存全文。 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+
+Accepted #11329194 (Rust 1.75 x64): **0.015 s / 60 KB**. 历史对照: `1038_implementation.rs` (Rust 1.75 x64) — 0.031 s / 252 KB (#11278496).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -103,13 +111,12 @@ Go/Python 保留两标志扫描，改读有界4096字节块，标志跨块保留
 | [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB | 11278490 |
 | [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB | 11278493 |
 | [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB | 11278492 |
-| [1038_implementation.rs](1038_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
+| [1038_implementation.rs](1038_implementation.rs) | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1038_implementation_optimized.go](1038_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
-| [1038_implementation_optimized.py](1038_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1038_implementation_optimized.go](1038_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
+| [1038_implementation_optimized.py](1038_implementation_optimized.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
+| [1038_implementation_parsing_optimized.rs](1038_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(text length) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 60 KB | 11329194 |

@@ -96,6 +96,14 @@ Go/Python сохраняют автомат с двумя флагами, но �
 
 Принятые базовые реализации [1038_implementation.cpp](1038_implementation.cpp), [1038_implementation.java](1038_implementation.java), [1038_implementation.rs](1038_implementation.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1038_implementation_parsing_optimized.rs`. Ошибки регистра считаются при чтении нативных блоков; между пополнениями хранятся только состояния предложения и слова. Исходные правила ASCII-букв и пунктуации сохранены; полный текст не хранится. Прямой вывод специализирован по реальным типам ответа без универсального выбора формата и временных строк. Фиксированный текст записывается нативно; числовой вывод точно обрабатывает нужные знаковые или беззнаковые значения. Математические решения и архивные простые версии сохранены.
+
+Accepted #11329194 (Rust 1.75 x64): **0.015 s / 60 KB**. Архивное сравнение: `1038_implementation.rs` (Rust 1.75 x64) — 0.031 s / 252 KB (#11278496).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -113,13 +121,12 @@ Go/Python сохраняют автомат с двумя флагами, но �
 | [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB | 11278490 |
 | [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB | 11278493 |
 | [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB | 11278492 |
-| [1038_implementation.rs](1038_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
+| [1038_implementation.rs](1038_implementation.rs) | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1038_implementation_optimized.go](1038_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
-| [1038_implementation_optimized.py](1038_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1038_implementation_optimized.go](1038_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
+| [1038_implementation_optimized.py](1038_implementation_optimized.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
+| [1038_implementation_parsing_optimized.rs](1038_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(text length) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 60 KB | 11329194 |

@@ -96,6 +96,14 @@ The accepted Python 3.12 x64 run takes 0.078 s versus 0.109 s for the base and u
 
 The accepted base implementations [1038_implementation.cpp](1038_implementation.cpp), [1038_implementation.java](1038_implementation.java), [1038_implementation.rs](1038_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1038_implementation_parsing_optimized.rs`. Count capitalization errors while consuming native input blocks, carrying only sentence and word state across refills. The original ASCII letter and punctuation rules are unchanged; the full text is not stored. Specialize direct output to the answer types actually used, avoiding generic formatting dispatch and temporary answer strings. Fixed text uses native writes; numeric writers handle the required signed or unsigned magnitudes exactly. Mathematical decisions and archived simple versions are preserved.
+
+Accepted #11329194 (Rust 1.75 x64): **0.015 s / 60 KB**. Archived comparison: `1038_implementation.rs` (Rust 1.75 x64) — 0.031 s / 252 KB (#11278496).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -113,13 +121,12 @@ These notes describe the simple implementations.
 | [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB | 11278490 |
 | [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB | 11278493 |
 | [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB | 11278492 |
-| [1038_implementation.rs](1038_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
+| [1038_implementation.rs](1038_implementation.rs) | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1038_implementation_optimized.go](1038_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
-| [1038_implementation_optimized.py](1038_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1038_implementation_optimized.go](1038_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
+| [1038_implementation_optimized.py](1038_implementation_optimized.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
+| [1038_implementation_parsing_optimized.rs](1038_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(text length) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 60 KB | 11329194 |
