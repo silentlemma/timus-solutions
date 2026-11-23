@@ -69,6 +69,18 @@ C++ 缓存每个顶点同侧敌人的数量。数量至少为二时移动该顶�
 
 已通过评测的基础实现 [1128_greedy.go](1128_greedy.go), [1128_greedy.java](1128_greedy.java), [1128_greedy.py](1128_greedy.py), [1128_greedy.rs](1128_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1128_greedy_optimized.py`. 直接循环统计同侧邻居，替代传给 sum 的生成器；贪心分组更新及证明不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328664 (Python 3.12 x64): **0.078 s / 4024 KB**. 历史对照: `1128_greedy.py` (Python 3.12 x64) — 0.109 s / 3948 KB (#11279352).
+
+`1128_greedy_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328503 (Rust 1.75 x64): **0.031 s / 1036 KB**. 历史对照: `1128_greedy.rs` (Rust 1.75 x64) — 0.046 s / 1048 KB (#11279359).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -82,15 +94,15 @@ C++ 缓存每个顶点同侧敌人的数量。数量至少为二时移动该顶�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1128_greedy.cpp](1128_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 500 KB | 11279347 |
-| [1128_greedy.go](1128_greedy.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB | 11279348 |
+| [1128_greedy.go](1128_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB | 11279348 |
 | [1128_greedy.java](1128_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.109 s | 2072 KB | 11279358 |
-| [1128_greedy.py](1128_greedy.py) \* | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB | 11279352 |
-| [1128_greedy.rs](1128_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB | 11279359 |
+| [1128_greedy.py](1128_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB | 11279352 |
+| [1128_greedy.rs](1128_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB | 11279359 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1128_greedy_optimized.cpp](1128_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 176 KB | 11314894 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1128_greedy_optimized.py](1128_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.078 s | 4024 KB | 11328664 |
+| [1128_greedy_optimized.rs](1128_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.031 s | 1036 KB | 11328503 |

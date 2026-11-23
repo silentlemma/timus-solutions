@@ -87,6 +87,18 @@ C++ mantiene el número de enemigos de cada vértice en su mismo lado. Si hay al
 
 Las implementaciones base aceptadas [1128_greedy.go](1128_greedy.go), [1128_greedy.java](1128_greedy.java), [1128_greedy.py](1128_greedy.py), [1128_greedy.rs](1128_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1128_greedy_optimized.py`. Los vecinos del mismo lado se cuentan con un bucle directo en lugar de un generador para sum. Se mantienen los cambios de partición y su demostración. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328664 (Python 3.12 x64): **0.078 s / 4024 KB**. Comparación archivada: `1128_greedy.py` (Python 3.12 x64) — 0.109 s / 3948 KB (#11279352).
+
+`1128_greedy_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328503 (Rust 1.75 x64): **0.031 s / 1036 KB**. Comparación archivada: `1128_greedy.rs` (Rust 1.75 x64) — 0.046 s / 1048 KB (#11279359).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -100,15 +112,15 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1128_greedy.cpp](1128_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 500 KB | 11279347 |
-| [1128_greedy.go](1128_greedy.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB | 11279348 |
+| [1128_greedy.go](1128_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB | 11279348 |
 | [1128_greedy.java](1128_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.109 s | 2072 KB | 11279358 |
-| [1128_greedy.py](1128_greedy.py) \* | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB | 11279352 |
-| [1128_greedy.rs](1128_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB | 11279359 |
+| [1128_greedy.py](1128_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB | 11279352 |
+| [1128_greedy.rs](1128_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB | 11279359 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1128_greedy_optimized.cpp](1128_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 176 KB | 11314894 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1128_greedy_optimized.py](1128_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.078 s | 4024 KB | 11328664 |
+| [1128_greedy_optimized.rs](1128_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.031 s | 1036 KB | 11328503 |
