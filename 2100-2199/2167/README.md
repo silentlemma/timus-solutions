@@ -66,6 +66,22 @@ The C++ alternative packs the same prime-prefix tree into one bit per heap node.
 
 The accepted base implementations [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go), [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java), [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py), [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2167_bitmask_number_theory_optimized.py`. Precompute XOR answers within each 16-value block using the eight odd-prime occupancy bits, with prime 2 handled separately. Search a trie only over the upper 16 bits when the current block has no prime. The sieve and all lookup data are generated at runtime; every query in the 20-bit domain was independently checked. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328685 (Python 3.12 x64): **0.312 s / 13876 KB**. Archived comparison: `2167_bitmask_number_theory.py` (Python 3.12 x64) — 0.64 s / 16760 KB (#11328350).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2167_number_theory_optimized.rs`. Build an odd-prime bit sieve at runtime and test XOR keys in increasing order until the first prime is reached. XOR permutes the finite domain, so a solution always exists. No precomputed limit is used; every 20-bit query was checked independently.
+
+Accepted #11328991 (Rust 1.75 x64): **0.031 s / 128 KB**. Archived comparison: `2167_bitmask_number_theory.rs` (Rust 1.75 x64) — 0.046 s / 4172 KB (#11328351).
+
 ## Solutions
 
 ### Simple
@@ -75,8 +91,8 @@ The accepted base implementations [2167_bitmask_number_theory.go](2167_bitmask_n
 | [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.093 s | 2268 KB | 11328348 |
 | [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB | 11295059 |
 | [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.171 s | 4856 KB | 11328349 |
-| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.64 s | 16760 KB | 11328350 |
-| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.046 s | 4172 KB | 11328351 |
+| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.64 s | 16760 KB | 11328350 |
+| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.046 s | 4172 KB | 11328351 |
 | [2167_number_theory.cpp](2167_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(U log log U + 96 T) | AC | 0.109 s | 1136 KB | 11315938 |
 
 ### Optimized
@@ -84,5 +100,5 @@ The accepted base implementations [2167_bitmask_number_theory.go](2167_bitmask_n
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2167_bitmask_number_theory_optimized.cpp](2167_bitmask_number_theory_optimized.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(U log log U + T log U) | AC | 0.031 s | 336 KB | 11315846 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2167_bitmask_number_theory_optimized.py](2167_bitmask_number_theory_optimized.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.312 s | 13876 KB | 11328685 |
+| [2167_number_theory_optimized.rs](2167_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(L log log L + sum(K_i)) time; O(L) bits, L=2^20 | AC | 0.031 s | 128 KB | 11328991 |

@@ -67,6 +67,22 @@ C++ empaqueta el mismo árbol de prefijos en un bit por nodo de montón. U=2²�
 
 Las implementaciones base aceptadas [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go), [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java), [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py), [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2167_bitmask_number_theory_optimized.py`. Se precalculan las respuestas XOR de cada bloque de 16 valores con sus ocho posiciones impares, tratando el primo 2 aparte. Solo si el bloque actual no contiene primos se busca en un trie de los 16 bits superiores. La criba y las tablas se generan al ejecutar; se verificó independientemente todo el dominio de 20 bits. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328685 (Python 3.12 x64): **0.312 s / 13876 KB**. Comparación archivada: `2167_bitmask_number_theory.py` (Python 3.12 x64) — 0.64 s / 16760 KB (#11328350).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2167_number_theory_optimized.rs`. Se genera una criba de bits de primos impares y se prueban claves XOR crecientes hasta el primer primo. XOR permuta el dominio finito, por lo que existe solución. No se usa un límite precalculado; se verificaron todas las consultas de 20 bits.
+
+Accepted #11328991 (Rust 1.75 x64): **0.031 s / 128 KB**. Comparación archivada: `2167_bitmask_number_theory.rs` (Rust 1.75 x64) — 0.046 s / 4172 KB (#11328351).
+
 ## Soluciones
 
 ### Sencillas
@@ -76,8 +92,8 @@ Las implementaciones base aceptadas [2167_bitmask_number_theory.go](2167_bitmask
 | [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.093 s | 2268 KB | 11328348 |
 | [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB | 11295059 |
 | [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.171 s | 4856 KB | 11328349 |
-| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.64 s | 16760 KB | 11328350 |
-| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.046 s | 4172 KB | 11328351 |
+| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.64 s | 16760 KB | 11328350 |
+| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.046 s | 4172 KB | 11328351 |
 | [2167_number_theory.cpp](2167_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(U log log U + 96 T) | AC | 0.109 s | 1136 KB | 11315938 |
 
 ### Optimizadas
@@ -85,5 +101,5 @@ Las implementaciones base aceptadas [2167_bitmask_number_theory.go](2167_bitmask
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2167_bitmask_number_theory_optimized.cpp](2167_bitmask_number_theory_optimized.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(U log log U + T log U) | AC | 0.031 s | 336 KB | 11315846 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2167_bitmask_number_theory_optimized.py](2167_bitmask_number_theory_optimized.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.312 s | 13876 KB | 11328685 |
+| [2167_number_theory_optimized.rs](2167_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(L log log L + sum(K_i)) time; O(L) bits, L=2^20 | AC | 0.031 s | 128 KB | 11328991 |
