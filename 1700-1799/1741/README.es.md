@@ -102,6 +102,14 @@ Se mantiene la DP del DAG de versiones crecientes con estados de licencia limpia
 - `1741_dp_optimized.java`: 0.093 s / 748 KB; base `1741_dp.java`: 0.156 s / 5788 KB; cambio respecto a la base: tiempo -40.4%, memoria -87.1%.
 - `1741_dp_optimized.py`: 0.109 s / 972 KB; base `1741_dp.py`: 0.109 s / 6872 KB; cambio respecto a la base: tiempo -0.0%, memoria -85.9%.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1741_dp_parsing_optimized.py`. Se aplanan los dos estados de programación dinámica y se guardan los tipos de carácter en bytes. Las dos transiciones explícitas sustituyen el bucle interior sin cambiar la recurrencia. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328660 (Python 3.12 x64): **0.093 s / 5352 KB**. Comparación archivada: `1741_dp.py` (Python 3.12 x64) — 0.109 s / 6872 KB (#11308920).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -131,6 +139,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1741_dp_optimized.cpp](1741_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N+M) | AC | 0.015 s | 196 KB | 11309342 |
 | [1741_dp_optimized.java](1741_dp_optimized.java) | Java 1.8 | dp | O(N+M) | AC | 0.093 s | 748 KB | 11309343 |
 | [1741_dp_optimized.py](1741_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
-| [1741_dp_optimized.go](1741_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
+| [1741_dp_optimized.go](1741_dp_optimized.go) | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
+| [1741_dp_parsing_optimized.py](1741_dp_parsing_optimized.py) | Python 3.12 x64 | dp, parsing | O(n + m) | AC | 0.093 s | 5352 KB | 11328660 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

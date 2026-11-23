@@ -90,6 +90,14 @@ Offline
 - `1741_dp_optimized.java`: 0.093 s / 748 KB; 基础版 `1741_dp.java`: 0.156 s / 5788 KB; 相对基础版的变化: 时间 -40.4%, 内存 -87.1%.
 - `1741_dp_optimized.py`: 0.109 s / 972 KB; 基础版 `1741_dp.py`: 0.109 s / 6872 KB; 相对基础版的变化: 时间 -0.0%, 内存 -85.9%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1741_dp_parsing_optimized.py`. 将两个动态规划状态展平，并用字节保存字符类别；显式计算两种转移，去掉状态内层循环。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328660 (Python 3.12 x64): **0.093 s / 5352 KB**. 历史对照: `1741_dp.py` (Python 3.12 x64) — 0.109 s / 6872 KB (#11308920).
+
 ## 语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -119,6 +127,7 @@ Offline
 | [1741_dp_optimized.cpp](1741_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N+M) | AC | 0.015 s | 196 KB | 11309342 |
 | [1741_dp_optimized.java](1741_dp_optimized.java) | Java 1.8 | dp | O(N+M) | AC | 0.093 s | 748 KB | 11309343 |
 | [1741_dp_optimized.py](1741_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
-| [1741_dp_optimized.go](1741_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
+| [1741_dp_optimized.go](1741_dp_optimized.go) | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
+| [1741_dp_parsing_optimized.py](1741_dp_parsing_optimized.py) | Python 3.12 x64 | dp, parsing | O(n + m) | AC | 0.093 s | 5352 KB | 11328660 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
