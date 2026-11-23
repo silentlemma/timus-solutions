@@ -113,6 +113,14 @@ Compared with `1465_games.java`: time 0.140 s → 0.14 s; memory 1720 KB → 668
 
 On Java 1.8, the simple version used 0.140 s and 1720 KB, and the buffered version used 0.14 s and 668 KB. Submission #11328151 used 0.093 s and 340 KB. Compared with the 24 other authors in the Java 1.8 sample, it ranks 1/25 by time and 1/25 by memory, counting ties at the same rank.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1465_games_optimized.py`. Store the 201 win/loss bits of the verified Grundy recurrence, then apply its existing period. The adjacent 1465_games_table.py regenerates the mask from the simple recurrence; no judge answers are embedded. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. Archived comparison: `1465_games.py` (Python 3.12 x64) — 0.109 s / 444 KB (#11286512).
+
 ## Solutions
 
 ### Simple
@@ -121,16 +129,17 @@ On Java 1.8, the simple version used 0.140 s and 1720 KB, and the buffered versi
 |---|---|---|---|---|---|---|---|
 | [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB | 11286506 |
 | [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB | 11286511 |
-| [1465_games.java](1465_games.java) \* | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
-| [1465_games.py](1465_games.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
-| [1465_games.rs](1465_games.rs) \* | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
+| [1465_games.java](1465_games.java) | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
+| [1465_games.py](1465_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
+| [1465_games.rs](1465_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+| [1465_games_optimized.go](1465_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 | [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
+| [1465_games_optimized.py](1465_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.093 s | 672 KB | 11328554 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

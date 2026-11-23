@@ -103,6 +103,14 @@ Go 运行时计算与 Accepted 基础版相同的前200个 Grundy 值，沿用�
 
 在 Java 1.8 上，基础版用时 0.140 s、占用 1720 KB，缓冲输入版用时 0.14 s、占用 668 KB。提交 #11328151 用时 0.093 s、占用 340 KB。与样本中另外 24 位 Java 1.8 作者相比，时间排名为 1/25，内存排名为 1/25，相同成绩并列。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1465_games_optimized.py`. 保存已验证 Grundy 递推的 201 个胜负位，再使用已有周期。相邻的 1465_games_table.py 从简单递推重新生成位掩码，没有嵌入评测答案。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. 历史对照: `1465_games.py` (Python 3.12 x64) — 0.109 s / 444 KB (#11286512).
+
 ## 解答
 
 ### 简单版本
@@ -111,16 +119,17 @@ Go 运行时计算与 Accepted 基础版相同的前200个 Grundy 值，沿用�
 |---|---|---|---|---|---|---|---|
 | [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB | 11286506 |
 | [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB | 11286511 |
-| [1465_games.java](1465_games.java) \* | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
-| [1465_games.py](1465_games.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
-| [1465_games.rs](1465_games.rs) \* | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
+| [1465_games.java](1465_games.java) | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
+| [1465_games.py](1465_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
+| [1465_games.rs](1465_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+| [1465_games_optimized.go](1465_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 | [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
+| [1465_games_optimized.py](1465_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.093 s | 672 KB | 11328554 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
