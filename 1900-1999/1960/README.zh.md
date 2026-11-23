@@ -92,6 +92,14 @@ Java 教学版保留稠密转移的回文树，仅修改缩进。格式修订有
 
 已通过评测的基础实现 [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1960_strings_optimized.py`. 保留回文树，将转移按字母分入字典，避免创建编码的父节点/字母键；记录前缀答案时复用当前节点数。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328678 (Python 3.12 x64): **0.203 s / 20040 KB**. 历史对照: `1960_strings.py` (Python 3.12 x64) — 0.296 s / 23012 KB (#11292174).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -109,7 +117,7 @@ Rust 仅用标准库，资源测量选择 CPython。
 | [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
 | [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
 | [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.14 s | 15240 KB | 11327083 |
-| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
 | [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
 
 ### 优化版本
@@ -118,6 +126,7 @@ Rust 仅用标准库，资源测量选择 CPython。
 |---|---|---|---|---|---|---|---|
 | [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
 | [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2464 KB | 11328325 |
-| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.py](1960_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.203 s | 20040 KB | 11328678 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

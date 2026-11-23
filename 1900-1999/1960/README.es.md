@@ -108,6 +108,14 @@ Los eertrees C++, Go y Rust mantienen longitudes, enlaces de sufijo y dos raíce
 
 Las implementaciones base aceptadas [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1960_strings_optimized.py`. Se mantiene el árbol palindrómico y se separan las transiciones en un diccionario por letra, evitando claves codificadas de nodo/letra. Se reutiliza el número de nodos al registrar cada prefijo. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328678 (Python 3.12 x64): **0.203 s / 20040 KB**. Comparación archivada: `1960_strings.py` (Python 3.12 x64) — 0.296 s / 23012 KB (#11292174).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -126,7 +134,7 @@ Se selecciona CPython mediante pruebas de recursos.
 | [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
 | [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
 | [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.14 s | 15240 KB | 11327083 |
-| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
 | [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
 
 ### Optimizadas
@@ -135,6 +143,7 @@ Se selecciona CPython mediante pruebas de recursos.
 |---|---|---|---|---|---|---|---|
 | [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
 | [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2464 KB | 11328325 |
-| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.py](1960_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.203 s | 20040 KB | 11328678 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

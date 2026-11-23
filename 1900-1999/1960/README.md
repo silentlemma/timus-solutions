@@ -117,6 +117,14 @@ The new C++, Go and Rust eertrees retain lengths, suffix links and the two roots
 
 The accepted base implementations [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1960_strings_optimized.py`. Keep the palindromic tree, but split transitions into one dictionary per letter instead of allocating encoded parent/letter keys. Reuse the current node count when recording each prefix answer. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328678 (Python 3.12 x64): **0.203 s / 20040 KB**. Archived comparison: `1960_strings.py` (Python 3.12 x64) — 0.296 s / 23012 KB (#11292174).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -136,7 +144,7 @@ resource measurements.
 | [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
 | [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
 | [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.14 s | 15240 KB | 11327083 |
-| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
 | [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
 
 ### Optimized
@@ -145,6 +153,7 @@ resource measurements.
 |---|---|---|---|---|---|---|---|
 | [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
 | [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2464 KB | 11328325 |
-| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+| [1960_strings_optimized.py](1960_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.203 s | 20040 KB | 11328678 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
