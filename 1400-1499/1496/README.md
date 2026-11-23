@@ -79,6 +79,14 @@ cuts out each team name, at most 30 characters, by hand instead of using
 
 Sort the team names and report each repeated adjacent name once, without retaining a dictionary of frequencies. Accepted submission 11324351 took 0.093 s and used 220 KB. The simple version took 0.062 s and used 336 KB. The recorded runtime is higher than for the simple version.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1496_implementation_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328561 (Go 1.14 x64): **0.015 s / 992 KB**. Archived comparison: `1496_implementation.go` (Go 1.14 x64) — 0.015 s / 1116 KB (#11287228).
+
 ## Solutions
 
 ### Simple
@@ -98,5 +106,6 @@ Sort the team names and report each repeated adjacent name once, without retaini
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
 | [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+| [1496_implementation_optimized.go](1496_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 992 KB | 11328561 |
 
-\* The marked solutions can improve their target rankings.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

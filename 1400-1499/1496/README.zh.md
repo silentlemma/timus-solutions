@@ -73,6 +73,14 @@ abikbaev
 
 排序队名，每个相邻重复名字只输出一次，无需保留频次字典。通过的提交 11324351 用时 0.093 秒、占用 220 KB；简单版用时 0.062 秒、占用 336 KB。记录的运行时间高于简单版。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1496_implementation_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328561 (Go 1.14 x64): **0.015 s / 992 KB**. 历史对照: `1496_implementation.go` (Go 1.14 x64) — 0.015 s / 1116 KB (#11287228).
+
 ## 解答
 
 ### 简单版本
@@ -92,5 +100,6 @@ abikbaev
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
 | [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+| [1496_implementation_optimized.go](1496_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 992 KB | 11328561 |
 
-\* 带星号的解法尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

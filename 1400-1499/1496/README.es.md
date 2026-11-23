@@ -83,6 +83,14 @@ caracteres, en lugar de usar `Scanner`: 0.093 s en lugar de 0.156 s y
 
 Ordenar los nombres de equipos e imprimir una vez cada nombre adyacente repetido, sin guardar un diccionario de frecuencias. El envío aceptado 11324351 tardó 0.093 s y usó 220 KB. La versión sencilla tardó 0.062 s y usó 336 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1496_implementation_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328561 (Go 1.14 x64): **0.015 s / 992 KB**. Comparación archivada: `1496_implementation.go` (Go 1.14 x64) — 0.015 s / 1116 KB (#11287228).
+
 ## Soluciones
 
 ### Sencillas
@@ -102,5 +110,6 @@ Ordenar los nombres de equipos e imprimir una vez cada nombre adyacente repetido
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
 | [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+| [1496_implementation_optimized.go](1496_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 992 KB | 11328561 |
 
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
