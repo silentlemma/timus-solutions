@@ -82,6 +82,22 @@ looked up once instead of searching all the keys, and reads the line
 with `getchar` instead of `getline`: 100 KB instead of 376 KB, with the
 same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1567_implementation_optimized.rs`. Keep the same mathematical recurrence. Read numeric tokens from bytes and write the bounded numeric answer directly, avoiding general-purpose numeric output formatting. The clearer archived implementation remains alongside it.
+
+Accepted #11328570 (Rust 1.75 x64): **0.015 s / 216 KB**. Archived comparison: `1567_implementation.rs` (Rust 1.75 x64) — 0.031 s / 224 KB (#11287750).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1567_implementation_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328868 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `1567_implementation.go` (Go 1.14 x64) — 0.015 s / 1048 KB (#11287743).
+
 ## Solutions
 
 ### Simple
@@ -99,6 +115,6 @@ same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
-| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
-
-\* The marked solutions can improve their target rankings.
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
+| [1567_implementation_optimized.rs](1567_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 216 KB | 11328570 |
+| [1567_implementation_parsing_optimized.go](1567_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n) | AC | 0.015 s | 804 KB | 11328868 |

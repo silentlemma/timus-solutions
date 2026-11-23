@@ -76,6 +76,22 @@ pokupaite gvozdi tolko v kompanii gvozdederov i tovarischi!
 字符只需查一次表，而不是在所有按键中查找；它用 `getchar` 代替 `getline` 读取这一
 行：100 KB，而不是 376 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1567_implementation_optimized.rs`. 保留相同的数学递推，按字节读取数字并直接输出有界长度的数值答案，避免通用数字格式化。原先更直观的实现仍然保留。
+
+Accepted #11328570 (Rust 1.75 x64): **0.015 s / 216 KB**. 历史对照: `1567_implementation.rs` (Rust 1.75 x64) — 0.031 s / 224 KB (#11287750).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1567_implementation_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328868 (Go 1.14 x64): **0.015 s / 804 KB**. 历史对照: `1567_implementation.go` (Go 1.14 x64) — 0.015 s / 1048 KB (#11287743).
+
 ## 解答
 
 ### 简单版本
@@ -93,6 +109,6 @@ pokupaite gvozdi tolko v kompanii gvozdederov i tovarischi!
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
-| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
+| [1567_implementation_optimized.rs](1567_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 216 KB | 11328570 |
+| [1567_implementation_parsing_optimized.go](1567_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n) | AC | 0.015 s | 804 KB | 11328868 |
