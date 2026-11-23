@@ -75,6 +75,14 @@ Accepted exacto Java 1.8 #11327424: 0.093 s / 344 KB. Comparación guardada del 
 
 Accepted exacto G++ 13.2 x64 #11327412: 0.015 s / 76 KB. La clasificación pública completa descargada el 2026-11-21 contiene 3066 filas. Excluido nuestro autor y elegidos compiladores C/C++ actuales, el tiempo ocupa 1/463 y la memoria 2/463; empates comparten puesto y tiempos inferiores a 0.015 s usan ese mínimo. Ambas metas de diez primeros pasan, sin asterisco; bajo 1024 KB la admisión estricta permite tiempo solo. El registro optimizado anterior #11303661 era 0.031 s / 128 KB; la base C++ conservada #11292869 es 0.031 s / 444 KB. Son pares independientes, sin mezclar mínimos. No fue necesario reenviar.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2025_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328621 (Go 1.14 x64): **0.015 s / 980 KB**. Comparación archivada: `2025_math.go` (Go 1.14 x64) — 0.031 s / 1128 KB (#11292876).
+
 ## Notas por lenguaje
 
 Ningún lenguaje necesita nada especial.
@@ -98,7 +106,8 @@ Restar del total las parejas del mismo grupo. Contar por separado las parejas ad
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2025_math_optimized.cpp](2025_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11327412 |
-| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
+| [2025_math_optimized.java](2025_math_optimized.java) | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
 | [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
+| [2025_math_optimized.go](2025_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 980 KB | 11328621 |
 
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

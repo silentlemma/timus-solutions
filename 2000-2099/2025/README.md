@@ -75,6 +75,14 @@ Exact-source Java 1.8 Accepted #11327424: 0.093 s / 344 KB. Saved 2026-11-20 com
 
 Exact-source G++ 13.2 x64 Accepted #11327412: 0.015 s / 76 KB. The complete public rating downloaded on 2026-11-21 contains 3066 rows. After excluding our author and selecting current C/C++ compilers, time rank is 1/463 and memory rank 2/463; equal measurements share a rank and times below 0.015 s use the 0.015 s floor. Both top-ten targets pass, so no asterisk. With memory below 1024 KB, strict admission also permits time only. The prior optimized run #11303661 was 0.031 s / 128 KB; the retained simple C++ run #11292869 is 0.031 s / 444 KB. These are separate paired measurements, not mixed minima. No repeat submission was needed.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2025_math_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328621 (Go 1.14 x64): **0.015 s / 980 KB**. Archived comparison: `2025_math.go` (Go 1.14 x64) — 0.031 s / 1128 KB (#11292876).
+
 ## Language notes
 
 No language needs anything special.
@@ -98,7 +106,8 @@ Subtract the within-group pairs from the total. Count the extra pairs contribute
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2025_math_optimized.cpp](2025_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11327412 |
-| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
+| [2025_math_optimized.java](2025_math_optimized.java) | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
 | [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
+| [2025_math_optimized.go](2025_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 980 KB | 11328621 |
 
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
