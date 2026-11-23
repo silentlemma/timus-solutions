@@ -87,6 +87,14 @@ Leer las invitaciones byte por byte y contar un acompañante al encontrar el sig
 
 Leer las invitaciones desde un búfer de bytes y contar los acompañantes según el sufijo de cada línea. El envío aceptado 11324260 tardó 0.125 s y usó 264 KB. La versión sencilla tardó 0.078 s y usó 420 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2100_parsing_optimized.rs`. Las invitaciones se leen como flujo acotado y solo se guarda el sufijo de cuatro bytes para detectar +one. No se conserva la entrada completa ni cadenas de invitación; no cambia el recuento. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329207 (Rust 1.75 x64): **0.015 s / 56 KB**. Comparación archivada: `2100_implementation.rs` (Rust 1.75 x64) — 0.046 s / 236 KB (#11294714).
+
 ## Soluciones
 
 ### Sencillas
@@ -105,7 +113,8 @@ Leer las invitaciones desde un búfer de bytes y contar los acompañantes según
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
-| [2100_implementation_optimized.go](2100_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
+| [2100_implementation_optimized.go](2100_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
 | [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
+| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.015 s | 56 KB | 11329207 |
 
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

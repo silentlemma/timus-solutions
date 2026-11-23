@@ -76,6 +76,14 @@ FRED+one
 
 从字节缓冲区读取邀请名单，根据每行后缀统计同行人数。通过的提交 11324260 用时 0.125 秒、占用 264 KB；简单版用时 0.078 秒、占用 420 KB。记录的运行时间高于简单版。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2100_parsing_optimized.rs`. 以有界字节流读取邀请，仅保留识别 +one 所需的四字节后缀。不保存完整输入或邀请字符串，人数规则不变。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329207 (Rust 1.75 x64): **0.015 s / 56 KB**. 历史对照: `2100_implementation.rs` (Rust 1.75 x64) — 0.046 s / 236 KB (#11294714).
+
 ## 解答
 
 ### 简单版本
@@ -94,7 +102,8 @@ FRED+one
 |----|----|----|-----|------|----|----|------|
 | [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
-| [2100_implementation_optimized.go](2100_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
+| [2100_implementation_optimized.go](2100_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
 | [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
+| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.015 s | 56 KB | 11329207 |
 
-\* 带星号的解法尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
