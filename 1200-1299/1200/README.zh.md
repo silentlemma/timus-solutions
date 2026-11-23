@@ -64,6 +64,14 @@
 - `1200_math_geometry.java`: 0.109 s / 868 KB; 基础版 `1200_math.java`: 0.140 s / 2096 KB; 相对基础版的变化: 时间 -22.1%, 内存 -58.6%.
 - `1200_math_geometry.py`: 0.125 s / 284 KB; 基础版 `1200_math.py`: 0.093 s / 488 KB; 相对基础版的变化: 时间 +34.4%, 内存 -41.8%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1200_math_optimized.rs`. 价格按整数分解析。约化凹利润的最优点只需考虑自由角数峰值及满容量边界峰值附近。按升序检查两者相邻整数和端点以保持平局规则，用常数个候选替代 K 步扫描。
+
+Accepted #11328690 (Rust 1.75 x64): **0.031 s / 240 KB**. 历史对照: `1200_math.rs` (Rust 1.75 x64) — 0.046 s / 260 KB (#11283542).
+
 ## 评测方式
 
 比较精确戈比利润及两个数量，必须满足平局规则。实际 Java 候选通过
@@ -105,6 +113,5 @@ Docker 中 13 个仓库输入并取得对应精确源码的 Accepted。常数候
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1200_math_geometry.java](1200_math_geometry.java) | Java 1.8 | math, geometry | O(1) | AC | 0.109 s | 868 KB | 11308035 |
-| [1200_math_geometry.py](1200_math_geometry.py) \* | PyPy 3.10 x64 | math, geometry | O(1) | AC | 0.125 s | 284 KB | 11309374 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+| [1200_math_geometry.py](1200_math_geometry.py) | PyPy 3.10 x64 | math, geometry | O(1) | AC | 0.125 s | 284 KB | 11309374 |
+| [1200_math_optimized.rs](1200_math_optimized.rs) | Rust 1.75 x64 | math | O(1) time and space | AC | 0.031 s | 240 KB | 11328690 |

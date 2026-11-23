@@ -74,6 +74,14 @@ The profit is a separable concave quadratic on an integer triangle. An interior 
 - `1200_math_geometry.java`: 0.109 s / 868 KB; base `1200_math.java`: 0.140 s / 2096 KB; relative change: time -22.1%, memory -58.6%.
 - `1200_math_geometry.py`: 0.125 s / 284 KB; base `1200_math.py`: 0.093 s / 488 KB; relative change: time +34.4%, memory -41.8%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1200_math_optimized.rs`. Parse prices as integer cents. The reduced concave profit changes its optimum only near the unconstrained horn peak or the full-capacity boundary peak. Check both neighboring integers plus the endpoints, in sorted order to preserve the tie rule. This replaces the K-step scan by a constant number of candidates.
+
+Accepted #11328690 (Rust 1.75 x64): **0.031 s / 240 KB**. Archived comparison: `1200_math.rs` (Rust 1.75 x64) — 0.046 s / 260 KB (#11283542).
+
 ## Checking
 
 Compare the profit in exact kopecks and both production counts;
@@ -119,6 +127,5 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1200_math_geometry.java](1200_math_geometry.java) | Java 1.8 | math, geometry | O(1) | AC | 0.109 s | 868 KB | 11308035 |
-| [1200_math_geometry.py](1200_math_geometry.py) \* | PyPy 3.10 x64 | math, geometry | O(1) | AC | 0.125 s | 284 KB | 11309374 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1200_math_geometry.py](1200_math_geometry.py) | PyPy 3.10 x64 | math, geometry | O(1) | AC | 0.125 s | 284 KB | 11309374 |
+| [1200_math_optimized.rs](1200_math_optimized.rs) | Rust 1.75 x64 | math | O(1) time and space | AC | 0.031 s | 240 KB | 11328690 |
