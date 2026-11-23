@@ -94,6 +94,14 @@ Python 按从大到小的顺序搜索环长，并按剩余顶点数、剩余点�
 
 G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11328267 · Rust 1.75 x64 №11322180.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1169_backtracking_parsing_optimized.py`. 精确 isqrt 有界搜索中仅计算实际访问的三角权重，避免长度 n 的初始化列表，保留安全容量剪枝、失败记忆和图重建。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329235 (Python 3.12 x64): **0.078 s / 988 KB**. 历史对照: `1169_backtracking.py` (Python 3.12 x64) — 0.093 s / 692 KB (#11317371).
+
 ## 解答
 
 ### 简单版本
@@ -110,9 +118,10 @@ G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · P
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1169_dp.go](1169_dp.go) \* | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
-| [1169_dp.rs](1169_dp.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
+| [1169_dp.go](1169_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
+| [1169_dp.rs](1169_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
 | [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
 | [1169_backtracking.py](1169_backtracking.py) \* | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
+| [1169_backtracking_parsing_optimized.py](1169_backtracking_parsing_optimized.py) | Python 3.12 x64 | backtracking, parsing | O(N^5) | AC | 0.078 s | 988 KB | 11329235 |
 
-\* Go 仍有提升排名的空间。 Rust 仍有提升排名的空间。 Python 仍有提升排名的空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

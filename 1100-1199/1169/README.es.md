@@ -104,6 +104,14 @@ Python prueba tamaños de ciclos en orden decreciente y memoriza los estados fal
 
 G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11328267 · Rust 1.75 x64 №11322180.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1169_backtracking_parsing_optimized.py`. Se calculan solo los pesos triangulares visitados por la búsqueda exacta acotada con isqrt, sin lista inicial de longitud n. Se conservan poda segura, memoria de fallos y reconstrucción. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329235 (Python 3.12 x64): **0.078 s / 988 KB**. Comparación archivada: `1169_backtracking.py` (Python 3.12 x64) — 0.093 s / 692 KB (#11317371).
+
 ## Soluciones
 
 ### Sencillas
@@ -120,9 +128,10 @@ G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · P
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1169_dp.go](1169_dp.go) \* | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
-| [1169_dp.rs](1169_dp.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
+| [1169_dp.go](1169_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
+| [1169_dp.rs](1169_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
 | [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
 | [1169_backtracking.py](1169_backtracking.py) \* | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
+| [1169_backtracking_parsing_optimized.py](1169_backtracking_parsing_optimized.py) | Python 3.12 x64 | backtracking, parsing | O(N^5) | AC | 0.078 s | 988 KB | 11329235 |
 
-\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Python sigue pendiente.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
