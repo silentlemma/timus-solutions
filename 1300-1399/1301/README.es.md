@@ -83,6 +83,14 @@ aleatorios.
 
 Go sigue la cara que era la superior y ejecuta BFS por capas. En cada casilla una máscara indica las caras visitadas y otra indica los muros. Go 1.14 x64, envío 11322929. Tiempo 0,015 → 0,015 s, memoria 1160 → 296 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1301_bfs_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328648 (Java 1.8): **0.062 s / 456 KB**. Comparación archivada: `1301_bfs.java` (Java 1.8) — 0.109 s / 528 KB (#11321840).
+
 ## Notas por lenguaje
 
 - Las secciones de paredes se leen palabra a palabra, así que la forma
@@ -109,5 +117,6 @@ G++ 13.2 x64 №11321838 · Java 1.8 №11321840 · Python 3.12 x64 №11321841 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1301_bfs_optimized.go](1301_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 296 KB | 11322929 |
+| [1301_bfs_optimized.java](1301_bfs_optimized.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.062 s | 456 KB | 11328648 |
 
-\* El corte de clasificación no contiene envíos comparables en Go de otros autores.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

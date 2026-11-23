@@ -81,6 +81,14 @@ labelled cube on 120 random fields.
 
 Go tracks the side holding the initial top face and processes BFS one layer at a time. Each cell stores a bit mask of visited sides and a separate mask for walls. Go 1.14 x64, submission 11322929. Time 0.015 → 0.015 s, memory 1160 → 296 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1301_bfs_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328648 (Java 1.8): **0.062 s / 456 KB**. Archived comparison: `1301_bfs.java` (Java 1.8) — 0.109 s / 528 KB (#11321840).
+
 ## Language notes
 
 - The wall sections are read word by word, so the input layout
@@ -107,5 +115,6 @@ G++ 13.2 x64 №11321838 · Java 1.8 №11321840 · Python 3.12 x64 №11321841 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1301_bfs_optimized.go](1301_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 296 KB | 11322929 |
+| [1301_bfs_optimized.java](1301_bfs_optimized.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.062 s | 456 KB | 11328648 |
 
-\* The saved rating has no comparable Go submissions from other authors.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
