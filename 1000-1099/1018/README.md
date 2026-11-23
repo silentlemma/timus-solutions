@@ -119,6 +119,14 @@ Keep the tree-knapsack teaching sources. Flatten the rooted tree in preorder; a 
 - `1018_dp_graphs.java`: 0.125 s / 368 KB; base `1018_dp_trees.java`: 0.140 s / 1912 KB; relative change: time -10.7%, memory -80.8%.
 - `1018_dp_graphs.py`: 0.125 s / 408 KB; base `1018_dp_trees.py`: 0.078 s / 596 KB; relative change: time +60.3%, memory -31.5%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1018_dp_trees_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328891 (Go 1.14 x64): **0.015 s / 996 KB**. Archived comparison: `1018_dp_trees.go` (Go 1.14 x64) — 0.031 s / 1152 KB (#11278201).
+
 ## Language notes
 
 Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
@@ -153,7 +161,8 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
 | [1018_dp_graphs_optimized.java](1018_dp_graphs_optimized.java) | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.078 s | 432 KB | 11327749 |
-| [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
-| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
+| [1018_dp_graphs.py](1018_dp_graphs.py) | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
+| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
+| [1018_dp_trees_parsing_optimized.go](1018_dp_trees_parsing_optimized.go) | Go 1.14 x64 | dp, trees, parsing | O(N · Q^2) | AC | 0.015 s | 996 KB | 11328891 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

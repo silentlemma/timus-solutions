@@ -106,6 +106,14 @@
 - `1018_dp_graphs.java`: 0.125 s / 368 KB; 基础 `1018_dp_trees.java`: 0.140 s / 1912 KB; 相对变化: 时间 -10.7%, 内存 -80.8%.
 - `1018_dp_graphs.py`: 0.125 s / 408 KB; 基础 `1018_dp_trees.py`: 0.078 s / 596 KB; 相对变化: 时间 +60.3%, 内存 -31.5%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1018_dp_trees_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328891 (Go 1.14 x64): **0.015 s / 996 KB**. 历史对照: `1018_dp_trees.go` (Go 1.14 x64) — 0.031 s / 1152 KB (#11278201).
+
 ## 各语言说明
 
 保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
@@ -140,7 +148,8 @@
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
 | [1018_dp_graphs_optimized.java](1018_dp_graphs_optimized.java) | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.078 s | 432 KB | 11327749 |
-| [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
-| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
+| [1018_dp_graphs.py](1018_dp_graphs.py) | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
+| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
+| [1018_dp_trees_parsing_optimized.go](1018_dp_trees_parsing_optimized.go) | Go 1.14 x64 | dp, trees, parsing | O(N · Q^2) | AC | 0.015 s | 996 KB | 11328891 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
