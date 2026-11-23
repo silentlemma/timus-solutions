@@ -97,6 +97,14 @@ The Go candidate was also Accepted, but memory improves only 8.2%,
 That tick is not reliable speedup evidence, so this candidate is not
 added as an optimized source. The original Go base is retained.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1157_number_theory_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328509 (Go 1.14 x64): **0.031 s / 1040 KB**. Archived comparison: `1157_number_theory.go` (Go 1.14 x64) — 0.031 s / 1172 KB (#11281331).
+
 ## Language notes
 
 The rating snapshot is from 2 November 2026. Optimized C++ has time
@@ -125,8 +133,7 @@ Ranking and the measured 30% admission criterion are separate.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1157_number_theory_optimized.cpp](1157_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(B log B) | AC | 0.015 s | 120 KB | 11308304 |
-| [1157_number_theory_optimized.java](1157_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(B log B) | AC | 0.078 s | 420 KB | 11308317 |
-| [1157_number_theory_optimized.py](1157_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(B log B) | AC | 0.078 s | 428 KB | 11308301 |
+| [1157_number_theory_optimized.java](1157_number_theory_optimized.java) | Java 1.8 | number_theory | O(B log B) | AC | 0.078 s | 420 KB | 11308317 |
+| [1157_number_theory_optimized.py](1157_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(B log B) | AC | 0.078 s | 428 KB | 11308301 |
 | [1157_number_theory_optimized.rs](1157_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(B log B) | AC | 0.015 s | 224 KB | 11308320 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1157_number_theory_optimized.go](1157_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(B log B) | AC | 0.031 s | 1040 KB | 11328509 |

@@ -83,6 +83,14 @@ Go 候选也已 Accepted，但内存仅减少 8.2%，1172 → 1076 KB；
 0.031 → 0.015 秒只相差一个计时刻度，不能证明可靠加速，
 所以不作为优化源码加入，保留原 Go 基线。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1157_number_theory_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328509 (Go 1.14 x64): **0.031 s / 1040 KB**. 历史对照: `1157_number_theory.go` (Go 1.14 x64) — 0.031 s / 1172 KB (#11281331).
+
 ## 各语言说明
 
 排名快照日期为 2026 年 11 月 2 日。优化 C++ 在 73 条筛选后的其他作者记录中，
@@ -108,8 +116,7 @@ Java 对比五条记录，排名 1/2。沿用非 C++ 语言需两项均第一的
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1157_number_theory_optimized.cpp](1157_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(B log B) | AC | 0.015 s | 120 KB | 11308304 |
-| [1157_number_theory_optimized.java](1157_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(B log B) | AC | 0.078 s | 420 KB | 11308317 |
-| [1157_number_theory_optimized.py](1157_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(B log B) | AC | 0.078 s | 428 KB | 11308301 |
+| [1157_number_theory_optimized.java](1157_number_theory_optimized.java) | Java 1.8 | number_theory | O(B log B) | AC | 0.078 s | 420 KB | 11308317 |
+| [1157_number_theory_optimized.py](1157_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(B log B) | AC | 0.078 s | 428 KB | 11308301 |
 | [1157_number_theory_optimized.rs](1157_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(B log B) | AC | 0.015 s | 224 KB | 11308320 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1157_number_theory_optimized.go](1157_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(B log B) | AC | 0.031 s | 1040 KB | 11328509 |
