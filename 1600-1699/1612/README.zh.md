@@ -109,6 +109,14 @@ Bus driver
 
 - `1612_strings_optimized.java`: 时间降低 +14.68%; 内存降低 +51.90%; 基础版本: `1612_strings.java`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1612_strings_optimized.py`. 用字节转换表分隔 ASCII 单词，替代正则表达式，保留原来的单词边界。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328576 (Python 3.12 x64): **0.078 s / 732 KB**. 历史对照: `1612_strings.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11288253).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -134,6 +142,5 @@ Bus driver
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
-| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1612_strings_optimized.go](1612_strings_optimized.go) | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
+| [1612_strings_optimized.py](1612_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 732 KB | 11328576 |

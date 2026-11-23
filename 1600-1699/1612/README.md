@@ -123,6 +123,14 @@ asterisk concerns the rating target only.
 - `1612_strings_optimized.java`: time reduction +14.68%; memory
   reduction +51.90%; base: `1612_strings.java`.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1612_strings_optimized.py`. Use a byte translation table to separate ASCII words instead of regular expressions, preserving the original word boundaries. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328576 (Python 3.12 x64): **0.078 s / 732 KB**. Archived comparison: `1612_strings.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11288253).
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -151,6 +159,5 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
-| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1612_strings_optimized.go](1612_strings_optimized.go) | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
+| [1612_strings_optimized.py](1612_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 732 KB | 11328576 |

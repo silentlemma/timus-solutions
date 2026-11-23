@@ -124,6 +124,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1612_strings_optimized.java`: reducción de tiempo +14.68%; reducción
   de memoria +51.90%; base: `1612_strings.java`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1612_strings_optimized.py`. Se separan las palabras ASCII con una tabla de traducción de bytes en lugar de expresiones regulares, manteniendo sus límites. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328576 (Python 3.12 x64): **0.078 s / 732 KB**. Comparación archivada: `1612_strings.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11288253).
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -152,6 +160,5 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
-| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1612_strings_optimized.go](1612_strings_optimized.go) | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
+| [1612_strings_optimized.py](1612_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 732 KB | 11328576 |
