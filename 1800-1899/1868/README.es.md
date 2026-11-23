@@ -148,6 +148,14 @@ Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre la
 - `1868_implementation_optimized.rs`: reducción de tiempo +0.00%;
   reducción de memoria +60.45%; base: `1868_implementation.rs`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1868_implementation_parsing_optimized.py`. Los nombres de medallas se leen como bytes y se obtiene la mejor puntuación y el número de ganadores en una pasada, evitando conversiones y recorridos repetidos. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329012 (Python 3.12 x64): **0.062 s / 912 KB**. Comparación archivada: `1868_implementation.py` (Python 3.12 x64) — 0.078 s / 692 KB (#11290928).
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -176,6 +184,7 @@ implementación para alcanzar el objetivo.
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
-| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
+| [1868_implementation_parsing_optimized.py](1868_implementation_parsing_optimized.py) | Python 3.12 x64 | implementation, parsing | O(n k) | AC | 0.062 s | 912 KB | 11329012 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

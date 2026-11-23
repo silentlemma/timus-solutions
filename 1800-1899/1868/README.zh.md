@@ -118,6 +118,14 @@ Nizhny_Novgorod_SU : silver
 
 - `1868_implementation_optimized.rs`: 时间降低 +0.00%; 内存降低 +60.45%; 基础版本: `1868_implementation.rs`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1868_implementation_parsing_optimized.py`. 以字节读取奖牌名，单次遍历求最高分及获胜者人数，避免重复文本转换和扫描。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329012 (Python 3.12 x64): **0.062 s / 912 KB**. 历史对照: `1868_implementation.py` (Python 3.12 x64) — 0.078 s / 692 KB (#11290928).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -143,6 +151,7 @@ Nizhny_Novgorod_SU : silver
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
-| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
+| [1868_implementation_parsing_optimized.py](1868_implementation_parsing_optimized.py) | Python 3.12 x64 | implementation, parsing | O(n k) | AC | 0.062 s | 912 KB | 11329012 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
