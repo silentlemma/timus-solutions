@@ -108,6 +108,14 @@ Rust conserva las cuatro permutaciones de reflexión y pruebas enteras exactas. 
 
 Las implementaciones base aceptadas [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1963_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Se eliminan duplicados entre como máximo ocho puntos de frontera en un arreglo fijo, conservando todas las pruebas de reflexión. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11329115 (Go 1.14 x64): **0.015 s / 804 KB**. Comparación archivada: `1963_geometry.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11292198).
+
 ## Notas por lenguaje
 
 C++, Go, Java y Rust calculan productos cruzados y escalares con 64 bits. Python usa enteros exactos. C++, Go, Python y Rust originales eliminan duplicados con conjuntos. Java recorre una lista breve y Rust optimizado un arreglo fijo.
@@ -119,9 +127,9 @@ C++, Go, Java y Rust calculan productos cruzados y escalares con 64 bits. Python
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
-| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
-| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
-| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
+| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
+| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
 | [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
 
 ### Optimizadas
@@ -129,5 +137,6 @@ C++, Go, Java y Rust calculan productos cruzados y escalares con 64 bits. Python
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+| [1963_parsing_optimized.go](1963_parsing_optimized.go) | Go 1.14 x64 | parsing | O(1) | AC | 0.015 s | 804 KB | 11329115 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

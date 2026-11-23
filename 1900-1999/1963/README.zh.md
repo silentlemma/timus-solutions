@@ -96,6 +96,14 @@ Rust 仍检查四种反射置换并使用精确整数运算。边界点最多八
 
 已通过评测的基础实现 [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1963_parsing_optimized.go`. 在 256 字节补充缓冲上直接进行类型化转换，并完整写出紧凑输出。负整数直接以负值累积，覆盖有符号最小值，无需反射式输入或通用输出分派。 在固定小数组中对至多八个边界点去重，替代哈希表，保留全部反射判定。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11329115 (Go 1.14 x64): **0.015 s / 804 KB**. 历史对照: `1963_geometry.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11292198).
+
 ## 各语言说明
 
 C++、Go、Java 和 Rust 用 64 位整数计算叉积与点积，Python 用精确整数。原 C++、Go、Python 和 Rust 用集合去重，Java 扫描短列表，优化的 Rust 扫描定长数组。
@@ -107,9 +115,9 @@ C++、Go、Java 和 Rust 用 64 位整数计算叉积与点积，Python 用精�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
-| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
-| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
-| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
+| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
+| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
 | [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
 
 ### 优化版本
@@ -117,5 +125,6 @@ C++、Go、Java 和 Rust 用 64 位整数计算叉积与点积，Python 用精�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+| [1963_parsing_optimized.go](1963_parsing_optimized.go) | Go 1.14 x64 | parsing | O(1) | AC | 0.015 s | 804 KB | 11329115 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

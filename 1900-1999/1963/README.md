@@ -110,6 +110,14 @@ The Rust alternative keeps the same four possible reflection permutations and ex
 
 The accepted base implementations [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1963_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Deduplicate at most eight candidate boundary points in a fixed small array instead of a hash map, retaining every reflection test. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11329115 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `1963_geometry.go` (Go 1.14 x64) — 0.031 s / 1100 KB (#11292198).
+
 ## Language notes
 
 C++, Go, Java and Rust use 64-bit cross and dot products. Python uses exact integers. Original C++, Go, Python and Rust deduplicate doubled points with sets. Java scans a short list, and optimized Rust scans a fixed array.
@@ -121,9 +129,9 @@ C++, Go, Java and Rust use 64-bit cross and dot products. Python uses exact inte
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
-| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
-| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
-| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
+| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1612 KB | 11328326 |
+| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 652 KB | 11328327 |
 | [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
 
 ### Optimized
@@ -131,5 +139,6 @@ C++, Go, Java and Rust use 64-bit cross and dot products. Python uses exact inte
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+| [1963_parsing_optimized.go](1963_parsing_optimized.go) | Go 1.14 x64 | parsing | O(1) | AC | 0.015 s | 804 KB | 11329115 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
