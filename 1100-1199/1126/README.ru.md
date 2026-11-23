@@ -106,6 +106,14 @@ Rust разбирает числа вручную из буфера на 4 КБ
 буферизованный вывод, как только он известен: 332 КБ вместо 1192 КБ при
 том же времени.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1126_two_pointers_parsing_implementation_optimized.go`. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены. Вместо полного ввода хранится пополняемый буфер на 8192 байта. Значение токенов и обработка частичного чтения и EOF сохранены.
+
+Accepted #11328910 (Go 1.14 x64): **0.031 s / 2344 KB**. Архивное сравнение: `1126_two_pointers.go` (Go 1.14 x64) — 0.062 s / 2896 KB (#11279328).
+
 ## Особенности языков
 
 - В простых решениях Go и Java хранят очередь в массиве с движущимся
@@ -129,7 +137,6 @@ Rust разбирает числа вручную из буфера на 4 КБ
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
 | [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
-| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
 | [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
-
-\* Accepted; отдельная рейтинговая цель пока не достигнута: для C++ нужны первые десять мест или топ 15% по времени и памяти, для остальных языковых семейств — первое место по обеим метрикам. Эта отметка отделена от критериев допуска; версию можно оптимизировать дальше.
+| [1126_two_pointers_parsing_implementation_optimized.go](1126_two_pointers_parsing_implementation_optimized.go) | Go 1.14 x64 | two_pointers, parsing, implementation | O(N) | AC | 0.031 s | 2344 KB | 11328910 |

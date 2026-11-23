@@ -93,6 +93,14 @@
 Rust 从 4 KB 缓冲区手工解析数字，而不是把整个输入读成字符串，
 并且每个答案一算出就通过缓冲输出写出：332 KB，而不是 1192 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1126_two_pointers_parsing_implementation_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328910 (Go 1.14 x64): **0.031 s / 2344 KB**. 历史对照: `1126_two_pointers.go` (Go 1.14 x64) — 0.062 s / 2896 KB (#11279328).
+
 ## 各语言说明
 
 - 在简单解法中，Go 和 Java 用带移动队头的数组实现队列；C++、Rust 和 Python 使用
@@ -116,7 +124,6 @@ Rust 从 4 KB 缓冲区手工解析数字，而不是把整个输入读成字符
 |----|----|----|-----|------|----|----|------|
 | [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
 | [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
-| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
 | [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
-
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
+| [1126_two_pointers_parsing_implementation_optimized.go](1126_two_pointers_parsing_implementation_optimized.go) | Go 1.14 x64 | two_pointers, parsing, implementation | O(N) | AC | 0.031 s | 2344 KB | 11328910 |
