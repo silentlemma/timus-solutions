@@ -142,6 +142,14 @@ Go conserva Hopcroft–Karp sin listas de adyacencia densas. Entradas y salidas 
 
 Las implementaciones base aceptadas [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1997_matching_implementation_optimized.rs`. Los destinos acotados de adyacencia se guardan en 16 bits y se convierten a índice al visitar. No cambian el recorrido ni las condiciones de respuesta. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328976 (Rust 1.75 x64): **0.031 s / 396 KB**. Comparación archivada: `1997_matching.rs` (Rust 1.75 x64) — 0.015 s / 1656 KB (#11292422).
+
 ## Soluciones
 
 ### Sencillas
@@ -151,14 +159,13 @@ Las implementaciones base aceptadas [1997_matching.cpp](1997_matching.cpp), [199
 | [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
 | [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
 | [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.109 s | 1116 KB | 11328331 |
-| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
-| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
 | [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1997_matching_optimized.go](1997_matching_optimized.go) | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+| [1997_matching_implementation_optimized.rs](1997_matching_implementation_optimized.rs) | Rust 1.75 x64 | matching, implementation | O(n^2 sqrt n) | AC | 0.031 s | 396 KB | 11328976 |

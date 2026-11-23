@@ -88,6 +88,14 @@ Go 保留 Hopcroft–Karp，但不分配稠密邻接表。进出时间已排序�
 
 已通过评测的基础实现 [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1997_matching_implementation_optimized.rs`. 有界邻接目标用 16 位存储，仅在访问时转为索引。图遍历及判定条件不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328976 (Rust 1.75 x64): **0.031 s / 396 KB**. 历史对照: `1997_matching.rs` (Rust 1.75 x64) — 0.015 s / 1656 KB (#11292422).
+
 ## 解答
 
 ### 简单版本
@@ -97,14 +105,13 @@ Go 保留 Hopcroft–Karp，但不分配稠密邻接表。进出时间已排序�
 | [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
 | [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
 | [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.109 s | 1116 KB | 11328331 |
-| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
-| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
 | [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1997_matching_optimized.go](1997_matching_optimized.go) | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+| [1997_matching_implementation_optimized.rs](1997_matching_implementation_optimized.rs) | Rust 1.75 x64 | matching, implementation | O(n^2 sqrt n) | AC | 0.031 s | 396 KB | 11328976 |

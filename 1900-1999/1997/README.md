@@ -145,6 +145,14 @@ Go retains Hopcroft–Karp but never allocates its potentially dense adjacency l
 
 The accepted base implementations [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1997_matching_implementation_optimized.rs`. Store bounded adjacency targets in 16 bits, converting to an index only when visiting a vertex. The graph traversal and acceptance conditions are unchanged. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328976 (Rust 1.75 x64): **0.031 s / 396 KB**. Archived comparison: `1997_matching.rs` (Rust 1.75 x64) — 0.015 s / 1656 KB (#11292422).
+
 ## Solutions
 
 ### Simple
@@ -154,14 +162,13 @@ The accepted base implementations [1997_matching.cpp](1997_matching.cpp), [1997_
 | [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
 | [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
 | [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.109 s | 1116 KB | 11328331 |
-| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
-| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
 | [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1997_matching_optimized.go](1997_matching_optimized.go) | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+| [1997_matching_implementation_optimized.rs](1997_matching_implementation_optimized.rs) | Rust 1.75 x64 | matching, implementation | O(n^2 sqrt n) | AC | 0.031 s | 396 KB | 11328976 |
