@@ -85,6 +85,14 @@ Ambas versiones procesan cada consulta hasta el paso pedido o el punto fijo 153 
 
 Las implementaciones base aceptadas [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1292_math_implementation_optimized.rs`. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328962 (Rust 1.75 x64): **0.015 s / 144 KB**. Comparación archivada: `1292_math.rs` (Rust 1.75 x64) — 0.001 s / 2124 KB (#11284596).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -101,16 +109,15 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1292_math.cpp](1292_math.cpp) | G++ 13.2 x64 | math | O(T * 14 * digits) | AC | 0.046 s | 136 KB | 11284589 |
 | [1292_math.go](1292_math.go) | Go 1.14 x64 | math | O(T * 14 * digits) | AC | 0.015 s | 1452 KB | 11284591 |
-| [1292_math.java](1292_math.java) \* | Java 1.8 | math | O(T * 14 * digits) | AC | 0.109 s | 4740 KB | 11284593 |
-| [1292_math.py](1292_math.py) \* | Python 3.12 x64 | math | O(T * 14 * digits) | AC | 0.265 s | 7972 KB | 11284592 |
-| [1292_math.rs](1292_math.rs) \* | Rust 1.75 x64 | math | O(T * 14 * digits) | AC | 0.001 s | 2124 KB | 11284596 |
+| [1292_math.java](1292_math.java) | Java 1.8 | math | O(T * 14 * digits) | AC | 0.109 s | 4740 KB | 11284593 |
+| [1292_math.py](1292_math.py) | Python 3.12 x64 | math | O(T * 14 * digits) | AC | 0.265 s | 7972 KB | 11284592 |
+| [1292_math.rs](1292_math.rs) | Rust 1.75 x64 | math | O(T * 14 * digits) | AC | 0.001 s | 2124 KB | 11284596 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
-| [1292_math_optimized.go](1292_math_optimized.go) \* | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
-| [1292_math_optimized.py](1292_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1292_math_optimized.go](1292_math_optimized.go) | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
+| [1292_math_optimized.py](1292_math_optimized.py) | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
+| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11328962 |

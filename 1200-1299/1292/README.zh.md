@@ -75,6 +75,14 @@ d³ ≡ d (mod 3)，F 保持数字和模 3 的余数，所以 3 的倍数仍是 
 
 已通过评测的基础实现 [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1292_math_implementation_optimized.rs`. 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328962 (Rust 1.75 x64): **0.015 s / 144 KB**. 历史对照: `1292_math.rs` (Rust 1.75 x64) — 0.001 s / 2124 KB (#11284596).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -91,16 +99,15 @@ d³ ≡ d (mod 3)，F 保持数字和模 3 的余数，所以 3 的倍数仍是 
 |---|---|---|---|---|---|---|---|
 | [1292_math.cpp](1292_math.cpp) | G++ 13.2 x64 | math | O(T * 14 * digits) | AC | 0.046 s | 136 KB | 11284589 |
 | [1292_math.go](1292_math.go) | Go 1.14 x64 | math | O(T * 14 * digits) | AC | 0.015 s | 1452 KB | 11284591 |
-| [1292_math.java](1292_math.java) \* | Java 1.8 | math | O(T * 14 * digits) | AC | 0.109 s | 4740 KB | 11284593 |
-| [1292_math.py](1292_math.py) \* | Python 3.12 x64 | math | O(T * 14 * digits) | AC | 0.265 s | 7972 KB | 11284592 |
-| [1292_math.rs](1292_math.rs) \* | Rust 1.75 x64 | math | O(T * 14 * digits) | AC | 0.001 s | 2124 KB | 11284596 |
+| [1292_math.java](1292_math.java) | Java 1.8 | math | O(T * 14 * digits) | AC | 0.109 s | 4740 KB | 11284593 |
+| [1292_math.py](1292_math.py) | Python 3.12 x64 | math | O(T * 14 * digits) | AC | 0.265 s | 7972 KB | 11284592 |
+| [1292_math.rs](1292_math.rs) | Rust 1.75 x64 | math | O(T * 14 * digits) | AC | 0.001 s | 2124 KB | 11284596 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
-| [1292_math_optimized.go](1292_math_optimized.go) \* | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
-| [1292_math_optimized.py](1292_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1292_math_optimized.go](1292_math_optimized.go) | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
+| [1292_math_optimized.py](1292_math_optimized.py) | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
+| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11328962 |
