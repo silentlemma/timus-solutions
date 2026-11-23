@@ -75,6 +75,14 @@ G++ 13.2 x64 №11322273 · Go 1.14 x64 №11322275 · Java 1.8 №11322277 · P
 
 Rust keeps the volume formula and uses fixed buffers for ordinary inputs and five-place output. Rust 1.75 x64, submission 11323247. Time 0.015 → 0.031 s, memory 244 → 68 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1550_geometry_parsing_optimized.py`. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328762 (Python 3.12 x64): **0.062 s / 740 KB**. Archived comparison: `1550_geometry.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11322278).
+
 ## Solutions
 
 ### Simple
@@ -95,6 +103,7 @@ Rust keeps the volume formula and uses fixed buffers for ordinary inputs and fiv
 | [1550_geometry_optimized.go](1550_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 320 KB | 11322933 |
 | [1550_geometry_optimized.java](1550_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 464 KB | 11318321 |
 | [1550_geometry_optimized.py](1550_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 452 KB | 11322022 |
-| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_parsing_optimized.py](1550_geometry_parsing_optimized.py) | Python 3.12 x64 | geometry, parsing | O(1) | AC | 0.062 s | 740 KB | 11328762 |
 
-\* The Go rating target remains open.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

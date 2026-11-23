@@ -77,6 +77,14 @@ G++ 13.2 x64 №11322273 · Go 1.14 x64 №11322275 · Java 1.8 №11322277 · P
 
 Rust conserva la fórmula del volumen y usa búferes fijos para las entradas habituales y la salida de cinco decimales. Rust 1.75 x64, envío 11323247. Tiempo 0,015 → 0,031 s, memoria 244 → 68 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1550_geometry_parsing_optimized.py`. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328762 (Python 3.12 x64): **0.062 s / 740 KB**. Comparación archivada: `1550_geometry.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11322278).
+
 ## Soluciones
 
 ### Sencillas
@@ -97,6 +105,7 @@ Rust conserva la fórmula del volumen y usa búferes fijos para las entradas hab
 | [1550_geometry_optimized.go](1550_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 320 KB | 11322933 |
 | [1550_geometry_optimized.java](1550_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 464 KB | 11318321 |
 | [1550_geometry_optimized.py](1550_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 452 KB | 11322022 |
-| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_parsing_optimized.py](1550_geometry_parsing_optimized.py) | Python 3.12 x64 | geometry, parsing | O(1) | AC | 0.062 s | 740 KB | 11328762 |
 
-\* El objetivo de clasificación de Go sigue pendiente.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

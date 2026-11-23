@@ -69,6 +69,14 @@ G++ 13.2 x64 №11322273 · Go 1.14 x64 №11322275 · Java 1.8 №11322277 · P
 
 Rust 保留体积公式，并用固定缓冲区读取常规输入、输出五位小数。 Rust 1.75 x64（提交 11323247）的运行时间从 0.015 秒变为 0.031 秒，内存从 244 KB 变为 68 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1550_geometry_parsing_optimized.py`. 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328762 (Python 3.12 x64): **0.062 s / 740 KB**. 历史对照: `1550_geometry.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11322278).
+
 ## 解答
 
 ### 简单版本
@@ -89,6 +97,7 @@ Rust 保留体积公式，并用固定缓冲区读取常规输入、输出五位
 | [1550_geometry_optimized.go](1550_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 320 KB | 11322933 |
 | [1550_geometry_optimized.java](1550_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 464 KB | 11318321 |
 | [1550_geometry_optimized.py](1550_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 452 KB | 11322022 |
-| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+| [1550_geometry_parsing_optimized.py](1550_geometry_parsing_optimized.py) | Python 3.12 x64 | geometry, parsing | O(1) | AC | 0.062 s | 740 KB | 11328762 |
 
-\* Go 尚未达到排名目标。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
