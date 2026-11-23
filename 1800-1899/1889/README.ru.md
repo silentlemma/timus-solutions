@@ -119,6 +119,14 @@ Go объединяет известные фразы в последовате�
 
 Принятые базовые реализации [1889_bruteforce.cpp](1889_bruteforce.cpp), [1889_bruteforce.java](1889_bruteforce.java), [1889_bruteforce.py](1889_bruteforce.py), [1889_bruteforce.rs](1889_bruteforce.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1889_trees_parsing_optimized.rs`. Имена языков нумеруются точным упорядоченным деревом вместо случайного хеширования; перебор делителей и проверки блоков по эпохам сохранены.
+
+Accepted #11329230 (Rust 1.75 x64): **0.015 s / 136 KB**. Архивное сравнение: `1889_bruteforce.rs` (Rust 1.75 x64) — 0.046 s / 448 KB (#11325666).
+
 ## Особенности языков
 
 Новые исходники сравниваются по срезу от 18 ноября 2026 года с другими авторами на текущих компиляторах судьи. Порогов по ID посылки или дате нет. Ничьи делят место, времена меньше 0.015 с при сравнении считаются 0.015 с. Учебные алгоритмы сохранены. Перепроверенные базовые версии используют собственные новые метрики и ID Accepted точного исходника; эти проверки не считаются оптимизациями.
@@ -136,14 +144,13 @@ Go объединяет известные фразы в последовате�
 | [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.001 s | 512 KB | 11325660 |
 | [1889_bruteforce.go](1889_bruteforce.go) | Go 1.14 x64 | bruteforce | O(n d(n)) | AC | 0.031 s | 1236 KB | 11291120 |
 | [1889_bruteforce.java](1889_bruteforce.java) | Java 1.8 | bruteforce | O(n d(n)) | AC | 0.125 s | 684 KB | 11291124 |
-| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
-| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
+| [1889_bruteforce.py](1889_bruteforce.py) | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
+| [1889_bruteforce.rs](1889_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
-| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
+| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
+| [1889_trees_parsing_optimized.rs](1889_trees_parsing_optimized.rs) | Rust 1.75 x64 | trees, parsing | O(n log n + n d(n)) time; O(n) space | AC | 0.015 s | 136 KB | 11329230 |

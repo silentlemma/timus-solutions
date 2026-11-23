@@ -103,6 +103,14 @@ Go 将已知短语压缩为连续语言组，保存名称及首尾短语编号�
 
 已通过评测的基础实现 [1889_bruteforce.cpp](1889_bruteforce.cpp), [1889_bruteforce.java](1889_bruteforce.java), [1889_bruteforce.py](1889_bruteforce.py), [1889_bruteforce.rs](1889_bruteforce.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1889_trees_parsing_optimized.rs`. 用精确有序树替代随机哈希为语言编号，保留因子枚举和轮次标记分块验证。
+
+Accepted #11329230 (Rust 1.75 x64): **0.015 s / 136 KB**. 历史对照: `1889_bruteforce.rs` (Rust 1.75 x64) — 0.046 s / 448 KB (#11325666).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
@@ -120,14 +128,13 @@ Go 将已知短语压缩为连续语言组，保存名称及首尾短语编号�
 | [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.001 s | 512 KB | 11325660 |
 | [1889_bruteforce.go](1889_bruteforce.go) | Go 1.14 x64 | bruteforce | O(n d(n)) | AC | 0.031 s | 1236 KB | 11291120 |
 | [1889_bruteforce.java](1889_bruteforce.java) | Java 1.8 | bruteforce | O(n d(n)) | AC | 0.125 s | 684 KB | 11291124 |
-| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
-| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
+| [1889_bruteforce.py](1889_bruteforce.py) | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
+| [1889_bruteforce.rs](1889_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
-| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
+| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
+| [1889_trees_parsing_optimized.rs](1889_trees_parsing_optimized.rs) | Rust 1.75 x64 | trees, parsing | O(n log n + n d(n)) time; O(n) space | AC | 0.015 s | 136 KB | 11329230 |
