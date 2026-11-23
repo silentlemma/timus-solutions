@@ -82,6 +82,14 @@ tokens: 0.203 s en lugar de 0.375 s, con la misma memoria.
 
 Frente a `1510_greedy.rs`: tiempo 0.109 s → 0.156 s; memoria 232 KB → 56 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1510_parsing_optimized.go`. Se conservan el voto exacto de Boyer–Moore y el analizador acotado con cursores locales. El resultado único se escribe con un búfer decimal en pila, sin despacho genérico. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329130 (Go 1.14 x64): **0.031 s / 812 KB**. Comparación archivada: `1510_greedy.go` (Go 1.14 x64) — 0.093 s / 6024 KB (#11287307).
+
 ## Soluciones
 
 ### Sencillas
@@ -101,6 +109,5 @@ Frente a `1510_greedy.rs`: tiempo 0.109 s → 0.156 s; memoria 232 KB → 56 KB.
 | [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
 | [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
 | [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
-| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
+| [1510_parsing_optimized.go](1510_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) state + bounded input buffer | AC | 0.031 s | 812 KB | 11329130 |

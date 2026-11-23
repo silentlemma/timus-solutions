@@ -75,6 +75,14 @@ Boyer–Moore 投票：保存一个候选值和一个计数器。与候选值相
 
 与 `1510_greedy.rs` 相比：时间 0.109 s → 0.156 s；内存 232 KB → 56 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1510_parsing_optimized.go`. 保留精确 Boyer–Moore 投票和局部游标有界解析器，以专用栈十进制缓冲输出唯一结果，避免通用输出分派。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329130 (Go 1.14 x64): **0.031 s / 812 KB**. 历史对照: `1510_greedy.go` (Go 1.14 x64) — 0.093 s / 6024 KB (#11287307).
+
 ## 解答
 
 ### 简单版本
@@ -94,6 +102,5 @@ Boyer–Moore 投票：保存一个候选值和一个计数器。与候选值相
 | [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
 | [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
 | [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
-| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
+| [1510_parsing_optimized.go](1510_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) state + bounded input buffer | AC | 0.031 s | 812 KB | 11329130 |
