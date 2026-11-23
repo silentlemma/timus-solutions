@@ -68,6 +68,14 @@ C++ 和 Go 把题目与学生编码在同一个 32 位事件数组里。最低�
 
 已通过评测的基础实现 [2145_combinatorics_sorting.java](2145_combinatorics_sorting.java), [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py), [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2145_combinatorics_sorting_optimized.py`. 直接从输入的对应片段构建两个排序数组；匹配数模 p 变成零后立即停止，因为后续乘法不能改变零。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328662 (Python 3.12 x64): **0.203 s / 20168 KB**. 历史对照: `2145_combinatorics_sorting.py` (Python 3.12 x64) — 0.218 s / 21620 KB (#11328346).
+
 ## 解答
 
 ### 简单版本
@@ -77,14 +85,13 @@ C++ 和 Go 把题目与学生编码在同一个 32 位事件数组里。最低�
 | [2145_combinatorics_sorting.cpp](2145_combinatorics_sorting.cpp) | G++ 13.2 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 1740 KB | 11328344 |
 | [2145_combinatorics_sorting.go](2145_combinatorics_sorting.go) | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.203 s | 5672 KB | 11294962 |
 | [2145_combinatorics_sorting.java](2145_combinatorics_sorting.java) | Java 1.8 | combinatorics, sorting | O(n log n) | AC | 0.156 s | 2112 KB | 11328345 |
-| [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py) \* | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 21620 KB | 11328346 |
-| [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) \* | Rust 1.75 x64 | combinatorics, sorting | O(n log n) | AC | 0.046 s | 6260 KB | 11328347 |
+| [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py) | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 21620 KB | 11328346 |
+| [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) | Rust 1.75 x64 | combinatorics, sorting | O(n log n) | AC | 0.046 s | 6260 KB | 11328347 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2145_combinatorics_sorting_optimized.cpp](2145_combinatorics_sorting_optimized.cpp) | G++ 13.2 x64 | combinatorics, sorting | O(n log n) | AC | 0.031 s | 924 KB | 11310444 |
-| [2145_combinatorics_sorting_optimized.go](2145_combinatorics_sorting_optimized.go) \* | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.078 s | 1740 KB | 11310447 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [2145_combinatorics_sorting_optimized.go](2145_combinatorics_sorting_optimized.go) | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.078 s | 1740 KB | 11310447 |
+| [2145_combinatorics_sorting_optimized.py](2145_combinatorics_sorting_optimized.py) | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.203 s | 20168 KB | 11328662 |

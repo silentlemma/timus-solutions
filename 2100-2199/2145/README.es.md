@@ -83,6 +83,14 @@ C++ y Go codifican problemas y estudiantes en un solo vector de eventos de 32 bi
 
 Las implementaciones base aceptadas [2145_combinatorics_sorting.java](2145_combinatorics_sorting.java), [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py), [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2145_combinatorics_sorting_optimized.py`. Se construyen los dos arreglos ordenados directamente desde sus segmentos de entrada. Cuando el número de asignaciones es cero módulo p, se termina: las multiplicaciones posteriores conservan el cero. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328662 (Python 3.12 x64): **0.203 s / 20168 KB**. Comparación archivada: `2145_combinatorics_sorting.py` (Python 3.12 x64) — 0.218 s / 21620 KB (#11328346).
+
 ## Soluciones
 
 ### Sencillas
@@ -92,14 +100,13 @@ Las implementaciones base aceptadas [2145_combinatorics_sorting.java](2145_combi
 | [2145_combinatorics_sorting.cpp](2145_combinatorics_sorting.cpp) | G++ 13.2 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 1740 KB | 11328344 |
 | [2145_combinatorics_sorting.go](2145_combinatorics_sorting.go) | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.203 s | 5672 KB | 11294962 |
 | [2145_combinatorics_sorting.java](2145_combinatorics_sorting.java) | Java 1.8 | combinatorics, sorting | O(n log n) | AC | 0.156 s | 2112 KB | 11328345 |
-| [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py) \* | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 21620 KB | 11328346 |
-| [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) \* | Rust 1.75 x64 | combinatorics, sorting | O(n log n) | AC | 0.046 s | 6260 KB | 11328347 |
+| [2145_combinatorics_sorting.py](2145_combinatorics_sorting.py) | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.218 s | 21620 KB | 11328346 |
+| [2145_combinatorics_sorting.rs](2145_combinatorics_sorting.rs) | Rust 1.75 x64 | combinatorics, sorting | O(n log n) | AC | 0.046 s | 6260 KB | 11328347 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2145_combinatorics_sorting_optimized.cpp](2145_combinatorics_sorting_optimized.cpp) | G++ 13.2 x64 | combinatorics, sorting | O(n log n) | AC | 0.031 s | 924 KB | 11310444 |
-| [2145_combinatorics_sorting_optimized.go](2145_combinatorics_sorting_optimized.go) \* | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.078 s | 1740 KB | 11310447 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2145_combinatorics_sorting_optimized.go](2145_combinatorics_sorting_optimized.go) | Go 1.14 x64 | combinatorics, sorting | O(n log n) | AC | 0.078 s | 1740 KB | 11310447 |
+| [2145_combinatorics_sorting_optimized.py](2145_combinatorics_sorting_optimized.py) | Python 3.12 x64 | combinatorics, sorting | O(n log n) | AC | 0.203 s | 20168 KB | 11328662 |
