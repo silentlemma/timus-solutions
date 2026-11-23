@@ -79,6 +79,14 @@ The accepted base implementations [1153_math.cpp](1153_math.cpp), [1153_math.jav
 
 Compared with `1153_math.java`: time 0.140 s → 0.125 s; memory 1676 KB → 736 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1153_math_implementation_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328983 (Rust 1.75 x64): **0.031 s / 356 KB**. Archived comparison: `1153_math.rs` (Rust 1.75 x64) — 0.046 s / 456 KB (#11280829).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -98,16 +106,17 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1153_math.cpp](1153_math.cpp) | G++ 13.2 x64 | math | O(L²) | AC | 0.015 s | 504 KB | 11280703 |
 | [1153_math.go](1153_math.go) | Go 1.14 x64 | math | O(L²) | AC | 0.031 s | 1212 KB | 11280739 |
-| [1153_math.java](1153_math.java) \* | Java 1.8 | math | O(L² log(L+1)) | AC | 0.140 s | 1676 KB | 11280808 |
+| [1153_math.java](1153_math.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.140 s | 1676 KB | 11280808 |
 | [1153_math.py](1153_math.py) | Python 3.12 x64 | math | O(L²) | AC | 0.093 s | 480 KB | 11280773 |
-| [1153_math.rs](1153_math.rs) \* | Rust 1.75 x64 | math | O(L²) | AC | 0.046 s | 456 KB | 11280829 |
+| [1153_math.rs](1153_math.rs) | Rust 1.75 x64 | math | O(L²) | AC | 0.046 s | 456 KB | 11280829 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1153_math_greedy.go](1153_math_greedy.go) \* | Go 1.14 x64 | math, greedy | O(L²) | AC | 0.031 s | 800 KB | 11311117 |
-| [1153_math_optimized.py](1153_math_optimized.py) \* | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
-| [1153_math_optimized.java](1153_math_optimized.java) \* | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
+| [1153_math_optimized.py](1153_math_optimized.py) | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
+| [1153_math_optimized.java](1153_math_optimized.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
+| [1153_math_implementation_optimized.rs](1153_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(L²) | AC | 0.031 s | 356 KB | 11328983 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
