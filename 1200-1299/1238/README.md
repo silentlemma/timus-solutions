@@ -94,6 +94,14 @@ The new C++ and Go versions keep interval DP but precompute the longest common p
 
 The accepted base implementations [1238_dp.java](1238_dp.java), [1238_dp.py](1238_dp.py), [1238_dp.rs](1238_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1238_dp_optimized.rs`. Precompute longest common prefixes, divisors of each length and decimal digit counts. A period check then uses one LCP comparison, and DP transitions no longer allocate temporary decimal strings. Time is O(n³) and storage O(n²); reconstruction is unchanged.
+
+Accepted #11328694 (Rust 1.75 x64): **0.031 s / 348 KB**. Archived comparison: `1238_dp.rs` (Rust 1.75 x64) — 0.046 s / 316 KB (#11283818).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -110,7 +118,7 @@ These notes describe the simple implementations.
 | [1238_dp.go](1238_dp.go) | Go 1.14 x64 | dp | O(n³ log n) | AC | 0.031 s | 1264 KB | 11283814 |
 | [1238_dp.java](1238_dp.java) | Java 1.8 | dp | O(n³ log n) | AC | 0.125 s | 1108 KB | 11283817 |
 | [1238_dp.py](1238_dp.py) | Python 3.12 x64 | dp | O(n³ log n) | AC | 0.125 s | 696 KB | 11283815 |
-| [1238_dp.rs](1238_dp.rs) \* | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB | 11283818 |
+| [1238_dp.rs](1238_dp.rs) | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB | 11283818 |
 | [1238_strings.py](1238_strings.py) | Python 3.12 x64 | strings | O(N⁴) | AC | 0.203 s | 1312 KB | 11315944 |
 
 ### Optimized
@@ -118,6 +126,5 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1238_dp_optimized.cpp](1238_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n³) | AC | 0.015 s | 144 KB | 11314905 |
-| [1238_dp_optimized.go](1238_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n³) | AC | 0.031 s | 320 KB | 11314912 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1238_dp_optimized.go](1238_dp_optimized.go) | Go 1.14 x64 | dp | O(n³) | AC | 0.031 s | 320 KB | 11314912 |
+| [1238_dp_optimized.rs](1238_dp_optimized.rs) | Rust 1.75 x64 | dp | O(n³) time; O(n²) space | AC | 0.031 s | 348 KB | 11328694 |
