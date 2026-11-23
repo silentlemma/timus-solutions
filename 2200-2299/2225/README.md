@@ -84,6 +84,14 @@ The Go version sums the same level-by-level run cost using a monotone stack, imp
 
 The accepted base implementations [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp), [2225_dsu_sorting.java](2225_dsu_sorting.java), [2225_dsu_sorting.py](2225_dsu_sorting.py), [2225_dsu_sorting.rs](2225_dsu_sorting.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2225_greedy_trees_optimized.py`. Use a monotone stack representing the minimum Cartesian tree. A horizontal layer of a positive run of length L costs ceil(L/2); popping a subtree adds its height difference times that layer cost. Each value is pushed and popped once, replacing sorting/DSU with O(n) time and O(n) storage. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328777 (Python 3.12 x64): **0.187 s / 3924 KB**. Archived comparison: `2225_dsu_sorting.py` (PyPy 3.10 x64) — 0.359 s / 19808 KB (#11295847).
+
 ## Solutions
 
 ### Simple
@@ -92,14 +100,15 @@ The accepted base implementations [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp), 
 |---|---|---|---|---|---|---|---|
 | [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB | 11295843 |
 | [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB | 11295845 |
-| [2225_dsu_sorting.java](2225_dsu_sorting.java) \* | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.14 s | 2776 KB | 11328353 |
-| [2225_dsu_sorting.py](2225_dsu_sorting.py) \* | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB | 11295847 |
-| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) \* | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB | 11295852 |
+| [2225_dsu_sorting.java](2225_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.14 s | 2776 KB | 11328353 |
+| [2225_dsu_sorting.py](2225_dsu_sorting.py) | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB | 11295847 |
+| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB | 11295852 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2225_trees.go](2225_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1136 KB | 11314953 |
+| [2225_greedy_trees_optimized.py](2225_greedy_trees_optimized.py) | Python 3.12 x64 | greedy, trees | O(n) time and space | AC | 0.187 s | 3924 KB | 11328777 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
