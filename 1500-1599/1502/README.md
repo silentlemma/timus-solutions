@@ -62,6 +62,18 @@ The optimized Java solution uses the same formula and parses the number
 byte by byte from `System.in` instead of using `Scanner`: 0.078 s
 instead of 0.125 s and 344 KB instead of 1584 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1502_math_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328562 (Go 1.14 x64): **0.015 s / 940 KB**. Archived comparison: `1502_math.go` (Go 1.14 x64) — 0.015 s / 1100 KB (#11287259).
+
+`1502_math_optimized.rs`. Keep the same mathematical recurrence. Read numeric tokens from bytes and write the bounded numeric answer directly, avoiding general-purpose numeric output formatting. The clearer archived implementation remains alongside it.
+
+Accepted #11328563 (Rust 1.75 x64): **0.015 s / 208 KB**. Archived comparison: `1502_math.rs` (Rust 1.75 x64) — 0.031 s / 244 KB (#11287262).
+
 ## Solutions
 
 ### Simple
@@ -79,6 +91,6 @@ instead of 0.125 s and 344 KB instead of 1584 KB.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
-| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
-
-\* The marked solutions can improve their target rankings.
+| [1502_math_optimized.py](1502_math_optimized.py) | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
+| [1502_math_optimized.go](1502_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 940 KB | 11328562 |
+| [1502_math_optimized.rs](1502_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 208 KB | 11328563 |

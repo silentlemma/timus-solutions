@@ -59,6 +59,18 @@ N。
 优化的 Java 解法使用同一个公式，并直接从 `System.in` 逐字节解析这个数，而不是使
 用 `Scanner`：0.078 s，而不是 0.125 s；344 KB，而不是 1584 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1502_math_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328562 (Go 1.14 x64): **0.015 s / 940 KB**. 历史对照: `1502_math.go` (Go 1.14 x64) — 0.015 s / 1100 KB (#11287259).
+
+`1502_math_optimized.rs`. 保留相同的数学递推，按字节读取数字并直接输出有界长度的数值答案，避免通用数字格式化。原先更直观的实现仍然保留。
+
+Accepted #11328563 (Rust 1.75 x64): **0.015 s / 208 KB**. 历史对照: `1502_math.rs` (Rust 1.75 x64) — 0.031 s / 244 KB (#11287262).
+
 ## 解答
 
 ### 简单版本
@@ -76,6 +88,6 @@ N。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
-| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1502_math_optimized.py](1502_math_optimized.py) | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
+| [1502_math_optimized.go](1502_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 940 KB | 11328562 |
+| [1502_math_optimized.rs](1502_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 208 KB | 11328563 |

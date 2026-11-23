@@ -63,6 +63,18 @@ La solución optimizada en Java usa la misma fórmula y analiza el número
 byte a byte desde `System.in` en lugar de usar `Scanner`: 0.078 s en
 lugar de 0.125 s y 344 KB en lugar de 1584 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1502_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328562 (Go 1.14 x64): **0.015 s / 940 KB**. Comparación archivada: `1502_math.go` (Go 1.14 x64) — 0.015 s / 1100 KB (#11287259).
+
+`1502_math_optimized.rs`. Se conserva la misma recurrencia matemática. Se leen los números desde bytes y se escribe directamente la respuesta numérica de tamaño acotado, evitando el formato numérico general. Se mantiene la implementación más sencilla.
+
+Accepted #11328563 (Rust 1.75 x64): **0.015 s / 208 KB**. Comparación archivada: `1502_math.rs` (Rust 1.75 x64) — 0.031 s / 244 KB (#11287262).
+
 ## Soluciones
 
 ### Sencillas
@@ -80,6 +92,6 @@ lugar de 0.125 s y 344 KB en lugar de 1584 KB.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
-| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1502_math_optimized.py](1502_math_optimized.py) | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
+| [1502_math_optimized.go](1502_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 940 KB | 11328562 |
+| [1502_math_optimized.rs](1502_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 208 KB | 11328563 |
