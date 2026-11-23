@@ -86,6 +86,14 @@ La DP por capas de inversiones usa un arreglo in situ. En cada posición se guar
 - `1523_fenwick_optimized.py`: 0.859 s / 2000 KB; base `1523_fenwick.py`: 0.562 s / 5172 KB; cambio respecto a la base: tiempo +52.8%, memoria -61.3%.
 - `1523_fenwick_optimized.rs`: 0.031 s / 472 KB; base `1523_fenwick.rs`: 0.031 s / 1292 KB; cambio respecto a la base: tiempo -0.0%, memoria -63.5%.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1523_implementation_parsing_optimized.go`. Se conservan residuos uint32, árbol de Fenwick reutilizado y DP en su lugar. Se devuelve n de inmediato para longitud uno y se usa entrada/salida directa por tipos en los demás casos. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11329123 (Go 1.14 x64): **0.031 s / 1056 KB**. Comparación archivada: `1523_fenwick.go` (Go 1.14 x64) — 0.031 s / 4576 KB (#11287383).
+
 ## Notas por lenguaje
 
 Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
@@ -119,8 +127,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1523_fenwick_optimized.cpp](1523_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(NK log N) | AC | 0.015 s | 192 KB | 11309407 |
-| [1523_fenwick_optimized.java](1523_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(NK log N) | AC | 0.140 s | 624 KB | 11309408 |
-| [1523_fenwick_optimized.py](1523_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(NK log N) | AC | 0.859 s | 2000 KB | 11309406 |
-| [1523_fenwick_optimized.rs](1523_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(NK log N) | AC | 0.031 s | 472 KB | 11309409 |
-
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+| [1523_fenwick_optimized.java](1523_fenwick_optimized.java) | Java 1.8 | fenwick | O(NK log N) | AC | 0.140 s | 624 KB | 11309408 |
+| [1523_fenwick_optimized.py](1523_fenwick_optimized.py) | Python 3.12 x64 | fenwick | O(NK log N) | AC | 0.859 s | 2000 KB | 11309406 |
+| [1523_fenwick_optimized.rs](1523_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(NK log N) | AC | 0.031 s | 472 KB | 11309409 |
+| [1523_implementation_parsing_optimized.go](1523_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n * k * log n) | AC | 0.031 s | 1056 KB | 11329123 |

@@ -78,6 +78,14 @@ ends[i]。把值从大到小编号，“大于”就变成前缀。k − 1 次�
 - `1523_fenwick_optimized.py`: 0.859 s / 2000 KB; 基础版 `1523_fenwick.py`: 0.562 s / 5172 KB; 相对基础版的变化: 时间 +52.8%, 内存 -61.3%.
 - `1523_fenwick_optimized.rs`: 0.031 s / 472 KB; 基础版 `1523_fenwick.rs`: 0.031 s / 1292 KB; 相对基础版的变化: 时间 -0.0%, 内存 -63.5%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1523_implementation_parsing_optimized.go`. 保留 uint32 余数、复用树状数组和原地 DP。子序列长度为一时直接返回 n，其余情况采用直接类型化输入输出。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11329123 (Go 1.14 x64): **0.031 s / 1056 KB**. 历史对照: `1523_fenwick.go` (Go 1.14 x64) — 0.031 s / 4576 KB (#11287383).
+
 ## 语言说明
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
@@ -111,8 +119,7 @@ ends[i]。把值从大到小编号，“大于”就变成前缀。k − 1 次�
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1523_fenwick_optimized.cpp](1523_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(NK log N) | AC | 0.015 s | 192 KB | 11309407 |
-| [1523_fenwick_optimized.java](1523_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(NK log N) | AC | 0.140 s | 624 KB | 11309408 |
-| [1523_fenwick_optimized.py](1523_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(NK log N) | AC | 0.859 s | 2000 KB | 11309406 |
-| [1523_fenwick_optimized.rs](1523_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(NK log N) | AC | 0.031 s | 472 KB | 11309409 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+| [1523_fenwick_optimized.java](1523_fenwick_optimized.java) | Java 1.8 | fenwick | O(NK log N) | AC | 0.140 s | 624 KB | 11309408 |
+| [1523_fenwick_optimized.py](1523_fenwick_optimized.py) | Python 3.12 x64 | fenwick | O(NK log N) | AC | 0.859 s | 2000 KB | 11309406 |
+| [1523_fenwick_optimized.rs](1523_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(NK log N) | AC | 0.031 s | 472 KB | 11309409 |
+| [1523_implementation_parsing_optimized.go](1523_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n * k * log n) | AC | 0.031 s | 1056 KB | 11329123 |
