@@ -79,17 +79,35 @@ literal top-three rank: many results may fit within the allowed 15% margin.
 Our version qualifies only if:
 
 ```text
-our_time <= reference_time * 1.15
+our_time <= max(reference_time * 1.15, displayed_tick_limit)
 and, when our_memory >= 1024 KB:
 our_memory <= reference_memory * 1.15
 ```
 
-The 15% boundary is inclusive and calculated without binary floating-point
-rounding. There is no additional fixed-tick allowance. The selected reference
-already has an eligible time of at least 0.015 s.
+The allowed time regression is **15%, with a minimum allowance of one timer
+tick**. Take the larger time limit; do not add a tick on top of the 15% limit.
+The memory limit remains exactly 15%, with no tick allowance. All boundaries
+are inclusive and calculated with decimal arithmetic.
+
+For this policy, a timer tick is **1/64 s = 0.015625 s**. Reconstruct the
+reference's integer tick count by rounding `reference_time / 0.015625` to the
+nearest integer, with half values rounded up. Add one tick, then truncate
+the resulting seconds to three decimal places to obtain `displayed_tick_limit`.
+This accounts for displayed values such as 0.015, 0.031, 0.046 and 0.062 s;
+simply adding 0.015 s would reject a legitimate neighboring displayed tick.
+Times that do not align with this grid still retain the exact 15% alternative.
+The configuration records the tick size, minimum allowance and display precision;
+the audit records both candidate limits and the effective limit. This is a
+comparison tolerance, not evidence that repeated runs execute equally fast.
+The selected reference still needs an eligible time of at least 0.015 s.
 
 | Reference time / memory | Our time / memory | Result |
 | --- | --- | --- |
+| 0.015 s / 252 KB | 0.031 s / 840 KB | Pass: one displayed tick; memory is excluded |
+| 0.015 s / 252 KB | 0.046 s / 104 KB | Fail: two displayed ticks slower |
+| 0.031 s / 500 KB | 0.046 s / 500 KB | Pass: one displayed tick |
+| 0.125 s / 800 KB | 0.140 s / 1023 KB | Pass: within 15% |
+| 0.125 s / 800 KB | 0.156 s / 1023 KB | Fail: exceeds both time limits |
 | 0.100 s / 800 KB | 0.115 s / 1023 KB | Pass: only time is required |
 | 0.100 s / 800 KB | 0.115 s / 1024 KB | Fail: memory exceeds 920 KB |
 | 0.100 s / 2000 KB | 0.115 s / 2300 KB | Pass: both limits are met exactly |
