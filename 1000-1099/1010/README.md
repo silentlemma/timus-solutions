@@ -130,7 +130,5 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1010_math_optimized.cpp](1010_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 88 KB | 11309321 |
-| [1010_math_optimized.java](1010_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
+| [1010_math_optimized.java](1010_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
 | [1010_math_optimized.py](1010_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 360 KB | 11309320 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.

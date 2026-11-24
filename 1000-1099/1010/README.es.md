@@ -132,7 +132,5 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1010_math_optimized.cpp](1010_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 88 KB | 11309321 |
-| [1010_math_optimized.java](1010_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
+| [1010_math_optimized.java](1010_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
 | [1010_math_optimized.py](1010_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 360 KB | 11309320 |
-
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
