@@ -129,7 +129,4 @@ Accepted для точных байтов. Конструкции времён �
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
-
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |

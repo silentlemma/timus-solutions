@@ -125,7 +125,4 @@ incluyen como Accepted.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
-
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |

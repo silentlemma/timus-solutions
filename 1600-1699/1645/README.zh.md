@@ -106,7 +106,4 @@ Go、Java、Python 与 Accepted 归档逐字节相同。格式调整不称为优
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
-
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |

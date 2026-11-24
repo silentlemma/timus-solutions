@@ -129,7 +129,4 @@ are not included as Accepted here.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
-
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
