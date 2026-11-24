@@ -122,8 +122,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2068_games_optimized.py](2068_games_optimized.py) \* | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
-| [2068_games_optimized.java](2068_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
-
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2068_games_optimized.py](2068_games_optimized.py) | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
+| [2068_games_optimized.java](2068_games_optimized.java) | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |

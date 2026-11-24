@@ -111,8 +111,5 @@ Daenerys 走第奇数步，所以她获胜当且仅当这个数是奇数。第�
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2068_games_optimized.py](2068_games_optimized.py) \* | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
-| [2068_games_optimized.java](2068_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
-
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2068_games_optimized.py](2068_games_optimized.py) | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
+| [2068_games_optimized.java](2068_games_optimized.java) | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
