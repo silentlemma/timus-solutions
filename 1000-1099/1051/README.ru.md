@@ -167,7 +167,7 @@ Rust сохраняет ту же константную формулу прин
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) \* | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
-| [1051_games_math_optimized.java](1051_games_math_optimized.java) \* | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
+| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

@@ -170,7 +170,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) \* | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
-| [1051_games_math_optimized.java](1051_games_math_optimized.java) \* | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
+| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
