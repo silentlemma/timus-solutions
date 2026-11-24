@@ -113,9 +113,7 @@ G++ 13.2 x64 №11322153 · Go 1.14 x64 №11322156 · Java 1.8 №11322157 · R
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1500_bitmask_optimized.cpp](1500_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.062 s | 128 KB | 11317075 |
-| [1500_bitmask_optimized.go](1500_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.031 s | 1388 KB | 11317225 |
-| [1500_bitmask_optimized.rs](1500_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.031 s | 472 KB | 11318111 |
+| [1500_bitmask_optimized.go](1500_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.031 s | 1388 KB | 11317225 |
+| [1500_bitmask_optimized.rs](1500_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.031 s | 472 KB | 11318111 |
 | [1500_bitmask_optimized.java](1500_bitmask_optimized.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.109 s | 428 KB | 11318116 |
-| [1500_bitmask_optimized.py](1500_bitmask_optimized.py) \* | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.25 s | 3572 KB | 11318122 |
-
-\* El corte de clasificación no contiene envíos comparables en Go de otros autores. Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1500_bitmask_optimized.py](1500_bitmask_optimized.py) | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.25 s | 3572 KB | 11318122 |
