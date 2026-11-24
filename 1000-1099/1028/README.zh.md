@@ -127,7 +127,5 @@ Python 与直接二维支配计数比较了 811 组小点集，包括 3 × 3 坐
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1028_fenwick_optimized.cpp](1028_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log C), C = 32001 | AC | 0.015 s | 224 KB | 11308209 |
-| [1028_fenwick_optimized.py](1028_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.156 s | 1576 KB | 11308208 |
+| [1028_fenwick_optimized.py](1028_fenwick_optimized.py) | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.156 s | 1576 KB | 11308208 |
 | [1028_fenwick_optimized.rs](1028_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 580 KB | 11308211 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。

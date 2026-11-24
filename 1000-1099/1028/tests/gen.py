@@ -14,8 +14,7 @@ def main():
     if sys.argv[1] == "alternating":
         n = int(sys.argv[2])
         assert 1 <= n <= 15000
-        stars = [(32000 if i % 2 == 0 else 0, i * 32000 // max(1, n - 1))
-                 for i in range(n)]
+        stars = [(32000 if i % 2 == 0 else 0, i * 32000 // max(1, n - 1)) for i in range(n)]
         print("\n".join([str(n)] + ["%d %d" % s for s in stars]))
         return
     if sys.argv[1] == "bands":

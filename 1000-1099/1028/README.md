@@ -143,7 +143,5 @@ sample is empty; its formal coverage does not prove competitive superiority.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1028_fenwick_optimized.cpp](1028_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log C), C = 32001 | AC | 0.015 s | 224 KB | 11308209 |
-| [1028_fenwick_optimized.py](1028_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.156 s | 1576 KB | 11308208 |
+| [1028_fenwick_optimized.py](1028_fenwick_optimized.py) | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.156 s | 1576 KB | 11308208 |
 | [1028_fenwick_optimized.rs](1028_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 580 KB | 11308211 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
