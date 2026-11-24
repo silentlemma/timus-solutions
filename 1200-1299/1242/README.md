@@ -166,7 +166,5 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
-| [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
-| [1242_graphs_optimized.rs](1242_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N+M+I) time; O(N+M) space | AC | 0.015 s | 96 KB | 11325526 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1242_graphs_bitmask.py](1242_graphs_bitmask.py) | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+| [1242_graphs_optimized.rs](1242_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N+M+I) time; O(N+M) space | AC | 0.015 s | 96 KB | 11325526 |
