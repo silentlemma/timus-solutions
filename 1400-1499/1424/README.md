@@ -107,7 +107,7 @@ G++ 13.2 x64 №11322134 · Go 1.14 x64 №11322135 · Java 1.8 №11322136 · P
 | [1424_sorting_greedy_optimized.cpp](1424_sorting_greedy_optimized.cpp) | G++ 13.2 x64 | sorting, greedy | O(N+M+KM) time; O(N+M+K) space | AC | 0.015 s | 920 KB | 11326980 |
 | [1424_sorting_greedy.cpp](1424_sorting_greedy.cpp) \* | G++ 13.2 x64 | sorting, greedy | O(N + M + K log M) | AC | 0.078 s | 1032 KB | 11317526 |
 | [1424_greedy_optimized.py](1424_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.203 s | 3804 KB | 11317528 |
-| [1424_greedy_optimized.rs](1424_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 1752 KB | 11317532 |
+| [1424_greedy_optimized.rs](1424_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 1752 KB | 11317532 |
 | [1424_greedy_optimized.go](1424_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + K log K) | AC | 0.031 s | 3916 KB | 11317540 |
 | [1424_greedy_optimized.java](1424_greedy_optimized.java) | Java 1.8 | greedy | O(N + K log K) | AC | 0.14 s | 4604 KB | 11317543 |
 
