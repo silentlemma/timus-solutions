@@ -110,10 +110,10 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission ID |
 |----------|----------|----------|------------|---------|------|--------|----------|
-| [1353_dp_optimized.java](1353_dp_optimized.java) \* | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
+| [1353_dp_optimized.java](1353_dp_optimized.java) | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
 | [1353_dp_optimized.py](1353_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(9S) time; O(S) space | AC | 0.125 s | 228 KB | 11325475 |
-| [1353_combinatorics.py](1353_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
-| [1353_dp_optimized.rs](1353_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
+| [1353_combinatorics.py](1353_combinatorics.py) | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
+| [1353_dp_optimized.rs](1353_dp_optimized.rs) | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
 
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

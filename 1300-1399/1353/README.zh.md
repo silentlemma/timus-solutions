@@ -103,10 +103,10 @@ ways[s] 是数字和为 s 的 k 位串个数，每加一位数字 d（0 到 9）
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 ID |
 |----|----|----|-----|------|----|----|----------|
-| [1353_dp_optimized.java](1353_dp_optimized.java) \* | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
+| [1353_dp_optimized.java](1353_dp_optimized.java) | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
 | [1353_dp_optimized.py](1353_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(9S) time; O(S) space | AC | 0.125 s | 228 KB | 11325475 |
-| [1353_combinatorics.py](1353_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
-| [1353_dp_optimized.rs](1353_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
+| [1353_combinatorics.py](1353_combinatorics.py) | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
+| [1353_dp_optimized.rs](1353_dp_optimized.rs) | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
 
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
