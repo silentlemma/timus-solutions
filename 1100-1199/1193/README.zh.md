@@ -131,8 +131,8 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
-| [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
+| [1193_greedy_optimized.java](1193_greedy_optimized.java) \* | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
 | [1193_greedy_sorting.java](1193_greedy_sorting.java) | Java 1.8 | greedy, sorting | O(N+601) time; 601 integer slots | AC | 0.078 s | 356 KB | 11327835 |
-| [1193_greedy_optimized.rs](1193_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
+| [1193_greedy_optimized.rs](1193_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
