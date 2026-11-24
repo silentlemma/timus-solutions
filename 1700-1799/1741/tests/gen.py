@@ -9,7 +9,7 @@ import sys
 KINDS = ("Pirated", "Cracked", "Licensed")
 MOST = 10000
 FEW = 8
-BIG = 10 ** 6
+BIG = 10**6
 NEAR = 5
 
 
