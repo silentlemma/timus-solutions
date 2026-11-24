@@ -132,6 +132,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1029_dp_optimized.cpp](1029_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.015 s | 164 KB | 11326645 |
-| [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
+| [1029_dp_optimized.rs](1029_dp_optimized.rs) | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

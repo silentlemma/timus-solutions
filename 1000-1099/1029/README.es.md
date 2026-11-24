@@ -138,6 +138,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1029_dp_optimized.cpp](1029_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.015 s | 164 KB | 11326645 |
-| [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
+| [1029_dp_optimized.rs](1029_dp_optimized.rs) | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

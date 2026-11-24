@@ -119,6 +119,6 @@ C++ 和 Rust 版本仍然在每层进行三次扫描。原地更新一行最小�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1029_dp_optimized.cpp](1029_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.015 s | 164 KB | 11326645 |
-| [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
+| [1029_dp_optimized.rs](1029_dp_optimized.rs) | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
