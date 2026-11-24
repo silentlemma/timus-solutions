@@ -134,7 +134,5 @@ Java читает байты блоками фиксированного раз�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
-| [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
-| [1027_parsing_optimized.java](1027_parsing_optimized.java) \* | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга.
+| [1027_parsing_optimized.go](1027_parsing_optimized.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+| [1027_parsing_optimized.java](1027_parsing_optimized.java) | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |

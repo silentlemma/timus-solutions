@@ -118,7 +118,5 @@ Java 分块读取字节，并在块之间保存表达式的括号深度以及尚
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
-| [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
-| [1027_parsing_optimized.java](1027_parsing_optimized.java) \* | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1027_parsing_optimized.go](1027_parsing_optimized.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+| [1027_parsing_optimized.java](1027_parsing_optimized.java) | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |
