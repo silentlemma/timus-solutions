@@ -120,8 +120,8 @@ Inconsistent
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1644_implementation_optimized.cpp](1644_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303768 |
-| [1644_implementation_optimized.java](1644_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 412 KB | 11327467 |
-| [1644_implementation_optimized.rs](1644_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 64 KB | 11324867 |
-| [1644_implementation_optimized.py](1644_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(I) space | AC | 0.078 s | 736 KB | 11327032 |
+| [1644_implementation_optimized.java](1644_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 412 KB | 11327467 |
+| [1644_implementation_optimized.rs](1644_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 64 KB | 11324867 |
+| [1644_implementation_optimized.py](1644_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) time; O(I) space | AC | 0.078 s | 736 KB | 11327032 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
