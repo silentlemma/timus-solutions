@@ -106,7 +106,5 @@ n! mod p。当 n ≥ p 时 p 本身就是一个因子，答案为 0。否则一�
 | [1528_math_optimized.cpp](1528_math_optimized.cpp) | G++ 13.2 x64 | math | O(sum N) | AC | 0.203 s | 112 KB | 11309294 |
 | [1528_math_optimized.go](1528_math_optimized.go) | Go 1.14 x64 | math | O(sum N) | AC | 0.218 s | 916 KB | 11309296 |
 | [1528_math_optimized.java](1528_math_optimized.java) | Java 1.8 | math | O(sum N) | AC | 0.375 s | 840 KB | 11309295 |
-| [1528_math_optimized.py](1528_math_optimized.py) \* | Python 3.12 x64 | math | O(N) product construction + bigint query work | AC | 0.359 s | 1388 KB | 11309298 |
+| [1528_math_optimized.py](1528_math_optimized.py) | Python 3.12 x64 | math | O(N) product construction + bigint query work | AC | 0.359 s | 1388 KB | 11309298 |
 | [1528_math_optimized.rs](1528_math_optimized.rs) | Rust 1.75 x64 | math | O(sum N) | AC | 0.156 s | 444 KB | 11309297 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
