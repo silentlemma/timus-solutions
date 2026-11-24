@@ -132,7 +132,5 @@ Rust обходит маски строк без динамических выд
 |---|---|---|---|---|---|---|---|
 | [1033_graphs_bitmask.cpp](1033_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(N^2) time and total space | AC | 0.001 s | 112 KB | 11308624 |
 | [1033_graphs_bitmask.java](1033_graphs_bitmask.java) | Java 1.8 | graphs, bitmask | O(N^2) time and total space | AC | 0.078 s | 376 KB | 11308630 |
-| [1033_graphs_bitmask.py](1033_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O(N^2) time and total space | AC | 0.046 s | 576 KB | 11308634 |
+| [1033_graphs_bitmask.py](1033_graphs_bitmask.py) | Python 3.12 x64 | graphs, bitmask | O(N^2) time and total space | AC | 0.046 s | 576 KB | 11308634 |
 | [1033_graphs_bitmask.rs](1033_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(N^2) time; O(N) masks/buffer | AC | 0.015 s | 140 KB | 11309560 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
