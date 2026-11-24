@@ -149,7 +149,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
 | [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 332 KB | 11328330 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
-| [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
-| [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |
+| [1993_parsing_optimized.java](1993_parsing_optimized.java) | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
+| [1993_parsing_optimized.rs](1993_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
