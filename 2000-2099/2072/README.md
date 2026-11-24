@@ -104,6 +104,4 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2072_sorting_dp_optimized.cpp](2072_sorting_dp_optimized.cpp) | G++ 13.2 x64 | sorting, dp | O(N log N) | AC | 0.031 s | 924 KB | 11308423 |
-| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) \* | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |

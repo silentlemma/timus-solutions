@@ -87,6 +87,4 @@ n（1 ≤ n ≤ 10⁵），然后从左到右给出 n 个湿润度，每个在 1
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2072_sorting_dp_optimized.cpp](2072_sorting_dp_optimized.cpp) | G++ 13.2 x64 | sorting, dp | O(N log N) | AC | 0.031 s | 924 KB | 11308423 |
-| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) \* | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |

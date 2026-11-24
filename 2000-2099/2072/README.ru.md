@@ -105,6 +105,4 @@ n, 1 ≤ n ≤ 10⁵, затем n значений увлажнённости �
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2072_sorting_dp_optimized.cpp](2072_sorting_dp_optimized.cpp) | G++ 13.2 x64 | sorting, dp | O(N log N) | AC | 0.031 s | 924 KB | 11308423 |
-| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) \* | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
+| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |

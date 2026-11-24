@@ -12,9 +12,9 @@ import sys
 
 SMALL_N = 8
 SMALL_VALUE = 3
-MAX_N = 10 ** 5
+MAX_N = 10**5
 FEW = 10
-MAX_VALUE = 10 ** 9
+MAX_VALUE = 10**9
 
 
 def main():
