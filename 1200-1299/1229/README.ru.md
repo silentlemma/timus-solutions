@@ -101,7 +101,5 @@ Go и Rust читают по две строки и хранят один при
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1229_constructive_optimized.go](1229_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 800 KB | 11328269 |
-| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1229_constructive_optimized.go](1229_constructive_optimized.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 800 KB | 11328269 |
+| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |

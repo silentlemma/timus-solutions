@@ -91,7 +91,5 @@ Go 和 Rust 每次读取两行，每个 2 × 2 块只保存一个方向标记。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1229_constructive_optimized.go](1229_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 800 KB | 11328269 |
-| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1229_constructive_optimized.go](1229_constructive_optimized.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 800 KB | 11328269 |
+| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |
