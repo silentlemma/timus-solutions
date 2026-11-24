@@ -104,7 +104,7 @@ Go 用固定的 16 位编号数组保存排列。访问过的项置零，零不�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1024_math_optimized.go](1024_math_optimized.go) \* | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 288 KB | 11311221 |
-| [1024_math_optimized.java](1024_math_optimized.java) \* | Java 1.8 | math | O(N log N) | AC | 0.093 s | 468 KB | 11325004 |
+| [1024_math_optimized.go](1024_math_optimized.go) | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 288 KB | 11311221 |
+| [1024_math_optimized.java](1024_math_optimized.java) | Java 1.8 | math | O(N log N) | AC | 0.093 s | 468 KB | 11325004 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
