@@ -92,7 +92,7 @@ Go、Rust 保留 Aho–Corasick 与精确计数。至多 101 个状态、50 个�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1158_strings_optimized.go](1158_strings_optimized.go) \* | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
-| [1158_strings_optimized.rs](1158_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
+| [1158_strings_optimized.go](1158_strings_optimized.go) | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
+| [1158_strings_optimized.rs](1158_strings_optimized.rs) | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

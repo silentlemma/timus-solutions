@@ -106,7 +106,7 @@ Go/Python/Java originales usan enteros grandes; C++/Rust originales, bloques din
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1158_strings_optimized.go](1158_strings_optimized.go) \* | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
-| [1158_strings_optimized.rs](1158_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
+| [1158_strings_optimized.go](1158_strings_optimized.go) | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
+| [1158_strings_optimized.rs](1158_strings_optimized.rs) | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

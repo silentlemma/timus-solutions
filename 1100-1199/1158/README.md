@@ -102,7 +102,7 @@ Original Go/Python/Java use arbitrary-precision integers; original C++/Rust use 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1158_strings_optimized.go](1158_strings_optimized.go) \* | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
-| [1158_strings_optimized.rs](1158_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
+| [1158_strings_optimized.go](1158_strings_optimized.go) | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
+| [1158_strings_optimized.rs](1158_strings_optimized.rs) | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
