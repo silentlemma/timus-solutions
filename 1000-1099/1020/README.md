@@ -114,6 +114,6 @@ with `Locale.US`, so that the decimal separator is a point.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
-| [1020_geometry_optimized.java](1020_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.093 s | 796 KB | 11326599 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.093 s | 796 KB | 11326599 |
 
 \* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
