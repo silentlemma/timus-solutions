@@ -180,7 +180,5 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1021_two_pointers_optimized.cpp](1021_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 208 KB | 11304533 |
 | [1021_two_pointers_optimized.go](1021_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1120 KB | 11304534 |
 | [1021_two_pointers_optimized.java](1021_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.078 s | 492 KB | 11304535 |
-| [1021_hashing_optimized.py](1021_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N1 + N2) on average | AC | 0.109 s | 496 KB | 11304537 |
+| [1021_hashing_optimized.py](1021_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N1 + N2) on average | AC | 0.109 s | 496 KB | 11304537 |
 | [1021_two_pointers_optimized.rs](1021_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 284 KB | 11304536 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
