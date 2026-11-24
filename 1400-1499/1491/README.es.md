@@ -162,7 +162,5 @@ Instantánea del 2 de noviembre de 2026 (puesto temporal / de memoria; registros
 | [1491_prefix_sums_optimized.cpp](1491_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.046 s | 516 KB | 11308370 |
 | [1491_prefix_sums_optimized.go](1491_prefix_sums_optimized.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 2972 KB | 11308372 |
 | [1491_prefix_sums_optimized.java](1491_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.125 s | 852 KB | 11308375 |
-| [1491_prefix_sums_optimized.py](1491_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.250 s | 1236 KB | 11308367 |
+| [1491_prefix_sums_optimized.py](1491_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.250 s | 1236 KB | 11308367 |
 | [1491_prefix_sums_optimized.rs](1491_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.062 s | 584 KB | 11308383 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

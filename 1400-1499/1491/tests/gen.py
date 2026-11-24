@@ -23,9 +23,7 @@ def main():
             a = b = rng.randint(1, n)
             c = rng.randint(1, RICHEST)
         elif mode == 5:
-            a, b = rng.choice(
-                [(1, n // 2), (n // 4, n), (1, 3 * n // 4), (n // 4, 3 * n // 4)]
-            )
+            a, b = rng.choice([(1, n // 2), (n // 4, n), (1, 3 * n // 4), (n // 4, 3 * n // 4)])
             c = rng.randint(1, RICHEST)
         elif mode == 6:
             a = rng.randint(1, n)
