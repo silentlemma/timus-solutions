@@ -110,7 +110,7 @@ Java `_optimized` 仍是 gcd 算法。以下与各语言真正首选基础版比
 | [1138_dp.cpp](1138_dp.cpp) | G++ 13.2 x64 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.015 s | 224 KB | 11279425 |
 | [1138_dp.go](1138_dp.go) | Go 1.14 x64 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.031 s | 1144 KB | 11279426 |
 | [1138_dp.java](1138_dp.java) \* | Java 1.8 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.125 s | 1680 KB | 11279429 |
-| [1138_dp.py](1138_dp.py) \* | Python 3.12 x64 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.093 s | 508 KB | 11279428 |
+| [1138_dp.py](1138_dp.py) | Python 3.12 x64 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.093 s | 508 KB | 11279428 |
 | [1138_dp.rs](1138_dp.rs) | Rust 1.75 x64 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.015 s | 256 KB | 11279431 |
 | [1138_dp_optimized.java](1138_dp_optimized.java) | Java 1.8 | dp | O(P n log n + n log P) time; O(n+P) space, P=100 | AC | 0.093 s | 448 KB | 11308275 |
 
