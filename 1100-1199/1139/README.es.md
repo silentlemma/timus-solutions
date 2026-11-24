@@ -123,6 +123,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1139_number_theory_optimized.java](1139_number_theory_optimized.java) | Java 1.8 | number_theory | O(log min(N, M)) | AC | 0.093 s | 360 KB | 11303570 |
 | [1139_number_theory_optimized.py](1139_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log min(N,M)) | AC | 0.125 s | 220 KB | 11324847 |
-| [1139_number_theory_optimized.rs](1139_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(log min(N,M)) | AC | 0.031 s | 56 KB | 11324856 |
+| [1139_number_theory_optimized.rs](1139_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(log min(N,M)) | AC | 0.031 s | 56 KB | 11324856 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
