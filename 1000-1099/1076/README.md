@@ -117,10 +117,10 @@ G++ 13.2 x64 №11322109 · Go 1.14 x64 №11322110 · Java 1.8 №11322111 · P
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1076_matching_optimized.py](1076_matching_optimized.py) \* | Python 3.12 x64 | matching | O(N^3) | AC | 0.14 s | 2208 KB | 11317809 |
+| [1076_matching_optimized.py](1076_matching_optimized.py) | Python 3.12 x64 | matching | O(N^3) | AC | 0.14 s | 2208 KB | 11317809 |
 | [1076_matching_optimized.cpp](1076_matching_optimized.cpp) \* | G++ 13.2 x64 | matching | O(N^3) | AC | 0.046 s | 140 KB | 11317819 |
-| [1076_matching_optimized.go](1076_matching_optimized.go) \* | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 960 KB | 11317826 |
-| [1076_matching_optimized.rs](1076_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(N^3) | AC | 0.015 s | 360 KB | 11317838 |
+| [1076_matching_optimized.go](1076_matching_optimized.go) | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 960 KB | 11317826 |
+| [1076_matching_optimized.rs](1076_matching_optimized.rs) | Rust 1.75 x64 | matching | O(N^3) | AC | 0.015 s | 360 KB | 11317838 |
 | [1076_matching_optimized.java](1076_matching_optimized.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 484 KB | 11317844 |
 
 \* The marked solutions can improve their target rankings.

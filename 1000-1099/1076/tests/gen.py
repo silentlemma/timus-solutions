@@ -32,8 +32,7 @@ def main():
             row = [rng.randint(1, top) if j == single else 0 for j in range(n)]
         elif shape == BLOCKS:
             row = [
-                rng.randint(1, top) if rows[i] // BLOCK_SIZE == c // BLOCK_SIZE else 0
-                for c in cols
+                rng.randint(1, top) if rows[i] // BLOCK_SIZE == c // BLOCK_SIZE else 0 for c in cols
             ]
         else:
             row = [rng.randint(0, top) for _ in range(n)]
