@@ -116,7 +116,5 @@ Accepted точного исходника Java 1.8 №11327341: 0.109 с / 308 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
-| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) time; O(K) space | AC | 0.109 s | 308 KB | 11327341 |
-| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.078 s | 612 KB | 11327017 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(K²) time; O(K) space | AC | 0.109 s | 308 KB | 11327341 |
+| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.078 s | 612 KB | 11327017 |
