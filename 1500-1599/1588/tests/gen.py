@@ -26,9 +26,15 @@ def main():
         cities = {(i * step, j * step) for i in range(GRID) for j in range(GRID)}
     elif mode == 3:
         cx, cy = SIDE // 2, SIDE // 2
-        dirs = rng.sample([(dx, dy) for dx in range(SMALL + 1)
-                           for dy in range(-SMALL, SMALL + 1)
-                           if (dx > 0 or dy > 0) and math.gcd(dx, dy) == 1], SPOKES)
+        dirs = rng.sample(
+            [
+                (dx, dy)
+                for dx in range(SMALL + 1)
+                for dy in range(-SMALL, SMALL + 1)
+                if (dx > 0 or dy > 0) and math.gcd(dx, dy) == 1
+            ],
+            SPOKES,
+        )
         cities.add((cx, cy))
         for k in range(1, MOST):
             for dx, dy in dirs:

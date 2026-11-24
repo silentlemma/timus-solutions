@@ -92,7 +92,7 @@ Las implementaciones base aceptadas [1588_geometry.cpp](1588_geometry.cpp), [158
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1588_geometry_optimized.go](1588_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) expected | AC | 0.046 s | 1020 KB | 11310418 |
-| [1588_geometry_optimized.rs](1588_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.015 s | 236 KB | 11310417 |
+| [1588_geometry_optimized.go](1588_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n²) expected | AC | 0.046 s | 1020 KB | 11310418 |
+| [1588_geometry_optimized.rs](1588_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.015 s | 236 KB | 11310417 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
