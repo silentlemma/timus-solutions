@@ -7,9 +7,9 @@ passed on the last visit, mode 5 a threshold just above the signed
 import random
 import sys
 
-MOST_N = 2 * 10 ** 9
+MOST_N = 2 * 10**9
 MOST_M = 3000
-MOST_BILL = 2 * 10 ** 6
+MOST_BILL = 2 * 10**6
 SHARES = 3
 
 

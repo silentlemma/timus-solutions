@@ -122,8 +122,8 @@ Team.GOV!
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
-| [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
-| [1688_implementation_optimized.rs](1688_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(M) | AC | 0.046 s | 52 KB | 11325143 |
+| [1688_implementation_optimized.java](1688_implementation_optimized.java) \* | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
+| [1688_implementation_optimized.py](1688_implementation_optimized.py) | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+| [1688_implementation_optimized.rs](1688_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(M) | AC | 0.046 s | 52 KB | 11325143 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
