@@ -131,8 +131,6 @@ C++ 教学版把同一个前序数组分成大小约为 √N 的块。每块保�
 |---|---|---|---|---|---|---|---|
 | [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB | 11291127 |
 | [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB | 11291128 |
-| [1890_fenwick.java](1890_fenwick.java) \* | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB | 11291133 |
-| [1890_fenwick.py](1890_fenwick.py) \* | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB | 11291131 |
-| [1890_fenwick.rs](1890_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB | 11291135 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1890_fenwick.java](1890_fenwick.java) | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB | 11291133 |
+| [1890_fenwick.py](1890_fenwick.py) | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB | 11291131 |
+| [1890_fenwick.rs](1890_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB | 11291135 |
