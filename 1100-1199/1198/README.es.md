@@ -119,7 +119,7 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1198_graphs_bitmask.cpp](1198_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.078 s | 1092 KB | 11315333 |
-| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
-| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
+| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
+| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

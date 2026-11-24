@@ -101,7 +101,7 @@ C++、Go、Rust 用 64 位字压缩正反邻接行；重复边和自环只重复
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1198_graphs_bitmask.cpp](1198_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.078 s | 1092 KB | 11315333 |
-| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
-| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
+| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
+| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

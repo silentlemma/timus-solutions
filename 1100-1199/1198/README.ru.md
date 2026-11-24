@@ -114,7 +114,7 @@ C++, Go и Rust упаковывают строки прямого и обрат
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1198_graphs_bitmask.cpp](1198_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.078 s | 1092 KB | 11315333 |
-| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
-| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
+| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
+| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
