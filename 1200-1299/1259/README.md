@@ -122,7 +122,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1259_math_optimized.go](1259_math_optimized.go) \* | Go 1.14 x64 | math | O(√N) | AC | 0.015 s | 268 KB | 11311211 |
+| [1259_math_optimized.go](1259_math_optimized.go) | Go 1.14 x64 | math | O(√N) | AC | 0.015 s | 268 KB | 11311211 |
 | [1259_math_optimized.rs](1259_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√N) | AC | 0.046 s | 48 KB | 11311236 |
 | [1259_math_optimized.java](1259_math_optimized.java) | Java 1.8 | math | O(√N) | AC | 0.078 s | 424 KB | 11324812 |
 
