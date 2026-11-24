@@ -93,7 +93,7 @@ O(1) 内更新下一个更短长度的余数：368 KB，而不是 1640 KB，时�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1120_math_optimized.java](1120_math_optimized.java) | Java 1.8 | math | O(√S) | AC | 0.093 s | 368 KB | 11303709 |
-| [1120_math_optimized.rs](1120_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√S) | AC | 0.031 s | 56 KB | 11324861 |
+| [1120_math_optimized.rs](1120_math_optimized.rs) | Rust 1.75 x64 | math | O(√S) | AC | 0.031 s | 56 KB | 11324861 |
 | [1120_number_theory.py](1120_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(√S+τ(S)) arithmetic work; O(log S) state | AC | 0.109 s | 308 KB | 11325855 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

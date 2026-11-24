@@ -104,7 +104,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1120_math_optimized.java](1120_math_optimized.java) | Java 1.8 | math | O(√S) | AC | 0.093 s | 368 KB | 11303709 |
-| [1120_math_optimized.rs](1120_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√S) | AC | 0.031 s | 56 KB | 11324861 |
+| [1120_math_optimized.rs](1120_math_optimized.rs) | Rust 1.75 x64 | math | O(√S) | AC | 0.031 s | 56 KB | 11324861 |
 | [1120_number_theory.py](1120_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(√S+τ(S)) arithmetic work; O(log S) state | AC | 0.109 s | 308 KB | 11325855 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
