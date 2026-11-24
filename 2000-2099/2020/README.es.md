@@ -150,6 +150,4 @@ Los enteros ordinarios bastan para el resultado.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
-| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |

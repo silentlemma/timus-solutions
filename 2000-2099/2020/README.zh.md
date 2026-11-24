@@ -120,6 +120,4 @@ L
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
-| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
