@@ -139,7 +139,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1039_dp_optimized.go](1039_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
-| [1039_dp_optimized.rs](1039_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
+| [1039_dp_optimized.go](1039_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
+| [1039_dp_optimized.rs](1039_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

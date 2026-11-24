@@ -140,7 +140,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1039_dp_optimized.go](1039_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
-| [1039_dp_optimized.rs](1039_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
+| [1039_dp_optimized.go](1039_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
+| [1039_dp_optimized.rs](1039_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -128,7 +128,7 @@ Go 和 Rust 从叶子向上计算树形动态规划。每名员工保存直属�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1039_dp_optimized.go](1039_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
-| [1039_dp_optimized.rs](1039_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
+| [1039_dp_optimized.go](1039_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
+| [1039_dp_optimized.rs](1039_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
