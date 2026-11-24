@@ -126,6 +126,4 @@ n и m (1 ≤ n, m ≤ 100), затем g₁, …, gₙ, затем b₁, …, b
 |---|---|---|---|---|---|---|---|
 | [1788_greedy_optimized.cpp](1788_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O((n + m)^2) | AC | 0.015 s | 172 KB | 11307198 |
 | [1788_greedy_optimized.java](1788_greedy_optimized.java) | Java 1.8 | greedy | O((n + m)^2) | AC | 0.093 s | 396 KB | 11307199 |
-| [1788_greedy_optimized.rs](1788_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n+m log m) | AC | 0.046 s | 72 KB | 11325110 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1788_greedy_optimized.rs](1788_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n+m log m) | AC | 0.046 s | 72 KB | 11325110 |
