@@ -95,8 +95,8 @@ Go 和 Rust 用一个 16 位数组同时表示连通分量、大小和激活状�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
-| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
-| [1124_dsu_optimized.java](1124_dsu_optimized.java) \* | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
+| [1124_dsu_optimized.go](1124_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
+| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+| [1124_dsu_optimized.java](1124_dsu_optimized.java) | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

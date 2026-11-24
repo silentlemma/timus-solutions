@@ -109,8 +109,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
-| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
-| [1124_dsu_optimized.java](1124_dsu_optimized.java) \* | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
+| [1124_dsu_optimized.go](1124_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
+| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+| [1124_dsu_optimized.java](1124_dsu_optimized.java) | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

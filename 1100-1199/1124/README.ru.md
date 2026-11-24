@@ -111,8 +111,8 @@ Go и Rust объединяют принадлежность компонент�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
-| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
-| [1124_dsu_optimized.java](1124_dsu_optimized.java) \* | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
+| [1124_dsu_optimized.go](1124_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
+| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+| [1124_dsu_optimized.java](1124_dsu_optimized.java) | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
