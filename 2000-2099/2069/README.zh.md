@@ -122,7 +122,5 @@ n 和 m（2 ≤ n, m ≤ 10⁵），然后从左到右给出 n 条竖直街道�
 | [2069_greedy_optimized.cpp](2069_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N+M) | AC | 0.015 s | 84 KB | 11308572 |
 | [2069_greedy_optimized.go](2069_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N+M) | AC | 0.031 s | 1020 KB | 11308575 |
 | [2069_greedy_optimized.java](2069_greedy_optimized.java) | Java 1.8 | greedy | O(N+M) | AC | 0.109 s | 404 KB | 11308581 |
-| [2069_greedy_optimized.py](2069_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N+M) | AC | 0.171 s | 412 KB | 11308586 |
+| [2069_greedy_optimized.py](2069_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N+M) | AC | 0.171 s | 412 KB | 11308586 |
 | [2069_greedy_optimized.rs](2069_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N+M) | AC | 0.031 s | 196 KB | 11308590 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。

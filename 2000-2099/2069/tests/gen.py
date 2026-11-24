@@ -9,8 +9,8 @@ horizontal maximum on the penultimate street, capped by the left street.
 import random
 import sys
 
-MAX_SIDE = 10 ** 5
-MAX_VALUE = 10 ** 9
+MAX_SIDE = 10**5
+MAX_VALUE = 10**9
 SMALL_SIDE = 6
 SMALL_VALUE = 9
 
