@@ -110,7 +110,5 @@ G++ 13.2 x64 №11321821 · Python 3.12 x64 №11321822 · Rust 1.75 x64 №1132
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1254_shortest_paths_optimized.go](1254_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.171 s | 1376 KB | 11317201 |
+| [1254_shortest_paths_optimized.go](1254_shortest_paths_optimized.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.171 s | 1376 KB | 11317201 |
 | [1254_shortest_paths_optimized.java](1254_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.218 s | 1980 KB | 11317202 |
-
-\* В сохранённом срезе нет сопоставимых посылок Go от других авторов.
