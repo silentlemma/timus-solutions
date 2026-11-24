@@ -37,7 +37,7 @@ def main():
                 if line[pos - 1] != line[pos]:
                     cuts.append(pos)
             cut = rng.choice(cuts)
-            swapped = line[:cut - 1] + line[cut] + line[cut - 1] + line[cut + 1:]
+            swapped = line[: cut - 1] + line[cut] + line[cut - 1] + line[cut + 1 :]
             lines.extend((line, swapped))
         sys.stdout.buffer.write(("\n".join([str(len(lines))] + lines) + "\n").encode("ascii"))
         return

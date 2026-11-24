@@ -192,7 +192,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1102_parsing.cpp](1102_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.031 s | 144 KB | 11307270 |
 | [1102_parsing.go](1102_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.046 s | 1100 KB | 11307275 |
 | [1102_dp.java](1102_dp.java) \* | Java 1.8 | dp | O(L) | AC | 0.421 s | 432 KB | 11307279 |
-| [1102_parsing.java](1102_parsing.java) \* | Java 1.8 | parsing | O(L) | AC | 0.125 s | 804 KB | 11307272 |
+| [1102_parsing.java](1102_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.125 s | 804 KB | 11307272 |
 | [1102_parsing.rs](1102_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.031 s | 448 KB | 11307277 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
