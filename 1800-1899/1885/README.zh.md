@@ -97,7 +97,7 @@ h, t, v, x（5000 ≤ h ≤ 12 000，50 ≤ t ≤ 1200，1 ≤ x < v ≤ 100，h
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
-| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 336 KB | 11327530 |
-| [1885_math_optimized.rs](1885_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
+| [1885_math_optimized.java](1885_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 336 KB | 11327530 |
+| [1885_math_optimized.rs](1885_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
