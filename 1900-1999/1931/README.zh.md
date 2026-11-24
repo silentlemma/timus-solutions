@@ -115,7 +115,5 @@ Original problem from Open Ural FU Championship 2012 | by Olga Soboleva.
 |---|---|---|---|---|---|---|---|
 | [1931_simulation_optimized.cpp](1931_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 80 KB | 11307246 |
 | [1931_simulation_optimized.go](1931_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.031 s | 1032 KB | 11307247 |
-| [1931_simulation_optimized.py](1931_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.109 s | 452 KB | 11307249 |
+| [1931_simulation_optimized.py](1931_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.109 s | 452 KB | 11307249 |
 | [1931_simulation_optimized.rs](1931_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.031 s | 204 KB | 11307248 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
