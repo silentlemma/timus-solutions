@@ -7,8 +7,8 @@ antidiagonal near the maximum coordinates."""
 import random
 import sys
 
-LIMIT = 10 ** 6
-MOST = 10 ** 5
+LIMIT = 10**6
+MOST = 10**5
 FEW = 10
 SMALL = 30
 
