@@ -112,6 +112,4 @@ G++ 13.2 x64 №11321843 · Java 1.8 №11321844 · PyPy 3.10 x64 №11322025 ·
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1486_hashing_optimized.go](1486_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
-
-\* The saved rating has no comparable Go submissions from other authors.
+| [1486_hashing_optimized.go](1486_hashing_optimized.go) | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |

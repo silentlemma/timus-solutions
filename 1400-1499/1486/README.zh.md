@@ -93,6 +93,4 @@ G++ 13.2 x64 №11321843 · Java 1.8 №11321844 · PyPy 3.10 x64 №11322025 ·
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1486_hashing_optimized.go](1486_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
-
-\* 排名快照中没有其他作者的可比 Go 提交。
+| [1486_hashing_optimized.go](1486_hashing_optimized.go) | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
