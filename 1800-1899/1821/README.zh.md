@@ -113,6 +113,4 @@ Zaitseva
 |---|---|---|---|---|---|---|---|
 | [1821_sorting_optimized.cpp](1821_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 120 KB | 11307289 |
 | [1821_sorting_optimized.java](1821_sorting_optimized.java) | Java 1.8 | sorting | O(n log n) | AC | 0.109 s | 664 KB | 11307294 |
-| [1821_sorting_optimized.rs](1821_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n·L) time; O(nL) space | AC | 0.046 s | 88 KB | 11325534 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1821_sorting_optimized.rs](1821_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(n log n·L) time; O(nL) space | AC | 0.046 s | 88 KB | 11325534 |
