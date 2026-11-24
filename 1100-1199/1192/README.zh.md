@@ -102,6 +102,4 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1192_math_optimized.java](1192_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 952 KB | 11304273 |
-| [1192_math_optimized.rs](1192_math_optimized.rs) \* | Rust 1.75 x64 | math | O(k) | AC | 0.015 s | 152 KB | 11326303 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1192_math_optimized.rs](1192_math_optimized.rs) | Rust 1.75 x64 | math | O(k) | AC | 0.015 s | 152 KB | 11326303 |
