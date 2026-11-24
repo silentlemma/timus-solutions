@@ -13,7 +13,7 @@ class Bad(Exception):
 def check(source, expected, output):
     data = list(map(int, open(source).read().split()))
     n = data[0]
-    a = data[1:n + 1]
+    a = data[1 : n + 1]
     talk = [abs(a[i] - a[(i + 1) % n]) for i in range(n)]
     if open(expected).read().split()[0] != "YES":
         raise Bad("the stored answer is not YES")
@@ -30,7 +30,7 @@ def check(source, expected, output):
         if pos >= len(numbers):
             raise Bad("a set is missing")
         size = numbers[pos]
-        part = numbers[pos + 1:pos + 1 + size]
+        part = numbers[pos + 1 : pos + 1 + size]
         if size < 1 or len(part) != size:
             raise Bad("each set must be non-empty and complete")
         parts.append(part)

@@ -92,9 +92,7 @@ G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.015 s | 136 KB | 11326979 |
-| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
+| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
 | [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
-| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
-| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) \* | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |
-
-\* C++ 版本已通过评测，尚未达到目标排名，仍可优化。 此快照中没有其他参赛者的可比较 Go 提交。 此快照中没有其他参赛者的可比较 Rust 提交。 Java 达到内存优化标准，耗时排名仍可提升。
+| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
+| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |

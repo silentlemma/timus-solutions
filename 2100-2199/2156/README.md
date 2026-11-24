@@ -106,9 +106,7 @@ G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.015 s | 136 KB | 11326979 |
-| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
+| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
 | [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
-| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
-| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) \* | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |
-
-\* The accepted C++ version still has room to improve in the target ranking. The Go rating has no comparable submissions from other participants in this snapshot. The Rust rating has no comparable submissions from other participants in this snapshot. Java meets the memory criterion and can improve its time rank.
+| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
+| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |

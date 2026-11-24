@@ -7,8 +7,8 @@ isolated dips of distinct depths in a constant plateau."""
 import random
 import sys
 
-MAX_N = 10 ** 5
-MAX_A = 10 ** 9
+MAX_N = 10**5
+MAX_A = 10**9
 SMALL_N = 8
 SMALL_A = 4
 
