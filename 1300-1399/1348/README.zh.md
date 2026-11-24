@@ -105,8 +105,5 @@ L 没有上界，所以把它读成浮点数，而不是会溢出的整数。极
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1348_geometry_optimized.cpp](1348_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 144 KB | 11325059 |
-| [1348_geometry_optimized.java](1348_geometry_optimized.java) \* | Java 1.8 | geometry | O(k) | AC | 0.109 s | 1072 KB | 11324783 |
-| [1348_geometry_optimized.rs](1348_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 116 KB | 11325502 |
-
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1348_geometry_optimized.java](1348_geometry_optimized.java) | Java 1.8 | geometry | O(k) | AC | 0.109 s | 1072 KB | 11324783 |
+| [1348_geometry_optimized.rs](1348_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 116 KB | 11325502 |
