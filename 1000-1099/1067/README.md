@@ -121,6 +121,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1067_sorting.cpp](1067_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log N + P) | AC | 0.015 s | 484 KB | 11310423 |
-| [1067_sorting.py](1067_sorting.py) \* | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
+| [1067_sorting.py](1067_sorting.py) | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

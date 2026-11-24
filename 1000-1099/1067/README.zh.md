@@ -107,6 +107,6 @@ C++ 和 Python 按目录名序列排序路径。C++ 将分隔符替换为零字�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1067_sorting.cpp](1067_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log N + P) | AC | 0.015 s | 484 KB | 11310423 |
-| [1067_sorting.py](1067_sorting.py) \* | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
+| [1067_sorting.py](1067_sorting.py) | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
