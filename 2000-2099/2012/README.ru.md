@@ -100,7 +100,5 @@ Accepted точного исходника CPython 3.12 №11327060: 0.062 с / 
 | [2012_math_optimized.cpp](2012_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303657 |
 | [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
 | [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
-| [2012_math_optimized.go](2012_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
-| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 592 KB | 11327060 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга.
+| [2012_math_optimized.go](2012_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
+| [2012_math_optimized.py](2012_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 592 KB | 11327060 |
