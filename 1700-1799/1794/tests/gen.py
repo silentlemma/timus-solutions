@@ -17,8 +17,10 @@ def main():
     if mode == 3:
         start = rng.randint(1, n)
         share = rng.random()
-        wants = [(i - start) % n + 1 if rng.random() < share else rng.randint(1, n)
-                 for i in range(1, n + 1)]
+        wants = [
+            (i - start) % n + 1 if rng.random() < share else rng.randint(1, n)
+            for i in range(1, n + 1)
+        ]
     elif mode == 4:
         first, second = rng.sample(range(1, n + 1), 2)
         starts = [first] * (n // 2 - 1) + [second] * (n // 2 + 1)

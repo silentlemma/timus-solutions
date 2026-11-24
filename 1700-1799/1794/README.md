@@ -124,6 +124,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1794_implementation_optimized.cpp](1794_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 520 KB | 11308385 |
 | [1794_implementation_optimized.py](1794_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.187 s | 912 KB | 11309462 |
-| [1794_implementation_optimized.rs](1794_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.062 s | 452 KB | 11325113 |
+| [1794_implementation_optimized.rs](1794_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.062 s | 452 KB | 11325113 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
