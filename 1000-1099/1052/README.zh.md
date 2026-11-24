@@ -119,6 +119,4 @@
 |---|---|---|---|---|---|---|---|
 | [1052_geometry.py](1052_geometry.py) | Python 3.12 x64 | geometry | O(N² log C) expected | AC | 0.078 s | 508 KB | 11278698 |
 | [1052_geometry_sorting.rs](1052_geometry_sorting.rs) | Rust 1.75 x64 | geometry, sorting | O(N²(log N+log C)) | AC | 0.015 s | 52 KB | 11309709 |
-| [1052_geometry_sorting.java](1052_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N²(log N+log C)) | AC | 0.093 s | 520 KB | 11325006 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1052_geometry_sorting.java](1052_geometry_sorting.java) | Java 1.8 | geometry, sorting | O(N²(log N+log C)) | AC | 0.093 s | 520 KB | 11325006 |
