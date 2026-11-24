@@ -6,7 +6,7 @@ Mode 1: a short segment anywhere up to 10^12. Mode 2: a long random segment.
 import random
 import sys
 
-TOP = 10 ** 12
+TOP = 10**12
 SHORT = 1000
 
 

@@ -126,9 +126,9 @@ R 为区间右端点，M=floor(sqrt(R))，P 为更高次幂所需的小素数数
 |---|---|---|---|---|---|---|---|
 | [2070_number_theory_dp.cpp](2070_number_theory_dp.cpp) | G++ 13.2 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.015 s | 172 KB | 11308159 |
 | [2070_number_theory_dp.go](2070_number_theory_dp.go) | Go 1.14 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.031 s | 1116 KB | 11308162 |
-| [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
+| [2070_number_theory_dp.java](2070_number_theory_dp.java) \* | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
 | [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
 | [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |
-| [2070_number_theory_optimized.java](2070_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(M log log M+sqrt(M) log R) time; O(M) bytes | AC | 0.109 s | 892 KB | 11327837 |
+| [2070_number_theory_optimized.java](2070_number_theory_optimized.java) | Java 1.8 | number_theory | O(M log log M+sqrt(M) log R) time; O(M) bytes | AC | 0.109 s | 892 KB | 11327837 |
 
 \* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
