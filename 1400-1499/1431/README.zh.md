@@ -99,9 +99,9 @@ Go 和 Rust 用字节数组统计数量一至 30 的类型频次。处理每个�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1431_greedy_optimized.go](1431_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N + 30) | AC | 0.015 s | 348 KB | 11311231 |
-| [1431_greedy_optimized.rs](1431_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N + 30) | AC | 0.031 s | 56 KB | 11311246 |
-| [1431_greedy_optimized.java](1431_greedy_optimized.java) \* | Java 1.8 | greedy | O(N + 30) | AC | 0.109 s | 440 KB | 11324802 |
+| [1431_greedy_optimized.go](1431_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + 30) | AC | 0.015 s | 348 KB | 11311231 |
+| [1431_greedy_optimized.rs](1431_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + 30) | AC | 0.031 s | 56 KB | 11311246 |
+| [1431_greedy_optimized.java](1431_greedy_optimized.java) | Java 1.8 | greedy | O(N + 30) | AC | 0.109 s | 440 KB | 11324802 |
 | [1431_greedy_optimized.py](1431_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n+V) time; O(V+B) space | AC | 0.156 s | 256 KB | 11325486 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
