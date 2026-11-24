@@ -104,6 +104,6 @@ C++、Java 保持 i mod k 的均衡房间分配。各房间人数为 sᵢ 时，
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1641_constructive_optimized.cpp](1641_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315496 |
-| [1641_constructive_optimized.java](1641_constructive_optimized.java) \* | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
+| [1641_constructive_optimized.java](1641_constructive_optimized.java) | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

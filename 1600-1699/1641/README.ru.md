@@ -117,6 +117,6 @@ C++ и Java сохраняют равномерное назначение ка�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1641_constructive_optimized.cpp](1641_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315496 |
-| [1641_constructive_optimized.java](1641_constructive_optimized.java) \* | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
+| [1641_constructive_optimized.java](1641_constructive_optimized.java) | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

@@ -117,6 +117,6 @@ Las implementaciones base aceptadas [1641_constructive.go](1641_constructive.go)
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1641_constructive_optimized.cpp](1641_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315496 |
-| [1641_constructive_optimized.java](1641_constructive_optimized.java) \* | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
+| [1641_constructive_optimized.java](1641_constructive_optimized.java) | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
