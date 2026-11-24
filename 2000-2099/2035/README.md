@@ -97,6 +97,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2035_math_optimized.cpp](2035_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11303670 |
 | [2035_math_optimized.py](2035_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 200 KB | 11324848 |
-| [2035_math_optimized.rs](2035_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 68 KB | 11324857 |
+| [2035_math_optimized.rs](2035_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 68 KB | 11324857 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
