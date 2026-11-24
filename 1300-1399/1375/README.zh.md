@@ -93,8 +93,8 @@ x 和 y，或 `NO SOLUTION`。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1375_math.cpp](1375_math.cpp) | G++ 13.2 x64 | math | O(1 + T log p) | AC | 0.015 s | 108 KB | 11315721 |
-| [1375_math.go](1375_math.go) \* | Go 1.14 x64 | math | O(1 + T log p) | AC | 0.031 s | 916 KB | 11315726 |
-| [1375_math.rs](1375_math.rs) \* | Rust 1.75 x64 | math | O(1 + T log p) | AC | 0.046 s | 64 KB | 11315729 |
+| [1375_math.go](1375_math.go) | Go 1.14 x64 | math | O(1 + T log p) | AC | 0.031 s | 916 KB | 11315726 |
+| [1375_math.rs](1375_math.rs) | Rust 1.75 x64 | math | O(1 + T log p) | AC | 0.046 s | 64 KB | 11315729 |
 | [1375_math.py](1375_math.py) | Python 3.12 x64 | math | O(p log p) worst; O(1) auxiliary words | AC | 0.078 s | 828 KB | 11325462 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

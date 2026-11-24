@@ -16,8 +16,11 @@ def main():
     seed, low, high, remainder = map(int, sys.argv[2:])
     if not (3 <= low <= high <= 10**6 and remainder in (1, 3)):
         raise ValueError("invalid prime interval or remainder")
-    primes = [p for p in range(low, high + 1) if p % 4 == remainder
-              and all(p % d for d in range(2, isqrt(p) + 1))]
+    primes = [
+        p
+        for p in range(low, high + 1)
+        if p % 4 == remainder and all(p % d for d in range(2, isqrt(p) + 1))
+    ]
     if not primes:
         raise ValueError("interval contains no suitable prime")
     rng = random.Random(seed)
