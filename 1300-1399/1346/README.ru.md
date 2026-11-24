@@ -84,6 +84,13 @@ Accepted точного исходника G++ 13.2 x64 №11327408: 0.015 с / 
 
 Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. Архивное сравнение: `1346_greedy.py` (Python 3.12 x64) — 0.14 s / 11140 KB (#11285126).
 
+
+`1346_implementation_parsing_optimized.rs`. Прямой вывод специализирован по реальным типам ответа без универсального выбора формата и временных строк. Фиксированный текст записывается нативно; числовой вывод точно обрабатывает нужные знаковые или беззнаковые значения. Математические решения и архивные простые версии сохранены.
+
+Для этого точного исходника получен собственный Accepted и выполнены единые [рейтинговые критерии](../../RATING_CRITERIA.md). Время и память ниже взяты из одной посылки; повторные измерения судьи могут различаться. Существующие простые и отличающиеся оптимизированные версии сохранены.
+
+Accepted #11329367 (Rust 1.75 x64): **0.015 s / 56 KB**.
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -109,3 +116,4 @@ Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. Архивное с�
 | [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(B-A+1) time; O(1) auxiliary storage | AC | 0.015 s | 92 KB | 11327408 |
 | [1346_greedy_optimized.go](1346_greedy_optimized.go) | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
 | [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.109 s | 724 KB | 11328773 |
+| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.015 s | 56 KB | 11329367 |
