@@ -200,7 +200,5 @@ asterisk concerns the rating target only.
 | [1303_greedy_optimized.cpp](1303_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + M) | AC | 0.015 s | 172 KB | 11307319 |
 | [1303_greedy_optimized.go](1303_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + M) | AC | 0.015 s | 1204 KB | 11307326 |
 | [1303_greedy_optimized.java](1303_greedy_optimized.java) | Java 1.8 | greedy | O(N + M) | AC | 0.093 s | 856 KB | 11307323 |
-| [1303_greedy_optimized.py](1303_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1276 KB | 11328271 |
+| [1303_greedy_optimized.py](1303_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1276 KB | 11328271 |
 | [1303_greedy_optimized.rs](1303_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + M) | AC | 0.031 s | 232 KB | 11307329 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
