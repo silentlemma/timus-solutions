@@ -106,8 +106,6 @@ G++ 13.2 x64 №11321827 · Go 1.14 x64 №11322170 · Java 1.8 №11322171 · P
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1096_bfs_optimized.py](1096_bfs_optimized.py) | Python 3.12 x64 | bfs | O(K + R) | AC | 0.062 s | 960 KB | 11317785 |
-| [1096_bfs_optimized.go](1096_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(K + R) | AC | 0.031 s | 892 KB | 11317790 |
+| [1096_bfs_optimized.go](1096_bfs_optimized.go) | Go 1.14 x64 | bfs | O(K + R) | AC | 0.031 s | 892 KB | 11317790 |
 | [1096_bfs_optimized.rs](1096_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(K + R) | AC | 0.015 s | 256 KB | 11317798 |
 | [1096_bfs_optimized.java](1096_bfs_optimized.java) | Java 1.8 | bfs | O(K + R) | AC | 0.109 s | 432 KB | 11317805 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
