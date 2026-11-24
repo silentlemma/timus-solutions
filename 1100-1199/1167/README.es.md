@@ -164,7 +164,5 @@ implementación para alcanzar el objetivo.
 | [1167_dp_optimized.cpp](1167_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(K·N log N) | AC | 0.015 s | 108 KB | 11304442 |
 | [1167_dp_optimized.go](1167_dp_optimized.go) | Go 1.14 x64 | dp | O(K·N log N) | AC | 0.031 s | 1096 KB | 11304443 |
 | [1167_dp_optimized.java](1167_dp_optimized.java) | Java 1.8 | dp | O(K·N log N) | AC | 0.109 s | 476 KB | 11304444 |
-| [1167_dp_optimized.py](1167_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K·N log N) | AC | 0.171 s | 692 KB | 11304446 |
-| [1167_dp_optimized.rs](1167_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(KN log N) time; O(N) space | AC | 0.031 s | 64 KB | 11325518 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1167_dp_optimized.py](1167_dp_optimized.py) | Python 3.12 x64 | dp | O(K·N log N) | AC | 0.171 s | 692 KB | 11304446 |
+| [1167_dp_optimized.rs](1167_dp_optimized.rs) | Rust 1.75 x64 | dp | O(KN log N) time; O(N) space | AC | 0.031 s | 64 KB | 11325518 |
