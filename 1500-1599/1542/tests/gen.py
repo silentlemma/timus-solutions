@@ -43,7 +43,7 @@ def families(rng, mode):
         queries = list(letters)
         for _ in range(300):
             word = rng.choice(words)
-            queries.append(word[:rng.randint(1, len(word))])
+            queries.append(word[: rng.randint(1, len(word))])
         rng.shuffle(queries)
         frequencies = [1, 2, 3, TOP - 1, TOP]
     rng.shuffle(words)
