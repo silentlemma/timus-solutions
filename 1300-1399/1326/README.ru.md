@@ -112,7 +112,5 @@ Go и Rust оставляют в каждом предложении тольк�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
-| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
+| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |

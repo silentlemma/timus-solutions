@@ -96,7 +96,5 @@ Go 和 Rust 先把每个报价限制在所需瓶盖内。如果另一报价以�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
-| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
+| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |

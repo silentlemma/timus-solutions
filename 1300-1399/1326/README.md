@@ -111,7 +111,5 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
-| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
+| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
