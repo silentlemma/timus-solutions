@@ -91,7 +91,7 @@ Go сохраняет две формулы n−1 и floor(3(n−1)/2). Числ
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
-| [1483_math_optimized.java](1483_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
+| [1483_math_optimized.go](1483_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+| [1483_math_optimized.java](1483_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

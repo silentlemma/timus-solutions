@@ -84,7 +84,7 @@ Go 沿用 n−1 和 floor(3(n−1)/2) 两个公式，用小字节缓冲区读取
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
-| [1483_math_optimized.java](1483_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
+| [1483_math_optimized.go](1483_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+| [1483_math_optimized.java](1483_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

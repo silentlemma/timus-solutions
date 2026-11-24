@@ -92,7 +92,7 @@ Frente a `1483_math.java`: tiempo 0.093 s → 0.078 s; memoria 1588 KB → 456 K
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
-| [1483_math_optimized.java](1483_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
+| [1483_math_optimized.go](1483_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+| [1483_math_optimized.java](1483_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
