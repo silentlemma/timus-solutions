@@ -103,9 +103,7 @@ Rust simplifica la fracción con el algoritmo de Euclides y escribe los enteros 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1274_math_optimized.go](1274_math_optimized.go) \* | Go 1.14 x64 | math | O(log 30000) | AC | 0.015 s | 968 KB | 11318448 |
-| [1274_math_optimized.py](1274_math_optimized.py) \* | Python 3.12 x64 | math | O(log 30000) | AC | 0.093 s | 540 KB | 11318456 |
+| [1274_math_optimized.go](1274_math_optimized.go) | Go 1.14 x64 | math | O(log 30000) | AC | 0.015 s | 968 KB | 11318448 |
+| [1274_math_optimized.py](1274_math_optimized.py) | Python 3.12 x64 | math | O(log 30000) | AC | 0.093 s | 540 KB | 11318456 |
 | [1274_math_optimized.java](1274_math_optimized.java) | Java 1.8 | math | O(log 30000) | AC | 0.078 s | 356 KB | 11321991 |
-| [1274_math_optimized.rs](1274_math_optimized.rs) \* | Rust 1.75 x64 | math | O(log 30000) | AC | 0.062 s | 44 KB | 11323303 |
-
-\* Las versiones marcadas aún pueden mejorar su clasificación.
+| [1274_math_optimized.rs](1274_math_optimized.rs) | Rust 1.75 x64 | math | O(log 30000) | AC | 0.062 s | 44 KB | 11323303 |
