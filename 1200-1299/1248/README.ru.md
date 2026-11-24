@@ -101,8 +101,8 @@ Python читает по одному слагаемому и масштабир
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1248_math_optimized.java](1248_math_optimized.java) \* | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1932 KB | 11318438 |
-| [1248_math_optimized.rs](1248_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
-| [1248_math_optimized.go](1248_math_optimized.go) \* | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
+| [1248_math_optimized.rs](1248_math_optimized.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
+| [1248_math_optimized.go](1248_math_optimized.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
 | [1248_math_optimized.py](1248_math_optimized.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 512 KB | 11322028 |
 
 \* У отмеченных версий есть запас для улучшения рейтинга.

@@ -93,8 +93,8 @@ Python 逐项读取，并将数值缩放到输入允许的最小十进制位。 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1248_math_optimized.java](1248_math_optimized.java) \* | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1932 KB | 11318438 |
-| [1248_math_optimized.rs](1248_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
-| [1248_math_optimized.go](1248_math_optimized.go) \* | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
+| [1248_math_optimized.rs](1248_math_optimized.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
+| [1248_math_optimized.go](1248_math_optimized.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
 | [1248_math_optimized.py](1248_math_optimized.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 512 KB | 11322028 |
 
 \* 带星号的版本仍有提升排名的空间。
