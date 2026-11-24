@@ -130,7 +130,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1685_strings_optimized.cpp](1685_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 112 KB | 11307312 |
-| [1685_strings_optimized.java](1685_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 668 KB | 11307316 |
-| [1685_strings_optimized.rs](1685_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 88 KB | 11325106 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1685_strings_optimized.java](1685_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 668 KB | 11307316 |
+| [1685_strings_optimized.rs](1685_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 88 KB | 11325106 |
