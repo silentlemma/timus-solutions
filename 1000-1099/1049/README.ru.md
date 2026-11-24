@@ -147,7 +147,5 @@ Accepted точного исходника Java 1.8 №11328052: 0.062 с / 316 
 |---|---|---|---|---|---|---|---|
 | [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 308 KB | 11328262 |
 | [1049_number_theory_optimized.java](1049_number_theory_optimized.java) | Java 1.8 | number_theory | O(C sqrt(V)+C^2) time; O(C) space | AC | 0.062 s | 316 KB | 11328052 |
-| [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.062 s | 572 KB | 11327877 |
-| [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1049_number_theory_optimized.py](1049_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.062 s | 572 KB | 11327877 |
+| [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
