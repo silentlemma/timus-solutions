@@ -132,8 +132,6 @@ Q 个块数，用空格分隔。
 |---|---|---|---|---|---|---|---|
 | [1671_dsu_optimized.cpp](1671_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((N + M) log N) | AC | 0.031 s | 1348 KB | 11304032 |
 | [1671_dsu_optimized.go](1671_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + M) log N) | AC | 0.031 s | 5920 KB | 11304261 |
-| [1671_dsu_optimized.java](1671_dsu_optimized.java) \* | Java 1.8 | dsu | O((N + M) log N) | AC | 0.125 s | 2064 KB | 11304033 |
-| [1671_dsu_optimized.py](1671_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + M) log N) | AC | 0.343 s | 10584 KB | 11304034 |
+| [1671_dsu_optimized.java](1671_dsu_optimized.java) | Java 1.8 | dsu | O((N + M) log N) | AC | 0.125 s | 2064 KB | 11304033 |
+| [1671_dsu_optimized.py](1671_dsu_optimized.py) | Python 3.12 x64 | dsu | O((N + M) log N) | AC | 0.343 s | 10584 KB | 11304034 |
 | [1671_dsu_optimized.rs](1671_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + M) log N) | AC | 0.031 s | 3936 KB | 11304035 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
