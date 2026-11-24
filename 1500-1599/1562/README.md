@@ -98,7 +98,7 @@ Compared with `1562_geometry.java`: time 0.109 s → 0.14 s; memory 2072 KB → 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
-| [1562_geometry_optimized.java](1562_geometry_optimized.java) \* | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
+| [1562_geometry_optimized.go](1562_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+| [1562_geometry_optimized.java](1562_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

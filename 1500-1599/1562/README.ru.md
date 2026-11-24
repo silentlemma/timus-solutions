@@ -97,7 +97,7 @@ V(z) = π·a²/4·(z − 4z³/(3b²)),
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
-| [1562_geometry_optimized.java](1562_geometry_optimized.java) \* | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
+| [1562_geometry_optimized.go](1562_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+| [1562_geometry_optimized.java](1562_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

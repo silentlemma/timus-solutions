@@ -91,7 +91,7 @@ Go 版本将竖直坐标归一化到 [−1, 1]。若一片的中点为 m、半�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
-| [1562_geometry_optimized.java](1562_geometry_optimized.java) \* | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
+| [1562_geometry_optimized.go](1562_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+| [1562_geometry_optimized.java](1562_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
