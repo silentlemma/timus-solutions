@@ -97,9 +97,7 @@ Rust reads the decimal as a scaled integer and uses integer arithmetic for the f
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1605_math_optimized.java](1605_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 316 KB | 11318297 |
-| [1605_math_optimized.py](1605_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11318410 |
-| [1605_math_optimized.go](1605_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 284 KB | 11322854 |
-| [1605_math_optimized.rs](1605_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 48 KB | 11323310 |
-
-\* The Java rating target remains open. The Python rating target remains open.
+| [1605_math_optimized.java](1605_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 316 KB | 11318297 |
+| [1605_math_optimized.py](1605_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11318410 |
+| [1605_math_optimized.go](1605_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 284 KB | 11322854 |
+| [1605_math_optimized.rs](1605_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 48 KB | 11323310 |

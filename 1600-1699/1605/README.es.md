@@ -98,9 +98,7 @@ Rust lee el decimal como entero escalado y usa aritmética entera para el redond
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1605_math_optimized.java](1605_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 316 KB | 11318297 |
-| [1605_math_optimized.py](1605_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11318410 |
-| [1605_math_optimized.go](1605_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 284 KB | 11322854 |
-| [1605_math_optimized.rs](1605_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 48 KB | 11323310 |
-
-\* El objetivo de clasificación de Java sigue pendiente. El objetivo de clasificación de Python sigue pendiente.
+| [1605_math_optimized.java](1605_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 316 KB | 11318297 |
+| [1605_math_optimized.py](1605_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11318410 |
+| [1605_math_optimized.go](1605_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 284 KB | 11322854 |
+| [1605_math_optimized.rs](1605_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 48 KB | 11323310 |
