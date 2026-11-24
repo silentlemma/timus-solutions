@@ -96,7 +96,5 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1117_math_optimized.java](1117_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 352 KB | 11309311 |
-| [1117_math_optimized.py](1117_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 264 KB | 11309685 |
-| [1117_math_optimized.rs](1117_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1), fixed-width bit operations | AC | 0.015 s | 60 KB | 11325497 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1117_math_optimized.py](1117_math_optimized.py) | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 264 KB | 11309685 |
+| [1117_math_optimized.rs](1117_math_optimized.rs) | Rust 1.75 x64 | math | O(1), fixed-width bit operations | AC | 0.015 s | 60 KB | 11325497 |

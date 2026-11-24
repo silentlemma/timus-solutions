@@ -111,7 +111,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1117_math_optimized.java](1117_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 352 KB | 11309311 |
-| [1117_math_optimized.py](1117_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 264 KB | 11309685 |
-| [1117_math_optimized.rs](1117_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1), fixed-width bit operations | AC | 0.015 s | 60 KB | 11325497 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1117_math_optimized.py](1117_math_optimized.py) | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 264 KB | 11309685 |
+| [1117_math_optimized.rs](1117_math_optimized.rs) | Rust 1.75 x64 | math | O(1), fixed-width bit operations | AC | 0.015 s | 60 KB | 11325497 |
