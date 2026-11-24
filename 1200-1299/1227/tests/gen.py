@@ -38,8 +38,7 @@ def main():
         lines = ["%d %d %d" % (m, n, s)]
         for _ in range(n):
             lines.append(
-                "%d %d %d"
-                % (rng.randint(1, m), rng.randint(1, m), rng.randint(1, LONGEST))
+                "%d %d %d" % (rng.randint(1, m), rng.randint(1, m), rng.randint(1, LONGEST))
             )
         sys.stdout.buffer.write(("\n".join(lines) + "\n").encode("ascii"))
         return

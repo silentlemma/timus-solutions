@@ -119,8 +119,8 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1227_dsu_dp.go](1227_dsu_dp.go) \* | Go 1.14 x64 | dsu, dp | O(N + M²) | AC | 0.015 s | 792 KB | 11310847 |
+| [1227_dsu_dp.go](1227_dsu_dp.go) | Go 1.14 x64 | dsu, dp | O(N + M²) | AC | 0.015 s | 792 KB | 11310847 |
 | [1227_dsu_dp.rs](1227_dsu_dp.rs) \* | Rust 1.75 x64 | dsu, dp | O(N + M²) | AC | 0.031 s | 212 KB | 11310397 |
-| [1227_dsu_dp.py](1227_dsu_dp.py) \* | Python 3.12 x64 | dsu, dp | O(N + M²) | AC | 0.078 s | 720 KB | 11310339 |
+| [1227_dsu_dp.py](1227_dsu_dp.py) | Python 3.12 x64 | dsu, dp | O(N + M²) | AC | 0.078 s | 720 KB | 11310339 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
