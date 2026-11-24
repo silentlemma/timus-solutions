@@ -5,7 +5,7 @@ import random
 import sys
 
 SMALL = 1000
-TOP = 10 ** 9
+TOP = 10**9
 SHORT = 100
 
 

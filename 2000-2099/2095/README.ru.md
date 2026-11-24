@@ -97,8 +97,6 @@ Accepted точного исходника Java 1.8 №11327888: 0.093 с / 464 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2095_math_optimized.go](2095_math_optimized.go) | Go 1.14 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.015 s | 280 KB | 11309760 |
-| [2095_math_optimized.java](2095_math_optimized.java) \* | Java 1.8 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.093 s | 464 KB | 11327888 |
+| [2095_math_optimized.java](2095_math_optimized.java) | Java 1.8 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.093 s | 464 KB | 11327888 |
 | [2095_math_optimized.py](2095_math_optimized.py) | Python 3.12 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.062 s | 368 KB | 11309302 |
-| [2095_math_optimized.rs](2095_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√R) | AC | 0.031 s | 52 KB | 11325120 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [2095_math_optimized.rs](2095_math_optimized.rs) | Rust 1.75 x64 | math | O(√R) | AC | 0.031 s | 52 KB | 11325120 |
