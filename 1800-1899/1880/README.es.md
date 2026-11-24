@@ -98,6 +98,4 @@ en C++ y desde un búfer de 1 KB en Rust. Con el mismo tiempo, C++ ocupa
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
-| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(first set + bounded buffers) storage | AC | 0.078 s | 1164 KB | 11327481 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) | Python 3.12 x64 | hashing | O(I) expected time; O(first set + bounded buffers) storage | AC | 0.078 s | 1164 KB | 11327481 |

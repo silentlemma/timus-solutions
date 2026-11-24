@@ -9,7 +9,7 @@ import sys
 
 PLAYERS = 3
 LONGEST = 4000
-LARGEST = 10 ** 9
+LARGEST = 10**9
 FEW = 8
 POOL = 6000
 SHORTEST = 17
@@ -34,7 +34,7 @@ def main():
         elif mode == 6:
             if p == 0:
                 interior = [v for v in shared if 1 < v < LARGEST]
-                own = [1, LARGEST] + interior[:LONGEST - 2]
+                own = [1, LARGEST] + interior[: LONGEST - 2]
             elif p == 1:
                 own = rng.sample(lists[0][1:-1], SHORTEST)
             else:
