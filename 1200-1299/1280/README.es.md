@@ -164,8 +164,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [1280_graphs_optimized.cpp](1280_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.015 s | 232 KB | 11304469 |
 | [1280_graphs_optimized.go](1280_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N + M) | AC | 0.031 s | 1324 KB | 11304470 |
-| [1280_graphs_optimized.java](1280_graphs_optimized.java) \* | Java 1.8 | graphs | O(N² + M) | AC | 0.140 s | 568 KB | 11304471 |
-| [1280_graphs_optimized.py](1280_graphs_optimized.py) \* | Python 3.12 x64 | graphs | O(N + M) | AC | 0.171 s | 1796 KB | 11304472 |
+| [1280_graphs_optimized.java](1280_graphs_optimized.java) | Java 1.8 | graphs | O(N² + M) | AC | 0.140 s | 568 KB | 11304471 |
+| [1280_graphs_optimized.py](1280_graphs_optimized.py) | Python 3.12 x64 | graphs | O(N + M) | AC | 0.171 s | 1796 KB | 11304472 |
 | [1280_graphs_optimized.rs](1280_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N + M) | AC | 0.015 s | 584 KB | 11304473 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
