@@ -23,7 +23,7 @@ def main():
         candidates = []
         for x in range(-FIELD, FIELD + 1):
             for y in range(-FIELD, FIELD + 1):
-                if (FIELD - 1) ** 2 <= x * x + y * y <= FIELD ** 2:
+                if (FIELD - 1) ** 2 <= x * x + y * y <= FIELD**2:
                     candidates.append((x, y))
         demons = set(rng.sample(candidates, MOST))
     elif mode == 3:

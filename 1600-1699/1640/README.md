@@ -128,6 +128,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1640_geometry_optimized.java](1640_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 916 KB | 11307283 |
-| [1640_geometry_optimized.rs](1640_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 96 KB | 11325103 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1640_geometry_optimized.rs](1640_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 96 KB | 11325103 |

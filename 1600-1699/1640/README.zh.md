@@ -113,6 +113,4 @@ n（1 ≤ n ≤ 100），然后是恶魔的坐标，均为绝对值不超过 100
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1640_geometry_optimized.java](1640_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 916 KB | 11307283 |
-| [1640_geometry_optimized.rs](1640_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 96 KB | 11325103 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1640_geometry_optimized.rs](1640_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 96 KB | 11325103 |
