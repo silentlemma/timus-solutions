@@ -138,8 +138,6 @@ Accepted #11329242 (Java 1.8): **0.093 s / 472 KB**. Архивное сравн
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1631_math_optimized.java](1631_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
+| [1631_math_optimized.java](1631_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
 | [1631_math_optimized.go](1631_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
 | [1631_geometry_parsing_optimized.java](1631_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 472 KB | 11329242 |
-
-\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

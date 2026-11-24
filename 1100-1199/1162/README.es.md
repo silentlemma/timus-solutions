@@ -189,7 +189,7 @@ Accepted #11329137 (Go 1.14 x64): **0.015 s / 1168 KB**. Comparación archivada:
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
-| [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
+| [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
 | [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
 | [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |

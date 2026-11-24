@@ -119,8 +119,6 @@ Accepted #11329242 (Java 1.8): **0.093 s / 472 KB**. 历史对照: `1631_math.ja
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1631_math_optimized.java](1631_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
+| [1631_math_optimized.java](1631_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 460 KB | 11315360 |
 | [1631_math_optimized.go](1631_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11315798 |
 | [1631_geometry_parsing_optimized.java](1631_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 472 KB | 11329242 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

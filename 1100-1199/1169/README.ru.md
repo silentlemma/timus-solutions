@@ -131,7 +131,5 @@ Accepted #11329235 (Python 3.12 x64): **0.078 s / 988 KB**. Архивное с�
 | [1169_dp.go](1169_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
 | [1169_dp.rs](1169_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
 | [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
-| [1169_backtracking.py](1169_backtracking.py) \* | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
+| [1169_backtracking.py](1169_backtracking.py) | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
 | [1169_backtracking_parsing_optimized.py](1169_backtracking_parsing_optimized.py) | Python 3.12 x64 | backtracking, parsing | O(N^5) | AC | 0.078 s | 988 KB | 11329235 |
-
-\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

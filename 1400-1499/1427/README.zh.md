@@ -112,9 +112,7 @@ Accepted #11329172 (Rust 1.75 x64): **0.015 s / 708 KB**. 历史对照: `1427_gr
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.015 s | 88 KB | 11326989 |
-| [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
+| [1427_greedy_optimized.go](1427_greedy_optimized.go) | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
 | [1427_greedy_optimized.py](1427_greedy_optimized.py) | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
 | [1427_greedy_implementation_optimized.go](1427_greedy_implementation_optimized.go) | Go 1.14 x64 | greedy, implementation | O(L) | AC | 0.015 s | 1668 KB | 11329094 |
 | [1427_greedy_implementation_parsing_optimized.rs](1427_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(L) | AC | 0.015 s | 708 KB | 11329172 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

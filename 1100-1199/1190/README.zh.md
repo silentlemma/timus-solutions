@@ -107,7 +107,7 @@ C++ 和 Go 读到下一个已知配料占比时，立即处理此前连续未知
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
-| [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
+| [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
 | [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

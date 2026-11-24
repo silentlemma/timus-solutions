@@ -116,8 +116,6 @@ Accepted #11328966 (Rust 1.75 x64): **0.015 s / 460 KB**. 历史对照: `1279_bi
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1279_greedy.go](1279_greedy.go) | Go 1.14 x64 | greedy | O(N·M + H) | AC | 0.015 s | 320 KB | 11314936 |
-| [1279_greedy.rs](1279_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N·M + H) | AC | 0.031 s | 56 KB | 11314955 |
+| [1279_greedy.rs](1279_greedy.rs) | Rust 1.75 x64 | greedy | O(N·M + H) | AC | 0.031 s | 56 KB | 11314955 |
 | [1279_sorting_optimized.py](1279_sorting_optimized.py) | Python 3.12 x64 | sorting | O(nm log(nm)) time; O(nm) space | AC | 0.062 s | 1296 KB | 11328665 |
 | [1279_binary_search_implementation_optimized.rs](1279_binary_search_implementation_optimized.rs) | Rust 1.75 x64 | binary_search, implementation | O(N · M · log K) | AC | 0.015 s | 460 KB | 11328966 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

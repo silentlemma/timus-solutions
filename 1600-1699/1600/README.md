@@ -124,7 +124,5 @@ Accepted #11328703 (Rust 1.75 x64): **0.015 s / 380 KB**. Archived comparison: `
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
-| [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+| [1600_geometry_optimized.rs](1600_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
 | [1600_geometry_math_optimized.rs](1600_geometry_math_optimized.rs) | Rust 1.75 x64 | geometry, math | O(n²) | AC | 0.015 s | 380 KB | 11328703 |
-
-\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

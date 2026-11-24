@@ -94,7 +94,5 @@ Accepted #11328989 (Rust 1.75 x64): **0.015 s / 52 KB**. 历史对照: `1094_sim
 |---|---|---|---|---|---|---|---|
 | [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
 | [1094_simulation_optimized.go](1094_simulation_optimized.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
-| [1094_simulation_optimized.rs](1094_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
+| [1094_simulation_optimized.rs](1094_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
 | [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.015 s | 52 KB | 11328989 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

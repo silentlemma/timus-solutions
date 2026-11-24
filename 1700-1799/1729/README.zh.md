@@ -103,7 +103,7 @@ Accepted #11329243 (Java 1.8): **0.078 s / 476 KB**. 历史对照: `1729_geometr
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
-| [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
+| [1729_geometry_optimized.rs](1729_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
 | [1729_geometry_optimized.py](1729_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
 | [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
 | [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |

@@ -130,9 +130,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1185_geometry_optimized.go](1185_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
+| [1185_geometry_optimized.go](1185_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
 | [1185_geometry_optimized.java](1185_geometry_optimized.java) | Java 1.8 | geometry | O(N+S(N)) | AC | 0.109 s | 556 KB | 11325011 |
 | [1185_geometry_parsing_optimized.go](1185_geometry_parsing_optimized.go) | Go 1.14 x64 | geometry, parsing | O(N log N) | AC | 0.015 s | 1072 KB | 11328893 |
 | [1185_geometry_implementation_parsing_optimized.rs](1185_geometry_implementation_parsing_optimized.rs) | Rust 1.75 x64 | geometry, implementation, parsing | O(N log N) | AC | 0.015 s | 124 KB | 11329170 |
-
-\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

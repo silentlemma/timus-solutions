@@ -116,7 +116,5 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1227_dsu_dp.go](1227_dsu_dp.go) | Go 1.14 x64 | dsu, dp | O(N + M²) | AC | 0.015 s | 792 KB | 11310847 |
-| [1227_dsu_dp.rs](1227_dsu_dp.rs) \* | Rust 1.75 x64 | dsu, dp | O(N + M²) | AC | 0.031 s | 212 KB | 11310397 |
+| [1227_dsu_dp.rs](1227_dsu_dp.rs) | Rust 1.75 x64 | dsu, dp | O(N + M²) | AC | 0.031 s | 212 KB | 11310397 |
 | [1227_dsu_dp.py](1227_dsu_dp.py) | Python 3.12 x64 | dsu, dp | O(N + M²) | AC | 0.078 s | 720 KB | 11310339 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.

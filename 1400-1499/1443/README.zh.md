@@ -94,7 +94,7 @@ Go 将两个长度读成同一尺度的整数，分别计算整根轨条和剩�
 |----|----|----|-----|------|----|----|---|
 | [1443_math_optimized.java](1443_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 512 KB | 11319248 |
 | [1443_math_optimized.rs](1443_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 244 KB | 11319421 |
-| [1443_math_optimized.py](1443_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 396 KB | 11319468 |
+| [1443_math_optimized.py](1443_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 396 KB | 11319468 |
 | [1443_math_optimized.go](1443_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 300 KB | 11322863 |
 
 \* 带星号的版本仍有提升排名的空间。

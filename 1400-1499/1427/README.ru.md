@@ -118,9 +118,7 @@ Accepted #11329172 (Rust 1.75 x64): **0.015 s / 708 KB**. Архивное ср�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.015 s | 88 KB | 11326989 |
-| [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
+| [1427_greedy_optimized.go](1427_greedy_optimized.go) | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
 | [1427_greedy_optimized.py](1427_greedy_optimized.py) | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
 | [1427_greedy_implementation_optimized.go](1427_greedy_implementation_optimized.go) | Go 1.14 x64 | greedy, implementation | O(L) | AC | 0.015 s | 1668 KB | 11329094 |
 | [1427_greedy_implementation_parsing_optimized.rs](1427_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(L) | AC | 0.015 s | 708 KB | 11329172 |
-
-\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

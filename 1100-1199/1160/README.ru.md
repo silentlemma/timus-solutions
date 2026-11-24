@@ -171,8 +171,6 @@ Accepted #11328948 (Rust 1.75 x64): **0.015 s / 656 KB**. Архивное ср�
 | [1160_dsu_optimized.cpp](1160_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(M log M) | AC | 0.015 s | 208 KB | 11304463 |
 | [1160_dsu_optimized.java](1160_dsu_optimized.java) | Java 1.8 | dsu | O(M log M) | AC | 0.078 s | 752 KB | 11304464 |
 | [1160_dsu_optimized.py](1160_dsu_optimized.py) | Python 3.12 x64 | dsu | O(M log M) | AC | 0.093 s | 1596 KB | 11304465 |
-| [1160_dsu_optimized.rs](1160_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M log M) | AC | 0.031 s | 340 KB | 11304466 |
+| [1160_dsu_optimized.rs](1160_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(M log M) | AC | 0.031 s | 340 KB | 11304466 |
 | [1160_dsu_optimized.go](1160_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M log² M) | AC | 0.046 s | 2240 KB | 11328510 |
 | [1160_dsu_implementation_optimized.rs](1160_dsu_implementation_optimized.rs) | Rust 1.75 x64 | dsu, implementation | O(M log M) | AC | 0.015 s | 656 KB | 11328948 |
-
-\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

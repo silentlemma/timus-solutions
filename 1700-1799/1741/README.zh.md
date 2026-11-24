@@ -126,8 +126,6 @@ Accepted #11328660 (Python 3.12 x64): **0.093 s / 5352 KB**. 历史对照: `1741
 |---|---|---|---|---|---|---|---|
 | [1741_dp_optimized.cpp](1741_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N+M) | AC | 0.015 s | 196 KB | 11309342 |
 | [1741_dp_optimized.java](1741_dp_optimized.java) | Java 1.8 | dp | O(N+M) | AC | 0.093 s | 748 KB | 11309343 |
-| [1741_dp_optimized.py](1741_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
+| [1741_dp_optimized.py](1741_dp_optimized.py) | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
 | [1741_dp_optimized.go](1741_dp_optimized.go) | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
 | [1741_dp_parsing_optimized.py](1741_dp_parsing_optimized.py) | Python 3.12 x64 | dp, parsing | O(n + m) | AC | 0.093 s | 5352 KB | 11328660 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

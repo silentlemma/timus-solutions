@@ -116,7 +116,7 @@ YES
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.078 s | 340 KB | 11326955 |
-| [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
+| [1191_dp.py](1191_dp.py) | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
 | [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

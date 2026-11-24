@@ -122,7 +122,7 @@ Java 使用两个容量足够的扁平数组，其他版本使用动态列表或
 |---|---|---|---|---|---|---|---|
 | [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
 | [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
-| [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+| [1923_bfs_optimized.rs](1923_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
 | [1923_dfs_optimized.rs](1923_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n·m + l) | AC | 0.015 s | 80 KB | 11328990 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

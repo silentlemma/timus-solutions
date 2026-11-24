@@ -121,7 +121,7 @@ C++ и Go обрабатывают каждую серию неизвестны�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
-| [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
+| [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
 | [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

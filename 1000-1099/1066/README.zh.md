@@ -118,7 +118,5 @@ Accepted #11328659 (Go 1.14 x64): **0.015 s / 936 KB**. 历史对照: `1066_math
 |----|----|----|-----|------|----|----|---|
 | [1066_math_optimized.java](1066_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
 | [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
-| [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+| [1066_math_optimized.go](1066_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
 | [1066_math_parsing_optimized.go](1066_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(N) | AC | 0.015 s | 936 KB | 11328659 |
-
-\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

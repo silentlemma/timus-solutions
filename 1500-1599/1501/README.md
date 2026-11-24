@@ -126,6 +126,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1501_dp_optimized.cpp](1501_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 116 KB | 11309287 |
 | [1501_dp_optimized.go](1501_dp_optimized.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.015 s | 916 KB | 11309289 |
 | [1501_dp_optimized.java](1501_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.125 s | 456 KB | 11309288 |
-| [1501_dp_optimized.rs](1501_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N^2) | AC | 0.046 s | 196 KB | 11309290 |
+| [1501_dp_optimized.rs](1501_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.046 s | 196 KB | 11309290 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

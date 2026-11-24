@@ -102,6 +102,6 @@ G++ 13.2 x64 №11321765 · Go 1.14 x64 №11322086 · Rust 1.75 x64 №11321769
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1445_math_optimized.go](1445_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 424 KB | 11322860 |
 | [1445_math_optimized.java](1445_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 376 KB | 11317352 |
-| [1445_math_optimized.py](1445_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 344 KB | 11317966 |
+| [1445_math_optimized.py](1445_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 344 KB | 11317966 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

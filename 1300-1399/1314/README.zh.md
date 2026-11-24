@@ -112,7 +112,7 @@ G++ 13.2 x64 №11322317 · Go 1.14 x64 №11322318 · Python 3.12 x64 №113217
 |----|----|----|-----|------|----|----|---|
 | [1314_bfs_optimized.cpp](1314_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O((V + E) log(V + E)) | AC | 0.015 s | 224 KB | 11316949 |
 | [1314_bfs_optimized.go](1314_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(S + V + E) | AC | 0.015 s | 376 KB | 11322926 |
-| [1314_bfs_optimized.rs](1314_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
+| [1314_bfs_optimized.rs](1314_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
 | [1314_bfs_optimized.java](1314_bfs_optimized.java) | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
 | [1314_bfs_implementation_optimized.rs](1314_bfs_implementation_optimized.rs) | Rust 1.75 x64 | bfs, implementation | O(V + E) | AC | 0.015 s | 556 KB | 11328977 |
 

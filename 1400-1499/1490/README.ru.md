@@ -144,7 +144,7 @@ Accepted #11328689 (Rust 1.75 x64): **0.015 s / 76 KB**. Архивное сра
 | [1490_two_pointers.java](1490_two_pointers.java) \* | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.125 s | 456 KB | 11307985 |
 | [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
-| [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
+| [1490_two_pointers.rs](1490_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
 | [1490_math_optimized.go](1490_math_optimized.go) | Go 1.14 x64 | math | O(R) | AC | 0.015 s | 944 KB | 11328559 |
 | [1490_two_pointers_optimized.rs](1490_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(r) time; O(1) space | AC | 0.015 s | 76 KB | 11328689 |
 

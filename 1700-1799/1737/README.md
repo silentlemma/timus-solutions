@@ -122,8 +122,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1737_strings_optimized.cpp](1737_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(output size) time; fixed 100006-byte output buffer | AC | 0.015 s | 172 KB | 11327410 |
 | [1737_strings_optimized.go](1737_strings_optimized.go) | Go 1.14 x64 | strings | O(output size) | AC | 0.015 s | 964 KB | 11308824 |
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
-| [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
+| [1737_strings_optimized.py](1737_strings_optimized.py) | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
 | [1737_strings_optimized.rs](1737_strings_optimized.rs) | Rust 1.75 x64 | strings | O(output size) | AC | 0.015 s | 196 KB | 11308826 |
 | [1737_strings_implementation_optimized.py](1737_strings_implementation_optimized.py) | Python 3.12 x64 | strings, implementation | O(output size) | AC | 0.062 s | 736 KB | 11329036 |
-
-\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

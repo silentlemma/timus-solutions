@@ -140,7 +140,7 @@ Accepted #11328484 (Rust 1.75 x64): **0.015 s / 224 KB**. Comparación archivada
 | [1013_dp_math_optimized.java](1013_dp_math_optimized.java) | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
-| [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |
+| [1013_dp_math.rs](1013_dp_math.rs) | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |
 | [1013_matrix_optimized.rs](1013_matrix_optimized.rs) | Rust 1.75 x64 | matrix | O(log N) | AC | 0.015 s | 224 KB | 11328484 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

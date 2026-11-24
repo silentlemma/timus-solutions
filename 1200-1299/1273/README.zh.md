@@ -92,8 +92,8 @@ Accepted #11328532 (Python 3.12 x64): **0.078 s / 712 KB**. 历史对照: `1273_
 | [1273_binary_search_sorting.cpp](1273_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O(K log K) | AC | 0.001 s | 116 KB | 11314674 |
 | [1273_binary_search_sorting.go](1273_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(K log K) | AC | 0.015 s | 260 KB | 11314678 |
 | [1273_binary_search_sorting.java](1273_binary_search_sorting.java) | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
-| [1273_binary_search_sorting.py](1273_binary_search_sorting.py) \* | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
-| [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) \* | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
+| [1273_binary_search_sorting.py](1273_binary_search_sorting.py) | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
+| [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
 | [1273_dp_binary_search_optimized.py](1273_dp_binary_search_optimized.py) | Python 3.12 x64 | dp, binary_search | O(K log K) time; O(K) space | AC | 0.078 s | 712 KB | 11328532 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

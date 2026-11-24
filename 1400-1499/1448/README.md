@@ -97,6 +97,6 @@ G++ 13.2 x64 №11322145 · Go 1.14 x64 №11322146 · Java 1.8 №11322147 · P
 | [1448_constructive_optimized.go](1448_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 924 KB | 11317198 |
 | [1448_constructive_optimized.java](1448_constructive_optimized.java) | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11317199 |
 | [1448_constructive_optimized.py](1448_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 432 KB | 11317212 |
-| [1448_constructive_optimized.rs](1448_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 204 KB | 11317214 |
+| [1448_constructive_optimized.rs](1448_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 204 KB | 11317214 |
 
 \* The saved rating has no comparable Go submissions from other authors. Rust ranks second by time and first by memory in the saved rating. It meets the memory improvement criterion.

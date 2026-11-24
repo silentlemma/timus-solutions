@@ -183,7 +183,5 @@ Python-кандидат проверен на 1802 случаях независ
 | [1002_dp_strings.go](1002_dp_strings.go) | Go 1.14 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 1296 KB | 11308089 |
 | [1002_dp_strings.java](1002_dp_strings.java) | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
 | [1002_dp_strings.py](1002_dp_strings.py) | Python 3.12 x64 | dp, strings | O(T + P W) | AC | 0.078 s | 948 KB | 11308086 |
-| [1002_dp_strings.rs](1002_dp_strings.rs) \* | Rust 1.75 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 592 KB | 11308095 |
+| [1002_dp_strings.rs](1002_dp_strings.rs) | Rust 1.75 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 592 KB | 11308095 |
 | [1002_dp_hashing_optimized.rs](1002_dp_hashing_optimized.rs) | Rust 1.75 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.015 s | 2516 KB | 11328482 |
-
-\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

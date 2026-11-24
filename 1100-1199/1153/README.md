@@ -114,9 +114,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1153_math_greedy.go](1153_math_greedy.go) \* | Go 1.14 x64 | math, greedy | O(L²) | AC | 0.031 s | 800 KB | 11311117 |
+| [1153_math_greedy.go](1153_math_greedy.go) | Go 1.14 x64 | math, greedy | O(L²) | AC | 0.031 s | 800 KB | 11311117 |
 | [1153_math_optimized.py](1153_math_optimized.py) | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
 | [1153_math_optimized.java](1153_math_optimized.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
 | [1153_math_implementation_optimized.rs](1153_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(L²) | AC | 0.031 s | 356 KB | 11328983 |
-
-\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

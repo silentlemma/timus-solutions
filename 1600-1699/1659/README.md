@@ -114,6 +114,4 @@ G++ 13.2 x64 №11321944 · Java 1.8 №11321945 · Rust 1.75 x64 №11321946 ·
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1659_geometry_optimized.py](1659_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 364 KB | 11318089 |
 | [1659_geometry_optimized.rs](1659_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 240 KB | 11318101 |
-| [1659_geometry_optimized.go](1659_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 940 KB | 11318105 |
-
-\* The marked solutions can improve their target rankings.
+| [1659_geometry_optimized.go](1659_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 940 KB | 11318105 |

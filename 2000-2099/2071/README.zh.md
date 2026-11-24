@@ -95,7 +95,7 @@ Accepted #11328669 (Python 3.12 x64): **0.093 s / 1428 KB**. 历史对照: `2071
 | [2071_bruteforce.cpp](2071_bruteforce.cpp) \* | G++ 13.2 x64 | bruteforce | O(n) | AC | 0.046 s | 560 KB | 11317118 |
 | [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
 | [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
-| [2071_bitmask_dp_optimized.py](2071_bitmask_dp_optimized.py) \* | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.109 s | 1408 KB | 11317276 |
+| [2071_bitmask_dp_optimized.py](2071_bitmask_dp_optimized.py) | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.109 s | 1408 KB | 11317276 |
 | [2071_bitmask_dp_optimized.rs](2071_bitmask_dp_optimized.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.046 s | 584 KB | 11317274 |
 | [2071_bitmask_dp_optimized.cpp](2071_bitmask_dp_optimized.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.015 s | 516 KB | 11321988 |
 | [2071_bitmask_dp_implementation_optimized.py](2071_bitmask_dp_implementation_optimized.py) | Python 3.12 x64 | bitmask, dp, implementation | O(n) | AC | 0.093 s | 1428 KB | 11328669 |

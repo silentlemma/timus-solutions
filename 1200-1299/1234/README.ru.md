@@ -129,8 +129,8 @@ Accepted #11328646 (Java 1.8): **0.093 s / 416 KB**. Архивное сравн
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1234_geometry_optimized.go](1234_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 308 KB | 11322881 |
 | [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
-| [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
-| [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+| [1234_geometry_optimized.java](1234_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
+| [1234_geometry_optimized.rs](1234_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
 | [1234_geometry_parsing_optimized.java](1234_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 416 KB | 11328646 |
 
 \* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
