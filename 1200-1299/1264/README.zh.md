@@ -96,8 +96,6 @@ N 和 M。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
+| [1264_math_optimized.java](1264_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
 | [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 820 KB | 11328270 |
-| [1264_math_optimized.py](1264_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1264_math_optimized.py](1264_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |

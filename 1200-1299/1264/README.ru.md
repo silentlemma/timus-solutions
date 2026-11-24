@@ -98,8 +98,6 @@ Accepted точного исходника Java 1.8 №11327465: 0.093 с / 340 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
-| [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
+| [1264_math_optimized.java](1264_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
 | [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 820 KB | 11328270 |
-| [1264_math_optimized.py](1264_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1264_math_optimized.py](1264_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |

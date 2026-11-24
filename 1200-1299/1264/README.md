@@ -99,8 +99,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
+| [1264_math_optimized.java](1264_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
 | [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 820 KB | 11328270 |
-| [1264_math_optimized.py](1264_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1264_math_optimized.py](1264_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
