@@ -132,7 +132,7 @@ D = D·a + N·10ˢ，再更新 N = N·a。此时 P = 1000·N / D。使用任意�
 |---|---|---|---|---|---|---|---|
 | [1582_math_optimized.java](1582_math_optimized.java) | Java 1.8 | math | O(L^2) | AC | 0.093 s | 764 KB | 11304379 |
 | [1582_math_optimized.cpp](1582_math_optimized.cpp) | G++ 13.2 x64 | math | O(B+Q²) | AC | 0.015 s | 156 KB | 11325058 |
-| [1582_math_optimized.rs](1582_math_optimized.rs) \* | Rust 1.75 x64 | math | O(B+Q²) | AC | 0.015 s | 64 KB | 11325102 |
+| [1582_math_optimized.rs](1582_math_optimized.rs) | Rust 1.75 x64 | math | O(B+Q²) | AC | 0.015 s | 64 KB | 11325102 |
 | [1582_math_optimized.py](1582_math_optimized.py) \* | PyPy 3.10 x64 | math | Exact integer arithmetic; O(I+D) storage | AC | 0.109 s | 292 KB | 11325490 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
