@@ -30,8 +30,7 @@ def main():
         # All preceding objects have the same velocity, and their x/y
         # coordinates stay far from the last object's vertical path.
         objs = [
-            [-9000 + 500 * (i % 30), -9000 + 500 * (i // 30), 0, 3, 4, 0]
-            for i in range(MOST - 2)
+            [-9000 + 500 * (i % 30), -9000 + 500 * (i // 30), 0, 3, 4, 0] for i in range(MOST - 2)
         ]
         rng.shuffle(objs)
         speed = rng.randint(1, 20)
