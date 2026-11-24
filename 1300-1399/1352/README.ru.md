@@ -99,6 +99,13 @@ T строк с показателями.
 
 Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Архивное сравнение: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
 
+
+`1352_number_theory_parsing_optimized.java`. Сохранены те же 38 показателей простых Мерсенна и ссылка на OEIS. Запросы и ответы обрабатываются повторно используемыми байтовыми буферами по 1 КиБ без StreamTokenizer, декодирования символов и временных десятичных строк. Перед Runtime.halt(0) записываются все оставшиеся байты. Число запросов не ограничивается размером буфера: обработка потоковая. Простая реализация сохранена.
+
+Для этого точного исходника получен собственный Accepted и выполнены единые [рейтинговые критерии](../../RATING_CRITERIA.md). Время и память ниже взяты из одной посылки; повторные измерения судьи могут различаться. Существующие простые и отличающиеся оптимизированные версии сохранены.
+
+Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
+
 ## Особенности языков
 
 Неизменённый исходник CPython измерен ещё три раза: (0.078 s, 468 KB), (0.093 s, 400 KB) и (0.046 s, 312 KB). В таблице указана последняя реальная пара Accepted; повторные измерения не являются алгоритмическим ускорением. В сохранённой сопоставимой выборке текущих интерпретаторов эта посылка делит первое место по времени (1/30), место по памяти — 11/30. При памяти менее 1 МиБ для допуска учитывается место по времени. Наглядная базовая версия уже выполняет критерий, поэтому отдельная копия Python с именем optimized не добавляется.
@@ -115,11 +122,11 @@ Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Архивное сра�
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 128 KB | 11285181 |
-| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1084 KB | 11285182 |
-| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.078 s | 444 KB | 11285186 |
+| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 116 KB | 11329301 |
+| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1080 KB | 11329303 |
+| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.125 s | 428 KB | 11329302 |
 | [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.046 s | 312 KB | 11326033 |
-| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.001 s | 216 KB | 11285188 |
+| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.031 s | 216 KB | 11329304 |
 
 ### Оптимизированные
 
@@ -127,3 +134,6 @@ Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Архивное сра�
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
 | [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+
+**Текущие измерения.** Таблицы решений содержат последние Accepted точных сохранённых исходников. Более ранние сравнения производительности описывают исторические посылки; текущий допуск определяется едиными [рейтинговыми критериями](../../RATING_CRITERIA.md).

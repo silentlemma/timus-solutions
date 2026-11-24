@@ -99,6 +99,13 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. Archived comparison: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
 
+
+`1352_number_theory_parsing_optimized.java`. Keep the same 38 Mersenne-prime exponents, with their OEIS citation. Parse queries and format answers through reusable 1 KiB byte buffers, avoiding StreamTokenizer, character decoding and temporary decimal strings. Write the final buffered bytes before Runtime.halt(0). The query count need not fit in either buffer: processing is streamed. The simple implementation remains unchanged.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
+
 ## Language notes
 
 The unchanged CPython source was measured three more times: (0.078 s, 468 KB), (0.093 s, 400 KB), and (0.046 s, 312 KB). The table records the last actual Accepted pair; these repeated measurements do not constitute an algorithmic speedup. In the saved comparable current-interpreter sample, that run shares time place 1/30 and has memory place 11/30. With memory below 1 MiB, admission uses the time ranking. The readable baseline already meets it, so no duplicate optimized Python source is added.
@@ -115,11 +122,11 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 128 KB | 11285181 |
-| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1084 KB | 11285182 |
-| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.078 s | 444 KB | 11285186 |
+| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 116 KB | 11329301 |
+| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1080 KB | 11329303 |
+| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.125 s | 428 KB | 11329302 |
 | [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.046 s | 312 KB | 11326033 |
-| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.001 s | 216 KB | 11285188 |
+| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.031 s | 216 KB | 11329304 |
 
 ### Optimized
 
@@ -127,3 +134,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
 | [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+
+**Current measurements.** The solution tables record the exact preserved sources and their latest Accepted runs. Earlier performance comparisons describe historical runs; current admission follows the shared [rating criteria](../../RATING_CRITERIA.md).

@@ -93,6 +93,13 @@ T 行，每行一个指数。
 
 Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. 历史对照: `1352_number_theory.go` (Go 1.14 x64) — 0.031 s / 1084 KB (#11285182).
 
+
+`1352_number_theory_parsing_optimized.java`. 保留相同的 38 个梅森素数指数及 OEIS 引用。查询解析和答案格式化使用可复用的 1 KiB 字节缓冲，避免 StreamTokenizer、字符解码和临时十进制字符串。Runtime.halt(0) 前写完剩余字节。查询流不受缓冲大小限制，简单版本保持不变。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
+
 ## 各语言说明
 
 完全未修改的 CPython 源码又运行三次，结果依次为 (0.078 s, 468 KB)、(0.093 s, 400 KB)、(0.046 s, 312 KB)。表格记录最后一次真实 Accepted 的成对指标；重复测量并不代表算法本身加速。在保存的当前解释器可比样本中，该次提交按时间并列第 1/30，按内存第 11/30。内存不超过 1 MiB 时，准入仅看时间排名。清晰的基础实现已经满足条件，因此不添加重复的 optimized Python 源文件。
@@ -109,11 +116,11 @@ Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. 历史对照: `1352_numb
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 128 KB | 11285181 |
-| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1084 KB | 11285182 |
-| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.078 s | 444 KB | 11285186 |
+| [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 116 KB | 11329301 |
+| [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1080 KB | 11329303 |
+| [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.125 s | 428 KB | 11329302 |
 | [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.046 s | 312 KB | 11326033 |
-| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.001 s | 216 KB | 11285188 |
+| [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.031 s | 216 KB | 11329304 |
 
 ### 优化版本
 
@@ -121,3 +128,6 @@ Accepted #11329135 (Go 1.14 x64): **0.015 s / 796 KB**. 历史对照: `1352_numb
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
 | [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+
+**当前测量。** 解法表记录所保留精确源码的最新 Accepted 结果。此前的性能比较描述历史提交；当前准入遵循统一的[排名标准](../../RATING_CRITERIA.md)。
