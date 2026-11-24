@@ -101,7 +101,5 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1457_math_optimized.java](1457_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 412 KB | 11303608 |
-| [1457_math_optimized.py](1457_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
-| [1457_math_optimized.rs](1457_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1457_math_optimized.py](1457_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
+| [1457_math_optimized.rs](1457_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |

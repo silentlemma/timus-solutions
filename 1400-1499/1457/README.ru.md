@@ -100,7 +100,5 @@ N, затем N положений.
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1457_math_optimized.java](1457_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 412 KB | 11303608 |
-| [1457_math_optimized.py](1457_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
-| [1457_math_optimized.rs](1457_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1457_math_optimized.py](1457_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
+| [1457_math_optimized.rs](1457_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |

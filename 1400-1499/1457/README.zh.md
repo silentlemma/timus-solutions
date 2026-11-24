@@ -94,7 +94,5 @@ N，然后是 N 个位置。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1457_math_optimized.java](1457_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 412 KB | 11303608 |
-| [1457_math_optimized.py](1457_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
-| [1457_math_optimized.rs](1457_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1457_math_optimized.py](1457_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
+| [1457_math_optimized.rs](1457_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
