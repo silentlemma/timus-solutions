@@ -115,7 +115,5 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2144_sorting_optimized.java](2144_sorting_optimized.java) | Java 1.8 | sorting | O(total sizes+N log N) | AC | 0.109 s | 2064 KB | 11308445 |
-| [2144_sorting_optimized.py](2144_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
-| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2144_sorting_optimized.py](2144_sorting_optimized.py) | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
+| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |

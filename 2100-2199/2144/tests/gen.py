@@ -8,7 +8,7 @@ import sys
 
 MAX_N = 100
 MAX_K = 100
-MAX_A = 10 ** 4
+MAX_A = 10**4
 SMALL_N = 6
 SMALL_K = 3
 SMALL_A = 6
@@ -18,7 +18,7 @@ def cut(row, lengths, rng):
     boxes = []
     start = 0
     for length in lengths:
-        boxes.append(row[start:start + length])
+        boxes.append(row[start : start + length])
         start += length
     rng.shuffle(boxes)
     return boxes

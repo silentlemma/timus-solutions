@@ -103,7 +103,5 @@ NO
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2144_sorting_optimized.java](2144_sorting_optimized.java) | Java 1.8 | sorting | O(total sizes+N log N) | AC | 0.109 s | 2064 KB | 11308445 |
-| [2144_sorting_optimized.py](2144_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
-| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2144_sorting_optimized.py](2144_sorting_optimized.py) | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
+| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
