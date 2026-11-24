@@ -16,18 +16,14 @@ def generate(seed, mode):
         duration = rng.randint(1, MAX_DURATION)
         start = rng.randint(MIN_START, MAX_START)
         count = rng.randint(1, min(MAX_COUNT, 2 * duration - 1))
-        others = sorted(
-            rng.sample(range(start - duration + 1, start + duration), count)
-        )
+        others = sorted(rng.sample(range(start - duration + 1, start + duration), count))
     elif mode == 2:
         duration, start = 1, MIN_START
         others = [start]
     elif mode == 3:
         duration, start = MAX_DURATION, MAX_START
         lower, upper = start - duration + 1, start + duration - 1
-        others = sorted(
-            [lower, upper] + rng.sample(range(lower + 1, upper), MAX_COUNT - 2)
-        )
+        others = sorted([lower, upper] + rng.sample(range(lower + 1, upper), MAX_COUNT - 2))
     elif mode == 4:
         duration, start = MAX_DURATION, MIN_START
         others = [start - duration + 1, start + duration - 1]
@@ -39,11 +35,7 @@ def generate(seed, mode):
         others = list(range(start - duration + 1, start + duration - 1, 2))
     elif mode == 7:
         duration, start = MIN_FULL_DURATION, MIN_START
-        others = [
-            time
-            for time in range(start - duration + 1, start + duration)
-            if time != start
-        ]
+        others = [time for time in range(start - duration + 1, start + duration) if time != start]
     else:
         raise ValueError("unknown mode")
     return duration, start, others

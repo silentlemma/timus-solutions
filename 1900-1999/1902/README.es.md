@@ -119,6 +119,4 @@ instantes adicionales; t es una duración y no un instante absoluto.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |
-| [1902_math_optimized.rs](1902_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 56 KB | 11324873 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1902_math_optimized.rs](1902_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 56 KB | 11324873 |
