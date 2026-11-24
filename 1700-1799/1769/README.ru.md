@@ -111,8 +111,8 @@ Accepted точного исходника Java 1.8 №11326952: 0.109 с / 588 
 |---|---|---|---|---|---|---|---|
 | [1769_strings_optimized.cpp](1769_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(DN+10^D) | AC | 0.031 s | 376 KB | 11308082 |
 | [1769_strings_optimized.go](1769_strings_optimized.go) | Go 1.14 x64 | strings | O(DN+10^D) | AC | 0.046 s | 1444 KB | 11308083 |
-| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.109 s | 588 KB | 11326952 |
-| [1769_strings_optimized.py](1769_strings_optimized.py) \* | Python 3.12 x64 | strings | O(DN+10^D) | AC | 0.250 s | 1452 KB | 11308079 |
+| [1769_strings_optimized.java](1769_strings_optimized.java) | Java 1.8 | strings | O(DN+10^D) | AC | 0.109 s | 588 KB | 11326952 |
+| [1769_strings_optimized.py](1769_strings_optimized.py) | Python 3.12 x64 | strings | O(DN+10^D) | AC | 0.250 s | 1452 KB | 11308079 |
 | [1769_strings_optimized.rs](1769_strings_optimized.rs) | Rust 1.75 x64 | strings | O(DN+10^D) | AC | 0.031 s | 468 KB | 11308085 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
