@@ -111,9 +111,9 @@ Accepted #11328635 (Java 1.8): **0.109 s / 504 KB**. Comparación archivada: `21
 |---|---|---|---|---|---|---|---|
 | [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB | 11295009 |
 | [2148_geometry.go](2148_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
-| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
+| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.14 s | 1812 KB | 11329309 |
 | [2148_geometry.py](2148_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
-| [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB | 11295014 |
+| [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 248 KB | 11329298 |
 
 ### Optimizadas
 
@@ -122,3 +122,5 @@ Accepted #11328635 (Java 1.8): **0.109 s / 504 KB**. Comparación archivada: `21
 | [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
 | [2148_geometry_optimized.py](2148_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
 | [2148_geometry_optimized.java](2148_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11328635 |
+
+**Mediciones actuales.** Las tablas registran las últimas ejecuciones Accepted del código exacto conservado. Las comparaciones anteriores describen ejecuciones históricas; la admisión actual sigue los [criterios compartidos](../../RATING_CRITERIA.md).
