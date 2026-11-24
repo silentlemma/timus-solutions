@@ -94,7 +94,7 @@ C++ 和 Rust 在读取顶点时累加有向面积的两倍，只保留首个点�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
-| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
-| [1246_geometry_optimized.py](1246_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
+| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+| [1246_geometry_optimized.py](1246_geometry_optimized.py) | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

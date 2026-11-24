@@ -100,7 +100,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
-| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
-| [1246_geometry_optimized.py](1246_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
+| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+| [1246_geometry_optimized.py](1246_geometry_optimized.py) | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

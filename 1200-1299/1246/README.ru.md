@@ -100,7 +100,7 @@ C++ и Rust накапливают удвоенную ориентированн
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
-| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
-| [1246_geometry_optimized.py](1246_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
+| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+| [1246_geometry_optimized.py](1246_geometry_optimized.py) | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
