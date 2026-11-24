@@ -110,8 +110,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1108_math_optimized.java](1108_math_optimized.java) \* | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
-| [1108_math_optimized.py](1108_math_optimized.py) \* | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
-| [1108_math_optimized.rs](1108_math_optimized.rs) \* | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1108_math_optimized.java](1108_math_optimized.java) | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
+| [1108_math_optimized.py](1108_math_optimized.py) | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
+| [1108_math_optimized.rs](1108_math_optimized.rs) | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |

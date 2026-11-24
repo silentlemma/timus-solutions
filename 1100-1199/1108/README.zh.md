@@ -97,8 +97,6 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1108_math_optimized.java](1108_math_optimized.java) \* | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
-| [1108_math_optimized.py](1108_math_optimized.py) \* | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
-| [1108_math_optimized.rs](1108_math_optimized.rs) \* | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1108_math_optimized.java](1108_math_optimized.java) | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
+| [1108_math_optimized.py](1108_math_optimized.py) | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
+| [1108_math_optimized.rs](1108_math_optimized.rs) | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |
