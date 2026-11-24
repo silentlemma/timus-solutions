@@ -143,7 +143,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1586_dp_optimized.cpp](1586_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 108 KB | 11304491 |
 | [1586_dp_optimized.go](1586_dp_optimized.go) | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1080 KB | 11304492 |
 | [1586_dp_optimized.java](1586_dp_optimized.java) | Java 1.8 | dp | O(n) | AC | 0.109 s | 420 KB | 11304525 |
-| [1586_dp_matrix.py](1586_dp_matrix.py) \* | Python 3.12 x64 | dp, matrix | O(16³ log n) | AC | 0.093 s | 704 KB | 11304526 |
-| [1586_dp_optimized.rs](1586_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(1000 log log 1000+nP) time; O(1000) space | AC | 0.015 s | 52 KB | 11325529 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1586_dp_matrix.py](1586_dp_matrix.py) | Python 3.12 x64 | dp, matrix | O(16³ log n) | AC | 0.093 s | 704 KB | 11304526 |
+| [1586_dp_optimized.rs](1586_dp_optimized.rs) | Rust 1.75 x64 | dp | O(1000 log log 1000+nP) time; O(1000) space | AC | 0.015 s | 52 KB | 11325529 |
