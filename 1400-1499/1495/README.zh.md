@@ -94,7 +94,7 @@ C++、Go 和 Python 版本沿用广度优先搜索，每个余数只用一个 32
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1495_bfs_optimized.cpp](1495_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.015 s | 7004 KB | 11310407 |
-| [1495_bfs_optimized.go](1495_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N) | AC | 0.046 s | 8964 KB | 11310363 |
+| [1495_bfs_optimized.go](1495_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N) | AC | 0.046 s | 8964 KB | 11310363 |
 | [1495_bfs_optimized.py](1495_bfs_optimized.py) | PyPy 3.10 x64 | bfs | O(N) | AC | 0.14 s | 11808 KB | 11326708 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

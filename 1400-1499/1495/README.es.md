@@ -104,7 +104,7 @@ Las bases Accepted conservadas [1495_bfs.go](1495_bfs.go), [1495_bfs.java](1495_
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1495_bfs_optimized.cpp](1495_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.015 s | 7004 KB | 11310407 |
-| [1495_bfs_optimized.go](1495_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N) | AC | 0.046 s | 8964 KB | 11310363 |
+| [1495_bfs_optimized.go](1495_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N) | AC | 0.046 s | 8964 KB | 11310363 |
 | [1495_bfs_optimized.py](1495_bfs_optimized.py) | PyPy 3.10 x64 | bfs | O(N) | AC | 0.14 s | 11808 KB | 11326708 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
