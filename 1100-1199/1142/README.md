@@ -122,9 +122,9 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
+| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
 | [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
-| [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
-| [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |
+| [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
+| [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
