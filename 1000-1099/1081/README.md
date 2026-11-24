@@ -110,7 +110,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1081_dp_optimized.java](1081_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.078 s | 372 KB | 11309292 |
-| [1081_dp_optimized.py](1081_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 660 KB | 11327009 |
-| [1081_dp_optimized.rs](1081_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1081_dp_optimized.py](1081_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 660 KB | 11327009 |
+| [1081_dp_optimized.rs](1081_dp_optimized.rs) | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
