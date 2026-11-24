@@ -140,8 +140,6 @@ N ≤ 100000, а числа идут через `BufWriter`, а не собир�
 |---|---|---|---|---|---|---|---|
 | [1521_fenwick_optimized.cpp](1521_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.046 s | 516 KB | 11304369 |
 | [1521_fenwick_optimized.go](1521_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 1320 KB | 11304370 |
-| [1521_fenwick_optimized.java](1521_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(N log N) | AC | 0.125 s | 860 KB | 11304371 |
-| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(N log N) time; O(N+S) space | AC | 0.218 s | 6620 KB | 11326706 |
+| [1521_fenwick_optimized.java](1521_fenwick_optimized.java) | Java 1.8 | fenwick | O(N log N) | AC | 0.125 s | 860 KB | 11304371 |
+| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(N log N) time; O(N+S) space | AC | 0.218 s | 6620 KB | 11326706 |
 | [1521_fenwick_optimized.rs](1521_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 636 KB | 11304373 |
-
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
