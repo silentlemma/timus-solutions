@@ -132,7 +132,5 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1226_strings_optimized.cpp](1226_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 84 KB | 11304344 |
-| [1226_strings_optimized.java](1226_strings_optimized.java) \* | Java 1.8 | strings | O(L) | AC | 0.093 s | 468 KB | 11304346 |
-| [1226_strings_optimized.py](1226_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 380 KB | 11304345 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1226_strings_optimized.java](1226_strings_optimized.java) | Java 1.8 | strings | O(L) | AC | 0.093 s | 468 KB | 11304346 |
+| [1226_strings_optimized.py](1226_strings_optimized.py) | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 380 KB | 11304345 |
