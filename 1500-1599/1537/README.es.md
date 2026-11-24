@@ -127,8 +127,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
-| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
-| [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1537_dp_optimized.py](1537_dp_optimized.py) | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
+| [1537_dp_optimized.rs](1537_dp_optimized.rs) | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |

@@ -116,8 +116,6 @@ answer = g(T) mod P
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
-| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
-| [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1537_dp_optimized.py](1537_dp_optimized.py) | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
+| [1537_dp_optimized.rs](1537_dp_optimized.rs) | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
