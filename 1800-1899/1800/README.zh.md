@@ -106,6 +106,13 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 
 - `1800_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +73.12%; 基础版本: `1800_math.cpp`.
 
+
+`1800_math_parsing_optimized.go`. 按奇数四分之一周期的导数解析定位间隙斜率最大值，仅计算一次反正弦偏移，去掉每段首次100步二分。保留原接触极小值二分、四分周期边界和面向规则，以整数输入对比归档算法。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329344 (Go 1.14 x64): **0.015 s / 836 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -131,8 +138,7 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
-| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
-| [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
-| [1800_math_optimized.py](1800_math_optimized.py) \* | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1800_math_optimized.java](1800_math_optimized.java) | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
+| [1800_math_optimized.rs](1800_math_optimized.rs) | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
+| [1800_math_optimized.py](1800_math_optimized.py) | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
+| [1800_math_parsing_optimized.go](1800_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(omega) | AC | 0.015 s | 836 KB | 11329344 |

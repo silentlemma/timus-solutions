@@ -13,8 +13,7 @@ GRAVITY = 981
 
 def upright(length, height, turns):
     # At upright contact t = 15*n/turns for a positive odd integer n.
-    square, remainder = divmod((2 * height - length) * turns * turns,
-                               GRAVITY * 15 * 15)
+    square, remainder = divmod((2 * height - length) * turns * turns, GRAVITY * 15 * 15)
     if remainder or square <= 0:
         return False
     n = isqrt(square)

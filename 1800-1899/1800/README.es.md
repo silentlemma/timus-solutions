@@ -138,6 +138,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1800_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +73.12%; base: `1800_math.cpp`.
 
+
+`1800_math_parsing_optimized.go`. El máximo de la pendiente se localiza analíticamente en cada cuarto impar. El desplazamiento de arco seno se calcula una vez, eliminando la primera bisección de100pasos. Se conservan la búsqueda del mínimo, los límites y la regla de cara; las entradas enteras se compararon con el algoritmo archivado. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329344 (Go 1.14 x64): **0.015 s / 836 KB**.
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -163,8 +170,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
-| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
-| [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
-| [1800_math_optimized.py](1800_math_optimized.py) \* | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1800_math_optimized.java](1800_math_optimized.java) | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
+| [1800_math_optimized.rs](1800_math_optimized.rs) | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
+| [1800_math_optimized.py](1800_math_optimized.py) | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
+| [1800_math_parsing_optimized.go](1800_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(omega) | AC | 0.015 s | 836 KB | 11329344 |
