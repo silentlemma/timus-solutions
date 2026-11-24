@@ -106,10 +106,12 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation.cpp](1220_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 540 KB | 11283689 |
-| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11286809 |
+| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11329299 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation_optimized.rs](1220_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(Q) time; O(Q+S) bounded storage | AC | 0.031 s | 436 KB | 11309741 |
+
+**Mediciones actuales.** Las tablas registran las últimas ejecuciones Accepted del código exacto conservado. Las comparaciones anteriores describen ejecuciones históricas; la admisión actual sigue los [criterios compartidos](../../RATING_CRITERIA.md).

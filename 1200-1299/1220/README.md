@@ -105,10 +105,12 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation.cpp](1220_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 540 KB | 11283689 |
-| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11286809 |
+| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11329299 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation_optimized.rs](1220_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(Q) time; O(Q+S) bounded storage | AC | 0.031 s | 436 KB | 11309741 |
+
+**Current measurements.** The solution tables record the exact preserved sources and their latest Accepted runs. Earlier performance comparisons describe historical runs; current admission follows the shared [rating criteria](../../RATING_CRITERIA.md).

@@ -105,10 +105,12 @@ POP 2
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation.cpp](1220_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 540 KB | 11283689 |
-| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11286809 |
+| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11329299 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1220_implementation_optimized.rs](1220_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(Q) time; O(Q+S) bounded storage | AC | 0.031 s | 436 KB | 11309741 |
+
+**Текущие измерения.** Таблицы решений содержат последние Accepted точных сохранённых исходников. Более ранние сравнения производительности описывают исторические посылки; текущий допуск определяется едиными [рейтинговыми критериями](../../RATING_CRITERIA.md).
