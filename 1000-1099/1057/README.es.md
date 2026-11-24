@@ -126,9 +126,7 @@ Java lee los cuatro enteros directamente del flujo y recorre el límite con pote
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
-| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O((log Y)²) | AC | 0.125 s | 268 KB | 11323987 |
-| [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
-| [1057_combinatorics_optimized.java](1057_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O((log Y)²) | AC | 0.093 s | 384 KB | 11323981 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) | PyPy 3.10 x64 | combinatorics | O((log Y)²) | AC | 0.125 s | 268 KB | 11323987 |
+| [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+| [1057_combinatorics_optimized.java](1057_combinatorics_optimized.java) | Java 1.8 | combinatorics | O((log Y)²) | AC | 0.093 s | 384 KB | 11323981 |
