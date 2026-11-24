@@ -148,9 +148,9 @@ Accepted точного исходника №11326588: 0.078 s / 352 KB. В с�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
-| [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
-| [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+| [1007_math_optimized.cpp](1007_math_optimized.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
+| [1007_math_optimized.go](1007_math_optimized.go) | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
+| [1007_math_optimized.rs](1007_math_optimized.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
 | [1007_math_optimized.java](1007_math_optimized.java) | Java 1.8 | math | O(total length) | AC | 0.078 s | 352 KB | 11326588 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

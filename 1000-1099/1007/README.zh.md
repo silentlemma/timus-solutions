@@ -135,9 +135,9 @@ C++、Go 和 Rust 版本复用同一缓冲区逐个读取并原地修复码字�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
-| [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
-| [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+| [1007_math_optimized.cpp](1007_math_optimized.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
+| [1007_math_optimized.go](1007_math_optimized.go) | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
+| [1007_math_optimized.rs](1007_math_optimized.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
 | [1007_math_optimized.java](1007_math_optimized.java) | Java 1.8 | math | O(total length) | AC | 0.078 s | 352 KB | 11326588 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
