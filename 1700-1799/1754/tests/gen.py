@@ -47,8 +47,11 @@ def pyramid(rng, mode):
     if mode == 3:
         bx, by = rng.randint(-LARGE // 2, 0), rng.randint(-LARGE // 2, 0)
         p, q = rng.randint(2, LARGE // 2), rng.randint(2, LARGE // 2)
-        base = [(bx, by, 0), (bx + p * rng.choice([1, -1]), by, 0),
-                (bx, by + q * rng.choice([1, -1]), 0)]
+        base = [
+            (bx, by, 0),
+            (bx + p * rng.choice([1, -1]), by, 0),
+            (bx, by + q * rng.choice([1, -1]), 0),
+        ]
         return base, (bx, by, rng.randint(2, LARGE))
     span = SMALL if mode == 1 else LARGE
     while True:
@@ -66,8 +69,7 @@ def main():
         ax, ay = rng.randint(-400, 400), rng.randint(-400, 400)
         width, depth = rng.randint(1, 500), rng.randint(1, 500)
         # At height 1 the inverse image of (0, 0) in the base is (-ax, -ay).
-        base = [(-ax - width, -ay - depth), (-ax + width, -ay - depth),
-                (-ax, -ay + depth)]
+        base = [(-ax - width, -ay - depth), (-ax + width, -ay - depth), (-ax, -ay + depth)]
         rng.shuffle(base)
         print(2, 1, 2)
         for x, y in [(0, 0)] + base + [(ax, ay)]:
@@ -78,8 +80,11 @@ def main():
         xs = [v[0] for v in base]
         ys = [v[1] for v in base]
         for _ in range(SMALL):
-            p = (rng.randint(min(xs), max(xs)), rng.randint(min(ys), max(ys)),
-                 rng.randint(1, apex[2] - 1))
+            p = (
+                rng.randint(min(xs), max(xs)),
+                rng.randint(min(ys), max(ys)),
+                rng.randint(1, apex[2] - 1),
+            )
             if inside(base, apex, p):
                 break
         else:

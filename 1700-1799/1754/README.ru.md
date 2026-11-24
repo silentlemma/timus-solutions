@@ -127,8 +127,8 @@ Rust сравнивает квадраты расстояний до плоск�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1754_geometry_optimized.py](1754_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 508 KB | 11318516 |
-| [1754_geometry_optimized.go](1754_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 276 KB | 11322932 |
-| [1754_geometry_optimized.java](1754_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 376 KB | 11321993 |
-| [1754_geometry_optimized.rs](1754_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323317 |
+| [1754_geometry_optimized.go](1754_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 276 KB | 11322932 |
+| [1754_geometry_optimized.java](1754_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 376 KB | 11321993 |
+| [1754_geometry_optimized.rs](1754_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323317 |
 
 \* У отмеченных версий есть запас для улучшения рейтинга.
