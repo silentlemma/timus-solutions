@@ -77,13 +77,17 @@ La solución optimizada en C++ lee con `scanf` e imprime con `puts` en
 lugar de `iostream` y `std::string`: 116 KB en lugar de 420 KB, con el
 mismo tiempo.
 
+`2056_parsing_optimized.go`. Se analizan las notas decimales con un búfer de bytes acotado, lectura directa de la entrada estándar y escritura completa. Una nota de 3 determina None inmediatamente, sin leer las restantes. En otro caso se mantienen el mínimo, la suma y la comparación entera con el umbral de 4,5. Tiempo máximo O(n) y espacio auxiliar O(1); se conserva la implementación sencilla.
+
+Accepted #11329388 (Go 1.14 x64): **0.015 s / 260 KB**.
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
 `2056_implementation_optimized.py`: puesto de tiempo 272/297 y de memoria 1/297 en esta muestra comparable.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La admisión y los asteriscos actuales siguen los [criterios compartidos](../../RATING_CRITERIA.md): diez primeros o 15% superior, sustituidos por la comparación de referencia indicada en muestras pequeñas del mismo compilador. Si nuestra memoria es inferior a 1024 KB, solo se compara el tiempo. Las mediciones anteriores describen sus propias ejecuciones históricas.
 
 ## Soluciones
 
@@ -103,5 +107,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
 | [2056_implementation_optimized.py](2056_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.125 s | 228 KB | 11325602 |
+| [2056_parsing_optimized.go](2056_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) auxiliary space | AC | 0.015 s | 260 KB | 11329388 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

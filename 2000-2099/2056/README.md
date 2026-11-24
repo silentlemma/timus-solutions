@@ -77,13 +77,17 @@ The optimized C++ solution reads with `scanf` and prints with `puts`
 instead of `iostream` and `std::string`: 116 KB instead of 420 KB, with
 the same time.
 
+`2056_parsing_optimized.go`. Parse decimal grades through a bounded byte buffer and use direct standard-stream reads and complete writes. A grade of 3 determines None immediately, so later grades need not be read. Otherwise retain the same minimum, sum and integer comparison for the 4.5 threshold. Worst-case time is O(n) with O(1) auxiliary space; the simple implementation remains unchanged.
+
+Accepted #11329388 (Go 1.14 x64): **0.015 s / 260 KB**.
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
 `2056_implementation_optimized.py`: time place 272/297, memory place 1/297 in this comparable sample.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Current admission and asterisks follow the shared [rating criteria](../../RATING_CRITERIA.md): top 10 or top 15%, replaced by the specified reference comparison in small exact-compiler samples. With our memory below 1024 KB, only time is compared. Earlier measurements describe their own historical runs.
 
 ## Solutions
 
@@ -103,5 +107,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
 | [2056_implementation_optimized.py](2056_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.125 s | 228 KB | 11325602 |
+| [2056_parsing_optimized.go](2056_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) auxiliary space | AC | 0.015 s | 260 KB | 11329388 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

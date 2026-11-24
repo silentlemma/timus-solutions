@@ -69,13 +69,17 @@ None
 优化的 C++ 解法用 `scanf` 读入、用 `puts` 输出，而不是使用 `iostream` 和
 `std::string`：116 KB，而不是 420 KB，时间不变。
 
+`2056_parsing_optimized.go`. 使用有界字节缓冲解析十进制成绩，直接读取标准输入并完整写出答案。遇到成绩 3 即可确定 None，无须读取其余成绩。否则保留最小值、总和以及对 4.5 阈值的整数比较。最坏时间 O(n)，额外空间 O(1)，简单版本保持不变。
+
+Accepted #11329388 (Go 1.14 x64): **0.015 s / 260 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
 `2056_implementation_optimized.py`：在该可比样本中，时间名次 272/297，内存名次 1/297。
 
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+当前准入和星号遵循统一的[排名标准](../../RATING_CRITERIA.md)：前十或前 15%，同编译器的小样本改用规定的参考提交比较。我们的内存低于 1024 KB 时仅比较时间。此前测量描述各自的历史提交。
 
 ## 解答
 
@@ -95,5 +99,6 @@ None
 |----|----|----|-----|------|----|----|------|
 | [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
 | [2056_implementation_optimized.py](2056_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.125 s | 228 KB | 11325602 |
+| [2056_parsing_optimized.go](2056_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) auxiliary space | AC | 0.015 s | 260 KB | 11329388 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
