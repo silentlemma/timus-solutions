@@ -76,8 +76,6 @@ b3，而不是用 `iostream`：124 KB，而不是 396 KB，时间不变。Java �
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
-| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
+| [2001_math_optimized.java](2001_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
 | [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
-| [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
-
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
+| [2001_math_optimized.py](2001_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |

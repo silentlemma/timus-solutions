@@ -88,8 +88,6 @@ Leer los seis valores desde bytes y usar solo los cuatro necesarios para las dos
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
-| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
+| [2001_math_optimized.java](2001_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
 | [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
-| [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
-
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+| [2001_math_optimized.py](2001_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |

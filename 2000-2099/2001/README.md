@@ -88,8 +88,6 @@ Parse all six values from bytes and unpack only the four used for the two differ
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
-| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
+| [2001_math_optimized.java](2001_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
 | [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
-| [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
-
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+| [2001_math_optimized.py](2001_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
