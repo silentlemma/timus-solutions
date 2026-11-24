@@ -164,7 +164,5 @@ integer totals and keys; Python uses exact integers.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1982_greedy_optimized.cpp](1982_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 116 KB | 11304427 |
-| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 536 KB | 11326676 |
+| [1982_greedy_optimized.py](1982_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 536 KB | 11326676 |
 | [1982_greedy_optimized.rs](1982_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.031 s | 236 KB | 11304428 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
