@@ -4,7 +4,7 @@ mode 3 a power of two or one more."""
 import random
 import sys
 
-MOST_N = 10 ** 9
+MOST_N = 10**9
 
 
 def main():
