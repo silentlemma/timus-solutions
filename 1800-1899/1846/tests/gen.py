@@ -8,7 +8,7 @@ import random
 import sys
 
 MOST = 100000
-LIMIT = 10 ** 9
+LIMIT = 10**9
 SMALL = 12
 
 
