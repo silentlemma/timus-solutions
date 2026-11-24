@@ -116,8 +116,6 @@ not reach the stricter language rating target; admission follows its time gain.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1000_math_optimized.java](1000_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.046 s | 336 KB | 11303693 |
-| [1000_math_optimized.py](1000_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 656 KB | 11324875 |
+| [1000_math_optimized.py](1000_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 656 KB | 11324875 |
 | [1000_math_optimized.rs](1000_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.001 s | 52 KB | 11324851 |
 | [1000_math_optimized.go](1000_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.001 s | 256 KB | 11325648 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
