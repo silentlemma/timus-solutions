@@ -92,6 +92,13 @@ Se mantiene la construcción que cubre ambas paridades y su prueba. Para N>2, re
 - `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; base `1789_constructive.cpp`: 0.031 s / 380 KB; cambio respecto a la base: tiempo -51.6%, memoria -71.6%.
 - `1789_constructive_optimized.py`: 0.156 s / 240 KB; base `1789_constructive.py`: 0.062 s / 396 KB; cambio respecto a la base: tiempo +151.6%, memoria -39.4%.
 
+
+`1789_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Los dos recorridos constructivos se escriben con un búfer acotado, sin listas de posiciones ni cadenas decimales. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329343 (Go 1.14 x64): **0.015 s / 812 KB**.
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -119,6 +126,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
 | [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
-| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_parsing_optimized.go](1789_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 812 KB | 11329343 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

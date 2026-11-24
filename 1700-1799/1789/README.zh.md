@@ -76,6 +76,13 @@ n（2 ≤ n ≤ 100）。
 - `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; 基础 `1789_constructive.cpp`: 0.031 s / 380 KB; 相对变化: 时间 -51.6%, 内存 -71.6%.
 - `1789_constructive_optimized.py`: 0.156 s / 240 KB; 基础 `1789_constructive.py`: 0.062 s / 396 KB; 相对变化: 时间 +151.6%, 内存 -39.4%.
 
+
+`1789_parsing_optimized.go`. 在 256 字节补充缓冲上直接进行类型化转换，并完整写出紧凑输出。负整数直接以负值累积，覆盖有符号最小值，无需反射式输入或通用输出分派。 两个构造扫描经有界缓冲输出，不保存位置或十进制字符串列表。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329343 (Go 1.14 x64): **0.015 s / 812 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -105,6 +112,7 @@ n（2 ≤ n ≤ 100）。
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
 | [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
-| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_parsing_optimized.go](1789_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 812 KB | 11329343 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

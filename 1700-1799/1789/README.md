@@ -91,6 +91,13 @@ Keep the same parity-catching construction and its proof. For N>2, sweep 2..N-1 
 - `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; base `1789_constructive.cpp`: 0.031 s / 380 KB; relative change: time -51.6%, memory -71.6%.
 - `1789_constructive_optimized.py`: 0.156 s / 240 KB; base `1789_constructive.py`: 0.062 s / 396 KB; relative change: time +151.6%, memory -39.4%.
 
+
+`1789_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Write the two constructive sweeps through a bounded output buffer without storing a list of positions or decimal strings. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329343 (Go 1.14 x64): **0.015 s / 812 KB**.
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -118,6 +125,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
 | [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
-| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
+| [1789_parsing_optimized.go](1789_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 812 KB | 11329343 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
