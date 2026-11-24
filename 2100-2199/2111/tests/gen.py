@@ -5,8 +5,8 @@ mode 5 99999 shuffled endpoint lengths with an odd total."""
 import random
 import sys
 
-MAX_N = 10 ** 5
-MAX_D = 10 ** 4
+MAX_N = 10**5
+MAX_D = 10**4
 SMALL = 10
 
 
