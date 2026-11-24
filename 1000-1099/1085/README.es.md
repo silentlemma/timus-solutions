@@ -121,7 +121,7 @@ Rust agrupa a los pasajeros por parada de origen y representa cada nivel de la b
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1085_bfs_optimized.java](1085_bfs_optimized.java) \* | Java 1.8 | bfs | O(ΣL + U N) | AC | 0.125 s | 432 KB | 11317236 |
-| [1085_bfs_optimized.py](1085_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
+| [1085_bfs_optimized.py](1085_bfs_optimized.py) | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
 | [1085_bfs_optimized.rs](1085_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(ΣL + U N) | AC | 0.015 s | 216 KB | 11322390 |
 
 \* Java aún no alcanza el objetivo en la clasificación guardada. Python aún no alcanza el objetivo en la clasificación guardada.

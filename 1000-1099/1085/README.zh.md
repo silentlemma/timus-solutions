@@ -102,7 +102,7 @@ Rust 按出发站对乘客分组，并使用 128 位掩码表示广度优先搜�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1085_bfs_optimized.java](1085_bfs_optimized.java) \* | Java 1.8 | bfs | O(ΣL + U N) | AC | 0.125 s | 432 KB | 11317236 |
-| [1085_bfs_optimized.py](1085_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
+| [1085_bfs_optimized.py](1085_bfs_optimized.py) | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
 | [1085_bfs_optimized.rs](1085_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(ΣL + U N) | AC | 0.015 s | 216 KB | 11322390 |
 
 \* 在保存的排名比较中，Java 尚未达到排名目标。 在保存的排名比较中，Python 尚未达到排名目标。
