@@ -115,7 +115,7 @@ Go 和 Rust 将两位小数输入解析为有符号整数分。读取时累加�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1047_math_optimized.go](1047_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
-| [1047_math_optimized.rs](1047_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
+| [1047_math_optimized.go](1047_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
+| [1047_math_optimized.rs](1047_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

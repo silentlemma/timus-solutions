@@ -121,7 +121,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1047_math_optimized.go](1047_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
-| [1047_math_optimized.rs](1047_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
+| [1047_math_optimized.go](1047_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
+| [1047_math_optimized.rs](1047_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
