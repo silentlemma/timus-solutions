@@ -7,7 +7,7 @@ powers of two times three distinct odd primes."""
 import random
 import sys
 
-TOP = 2 ** 25 - 1
+TOP = 2**25 - 1
 TESTS = 100
 
 
@@ -41,25 +41,25 @@ def main():
             n = rng.randint(1, TOP)
         elif mode == 2:
             a = rng.randint(0, 22)
-            n = 2 ** a * prime_below(rng, TOP >> a)
+            n = 2**a * prime_below(rng, TOP >> a)
         elif mode == 3:
             a = rng.randint(0, 24)
             room = TOP >> a
             if room < 9 or rng.random() < 0.2:
-                n = 2 ** a
+                n = 2**a
             else:
-                p = prime_below(rng, int(room ** 0.5))
-                n = 2 ** a * p * prime_below(rng, room // p)
+                p = prime_below(rng, int(room**0.5))
+                n = 2**a * p * prime_below(rng, room // p)
         elif mode == 6:
             a = rng.choice([1, 3, 5, 7])
             room = TOP >> a
             p = prime_below(rng, int((room - 4) ** 0.5))
-            n = 2 ** a * (p * p + rng.choice([-4, -2, 0, 2, 4]))
+            n = 2**a * (p * p + rng.choice([-4, -2, 0, 2, 4]))
         elif mode == 7:
             a = rng.randint(0, 14)
             primes = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
             p, q, r = rng.sample(primes, 3)
-            n = 2 ** a * p * q * r
+            n = 2**a * p * q * r
         else:
             p = prime_below(rng, TOP)
             n = 2 * p if 2 * p <= TOP and rng.random() < 0.5 else p
