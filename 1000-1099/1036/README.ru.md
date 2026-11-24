@@ -119,8 +119,8 @@
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
-| [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
-| [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
-| [1036_dp_optimized.java](1036_dp_optimized.java) \* | Java 1.8 | dp | O(N·(T+1)) big additions; T=min(S/2,9N-S/2) | AC | 0.109 s | 1524 KB | 11324788 |
+| [1036_combinatorics.go](1036_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
+| [1036_dp_optimized.rs](1036_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+| [1036_dp_optimized.java](1036_dp_optimized.java) | Java 1.8 | dp | O(N·(T+1)) big additions; T=min(S/2,9N-S/2) | AC | 0.109 s | 1524 KB | 11324788 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
