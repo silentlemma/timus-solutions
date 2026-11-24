@@ -98,6 +98,13 @@ C++ pasa de 0,531 s / 208 KB a 0,078 s / 128 KB: 85,3% menos tiempo y
 solo por tiempo; ambas versiones tienen su propio Accepted. No mejoran
 necesariamente todos los recursos.
 
+
+`1249_implementation_parsing_optimized.go`. Se decodifican bloques directamente en la fila actual y luego se revisan ventanas 2x2 con la anterior. Evita una llamada de lectura por píxel, conservando blancos y el criterio de rectángulos. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329324 (Go 1.14 x64): **0.031 s / 820 KB**.
+
 ## Notas por lenguaje
 
 Python se comparó en 75.254 imágenes pequeñas con un recorrido
@@ -132,6 +139,7 @@ superioridad competitiva.
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
-| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
+| [1249_implementation_parsing_optimized.go](1249_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(nm) time; O(m) row state + bounded input buffer | AC | 0.031 s | 820 KB | 11329324 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

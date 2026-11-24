@@ -88,6 +88,13 @@ C++ 从 0.531 秒 / 208 KB 降至 0.078 秒 / 128 KB，时间减少 85.3%，内�
 Python 从 0.218 秒 / 1532 KB 变为 0.125 秒 / 3684 KB，时间减少 42.7%，但实测内存峰值增大。
 因此 Python 仅按时间改善准入；两个新版本都有各自的 Accepted，并非每项资源都更优。
 
+
+`1249_implementation_parsing_optimized.go`. 把现有输入块直接解码到当前字节行，再与前行检查 2x2 窗口，避免逐像素调用字节辅助函数，保留空白处理及矩形判据。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329324 (Go 1.14 x64): **0.031 s / 820 KB**.
+
 ## 各语言说明
 
 Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小图，
@@ -116,6 +123,7 @@ Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小�
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
-| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
+| [1249_implementation_parsing_optimized.go](1249_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(nm) time; O(m) row state + bounded input buffer | AC | 0.031 s | 820 KB | 11329324 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
