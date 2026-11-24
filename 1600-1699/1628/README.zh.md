@@ -149,7 +149,7 @@ C++：`O(m + n + (m + k) log(k + 1))`；其余：`O(m + n + k log k)`。
 | [1628_implementation_optimized.cpp](1628_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.015 s | 604 KB | 11307222 |
 | [1628_implementation_optimized.go](1628_implementation_optimized.go) | Go 1.14 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.046 s | 1988 KB | 11307224 |
 | [1628_implementation_optimized.java](1628_implementation_optimized.java) | Java 1.8 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.125 s | 1364 KB | 11307223 |
-| [1628_hashing_implementation.py](1628_hashing_implementation.py) \* | PyPy 3.10 x64 | hashing, implementation | Expected O(K log K+M+N) time; O(K) space | AC | 0.171 s | 12384 KB | 11326710 |
+| [1628_hashing_implementation.py](1628_hashing_implementation.py) | PyPy 3.10 x64 | hashing, implementation | Expected O(K log K+M+N) time; O(K) space | AC | 0.171 s | 12384 KB | 11326710 |
 | [1628_implementation_optimized.py](1628_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.234 s | 6352 KB | 11307226 |
 | [1628_implementation_optimized.rs](1628_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.031 s | 664 KB | 11307225 |
 
