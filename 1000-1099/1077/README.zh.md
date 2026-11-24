@@ -101,7 +101,7 @@ Go 和 Rust 用字节矩阵保存道路，并在广度优先搜索时标记森�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
-| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

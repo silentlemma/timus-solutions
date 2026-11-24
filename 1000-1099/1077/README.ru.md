@@ -117,7 +117,7 @@ Go и Rust хранят дороги в байтовой матрице и от�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
-| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

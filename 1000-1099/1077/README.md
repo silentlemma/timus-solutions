@@ -115,7 +115,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
-| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

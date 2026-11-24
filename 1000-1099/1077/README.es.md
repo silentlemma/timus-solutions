@@ -120,7 +120,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
-| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

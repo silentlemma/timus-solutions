@@ -27,7 +27,7 @@ def main():
         (a, b)
         for group in groups
         for i, a in enumerate(group)
-        for b in group[i + 1:]
+        for b in group[i + 1 :]
         if (a, b) not in roads
     ]
     roads.update(rng.sample(available, min(max(m - len(roads), 0), len(available))))
