@@ -97,8 +97,6 @@ Go、Python 和 Rust 用 16 位编号表示站点，并让当前路径栈与已�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1137_graphs_optimized.go](1137_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(E) | AC | 0.031 s | 1144 KB | 11310529 |
+| [1137_graphs_optimized.go](1137_graphs_optimized.go) | Go 1.14 x64 | graphs | O(E) | AC | 0.031 s | 1144 KB | 11310529 |
 | [1137_graphs_optimized.py](1137_graphs_optimized.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.078 s | 780 KB | 11310614 |
-| [1137_graphs_optimized.rs](1137_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 320 KB | 11310571 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1137_graphs_optimized.rs](1137_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 320 KB | 11310571 |
