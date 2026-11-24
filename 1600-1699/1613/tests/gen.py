@@ -20,10 +20,7 @@ def main():
         n = 24
         counts = [rng.randint(1, 8) for _ in range(n)]
         queries = [
-            (lo, hi, x)
-            for lo in range(1, n + 1)
-            for hi in range(lo, n + 1)
-            for x in range(1, 11)
+            (lo, hi, x) for lo in range(1, n + 1) for hi in range(lo, n + 1) for x in range(1, 11)
         ]
         rng.shuffle(queries)
         print(n)

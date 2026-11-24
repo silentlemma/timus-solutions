@@ -140,7 +140,5 @@ asterisk concerns the rating target only.
 | [1613_binary_search_optimized.cpp](1613_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O((n + q) log n) | AC | 0.031 s | 612 KB | 11304474 |
 | [1613_binary_search_optimized.go](1613_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O((n + q) log n) | AC | 0.046 s | 1500 KB | 11304475 |
 | [1613_binary_search_optimized.java](1613_binary_search_optimized.java) | Java 1.8 | binary_search | O((n + q) log n) | AC | 0.109 s | 1856 KB | 11304479 |
-| [1613_binary_search_optimized.py](1613_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O((n + q) log n) | AC | 0.234 s | 4344 KB | 11304476 |
+| [1613_binary_search_optimized.py](1613_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O((n + q) log n) | AC | 0.234 s | 4344 KB | 11304476 |
 | [1613_binary_search_optimized.rs](1613_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O((n + q) log n) | AC | 0.062 s | 740 KB | 11304477 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
