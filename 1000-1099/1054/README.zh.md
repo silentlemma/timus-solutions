@@ -127,8 +127,8 @@ Java 用字节数组保存柱号，从最大的圆盘开始，每处理一个圆
 |----|----|----|-----|------|----|----|---|
 | [1054_math_optimized.cpp](1054_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11316991 |
 | [1054_math_optimized.py](1054_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.140 s | 280 KB | 11322407 |
-| [1054_math_optimized.rs](1054_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 204 KB | 11317962 |
-| [1054_math_optimized.go](1054_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 276 KB | 11322837 |
-| [1054_math_optimized.java](1054_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.109 s | 356 KB | 11323975 |
+| [1054_math_optimized.rs](1054_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 204 KB | 11317962 |
+| [1054_math_optimized.go](1054_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 276 KB | 11322837 |
+| [1054_math_optimized.java](1054_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 356 KB | 11323975 |
 
 \* 带星号的版本仍有提升排名的空间。
