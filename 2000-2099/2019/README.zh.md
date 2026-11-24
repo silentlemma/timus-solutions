@@ -130,7 +130,7 @@ C++ 和 Go 沿用栈消除规则，字母和 16 位编号分开存放。C++ 逐�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
-| [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+| [2019_greedy_optimized.go](2019_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
 | [2019_greedy_optimized.java](2019_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.125 s | 608 KB | 11325031 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

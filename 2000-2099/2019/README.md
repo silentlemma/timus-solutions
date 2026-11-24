@@ -153,7 +153,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
-| [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+| [2019_greedy_optimized.go](2019_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
 | [2019_greedy_optimized.java](2019_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.125 s | 608 KB | 11325031 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -149,7 +149,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
-| [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+| [2019_greedy_optimized.go](2019_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
 | [2019_greedy_optimized.java](2019_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.125 s | 608 KB | 11325031 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
