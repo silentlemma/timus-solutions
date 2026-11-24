@@ -122,8 +122,8 @@ Accepted точного исходника (G++ 13.2 x64, #11326642: 0.015 s / 1
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.015 s | 1320 KB | 11326642 |
-| [1316_fenwick_optimized.go](1316_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
-| [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
+| [1316_fenwick_optimized.go](1316_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
+| [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
 | [1316_fenwick_optimized.py](1316_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(P + N log P) | AC | 0.5 s | 8324 KB | 11315039 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
