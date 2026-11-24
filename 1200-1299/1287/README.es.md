@@ -128,6 +128,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1287_dp_optimized.cpp](1287_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 116 KB | 11326650 |
-| [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
+| [1287_dp_optimized.go](1287_dp_optimized.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

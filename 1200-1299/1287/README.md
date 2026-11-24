@@ -124,6 +124,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1287_dp_optimized.cpp](1287_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 116 KB | 11326650 |
-| [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
+| [1287_dp_optimized.go](1287_dp_optimized.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
