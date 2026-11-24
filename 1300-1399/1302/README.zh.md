@@ -93,8 +93,8 @@ C++、Go 和 Rust 先由单元编号的平方根得到行号，再用整数平�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1302_math_optimized.cpp](1302_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11310791 |
-| [1302_math_optimized.go](1302_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
-| [1302_math_optimized.rs](1302_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
-| [1302_math_optimized.java](1302_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
+| [1302_math_optimized.go](1302_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
+| [1302_math_optimized.rs](1302_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
+| [1302_math_optimized.java](1302_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

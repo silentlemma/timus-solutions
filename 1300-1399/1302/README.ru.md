@@ -106,8 +106,8 @@ C++, Go и Rust получают номер строки из квадратно
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1302_math_optimized.cpp](1302_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11310791 |
-| [1302_math_optimized.go](1302_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
-| [1302_math_optimized.rs](1302_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
-| [1302_math_optimized.java](1302_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
+| [1302_math_optimized.go](1302_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
+| [1302_math_optimized.rs](1302_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
+| [1302_math_optimized.java](1302_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
