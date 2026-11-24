@@ -91,7 +91,7 @@ Multiply the distance in volume indices by the full thickness, then adjust by on
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 368 KB | 11327466 |
+| [1638_math_optimized.java](1638_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 368 KB | 11327466 |
 | [1638_math_optimized.py](1638_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 228 KB | 11324252 |
 
 \* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
