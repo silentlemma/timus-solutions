@@ -6,7 +6,7 @@ import random
 import sys
 
 MOST = 100
-PRICE = 10 ** 6
+PRICE = 10**6
 
 
 def main():
@@ -19,8 +19,12 @@ def main():
         edges = {(i, j) for i in range(n) for j in range(i + 1, n) if rng.random() < p}
     elif mode == 3:
         group = [rng.randrange(rng.randint(2, 6)) for _ in range(n)]
-        edges = {(i, j) for i in range(n) for j in range(i + 1, n)
-                 if group[i] == group[j] and rng.random() < 0.7}
+        edges = {
+            (i, j)
+            for i in range(n)
+            for j in range(i + 1, n)
+            if group[i] == group[j] and rng.random() < 0.7
+        }
     else:
         for v in range(1, n):
             if rng.random() < 0.9:

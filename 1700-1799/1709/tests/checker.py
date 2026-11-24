@@ -13,7 +13,7 @@ class Bad(Exception):
 def check(source, expected, output):
     words = open(source).read().split()
     n, d, a = int(words[0]), int(words[1]), int(words[2])
-    flights = words[3:3 + n]
+    flights = words[3 : 3 + n]
     best = int(open(expected).read().split()[0])
     got = open(output).read().split()
     if len(got) != n + 1:
