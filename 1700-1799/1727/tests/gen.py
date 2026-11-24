@@ -3,7 +3,7 @@
 import random
 import sys
 
-LIMIT = 10 ** 5
+LIMIT = 10**5
 SMALL = 100
 
 

@@ -3,7 +3,7 @@ n; a set always exists, so -1 is never right."""
 
 import sys
 
-LIMIT = 10 ** 5
+LIMIT = 10**5
 
 
 class Bad(Exception):
