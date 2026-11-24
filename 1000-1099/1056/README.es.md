@@ -127,6 +127,6 @@ G++ 13.2 x64 №11321750 · Java 1.8 №11321752 · Rust 1.75 x64 №11321755 ·
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1056_trees.py](1056_trees.py) \* | Python 3.12 x64 | trees | O(N) | AC | 0.093 s | 1532 KB | 11316948 |
-| [1056_trees.go](1056_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1196 KB | 11317158 |
+| [1056_trees.go](1056_trees.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1196 KB | 11317158 |
 
 \* Aceptado; aún no se alcanza la meta de clasificación de Python. El corte de clasificación no contiene envíos comparables en Go de otros autores.

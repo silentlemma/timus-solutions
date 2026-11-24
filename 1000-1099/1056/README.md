@@ -125,6 +125,6 @@ G++ 13.2 x64 №11321750 · Java 1.8 №11321752 · Rust 1.75 x64 №11321755 ·
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1056_trees.py](1056_trees.py) \* | Python 3.12 x64 | trees | O(N) | AC | 0.093 s | 1532 KB | 11316948 |
-| [1056_trees.go](1056_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1196 KB | 11317158 |
+| [1056_trees.go](1056_trees.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1196 KB | 11317158 |
 
 \* Accepted; the Python rating target is still open. The saved rating has no comparable Go submissions from other authors.
