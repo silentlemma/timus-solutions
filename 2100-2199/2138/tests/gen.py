@@ -4,7 +4,7 @@ bytes, mode 3 a palindromic byte order that maps to itself."""
 import random
 import sys
 
-TOP = 2 ** 32 - 1
+TOP = 2**32 - 1
 BYTE = 255
 DIGITS = 4
 
