@@ -12,8 +12,14 @@ CONTESTS = 100
 NAME_LENGTH = 30
 LETTERS = "ABCDEFGHIJKLM"
 MAX_SUBMITS = 100
-VERDICTS = ["Accepted", "Wrong Answer", "Runtime Error", "Time Limit Exceeded",
-            "Memory Limit Exceeded", "Compilation Error"]
+VERDICTS = [
+    "Accepted",
+    "Wrong Answer",
+    "Runtime Error",
+    "Time Limit Exceeded",
+    "Memory Limit Exceeded",
+    "Compilation Error",
+]
 DAYS = 28
 MONTHS = 12
 YEARS = 100
@@ -36,8 +42,10 @@ def main():
         print(len(counts))
         for i, p in enumerate(counts):
             print("Sparse log " + str(i))
-            print("%02d.%02d.%02d" % (rng.randint(1, DAYS), rng.randint(1, MONTHS),
-                                      rng.randrange(YEARS)))
+            print(
+                "%02d.%02d.%02d"
+                % (rng.randint(1, DAYS), rng.randint(1, MONTHS), rng.randrange(YEARS))
+            )
             s = rng.randint(0, p)
             print(p, s)
             for _ in range(s):
@@ -50,8 +58,9 @@ def main():
         length = rng.randint(1, NAME_LENGTH)
         name = "".join(rng.choice(symbols) for _ in range(length)).strip() or "x"
         print(name)
-        print("%02d.%02d.%02d" % (rng.randint(1, DAYS), rng.randint(1, MONTHS),
-                                  rng.randrange(YEARS)))
+        print(
+            "%02d.%02d.%02d" % (rng.randint(1, DAYS), rng.randint(1, MONTHS), rng.randrange(YEARS))
+        )
         p, s = rng.randint(1, len(LETTERS)), rng.randint(0, MAX_SUBMITS)
         print(p, s)
         for _ in range(s):
