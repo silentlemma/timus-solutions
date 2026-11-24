@@ -15,8 +15,10 @@ RARE = 0.05
 
 def name(rng, short):
     length = rng.randint(1, 2 if short else NAME)
-    return "".join(rng.choice(string.ascii_lowercase[:FEW] if short else string.ascii_lowercase)
-                   for _ in range(length))
+    return "".join(
+        rng.choice(string.ascii_lowercase[:FEW] if short else string.ascii_lowercase)
+        for _ in range(length)
+    )
 
 
 def main():
