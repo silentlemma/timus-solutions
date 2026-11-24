@@ -59,7 +59,7 @@ def main():
     if mode in (5, 6, 7, 8):
         n = int(sys.argv[3]) if len(sys.argv) > 3 else COUNT
         if not 2 <= n <= COUNT:
-            raise ValueError('N must be between 2 and 50 000')
+            raise ValueError("N must be between 2 and 50 000")
         print(n)
         for e in new_tree(rng, mode, n):
             print(*e)
