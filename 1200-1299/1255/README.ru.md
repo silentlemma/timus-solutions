@@ -120,7 +120,7 @@ Accepted точного исходника Java 1.8 №11327763: 0.078 с / 340 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

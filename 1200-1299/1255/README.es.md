@@ -120,7 +120,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -113,7 +113,7 @@ N 和 K。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

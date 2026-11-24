@@ -120,7 +120,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
