@@ -114,8 +114,6 @@ Go пропускает диапазоны оснований, в которых
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1071_math_optimized.py](1071_math_optimized.py) \* | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
+| [1071_math_optimized.py](1071_math_optimized.py) | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
 | [1071_math_optimized.java](1071_math_optimized.java) | Java 1.8 | math | O(√x · log x) | AC | 0.093 s | 388 KB | 11317892 |
-| [1071_math_optimized.go](1071_math_optimized.go) \* | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга.
+| [1071_math_optimized.go](1071_math_optimized.go) | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |

@@ -115,8 +115,6 @@ Go omite intervalos de bases en los que ambos números tienen la misma cantidad 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1071_math_optimized.py](1071_math_optimized.py) \* | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
+| [1071_math_optimized.py](1071_math_optimized.py) | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
 | [1071_math_optimized.java](1071_math_optimized.java) | Java 1.8 | math | O(√x · log x) | AC | 0.093 s | 388 KB | 11317892 |
-| [1071_math_optimized.go](1071_math_optimized.go) \* | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1071_math_optimized.go](1071_math_optimized.go) | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |

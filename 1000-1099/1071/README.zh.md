@@ -98,8 +98,6 @@ Go 跳过两个数位数相同的进制区间。对其余较小的进制从右�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1071_math_optimized.py](1071_math_optimized.py) \* | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
+| [1071_math_optimized.py](1071_math_optimized.py) | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
 | [1071_math_optimized.java](1071_math_optimized.java) | Java 1.8 | math | O(√x · log x) | AC | 0.093 s | 388 KB | 11317892 |
-| [1071_math_optimized.go](1071_math_optimized.go) \* | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1071_math_optimized.go](1071_math_optimized.go) | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |
