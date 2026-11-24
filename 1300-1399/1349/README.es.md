@@ -117,6 +117,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1349_math_optimized.java](1349_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.062 s | 316 KB | 11303601 |
 | [1349_math_optimized.rs](1349_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 212 KB | 11303602 |
-| [1349_math_optimized.py](1349_math_optimized.py) \* | Python 3.12 x64 | math | O(I) token input; O(1) mathematical cases | AC | 0.062 s | 644 KB | 11327873 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1349_math_optimized.py](1349_math_optimized.py) | Python 3.12 x64 | math | O(I) token input; O(1) mathematical cases | AC | 0.062 s | 644 KB | 11327873 |
