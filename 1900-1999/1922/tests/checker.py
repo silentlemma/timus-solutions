@@ -14,11 +14,7 @@ def expected_teams(values):
     for size in range(1, count + 1):
         eligible += frequency[size]
         if eligible == size and frequency[size + 1] == 0:
-            teams.add(
-                frozenset(
-                    index + 1 for index, value in enumerate(values) if value <= size
-                )
-            )
+            teams.add(frozenset(index + 1 for index, value in enumerate(values) if value <= size))
     return teams
 
 
@@ -50,17 +46,12 @@ def check(values, output):
             return False, "duplicate team"
         if any(values[member - 1] > size for member in team):
             return False, "team is not effective"
-        if any(
-            index + 1 not in team and value <= size + 1
-            for index, value in enumerate(values)
-        ):
+        if any(index + 1 not in team and value <= size + 1 for index, value in enumerate(values)):
             return False, "one outsider can be added effectively"
         emitted.add(team)
     if position != len(tokens):
         return False, "extra output"
-    return emitted == expected_teams(
-        values
-    ), "the complete set of reliable teams is required"
+    return emitted == expected_teams(values), "the complete set of reliable teams is required"
 
 
 if __name__ == "__main__":
