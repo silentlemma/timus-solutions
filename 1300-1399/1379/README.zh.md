@@ -105,8 +105,8 @@ G++ 13.2 x64 №11322140 · Go 1.14 x64 №11322141 · Java 1.8 №11322142 · R
 | [1379_graphs_optimized.cpp](1379_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O((N + M + D) log(M + 1)) | AC | 0.031 s | 3464 KB | 11316958 |
 | [1379_graphs_optimized.go](1379_graphs_optimized.go) | Go 1.14 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.093 s | 5748 KB | 11317150 |
 | [1379_graphs_optimized.java](1379_graphs_optimized.java) | Java 1.8 | graphs | O((N + M + D) log(M + 2)) | AC | 0.140 s | 6740 KB | 11317007 |
-| [1379_graphs_optimized.py](1379_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.250 s | 16008 KB | 11317003 |
-| [1379_graphs_optimized.rs](1379_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.031 s | 8372 KB | 11317009 |
+| [1379_graphs_optimized.py](1379_graphs_optimized.py) | PyPy 3.10 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.250 s | 16008 KB | 11317003 |
+| [1379_graphs_optimized.rs](1379_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.031 s | 8372 KB | 11317009 |
 
 PyPy 版本把终点、行驶时间和载重上限编码到每条边的一个整数中。邻接表按载重上限排序，遇到无法通行的边时即可停止扫描。按分钟分桶时跳过已经被更短路径替代的记录。评测数据来自提交 11317003。
 
@@ -115,7 +115,3 @@ Java 版本也将每条边编码为一个整数，并按载重上限排序邻接
 Rust 版本按载重上限排序压缩后的边，遇到第一条载重不足的边时停止扫描。移动分钟桶中的记录可以让每个路口只保留一条记录。评测数据来自提交 11317009。
 
 Go 版本将每条边压缩为一个整数，并按载重对邻接表排序。搜索路径时，一旦遇到载重不足的边，就停止扫描当前邻接表。提交 11317150 耗时 0.093 秒，使用 5748 KB；基础版耗时 0.562 秒，使用 24828 KB。
-
-\* 已通过评测，尚未达到 Python 排名目标。
-
-\* 已通过评测。保存的排名中没有其他作者可比较的 Rust 提交。

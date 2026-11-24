@@ -124,8 +124,8 @@ G++ 13.2 x64 №11322140 · Go 1.14 x64 №11322141 · Java 1.8 №11322142 · R
 | [1379_graphs_optimized.cpp](1379_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O((N + M + D) log(M + 1)) | AC | 0.031 s | 3464 KB | 11316958 |
 | [1379_graphs_optimized.go](1379_graphs_optimized.go) | Go 1.14 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.093 s | 5748 KB | 11317150 |
 | [1379_graphs_optimized.java](1379_graphs_optimized.java) | Java 1.8 | graphs | O((N + M + D) log(M + 2)) | AC | 0.140 s | 6740 KB | 11317007 |
-| [1379_graphs_optimized.py](1379_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.250 s | 16008 KB | 11317003 |
-| [1379_graphs_optimized.rs](1379_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.031 s | 8372 KB | 11317009 |
+| [1379_graphs_optimized.py](1379_graphs_optimized.py) | PyPy 3.10 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.250 s | 16008 KB | 11317003 |
+| [1379_graphs_optimized.rs](1379_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.031 s | 8372 KB | 11317009 |
 
 La versión en PyPy empaqueta el destino, el tiempo de viaje y la carga en un entero por arista. Las listas de adyacencia se ordenan por carga, de modo que el recorrido puede detenerse en la primera arista que no soporta el camión. Las cubetas por minuto omiten entradas sustituidas por rutas más cortas. Las métricas corresponden al envío 11317003.
 
@@ -134,7 +134,3 @@ La versión Java también empaqueta cada arista en un entero y ordena las listas
 La versión Rust ordena las aristas compactas por carga y deja de recorrer la lista al llegar a la primera arista que no soporta la carga. Mover las entradas entre cubetas por minuto conserva una por cruce. Las métricas corresponden al envío 11317009.
 
 La versión en Go empaqueta cada arista en un entero y ordena las listas de adyacencia por carga. La búsqueda deja de recorrer una lista cuando encuentra una arista con carga insuficiente. El envío 11317150 tardó 0,093 s y usó 5748 KB frente a 0,562 s y 24828 KB en la base.
-
-\* El juez aceptó el envío. Aún queda por alcanzar el objetivo de clasificación de Python.
-
-\* El juez aceptó el envío. El corte de la clasificación carece de envíos comparables de Rust de otros autores.

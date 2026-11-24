@@ -37,8 +37,18 @@ def main():
         return
     if mode == 5:
         n = 40
-        weights = [0, TRUCK - 1, TRUCK, TRUCK + 1, TRUCK + 99,
-                   TRUCK + 100, TRUCK + 199, TRUCK + 200, TRUCK + 999, TOP]
+        weights = [
+            0,
+            TRUCK - 1,
+            TRUCK,
+            TRUCK + 1,
+            TRUCK + 99,
+            TRUCK + 100,
+            TRUCK + 199,
+            TRUCK + 200,
+            TRUCK + 999,
+            TOP,
+        ]
         times = [0, 0, 1, 2, 719, 720, 721, DAY]
         roads = []
         for a in range(1, n + 1):
