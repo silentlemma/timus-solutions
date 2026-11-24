@@ -98,9 +98,7 @@ Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 824 K
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
+| [1820_math_optimized.java](1820_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
-| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
-| [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1820_math_optimized.go](1820_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
+| [1820_math_optimized.py](1820_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |

@@ -89,9 +89,7 @@ n 和 k（1 ≤ n, k ≤ 1000）。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
+| [1820_math_optimized.java](1820_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
-| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
-| [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1820_math_optimized.go](1820_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
+| [1820_math_optimized.py](1820_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
