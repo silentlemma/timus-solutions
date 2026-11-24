@@ -114,7 +114,7 @@ e_p(x!) = ⌊x/p⌋ + ⌊x/p²⌋ + ⌊x/p³⌋ + …
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
-| [1055_number_theory_optimized.java](1055_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log log N) | AC | 0.109 s | 520 KB | 11324817 |
+| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
+| [1055_number_theory_optimized.java](1055_number_theory_optimized.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.109 s | 520 KB | 11324817 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

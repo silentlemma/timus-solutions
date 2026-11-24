@@ -113,7 +113,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
-| [1055_number_theory_optimized.java](1055_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log log N) | AC | 0.109 s | 520 KB | 11324817 |
+| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
+| [1055_number_theory_optimized.java](1055_number_theory_optimized.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.109 s | 520 KB | 11324817 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
