@@ -33,9 +33,7 @@ def check(input_text, expected_text, output_text):
 
 def main():
     input_path, expected_path, output_path = map(Path, sys.argv[1:])
-    error = check(
-        input_path.read_text(), expected_path.read_text(), output_path.read_text()
-    )
+    error = check(input_path.read_text(), expected_path.read_text(), output_path.read_text())
     if error is not None:
         print(error)
         sys.exit(1)

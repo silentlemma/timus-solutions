@@ -120,7 +120,5 @@ Python использует компактные целочисленные ма
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1900_dp_optimized.go](1900_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
-| [1900_dp_optimized.py](1900_dp_optimized.py) \* | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1900_dp_optimized.go](1900_dp_optimized.go) | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
+| [1900_dp_optimized.py](1900_dp_optimized.py) | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |

@@ -122,7 +122,5 @@ entrada con búfer. La profundidad recursiva es `O(log n)`.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1900_dp_optimized.go](1900_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
-| [1900_dp_optimized.py](1900_dp_optimized.py) \* | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1900_dp_optimized.go](1900_dp_optimized.go) | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
+| [1900_dp_optimized.py](1900_dp_optimized.py) | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |

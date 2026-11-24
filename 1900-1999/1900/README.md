@@ -127,7 +127,5 @@ buffered input. Recursion depth is logarithmic in n.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1900_dp_optimized.go](1900_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
-| [1900_dp_optimized.py](1900_dp_optimized.py) \* | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1900_dp_optimized.go](1900_dp_optimized.go) | Go 1.14 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.046 s | 1580 KB | 11315676 |
+| [1900_dp_optimized.py](1900_dp_optimized.py) | Python 3.12 x64 | dp | O(n² + kD log(D + 1)) | AC | 0.343 s | 1508 KB | 11315679 |
