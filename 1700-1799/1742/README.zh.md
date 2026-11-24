@@ -91,7 +91,7 @@ Rust 优化版 / 保留教学版: Accepted #11310368 0.031 s / 2088 KB; Accepted
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1742_graphs_optimized.cpp](1742_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.015 s | 532 KB | 11326976 |
-| [1742_graphs_optimized.go](1742_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(n) | AC | 0.046 s | 2084 KB | 11310371 |
-| [1742_graphs_optimized.rs](1742_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 2088 KB | 11310368 |
+| [1742_graphs_optimized.go](1742_graphs_optimized.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.046 s | 2084 KB | 11310371 |
+| [1742_graphs_optimized.rs](1742_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 2088 KB | 11310368 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
