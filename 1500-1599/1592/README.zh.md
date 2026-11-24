@@ -89,8 +89,6 @@ G++ 13.2 x64 №11322161 · Go 1.14 x64 №11322418 · Java 1.8 №11322419 · P
 |----|----|----|-----|------|----|----|---|
 | [1592_math_optimized.cpp](1592_math_optimized.cpp) | G++ 13.2 x64 | math | O(N + D) | AC | 0.015 s | 168 KB | 11316963 |
 | [1592_math_optimized.java](1592_math_optimized.java) | Java 1.8 | math | O(N + D) | AC | 0.093 s | 528 KB | 11317056 |
-| [1592_math_optimized.rs](1592_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N + D) | AC | 0.031 s | 292 KB | 11317053 |
-| [1592_math_optimized.go](1592_math_optimized.go) \* | Go 1.14 x64 | math | O(N + D) | AC | 0.031 s | 1212 KB | 11317046 |
-| [1592_math_optimized.py](1592_math_optimized.py) \* | Python 3.12 x64 | math | O(N + D) | AC | 0.125 s | 592 KB | 11317035 |
-
-\* 已通过评测，尚未达到 Python 排名目标。 已通过评测，尚未达到 Go 排名目标。 已通过评测，尚未达到 Rust 排名目标。
+| [1592_math_optimized.rs](1592_math_optimized.rs) | Rust 1.75 x64 | math | O(N + D) | AC | 0.031 s | 292 KB | 11317053 |
+| [1592_math_optimized.go](1592_math_optimized.go) | Go 1.14 x64 | math | O(N + D) | AC | 0.031 s | 1212 KB | 11317046 |
+| [1592_math_optimized.py](1592_math_optimized.py) | Python 3.12 x64 | math | O(N + D) | AC | 0.125 s | 592 KB | 11317035 |
