@@ -115,8 +115,6 @@ C++ 修订版保留递归铺砖与逆序象限访问，因此砖块编号不变�
 |---|---|---|---|---|---|---|---|
 | [1401_constructive_optimized.cpp](1401_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(4^n) | AC | 0.031 s | 888 KB | 11326640 |
 | [1401_constructive_optimized.go](1401_constructive_optimized.go) | Go 1.14 x64 | constructive | O(4^n) | AC | 0.031 s | 2136 KB | 11305934 |
-| [1401_constructive_optimized.java](1401_constructive_optimized.java) \* | Java 1.8 | constructive | O(4^n) | AC | 0.125 s | 5600 KB | 11305935 |
-| [1401_constructive_optimized.py](1401_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(4^n) board work/storage; O(n) recursion | AC | 0.218 s | 2004 KB | 11327426 |
+| [1401_constructive_optimized.java](1401_constructive_optimized.java) | Java 1.8 | constructive | O(4^n) | AC | 0.125 s | 5600 KB | 11305935 |
+| [1401_constructive_optimized.py](1401_constructive_optimized.py) | Python 3.12 x64 | constructive | O(4^n) board work/storage; O(n) recursion | AC | 0.218 s | 2004 KB | 11327426 |
 | [1401_constructive_optimized.rs](1401_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(4^n) | AC | 0.046 s | 1172 KB | 11307191 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
