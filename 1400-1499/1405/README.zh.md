@@ -104,9 +104,7 @@ G++ 13.2 x64 №11322120 · Go 1.14 x64 №11322121 · Java 1.8 №11322122 · P
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1405_geometry_optimized.cpp](1405_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.015 s | 232 KB | 11317478 |
-| [1405_geometry_optimized.go](1405_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
-| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
+| [1405_geometry_optimized.go](1405_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
+| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
 | [1405_geometry_optimized.py](1405_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.125 s | 1064 KB | 11317508 |
-| [1405_geometry_optimized.java](1405_geometry_optimized.java) \* | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。 Go 版耗时从 0.062 秒变为 0.031 秒，内存从 1136 KB 变为 1016 KB。保存的排名中没有其他作者的可比 Go 提交。 Rust 版耗时从 0.031 秒变为 0.031 秒，内存从 308 KB 变为 324 KB。保存的排名中没有其他作者的可比 Rust 提交。 Java 版内存从 5548 KB 变为 3204 KB，耗时从 0.14 秒变为 0.171 秒。
+| [1405_geometry_optimized.java](1405_geometry_optimized.java) | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |

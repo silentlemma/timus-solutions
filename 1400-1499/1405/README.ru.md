@@ -111,9 +111,7 @@ G++ 13.2 x64 №11322120 · Go 1.14 x64 №11322121 · Java 1.8 №11322122 · P
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1405_geometry_optimized.cpp](1405_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.015 s | 232 KB | 11317478 |
-| [1405_geometry_optimized.go](1405_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
-| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
+| [1405_geometry_optimized.go](1405_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
+| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
 | [1405_geometry_optimized.py](1405_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.125 s | 1064 KB | 11317508 |
-| [1405_geometry_optimized.java](1405_geometry_optimized.java) \* | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга. Go заняла 0,031 с против 0,062 с у базовой версии, расход памяти изменился с 1136 до 1016 КБ. В сохранённом срезе нет сопоставимых Go-посылок других участников. Rust заняла 0,031 с против 0,031 с у базовой версии, расход памяти изменился с 308 до 324 КБ. В сохранённом срезе нет сопоставимых Rust-посылок других участников. Java использовала 3204 КБ вместо 5548 КБ, время изменилось с 0,14 до 0,171 с.
+| [1405_geometry_optimized.java](1405_geometry_optimized.java) | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |
