@@ -102,7 +102,5 @@ lugar de 388 KB; Rust, 188 KB en lugar de 3160 KB, con el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1209_math_optimized.cpp](1209_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.031 s | 84 KB | 11303960 |
-| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
+| [1209_math_optimized.py](1209_math_optimized.py) | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
 | [1209_math_optimized.rs](1209_math_optimized.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 188 KB | 11303961 |
-
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

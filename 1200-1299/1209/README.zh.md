@@ -93,7 +93,5 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1209_math_optimized.cpp](1209_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.031 s | 84 KB | 11303960 |
-| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
+| [1209_math_optimized.py](1209_math_optimized.py) | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
 | [1209_math_optimized.rs](1209_math_optimized.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 188 KB | 11303961 |
-
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。

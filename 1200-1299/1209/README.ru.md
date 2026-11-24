@@ -100,7 +100,5 @@ Accepted точного исходника CPython 3.12 №11326663: 0.156 с / 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1209_math_optimized.cpp](1209_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.031 s | 84 KB | 11303960 |
-| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
+| [1209_math_optimized.py](1209_math_optimized.py) | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
 | [1209_math_optimized.rs](1209_math_optimized.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 188 KB | 11303961 |
-
-\* Accepted; отдельная рейтинговая цель пока не достигнута: для C++ нужны первые десять мест или топ 15% по времени и памяти, для остальных языковых семейств — первое место по обеим метрикам. Эта отметка отделена от критериев допуска; версию можно оптимизировать дальше.
