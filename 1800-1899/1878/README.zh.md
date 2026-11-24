@@ -103,10 +103,10 @@
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
-| [1878_math_optimized.java](1878_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11327768 |
-| [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
-| [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
-| [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
+| [1878_math.java](1878_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math_optimized.java](1878_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11327768 |
+| [1878_math.py](1878_math.py) | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+| [1878_implementation_optimized.rs](1878_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
+| [1878_implementation_optimized.go](1878_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
