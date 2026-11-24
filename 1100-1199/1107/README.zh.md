@@ -125,8 +125,6 @@ YES
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1107_math_optimized.cpp](1107_math_optimized.cpp) | G++ 13.2 x64 | math | O(S) | AC | 0.062 s | 92 KB | 11314882 |
-| [1107_math_optimized.go](1107_math_optimized.go) \* | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
-| [1107_math_optimized.py](1107_math_optimized.py) \* | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
-| [1107_math_optimized.rs](1107_math_optimized.rs) \* | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1107_math_optimized.go](1107_math_optimized.go) | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
+| [1107_math_optimized.py](1107_math_optimized.py) | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
+| [1107_math_optimized.rs](1107_math_optimized.rs) | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |

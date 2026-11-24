@@ -150,8 +150,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1107_math_optimized.cpp](1107_math_optimized.cpp) | G++ 13.2 x64 | math | O(S) | AC | 0.062 s | 92 KB | 11314882 |
-| [1107_math_optimized.go](1107_math_optimized.go) \* | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
-| [1107_math_optimized.py](1107_math_optimized.py) \* | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
-| [1107_math_optimized.rs](1107_math_optimized.rs) \* | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1107_math_optimized.go](1107_math_optimized.go) | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
+| [1107_math_optimized.py](1107_math_optimized.py) | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
+| [1107_math_optimized.rs](1107_math_optimized.rs) | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |
