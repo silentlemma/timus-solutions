@@ -102,9 +102,9 @@ Go 按左端点降序排序，并找右端点的严格递增子序列。左端�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
-| [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
+| [1078_binary_search_sorting.go](1078_binary_search_sorting.go) | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
+| [1078_dp_binary_search.rs](1078_dp_binary_search.rs) | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
 | [1078_dp_optimized.java](1078_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 2768 KB | 11324973 |
-| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
+| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

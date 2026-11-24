@@ -115,9 +115,9 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
-| [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
+| [1078_binary_search_sorting.go](1078_binary_search_sorting.go) | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
+| [1078_dp_binary_search.rs](1078_dp_binary_search.rs) | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
 | [1078_dp_optimized.java](1078_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 2768 KB | 11324973 |
-| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
+| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
