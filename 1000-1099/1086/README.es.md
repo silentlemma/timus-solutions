@@ -148,8 +148,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [1086_number_theory_optimized.cpp](1086_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L log log L) | AC | 0.015 s | 148 KB | 11307512 |
 | [1086_number_theory_optimized.go](1086_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(L log log L) | AC | 0.015 s | 1180 KB | 11304263 |
-| [1086_number_theory_optimized.java](1086_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(L log log L) | AC | 0.078 s | 576 KB | 11304023 |
-| [1086_number_theory_optimized.py](1086_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L) | AC | 0.093 s | 988 KB | 11304024 |
+| [1086_number_theory_optimized.java](1086_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L) | AC | 0.078 s | 576 KB | 11304023 |
+| [1086_number_theory_optimized.py](1086_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L log log L) | AC | 0.093 s | 988 KB | 11304024 |
 | [1086_number_theory_optimized.rs](1086_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(L log log L) | AC | 0.001 s | 624 KB | 11304043 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
