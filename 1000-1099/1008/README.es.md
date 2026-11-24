@@ -155,7 +155,7 @@ el orden correcto sin ordenar.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1008_bfs_optimized.cpp](1008_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 124 KB | 11311046 |
-| [1008_bfs_optimized.go](1008_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 320 KB | 11311215 |
-| [1008_bfs_optimized.rs](1008_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 192 KB | 11310787 |
+| [1008_bfs_optimized.go](1008_bfs_optimized.go) | Go 1.14 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 320 KB | 11311215 |
+| [1008_bfs_optimized.rs](1008_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 192 KB | 11310787 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
