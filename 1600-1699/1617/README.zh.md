@@ -96,7 +96,5 @@ n，然后是 n 个直径。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1617_implementation_optimized.java](1617_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; 101 byte remainders | AC | 0.078 s | 368 KB | 11327764 |
-| [1617_implementation_optimized.py](1617_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N+101) time; O(I+101) storage | AC | 0.062 s | 660 KB | 11327789 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1617_implementation_optimized.java](1617_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; 101 byte remainders | AC | 0.078 s | 368 KB | 11327764 |
+| [1617_implementation_optimized.py](1617_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N+101) time; O(I+101) storage | AC | 0.062 s | 660 KB | 11327789 |
