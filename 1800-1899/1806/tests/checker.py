@@ -24,8 +24,8 @@ def step_cost(a, b, cost):
 def check(source, expected, output):
     data = open(source).read().split()
     n = int(data[0])
-    cost = list(map(int, data[1:1 + DIGITS]))
-    numbers = data[1 + DIGITS:1 + DIGITS + n]
+    cost = list(map(int, data[1 : 1 + DIGITS]))
+    numbers = data[1 + DIGITS : 1 + DIGITS + n]
     want = open(expected).read().split()
     got = open(output).read().split()
     if not got or not all(w.lstrip("-").isdigit() for w in got):

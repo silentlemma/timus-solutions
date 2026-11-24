@@ -22,7 +22,7 @@ def main():
     numbers = set()
     if mode == 1:
         n = rng.randint(2, FEW)
-        letters = "0123456789"[:rng.randint(2, 3)]
+        letters = "0123456789"[: rng.randint(2, 3)]
         while len(numbers) < n:
             numbers.add("".join(rng.choice(letters) for _ in range(DIGITS)))
         numbers = list(numbers)
@@ -53,8 +53,8 @@ def main():
     if mode == 5:
         # a number differing from the common head in every digit
         last = numbers[-1]
-        shifted = "".join(str((int(ch) + 1) % DIGITS) for ch in last[:DIGITS - FREE])
-        numbers[-1] = shifted + last[DIGITS - FREE:]
+        shifted = "".join(str((int(ch) + 1) % DIGITS) for ch in last[: DIGITS - FREE])
+        numbers[-1] = shifted + last[DIGITS - FREE :]
     print(len(numbers))
     print(*cost)
     print("\n".join(numbers))
