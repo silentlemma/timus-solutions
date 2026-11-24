@@ -10,8 +10,8 @@ import random
 import sys
 
 SMALL = 6
-MAX_N = 10 ** 5
-TOP = 10 ** 9
+MAX_N = 10**5
+TOP = 10**9
 FEW = 3
 
 
