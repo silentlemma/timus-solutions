@@ -135,10 +135,8 @@ G++ 13.2 x64 №11322246 · Go 1.14 x64 №11322247 · Java 1.8 №11322248 · P
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1305_geometry_optimized.py](1305_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.156 s | 540 KB | 11319476 |
+| [1305_geometry_optimized.py](1305_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.156 s | 540 KB | 11319476 |
 | [1305_geometry_optimized.cpp](1305_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 88 KB | 11319478 |
 | [1305_geometry_optimized.rs](1305_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 204 KB | 11319507 |
-| [1305_geometry_optimized.go](1305_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 908 KB | 11319554 |
+| [1305_geometry_optimized.go](1305_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 908 KB | 11319554 |
 | [1305_geometry_optimized.java](1305_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.062 s | 400 KB | 11322001 |
-
-\* Las versiones marcadas aún pueden mejorar su clasificación.
