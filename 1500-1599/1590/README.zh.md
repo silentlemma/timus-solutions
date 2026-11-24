@@ -111,7 +111,7 @@ Python 对前缀相等性二分搜索 LCP，使用 C 层字节比较，仍满足
 | [1590_strings.py](1590_strings.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 3132 KB | 11287994 |
 | [1590_strings.rs](1590_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 2272 KB | 11287999 |
 | [1590_strings_optimized.java](1590_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.109 s | 748 KB | 11308188 |
-| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(26N) time and space | AC | 0.093 s | 1120 KB | 11326686 |
+| [1590_strings_optimized.py](1590_strings_optimized.py) | Python 3.12 x64 | strings | O(26N) time and space | AC | 0.093 s | 1120 KB | 11326686 |
 | [1590_strings_optimized.rs](1590_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 504 KB | 11308189 |
 | [1590_sorting_strings_optimized.cpp](1590_sorting_strings_optimized.cpp) \* | G++ 13.2 x64 | sorting, strings | O(N^2 log N) | AC | 0.031 s | 152 KB | 11309286 |
 
