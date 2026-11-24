@@ -153,11 +153,11 @@ asterisk concerns the rating target only.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1079_dp_optimized.cpp](1079_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 416 KB | 11304025 |
-| [1079_dp_optimized.go](1079_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1224 KB | 11304026 |
+| [1079_dp_optimized.go](1079_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1224 KB | 11304026 |
 | [1079_dp_optimized.java](1079_dp_optimized.java) \* | Java 1.8 | dp | O(N) | AC | 0.109 s | 728 KB | 11304027 |
-| [1079_number_theory.java](1079_number_theory.java) \* | Java 1.8 | number_theory | O(log N) per query; O(log Nmax) precomputation | AC | 0.093 s | 408 KB | 11327743 |
+| [1079_number_theory.java](1079_number_theory.java) | Java 1.8 | number_theory | O(log N) per query; O(log Nmax) precomputation | AC | 0.093 s | 408 KB | 11327743 |
 | [1079_number_theory.py](1079_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) per query; O(log max n) algorithm state | AC | 0.062 s | 456 KB | 11326678 |
 | [1079_dp_optimized.py](1079_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.140 s | 772 KB | 11304028 |
-| [1079_dp_optimized.rs](1079_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 520 KB | 11304337 |
+| [1079_dp_optimized.rs](1079_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 520 KB | 11304337 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
