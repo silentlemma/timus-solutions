@@ -118,9 +118,7 @@ Se conservan las bases con potencias matriciales en los cinco lenguajes. Las ver
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1507_graphs.cpp](1507_graphs.cpp) | G++ 13.2 x64 | graphs | O(n²) | AC | 0.015 s | 108 KB | 11314642 |
-| [1507_graphs.go](1507_graphs.go) \* | Go 1.14 x64 | graphs | O(n²) | AC | 0.015 s | 288 KB | 11314641 |
+| [1507_graphs.go](1507_graphs.go) | Go 1.14 x64 | graphs | O(n²) | AC | 0.015 s | 288 KB | 11314641 |
 | [1507_graphs.java](1507_graphs.java) | Java 1.8 | graphs | O(n²) | AC | 0.093 s | 392 KB | 11314637 |
-| [1507_graphs.py](1507_graphs.py) \* | Python 3.12 x64 | graphs | O(n²) | AC | 0.093 s | 584 KB | 11314647 |
-| [1507_graphs.rs](1507_graphs.rs) \* | Rust 1.75 x64 | graphs | O(n²) | AC | 0.046 s | 48 KB | 11314650 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1507_graphs.py](1507_graphs.py) | Python 3.12 x64 | graphs | O(n²) | AC | 0.093 s | 584 KB | 11314647 |
+| [1507_graphs.rs](1507_graphs.rs) | Rust 1.75 x64 | graphs | O(n²) | AC | 0.046 s | 48 KB | 11314650 |
