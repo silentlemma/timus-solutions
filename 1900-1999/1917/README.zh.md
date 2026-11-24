@@ -109,7 +109,5 @@ n,p，其中 1≤n≤1000、1≤p≤1 000 000 000。
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
-| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1917_greedy_optimized.java](1917_greedy_optimized.java) | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |

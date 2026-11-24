@@ -35,11 +35,7 @@ def make_case(seed, mode):
         return values, rng.randint(1, 200)
     if mode in (SHUFFLED, MANY, DESCENDING):
         values = list(range(1, MAX_COUNT + 1))
-        budget = (
-            rng.randint(MAX_COUNT, MAX_COUNT * MAX_COUNT)
-            if mode == SHUFFLED
-            else MAX_COUNT
-        )
+        budget = rng.randint(MAX_COUNT, MAX_COUNT * MAX_COUNT) if mode == SHUFFLED else MAX_COUNT
         if mode == DESCENDING:
             values.reverse()
             return values, budget
@@ -60,9 +56,7 @@ def make_case(seed, mode):
         values = list(range(MAX_THRESHOLD - MAX_COUNT + 1, MAX_THRESHOLD + 1))
         budget = MAX_BUDGET - int(mode == BELOW_BILLION)
     elif mode == LARGE_GROUPS:
-        values = [
-            MAX_THRESHOLD // 10 * group for group in range(1, 11) for _ in range(100)
-        ]
+        values = [MAX_THRESHOLD // 10 * group for group in range(1, 11) for _ in range(100)]
         budget = 10000000
     elif mode in (EXACT_BATCH, BELOW_BATCH):
         values = [1] * (MAX_COUNT // 2) + [2] * (MAX_COUNT // 2)

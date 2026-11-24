@@ -125,7 +125,5 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
-| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1917_greedy_optimized.java](1917_greedy_optimized.java) | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |
