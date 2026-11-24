@@ -152,7 +152,7 @@ Las implementaciones base aceptadas [1992_trees.java](1992_trees.java), [1992_tr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1992_trees_optimized.cpp](1992_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.187 s | 3860 KB | 11310373 |
-| [1992_trees_optimized.go](1992_trees_optimized.go) \* | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
-| [1992_trees_optimized.rs](1992_trees_optimized.rs) \* | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
+| [1992_trees_optimized.go](1992_trees_optimized.go) | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
+| [1992_trees_optimized.rs](1992_trees_optimized.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

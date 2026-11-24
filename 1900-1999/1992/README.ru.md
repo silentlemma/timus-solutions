@@ -159,7 +159,7 @@ Python читает команды построчно и использует к
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1992_trees_optimized.cpp](1992_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.187 s | 3860 KB | 11310373 |
-| [1992_trees_optimized.go](1992_trees_optimized.go) \* | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
-| [1992_trees_optimized.rs](1992_trees_optimized.rs) \* | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
+| [1992_trees_optimized.go](1992_trees_optimized.go) | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
+| [1992_trees_optimized.rs](1992_trees_optimized.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

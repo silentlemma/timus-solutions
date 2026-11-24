@@ -110,7 +110,7 @@ Rust 1.75 x64 的实测时间从 0.078 秒增至 0.125 秒。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1992_trees_optimized.cpp](1992_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.187 s | 3860 KB | 11310373 |
-| [1992_trees_optimized.go](1992_trees_optimized.go) \* | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
-| [1992_trees_optimized.rs](1992_trees_optimized.rs) \* | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
+| [1992_trees_optimized.go](1992_trees_optimized.go) | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
+| [1992_trees_optimized.rs](1992_trees_optimized.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
