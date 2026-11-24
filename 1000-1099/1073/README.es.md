@@ -123,6 +123,4 @@ implementación para alcanzar el objetivo.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |

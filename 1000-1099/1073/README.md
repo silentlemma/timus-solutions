@@ -118,6 +118,4 @@ implementation for these languages.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
