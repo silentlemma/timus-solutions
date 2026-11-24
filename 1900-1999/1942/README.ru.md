@@ -141,9 +141,7 @@ G++ 13.2 x64 №11322162 · Go 1.14 x64 №11322163 · Java 1.8 №11322164 · P
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1942_geometry_optimized.cpp](1942_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(L + N log N) | AC | 0.015 s | 344 KB | 11316985 |
-| [1942_geometry_optimized.go](1942_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(L + N log N) | AC | 0.031 s | 1260 KB | 11317099 |
-| [1942_geometry_optimized.rs](1942_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(L + N log N) | AC | 0.015 s | 412 KB | 11317104 |
-| [1942_geometry_optimized.py](1942_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(L + N log N) | AC | 0.203 s | 3384 KB | 11317108 |
+| [1942_geometry_optimized.go](1942_geometry_optimized.go) | Go 1.14 x64 | geometry | O(L + N log N) | AC | 0.031 s | 1260 KB | 11317099 |
+| [1942_geometry_optimized.rs](1942_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(L + N log N) | AC | 0.015 s | 412 KB | 11317104 |
+| [1942_geometry_optimized.py](1942_geometry_optimized.py) | Python 3.12 x64 | geometry | O(L + N log N) | AC | 0.203 s | 3384 KB | 11317108 |
 | [1942_geometry_optimized.java](1942_geometry_optimized.java) | Java 1.8 | geometry | O(L + N log N) | AC | 0.109 s | 804 KB | 11317110 |
-
-\* Версия Go принята, рейтинговая цель пока не достигнута. Версия Rust принята, рейтинговая цель пока не достигнута. Версия Python принята, рейтинговая цель пока не достигнута.

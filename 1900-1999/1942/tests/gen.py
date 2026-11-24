@@ -17,9 +17,7 @@ def points(mode):
     if mode == "unique":
         return [(index // SCALE, index % SCALE) for index in range(MAX_POINTS)]
     if mode == "unique_far":
-        return [
-            (SCALE // 2 + index // SCALE, index % SCALE) for index in range(MAX_POINTS)
-        ]
+        return [(SCALE // 2 + index // SCALE, index % SCALE) for index in range(MAX_POINTS)]
     if mode == "priority":
         return [(0, 0)] * 24999 + [(500, 500)] * 25000 + [(-1, 1)]
     if mode == "tie":
@@ -28,20 +26,12 @@ def points(mode):
 
 
 def decimal(value):
-    return (
-        ("-" if value < 0 else "")
-        + str(abs(value) // SCALE)
-        + f".{abs(value) % SCALE:03}"
-    )
+    return ("-" if value < 0 else "") + str(abs(value) // SCALE) + f".{abs(value) % SCALE:03}"
 
 
 def generate(mode):
     data = points(mode)
-    return (
-        str(len(data))
-        + "\n"
-        + "".join(decimal(x) + " " + decimal(y) + "\n" for x, y in data)
-    )
+    return str(len(data)) + "\n" + "".join(decimal(x) + " " + decimal(y) + "\n" for x, y in data)
 
 
 if __name__ == "__main__":
