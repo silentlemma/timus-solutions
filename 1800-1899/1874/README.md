@@ -112,8 +112,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
-| [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.093 s | 344 KB | 11328166 |
+| [1874_geometry_optimized.java](1874_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 344 KB | 11328166 |
 | [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
-| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
+| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

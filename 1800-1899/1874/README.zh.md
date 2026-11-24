@@ -97,8 +97,8 @@ Rust 结果按 2026 年 11 月 18 日的快照，与其他作者在当前评测�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
-| [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.093 s | 344 KB | 11328166 |
+| [1874_geometry_optimized.java](1874_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 344 KB | 11328166 |
 | [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
-| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
+| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
