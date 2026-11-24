@@ -156,7 +156,5 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
-| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N ceil(N/64) + E) time; O(N ceil(N/64) + N) space | AC | 0.078 s | 380 KB | 11327520 |
-| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | Python 3.12 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.062 s | 724 KB | 11327003 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) | Java 1.8 | bfs, graphs | O(N ceil(N/64) + E) time; O(N ceil(N/64) + N) space | AC | 0.078 s | 380 KB | 11327520 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) | Python 3.12 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.062 s | 724 KB | 11327003 |
