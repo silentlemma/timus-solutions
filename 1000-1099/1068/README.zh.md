@@ -93,7 +93,7 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.062 s | 364 KB | 11327461 |
+| [1068_math_optimized.java](1068_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.062 s | 364 KB | 11327461 |
 | [1068_math_optimized.py](1068_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324832 |
 | [1068_math_optimized.go](1068_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 260 KB | 11325649 |
 
