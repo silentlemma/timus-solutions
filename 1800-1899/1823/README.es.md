@@ -123,8 +123,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1823_math_optimized.go](1823_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 776 KB | 11311181 |
-| [1823_math_optimized.rs](1823_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11310736 |
+| [1823_math_optimized.go](1823_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 776 KB | 11311181 |
+| [1823_math_optimized.rs](1823_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11310736 |
 | [1823_math_optimized.java](1823_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 504 KB | 11325039 |
 | [1823_math_optimized.py](1823_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) input work; exact bounded arithmetic | AC | 0.125 s | 284 KB | 11325491 |
 

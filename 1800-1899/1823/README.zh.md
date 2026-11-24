@@ -102,8 +102,8 @@ Go 和 Rust 用四个固定槽保存 p、V、n、T，并从 1000pV = 8314nT 中�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1823_math_optimized.go](1823_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 776 KB | 11311181 |
-| [1823_math_optimized.rs](1823_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11310736 |
+| [1823_math_optimized.go](1823_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 776 KB | 11311181 |
+| [1823_math_optimized.rs](1823_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11310736 |
 | [1823_math_optimized.java](1823_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 504 KB | 11325039 |
 | [1823_math_optimized.py](1823_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) input work; exact bounded arithmetic | AC | 0.125 s | 284 KB | 11325491 |
 
