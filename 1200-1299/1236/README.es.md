@@ -92,8 +92,8 @@ Go/Python originales usan conversión hex de biblioteca; C++/Go/Java/Rust nuevos
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1236_math_optimized.cpp](1236_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 76 KB | 11315388 |
-| [1236_math_optimized.go](1236_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
-| [1236_math_optimized.java](1236_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
+| [1236_math_optimized.go](1236_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
+| [1236_math_optimized.java](1236_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
 | [1236_math_optimized.rs](1236_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 208 KB | 11315404 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

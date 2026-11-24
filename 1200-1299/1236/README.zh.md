@@ -86,8 +86,8 @@ C[i] = S[i] xor K[i],   K[i+1] = L[i+1] xor C[i] = L[i+1] xor S[i] xor K[i]
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1236_math_optimized.cpp](1236_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 76 KB | 11315388 |
-| [1236_math_optimized.go](1236_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
-| [1236_math_optimized.java](1236_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
+| [1236_math_optimized.go](1236_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
+| [1236_math_optimized.java](1236_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
 | [1236_math_optimized.rs](1236_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 208 KB | 11315404 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
