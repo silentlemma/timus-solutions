@@ -167,7 +167,7 @@ asterisk concerns the rating target only.
 |---|---|---|---|---|---|---|---|
 | [1012_dp_optimized.cpp](1012_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 112 KB | 11307305 |
 | [1012_dp_optimized.go](1012_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.031 s | 1052 KB | 11307309 |
-| [1012_dp_optimized.java](1012_dp_optimized.java) \* | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.093 s | 424 KB | 11307307 |
+| [1012_dp_optimized.java](1012_dp_optimized.java) | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.093 s | 424 KB | 11307307 |
 | [1012_dp_optimized.rs](1012_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 216 KB | 11307310 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
