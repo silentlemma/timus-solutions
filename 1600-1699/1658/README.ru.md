@@ -119,7 +119,5 @@ DP по двум моментам цифр хранит только дости�
 | [1658_dp_optimized.cpp](1658_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(9C+TK) | AC | 0.046 s | 3292 KB | 11308098 |
 | [1658_dp_optimized.go](1658_dp_optimized.go) | Go 1.14 x64 | dp | O(9C+TK) | AC | 0.062 s | 4488 KB | 11308100 |
 | [1658_dp_optimized.java](1658_dp_optimized.java) | Java 1.8 | dp | O(9C+TK) | AC | 0.156 s | 9148 KB | 11308105 |
-| [1658_bitmask_dp.py](1658_bitmask_dp.py) \* | Python 3.12 x64 | bitmask, dp | O(9C+TK) | AC | 1.031 s | 12680 KB | 11308153 |
+| [1658_bitmask_dp.py](1658_bitmask_dp.py) | Python 3.12 x64 | bitmask, dp | O(9C+TK) | AC | 1.031 s | 12680 KB | 11308153 |
 | [1658_dp_optimized.rs](1658_dp_optimized.rs) | Rust 1.75 x64 | dp | O(9C+TK) | AC | 0.031 s | 2800 KB | 11308108 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
