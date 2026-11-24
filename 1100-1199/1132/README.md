@@ -106,7 +106,7 @@ The original files cache a quadratic nonresidue per prime. Optimized C++, Go and
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1132_number_theory_optimized.cpp](1132_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(P + K log² P + Z log P) | AC | 0.031 s | 140 KB | 11315759 |
-| [1132_number_theory_optimized.go](1132_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(P + K log² P + Z log P) | AC | 0.015 s | 992 KB | 11315760 |
-| [1132_number_theory_optimized.rs](1132_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(P + K log² P + Z log P) | AC | 0.062 s | 108 KB | 11315763 |
+| [1132_number_theory_optimized.go](1132_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(P + K log² P + Z log P) | AC | 0.015 s | 992 KB | 11315760 |
+| [1132_number_theory_optimized.rs](1132_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(P + K log² P + Z log P) | AC | 0.062 s | 108 KB | 11315763 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
