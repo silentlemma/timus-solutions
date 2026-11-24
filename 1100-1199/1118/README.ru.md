@@ -109,6 +109,4 @@
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1118_number_theory_optimized.java](1118_number_theory_optimized.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 372 KB | 11303559 |
-| [1118_number_theory_optimized.rs](1118_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O((H-L+1)√H) worst; O(1) space | AC | 0.015 s | 48 KB | 11325513 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1118_number_theory_optimized.rs](1118_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O((H-L+1)√H) worst; O(1) space | AC | 0.015 s | 48 KB | 11325513 |
