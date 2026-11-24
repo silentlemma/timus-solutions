@@ -121,9 +121,7 @@ Compared with `1642_implementation.rs`: time 0.031 s → 0.015 s; memory 228 KB 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1642_implementation_optimized.java](1642_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 416 KB | 11327458 |
+| [1642_implementation_optimized.java](1642_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 416 KB | 11327458 |
 | [1642_implementation_optimized.cpp](1642_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 72 KB | 11325060 |
-| [1642_implementation_optimized.rs](1642_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
-| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(I) token storage | AC | 0.078 s | 744 KB | 11327790 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1642_implementation_optimized.rs](1642_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
+| [1642_implementation_optimized.py](1642_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) time; O(I) token storage | AC | 0.078 s | 744 KB | 11327790 |
