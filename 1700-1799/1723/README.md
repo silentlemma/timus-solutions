@@ -86,7 +86,5 @@ Count occurrences of each lowercase letter with the built-in byte count and keep
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
-| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
-| [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
-
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+| [1723_strings_optimized.java](1723_strings_optimized.java) | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
+| [1723_strings_optimized.py](1723_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |

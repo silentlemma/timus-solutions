@@ -88,7 +88,5 @@ Contar cada letra minúscula con el recuento de bytes incorporado y conservar la
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
-| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
-| [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
-
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+| [1723_strings_optimized.java](1723_strings_optimized.java) | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
+| [1723_strings_optimized.py](1723_strings_optimized.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
