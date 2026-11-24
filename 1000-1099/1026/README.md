@@ -176,7 +176,5 @@ asterisk concerns the rating target only.
 | [1026_prefix_sums_optimized.cpp](1026_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.001 s | 104 KB | 11305903 |
 | [1026_prefix_sums.go](1026_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.015 s | 1072 KB | 11305908 |
 | [1026_prefix_sums.java](1026_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.109 s | 396 KB | 11305911 |
-| [1026_prefix_sums.py](1026_prefix_sums.py) \* | Python 3.12 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.093 s | 564 KB | 11305912 |
+| [1026_prefix_sums.py](1026_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.093 s | 564 KB | 11305912 |
 | [1026_prefix_sums.rs](1026_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.046 s | 232 KB | 11305916 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
