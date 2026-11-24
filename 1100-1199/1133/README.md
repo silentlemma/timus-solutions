@@ -142,6 +142,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1133_number_theory.go](1133_number_theory.go) | Go 1.14 x64 | number_theory | O(W) | AC | 0.015 s | 1064 KB | 11279391 |
 | [1133_math_optimized.java](1133_math_optimized.java) | Java 1.8 | math | O(W²) bit time | AC | 0.093 s | 536 KB | 11308413 |
 | [1133_math_optimized.py](1133_math_optimized.py) \* | PyPy 3.10 x64 | math | O(W²) bit time | AC | 0.140 s | 256 KB | 11308412 |
-| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
+| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

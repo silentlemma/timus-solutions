@@ -138,6 +138,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1133_number_theory.go](1133_number_theory.go) | Go 1.14 x64 | number_theory | O(W) | AC | 0.015 s | 1064 KB | 11279391 |
 | [1133_math_optimized.java](1133_math_optimized.java) | Java 1.8 | math | O(W²) bit time | AC | 0.093 s | 536 KB | 11308413 |
 | [1133_math_optimized.py](1133_math_optimized.py) \* | PyPy 3.10 x64 | math | O(W²) bit time | AC | 0.140 s | 256 KB | 11308412 |
-| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
+| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
