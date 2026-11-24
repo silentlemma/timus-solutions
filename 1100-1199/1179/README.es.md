@@ -121,9 +121,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1179_strings.cpp](1179_strings.cpp) | G++ 13.2 x64 | strings | O(L+37^2) time | AC | 0.031 s | 116 KB | 11283281 |
 | [1179_strings.go](1179_strings.go) | Go 1.14 x64 | strings | O(L+37^2) time | AC | 0.015 s | 3160 KB | 11283283 |
-| [1179_strings.java](1179_strings.java) \* | Java 1.8 | strings | O(L+37^2) time | AC | 0.125 s | 588 KB | 11283292 |
+| [1179_strings.java](1179_strings.java) | Java 1.8 | strings | O(L+37^2) time | AC | 0.125 s | 588 KB | 11283292 |
 | [1179_strings_optimized.py](1179_strings_optimized.py) | Python 3.12 x64 | strings | O(L+36) time; bounded block/table space | AC | 0.203 s | 396 KB | 11309351 |
-| [1179_strings_optimized.java](1179_strings_optimized.java) \* | Java 1.8 | strings | O(L+36) time; bounded block/table space | AC | 0.109 s | 412 KB | 11309353 |
-| [1179_prefix_sums.rs](1179_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(L+36) | AC | 0.046 s | 56 KB | 11325087 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1179_strings_optimized.java](1179_strings_optimized.java) | Java 1.8 | strings | O(L+36) time; bounded block/table space | AC | 0.109 s | 412 KB | 11309353 |
+| [1179_prefix_sums.rs](1179_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(L+36) | AC | 0.046 s | 56 KB | 11325087 |
