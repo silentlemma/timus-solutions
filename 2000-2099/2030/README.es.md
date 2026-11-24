@@ -188,6 +188,4 @@ de grado ni estructura logarítmica.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2030_dfs_optimized.cpp](2030_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.031 s | 2800 KB | 11315500 |
-| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |

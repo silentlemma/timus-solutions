@@ -193,6 +193,4 @@ degree threshold or logarithmic data structure is needed.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2030_dfs_optimized.cpp](2030_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.031 s | 2800 KB | 11315500 |
-| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |

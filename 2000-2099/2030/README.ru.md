@@ -189,6 +189,4 @@ C++ и Rust сохраняют value(v)=direct[v]+broadcast[parent[v]] по мо
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2030_dfs_optimized.cpp](2030_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.031 s | 2800 KB | 11315500 |
-| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
