@@ -106,7 +106,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1377_math.cpp](1377_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 108 KB | 11308023 |
 | [1377_math.go](1377_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1052 KB | 11308026 |
 | [1377_math.java](1377_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 436 KB | 11308028 |
-| [1377_math.py](1377_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 460 KB | 11308022 |
-| [1377_math.rs](1377_math.rs) \* | Rust 1.75 x64 | math | O(1) time and space | AC | 0.046 s | 52 KB | 11325548 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1377_math.py](1377_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 460 KB | 11308022 |
+| [1377_math.rs](1377_math.rs) | Rust 1.75 x64 | math | O(1) time and space | AC | 0.046 s | 52 KB | 11325548 |
