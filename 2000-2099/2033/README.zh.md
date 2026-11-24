@@ -135,7 +135,5 @@ nexus4
 |---|---|---|---|---|---|---|---|
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
-| [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
-| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(M+Lmax) space | AC | 0.078 s | 500 KB | 11307496 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2033_implementation.java](2033_implementation.java) | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) | Python 3.12 x64 | hashing | O(I) expected time; O(M+Lmax) space | AC | 0.078 s | 500 KB | 11307496 |
