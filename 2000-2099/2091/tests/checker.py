@@ -13,7 +13,7 @@ class Bad(Exception):
 def check(source, expected, output):
     data = open(source).read().split()
     n, m = int(data[0]), int(data[1])
-    rows = [data[2 + i * m:2 + (i + 1) * m] for i in range(n)]
+    rows = [data[2 + i * m : 2 + (i + 1) * m] for i in range(n)]
     best = int(open(expected).read().split()[0])
     got = open(output).read().split()
     if len(got) != 3 or not all(w.isdigit() for w in got):
