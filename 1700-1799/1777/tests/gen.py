@@ -17,7 +17,7 @@ def main():
         while fib[-1] + fib[-2] <= MOST:
             fib.append(fib[-1] + fib[-2])
         i = rng.randrange(len(fib) - 2)
-        piles = fib[i:i + 3]
+        piles = fib[i : i + 3]
         rng.shuffle(piles)
     else:
         top = FEW if mode == 1 else MOST
