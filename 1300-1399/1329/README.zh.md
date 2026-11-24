@@ -105,7 +105,7 @@ A 仍然打开：enter[A] ≤ enter[B] < leave[A]。每个问题最多做两次�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1329_dfs_optimized.cpp](1329_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(U + N + L) | AC | 0.015 s | 468 KB | 11315161 |
-| [1329_dfs_optimized.go](1329_dfs_optimized.go) \* | Go 1.14 x64 | dfs | O(U + N + L) | AC | 0.031 s | 692 KB | 11315171 |
-| [1329_dfs_optimized.rs](1329_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(U + N + L) | AC | 0.062 s | 2116 KB | 11315177 |
+| [1329_dfs_optimized.go](1329_dfs_optimized.go) | Go 1.14 x64 | dfs | O(U + N + L) | AC | 0.031 s | 692 KB | 11315171 |
+| [1329_dfs_optimized.rs](1329_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(U + N + L) | AC | 0.062 s | 2116 KB | 11315177 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -118,7 +118,7 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1329_dfs_optimized.cpp](1329_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(U + N + L) | AC | 0.015 s | 468 KB | 11315161 |
-| [1329_dfs_optimized.go](1329_dfs_optimized.go) \* | Go 1.14 x64 | dfs | O(U + N + L) | AC | 0.031 s | 692 KB | 11315171 |
-| [1329_dfs_optimized.rs](1329_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(U + N + L) | AC | 0.062 s | 2116 KB | 11315177 |
+| [1329_dfs_optimized.go](1329_dfs_optimized.go) | Go 1.14 x64 | dfs | O(U + N + L) | AC | 0.031 s | 692 KB | 11315171 |
+| [1329_dfs_optimized.rs](1329_dfs_optimized.rs) | Rust 1.75 x64 | dfs | O(U + N + L) | AC | 0.062 s | 2116 KB | 11315177 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
