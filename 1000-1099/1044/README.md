@@ -137,7 +137,5 @@ Build the digit-sum distribution one digit at a time. A sliding sum combines the
 |---|---|---|---|---|---|---|---|
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
 | [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 804 KB | 11328261 |
-| [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
-| [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
+| [1044_dp.py](1044_dp.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
