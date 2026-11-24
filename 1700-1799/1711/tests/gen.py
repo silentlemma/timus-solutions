@@ -41,7 +41,7 @@ def main():
         picks = sorted(rng.choice(names[i]) for i in range(n))
         for rank, p in enumerate(order):
             options = [w for w in names[p - 1] if w not in picks] + [picks[rank]]
-            names[p - 1] = [w for w in options if w != picks[rank]][:CHOICES - 1] + [picks[rank]]
+            names[p - 1] = [w for w in options if w != picks[rank]][: CHOICES - 1] + [picks[rank]]
             rng.shuffle(names[p - 1])
     print(n)
     for options in names:

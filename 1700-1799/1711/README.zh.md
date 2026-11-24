@@ -126,6 +126,13 @@ IMPOSSIBLE
 
 Accepted #11328588 (Go 1.14 x64): **0.031 s / 976 KB**. 历史对照: `1711_greedy.go` (Go 1.14 x64) — 0.062 s / 1148 KB (#11289207).
 
+
+`1711_greedy_parsing_optimized.rs`. 按最多16条记录、每条三个且每名至多20字节使用固定栈存储。以有界字节词元读名，保留严格大于前名的最小字典序选择，一次写出有界答案；输入、名称和答案均无需堆分配。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329353 (Rust 1.75 x64): **0.015 s / 60 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -154,3 +161,4 @@ Accepted #11328588 (Go 1.14 x64): **0.031 s / 976 KB**. 历史对照: `1711_gree
 | [1711_greedy_optimized.py](1711_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
 | [1711_greedy_optimized.java](1711_greedy_optimized.java) | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
 | [1711_greedy_optimized.go](1711_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 976 KB | 11328588 |
+| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 60 KB | 11329353 |

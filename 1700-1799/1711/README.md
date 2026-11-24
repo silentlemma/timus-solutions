@@ -146,6 +146,13 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328588 (Go 1.14 x64): **0.031 s / 976 KB**. Archived comparison: `1711_greedy.go` (Go 1.14 x64) — 0.062 s / 1148 KB (#11289207).
 
+
+`1711_greedy_parsing_optimized.rs`. Use fixed stack storage for the allowed 16 records, three names per record and at most 20 bytes per name. Read names as bounded byte tokens, keep exact lexicographic min-above-previous selection and write the bounded answer once. No input, name or answer heap allocation is required.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329353 (Rust 1.75 x64): **0.015 s / 60 KB**.
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -174,3 +181,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1711_greedy_optimized.py](1711_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
 | [1711_greedy_optimized.java](1711_greedy_optimized.java) | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
 | [1711_greedy_optimized.go](1711_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 976 KB | 11328588 |
+| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 60 KB | 11329353 |

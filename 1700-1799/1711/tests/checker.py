@@ -14,8 +14,8 @@ class Bad(Exception):
 def check(source, expected, output):
     data = open(source).read().split()
     n = int(data[0])
-    names = [set(data[1 + CHOICES * i:1 + CHOICES * (i + 1)]) for i in range(n)]
-    order = [int(w) - 1 for w in data[1 + CHOICES * n:1 + (CHOICES + 1) * n]]
+    names = [set(data[1 + CHOICES * i : 1 + CHOICES * (i + 1)]) for i in range(n)]
+    order = [int(w) - 1 for w in data[1 + CHOICES * n : 1 + (CHOICES + 1) * n]]
     want = open(expected).read().split()
     got = open(output).read().split()
     if want == [NONE] or got == [NONE]:
