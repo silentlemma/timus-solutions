@@ -17,7 +17,7 @@ def word(rng, letters):
 
 
 def label(index):
-    return "".join(chr(ord("a") + index // (26 ** power) % 26) for power in (2, 1, 0))
+    return "".join(chr(ord("a") + index // (26**power) % 26) for power in (2, 1, 0))
 
 
 def structured(rng, mode):
@@ -46,7 +46,7 @@ def structured(rng, mode):
             words = vocabulary[:82]
         else:
             family = i % 10
-            words = vocabulary[family * 8:family * 8 + 8]
+            words = vocabulary[family * 8 : family * 8 + 8]
             words += rng.sample(vocabulary[80:], rng.randint(1, 40))
             if family != 9:
                 words.append("always")
@@ -85,7 +85,11 @@ def main():
     for name in names:
         words = []
         for _ in range(rng.randint(0 if mode == 3 else 1, 60)):
-            w = rng.choice(words) if mode == 3 and words and rng.random() < 0.3 else word(rng, letters)
+            w = (
+                rng.choice(words)
+                if mode == 3 and words and rng.random() < 0.3
+                else word(rng, letters)
+            )
             if len(name) + 2 + len(" ".join(words + [w])) > LONGEST:
                 break
             words.append(w)

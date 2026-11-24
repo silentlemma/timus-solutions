@@ -84,11 +84,11 @@ Accepted #11329024 (Rust 1.75 x64): **0.046 s / 5216 KB**. 历史对照: `1700_i
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 7788 KB | 11289069 |
+| [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.343 s | 7776 KB | 11329300 |
 | [1700_implementation.go](1700_implementation.go) | Go 1.14 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.765 s | 8908 KB | 11289071 |
-| [1700_implementation.java](1700_implementation.java) | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
-| [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.390 s | 13524 KB | 11289073 |
-| [1700_implementation.rs](1700_implementation.rs) | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
+| [1700_implementation.java](1700_implementation.java) | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.421 s | 12352 KB | 11329305 |
+| [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 13596 KB | 11329306 |
+| [1700_implementation.rs](1700_implementation.rs) | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.546 s | 3604 KB | 11329307 |
 
 ### 优化版本
 
@@ -99,3 +99,5 @@ Accepted #11329024 (Rust 1.75 x64): **0.046 s / 5216 KB**. 历史对照: `1700_i
 | [1700_implementation_optimized.py](1700_implementation_optimized.py) | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
 | [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
 | [1700_hashing_sorting_optimized.rs](1700_hashing_sorting_optimized.rs) | Rust 1.75 x64 | hashing, sorting | O(A log A + Q log Q + W + I + O) expected time; O(A+I+O) space | AC | 0.046 s | 5216 KB | 11329024 |
+
+**当前测量。** 解法表记录所保留精确源码的最新 Accepted 结果。此前的性能比较描述历史提交；当前准入遵循统一的[排名标准](../../RATING_CRITERIA.md)。
