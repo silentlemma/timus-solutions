@@ -142,7 +142,5 @@ The Python memory gain still satisfies admission independently of ranking.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1048_implementation_optimized.py](1048_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
+| [1048_implementation_optimized.py](1048_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
 | [1048_implementation_optimized.rs](1048_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.046 s | 1144 KB | 11308405 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.

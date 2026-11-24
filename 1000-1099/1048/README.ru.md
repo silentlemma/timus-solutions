@@ -142,7 +142,5 @@ Python места 7 и 1 против восьми, звёздочка оста�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1048_implementation_optimized.py](1048_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
+| [1048_implementation_optimized.py](1048_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
 | [1048_implementation_optimized.rs](1048_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.046 s | 1144 KB | 11308405 |
-
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

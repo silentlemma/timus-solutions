@@ -141,7 +141,5 @@ El ahorro de memoria Python satisface la admisión al margen de la clasificació
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1048_implementation_optimized.py](1048_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
+| [1048_implementation_optimized.py](1048_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
 | [1048_implementation_optimized.rs](1048_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.046 s | 1144 KB | 11308405 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

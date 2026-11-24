@@ -123,7 +123,5 @@ Python 按题定格式逐行读取数字对；Rust 读完 `N` 后从锁定输入
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1048_implementation_optimized.py](1048_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
+| [1048_implementation_optimized.py](1048_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
 | [1048_implementation_optimized.rs](1048_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.046 s | 1144 KB | 11308405 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
