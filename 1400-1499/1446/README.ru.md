@@ -116,8 +116,6 @@ Accepted точного исходника CPython 3.12 №11327052: 0.062 с / 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
-| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
 | [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
-
-\* Accepted; отдельная рейтинговая цель пока не достигнута: для C++ нужны первые десять мест или топ 15% по времени и памяти, для остальных языковых семейств — первое место по обеим метрикам. Эта отметка отделена от критериев допуска; версию можно оптимизировать дальше.

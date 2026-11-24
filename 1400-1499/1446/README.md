@@ -116,8 +116,6 @@ Store names in fixed character arrays and group pointers to the names by house. 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
-| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
 | [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
-
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
