@@ -103,7 +103,7 @@ C++、Go 和 Rust 版本为每个星球保存尚未建成的入向通道，在�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1176_graphs_optimized.cpp](1176_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.062 s | 340 KB | 11310387 |
-| [1176_graphs_optimized.go](1176_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.031 s | 1180 KB | 11310389 |
-| [1176_graphs_optimized.rs](1176_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 364 KB | 11310388 |
+| [1176_graphs_optimized.go](1176_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.031 s | 1180 KB | 11310389 |
+| [1176_graphs_optimized.rs](1176_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 364 KB | 11310388 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

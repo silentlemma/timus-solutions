@@ -110,7 +110,7 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1176_graphs_optimized.cpp](1176_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.062 s | 340 KB | 11310387 |
-| [1176_graphs_optimized.go](1176_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.031 s | 1180 KB | 11310389 |
-| [1176_graphs_optimized.rs](1176_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 364 KB | 11310388 |
+| [1176_graphs_optimized.go](1176_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.031 s | 1180 KB | 11310389 |
+| [1176_graphs_optimized.rs](1176_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 364 KB | 11310388 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
