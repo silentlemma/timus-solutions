@@ -162,7 +162,5 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1210_dp_optimized.cpp](1210_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(L) | AC | 0.001 s | 132 KB | 11307238 |
 | [1210_dp_optimized.java](1210_dp_optimized.java) | Java 1.8 | dp | O(L) | AC | 0.109 s | 412 KB | 11307239 |
-| [1210_dp_optimized.py](1210_dp_optimized.py) \* | Python 3.12 x64 | dp | O(L) | AC | 0.093 s | 552 KB | 11307241 |
+| [1210_dp_optimized.py](1210_dp_optimized.py) | Python 3.12 x64 | dp | O(L) | AC | 0.093 s | 552 KB | 11307241 |
 | [1210_dp_optimized.rs](1210_dp_optimized.rs) | Rust 1.75 x64 | dp | O(L) | AC | 0.046 s | 184 KB | 11307240 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
