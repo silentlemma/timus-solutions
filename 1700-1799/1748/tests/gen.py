@@ -6,8 +6,8 @@ smaller number; mode 4 100 numbers sampled across bit lengths 1..60."""
 import random
 import sys
 
-LIMIT = 10 ** 18
-SMALL = 10 ** 6
+LIMIT = 10**18
+SMALL = 10**6
 TESTS = 100
 PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53)
 
@@ -46,7 +46,7 @@ def main():
         numbers = []
         for _ in range(TESTS):
             bits = rng.randint(1, LIMIT.bit_length())
-            numbers.append(rng.randint(2 ** (bits - 1), min(LIMIT, 2 ** bits - 1)))
+            numbers.append(rng.randint(2 ** (bits - 1), min(LIMIT, 2**bits - 1)))
     else:
         top = LIMIT if mode == 1 else SMALL
         numbers = [rng.randint(1, top) for _ in range(TESTS)]
