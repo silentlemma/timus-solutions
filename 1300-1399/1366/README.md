@@ -89,8 +89,8 @@ The original Python, Go and Java files use their languages’ big integers. The 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1366_math_optimized.java](1366_math_optimized.java) \* | Java 1.8 | math | O(n² log n) | AC | 0.109 s | 380 KB | 11315509 |
-| [1366_math_optimized.go](1366_math_optimized.go) \* | Go 1.14 x64 | math | O(n² log n) | AC | 0.015 s | 344 KB | 11328273 |
-| [1366_math_optimized.rs](1366_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n² log n) | AC | 0.031 s | 52 KB | 11315876 |
+| [1366_math_optimized.java](1366_math_optimized.java) | Java 1.8 | math | O(n² log n) | AC | 0.109 s | 380 KB | 11315509 |
+| [1366_math_optimized.go](1366_math_optimized.go) | Go 1.14 x64 | math | O(n² log n) | AC | 0.015 s | 344 KB | 11328273 |
+| [1366_math_optimized.rs](1366_math_optimized.rs) | Rust 1.75 x64 | math | O(n² log n) | AC | 0.031 s | 52 KB | 11315876 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

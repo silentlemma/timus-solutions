@@ -89,8 +89,8 @@ Los originales de Python, Go y Java usan enteros grandes de sus lenguajes. C++ y
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1366_math_optimized.java](1366_math_optimized.java) \* | Java 1.8 | math | O(n² log n) | AC | 0.109 s | 380 KB | 11315509 |
-| [1366_math_optimized.go](1366_math_optimized.go) \* | Go 1.14 x64 | math | O(n² log n) | AC | 0.015 s | 344 KB | 11328273 |
-| [1366_math_optimized.rs](1366_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n² log n) | AC | 0.031 s | 52 KB | 11315876 |
+| [1366_math_optimized.java](1366_math_optimized.java) | Java 1.8 | math | O(n² log n) | AC | 0.109 s | 380 KB | 11315509 |
+| [1366_math_optimized.go](1366_math_optimized.go) | Go 1.14 x64 | math | O(n² log n) | AC | 0.015 s | 344 KB | 11328273 |
+| [1366_math_optimized.rs](1366_math_optimized.rs) | Rust 1.75 x64 | math | O(n² log n) | AC | 0.031 s | 52 KB | 11315876 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
