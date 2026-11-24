@@ -14,20 +14,12 @@ def main():
         bound = 50 if mode == 1 else MAX_VALUE
         while True:
             values = [randomizer.randint(1, bound) for _ in range(count)]
-            sums = [
-                sum(values[start : start + WINDOW_SIZE]) for start in range(count - 2)
-            ]
+            sums = [sum(values[start : start + WINDOW_SIZE]) for start in range(count - 2)]
             if sums.count(max(sums)) == 1:
                 break
     elif mode in (3, 4, 5):
         values = [1] * MAX_COUNT
-        start = (
-            0
-            if mode == 3
-            else MAX_COUNT - WINDOW_SIZE
-            if mode == 4
-            else MAX_COUNT // 2 - 2
-        )
+        start = 0 if mode == 3 else MAX_COUNT - WINDOW_SIZE if mode == 4 else MAX_COUNT // 2 - 2
         values[start : start + WINDOW_SIZE] = [MAX_VALUE] * WINDOW_SIZE
     elif mode == 6:
         values = list(range(1, MAX_COUNT + 1))
