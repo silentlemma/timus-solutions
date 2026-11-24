@@ -115,8 +115,6 @@ The optimized solutions simulate the pocket while they read: for each ball taken
 | [1494_simulation_optimized.cpp](1494_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(N) | AC | 0.031 s | 512 KB | 11303751 |
 | [1494_simulation_optimized.go](1494_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N) | AC | 0.046 s | 1312 KB | 11303612 |
 | [1494_simulation_optimized.java](1494_simulation_optimized.java) | Java 1.8 | simulation | O(N) | AC | 0.125 s | 844 KB | 11303752 |
-| [1494_simulation_optimized.py](1494_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(N) time and space | AC | 0.14 s | 4160 KB | 11326685 |
-| [1494_bitmask_simulation.py](1494_bitmask_simulation.py) \* | PyPy 3.10 x64 | bitmask, simulation | O(N) time; O(ceil(N/32)) packets + fixed buffer | AC | 0.14 s | 3764 KB | 11327514 |
+| [1494_simulation_optimized.py](1494_simulation_optimized.py) | Python 3.12 x64 | simulation | O(N) time and space | AC | 0.14 s | 4160 KB | 11326685 |
+| [1494_bitmask_simulation.py](1494_bitmask_simulation.py) | PyPy 3.10 x64 | bitmask, simulation | O(N) time; O(ceil(N/32)) packets + fixed buffer | AC | 0.14 s | 3764 KB | 11327514 |
 | [1494_simulation_optimized.rs](1494_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N) | AC | 0.015 s | 604 KB | 11303754 |
-
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

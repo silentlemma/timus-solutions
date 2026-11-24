@@ -108,8 +108,6 @@ Cheater
 | [1494_simulation_optimized.cpp](1494_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(N) | AC | 0.031 s | 512 KB | 11303751 |
 | [1494_simulation_optimized.go](1494_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N) | AC | 0.046 s | 1312 KB | 11303612 |
 | [1494_simulation_optimized.java](1494_simulation_optimized.java) | Java 1.8 | simulation | O(N) | AC | 0.125 s | 844 KB | 11303752 |
-| [1494_simulation_optimized.py](1494_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(N) time and space | AC | 0.14 s | 4160 KB | 11326685 |
-| [1494_bitmask_simulation.py](1494_bitmask_simulation.py) \* | PyPy 3.10 x64 | bitmask, simulation | O(N) time; O(ceil(N/32)) packets + fixed buffer | AC | 0.14 s | 3764 KB | 11327514 |
+| [1494_simulation_optimized.py](1494_simulation_optimized.py) | Python 3.12 x64 | simulation | O(N) time and space | AC | 0.14 s | 4160 KB | 11326685 |
+| [1494_bitmask_simulation.py](1494_bitmask_simulation.py) | PyPy 3.10 x64 | bitmask, simulation | O(N) time; O(ceil(N/32)) packets + fixed buffer | AC | 0.14 s | 3764 KB | 11327514 |
 | [1494_simulation_optimized.rs](1494_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N) | AC | 0.015 s | 604 KB | 11303754 |
-
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
