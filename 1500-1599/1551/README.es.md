@@ -132,6 +132,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1551_math_optimized.cpp](1551_math_optimized.cpp) | G++ 13.2 x64 | math | O(M log M) | AC | 0.015 s | 308 KB | 11309254 |
 | [1551_math_optimized.java](1551_math_optimized.java) | Java 1.8 | math | O(M) expected frequency work, M=2^N | AC | 0.093 s | 568 KB | 11309256 |
 | [1551_math_sorting.py](1551_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(M log M) time; O(M) strings | AC | 0.093 s | 464 KB | 11309558 |
-| [1551_math_sorting.rs](1551_math_sorting.rs) \* | Rust 1.75 x64 | math, sorting | O(P log P·L) time; O(PL) space | AC | 0.031 s | 104 KB | 11325708 |
+| [1551_math_sorting.rs](1551_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(P log P·L) time; O(PL) space | AC | 0.031 s | 104 KB | 11325708 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
