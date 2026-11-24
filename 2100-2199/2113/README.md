@@ -104,7 +104,7 @@ The accepted base implementations [2113_bfs_binary_search.cpp](2113_bfs_binary_s
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2113_bfs_binary_search_optimized.go](2113_bfs_binary_search_optimized.go) \* | Go 1.14 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 364 KB | 11315082 |
-| [2113_bfs_binary_search_optimized.rs](2113_bfs_binary_search_optimized.rs) \* | Rust 1.75 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 164 KB | 11315092 |
+| [2113_bfs_binary_search_optimized.go](2113_bfs_binary_search_optimized.go) | Go 1.14 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 364 KB | 11315082 |
+| [2113_bfs_binary_search_optimized.rs](2113_bfs_binary_search_optimized.rs) | Rust 1.75 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 164 KB | 11315092 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
