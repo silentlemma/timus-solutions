@@ -129,7 +129,5 @@ MyNameIsAlexander
 |---|---|---|---|---|---|---|---|
 | [1786_strings_optimized.cpp](1786_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 120 KB | 11304276 |
 | [1786_strings_optimized.java](1786_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.078 s | 392 KB | 11304277 |
-| [1786_strings_optimized.rs](1786_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) | AC | 0.062 s | 64 KB | 11325109 |
-| [1786_strings_optimized.py](1786_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) time; O(L) space | AC | 0.078 s | 400 KB | 11325470 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1786_strings_optimized.rs](1786_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.062 s | 64 KB | 11325109 |
+| [1786_strings_optimized.py](1786_strings_optimized.py) | Python 3.12 x64 | strings | O(L) time; O(L) space | AC | 0.078 s | 400 KB | 11325470 |

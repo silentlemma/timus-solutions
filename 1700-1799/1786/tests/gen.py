@@ -31,7 +31,7 @@ def main():
         if mode == 2:
             for _ in range(rng.randint(1, DAMAGE)):
                 start = rng.randint(0, length - len(NAME))
-                text[start:start + len(NAME)] = damaged(rng)
+                text[start : start + len(NAME)] = damaged(rng)
         text = "".join(text)
     print(text)
 
