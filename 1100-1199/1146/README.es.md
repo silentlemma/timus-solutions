@@ -106,8 +106,8 @@ aunque el tiempo sube de 0.015 s a 0.046 s.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1146_dp_optimized.py](1146_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N³) | AC | 0.171 s | 632 KB | 11303714 |
-| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) \* | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
-| [1146_dp_optimized.rs](1146_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
+| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
+| [1146_dp_optimized.rs](1146_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

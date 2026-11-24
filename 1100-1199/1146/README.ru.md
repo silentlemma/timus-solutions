@@ -104,8 +104,8 @@ Rust разбирает числа вручную прямо из `stdin().lock(
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1146_dp_optimized.py](1146_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N³) | AC | 0.171 s | 632 KB | 11303714 |
-| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) \* | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
-| [1146_dp_optimized.rs](1146_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
+| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
+| [1146_dp_optimized.rs](1146_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
 
 \* Не входит в первые 10 и в лучшие 15% решений на своём языке на
 нынешнем судье; возможно, его можно оптимизировать дальше.
