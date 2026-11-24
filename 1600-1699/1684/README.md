@@ -128,7 +128,5 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1684_greedy_strings.cpp](1684_greedy_strings.cpp) | G++ 13.2 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 836 KB | 11309270 |
 | [1684_greedy_strings.go](1684_greedy_strings.go) | Go 1.14 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 2068 KB | 11309272 |
 | [1684_greedy_strings.java](1684_greedy_strings.java) | Java 1.8 | greedy, strings | O(pattern length + text length) | AC | 0.109 s | 1248 KB | 11309271 |
-| [1684_greedy_strings.py](1684_greedy_strings.py) \* | Python 3.12 x64 | greedy, strings | O(pattern length + text length) | AC | 0.156 s | 1692 KB | 11309268 |
+| [1684_greedy_strings.py](1684_greedy_strings.py) | Python 3.12 x64 | greedy, strings | O(pattern length + text length) | AC | 0.156 s | 1692 KB | 11309268 |
 | [1684_greedy_strings.rs](1684_greedy_strings.rs) | Rust 1.75 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 1288 KB | 11309273 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
