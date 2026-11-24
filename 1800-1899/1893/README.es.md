@@ -144,6 +144,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
 | [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |
-| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 436 KB | 11302157 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1893_implementation_optimized.py](1893_implementation_optimized.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 436 KB | 11302157 |
