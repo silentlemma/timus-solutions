@@ -141,8 +141,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
 | [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |
-| [2002_implementation_optimized.java](2002_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) expected | AC | 0.109 s | 640 KB | 11325028 |
-| [2002_implementation_optimized.py](2002_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(I + O) expected time; O(I + O + A) storage | AC | 0.078 s | 848 KB | 11327495 |
-| [2002_implementation_optimized.rs](2002_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | Expected O(I+O) time; O(A+T) space | AC | 0.015 s | 280 KB | 11325537 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2002_implementation_optimized.java](2002_implementation_optimized.java) | Java 1.8 | implementation | O(n) expected | AC | 0.109 s | 640 KB | 11325028 |
+| [2002_implementation_optimized.py](2002_implementation_optimized.py) | Python 3.12 x64 | implementation | O(I + O) expected time; O(I + O + A) storage | AC | 0.078 s | 848 KB | 11327495 |
+| [2002_implementation_optimized.rs](2002_implementation_optimized.rs) | Rust 1.75 x64 | implementation | Expected O(I+O) time; O(A+T) space | AC | 0.015 s | 280 KB | 11325537 |
