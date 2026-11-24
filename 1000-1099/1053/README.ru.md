@@ -117,8 +117,8 @@ Go и Rust обновляют один текущий НОД при чтении
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
-| [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
-| [1053_number_theory_optimized.java](1053_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.109 s | 356 KB | 11324215 |
+| [1053_number_theory_optimized.go](1053_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
+| [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+| [1053_number_theory_optimized.java](1053_number_theory_optimized.java) | Java 1.8 | number_theory | O(N log L) | AC | 0.109 s | 356 KB | 11324215 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
