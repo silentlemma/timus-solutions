@@ -12,7 +12,7 @@ import random
 import sys
 
 MAX_N = 60
-MAX_Q = 10 ** 5
+MAX_Q = 10**5
 SMALL_N = 8
 
 
@@ -33,9 +33,14 @@ def main():
     elif mode == 6:
         n = 37
         top = (1 << n) - 1
-        boundaries = sorted({a for bit in range(n + 1)
-                             for a in ((1 << bit) - 1, 1 << bit, (1 << bit) + 1)
-                             if 1 <= a <= top})
+        boundaries = sorted(
+            {
+                a
+                for bit in range(n + 1)
+                for a in ((1 << bit) - 1, 1 << bit, (1 << bit) + 1)
+                if 1 <= a <= top
+            }
+        )
         boxes = []
         for _ in range(MAX_Q):
             kind = rng.randrange(3)
