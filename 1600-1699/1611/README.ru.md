@@ -118,10 +118,8 @@ G++ 13.2 x64 №11321890 · Go 1.14 x64 №11322096 · Rust 1.75 x64 №11321891
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1611_dp_optimized.py](1611_dp_optimized.py) \* | Python 3.12 x64 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 848 KB | 11317970 |
-| [1611_dp_optimized.go](1611_dp_optimized.go) \* | Go 1.14 x64 | dp | O((n + k)·(k + 1)) | AC | 0.015 s | 1248 KB | 11317975 |
-| [1611_dp_optimized.java](1611_dp_optimized.java) \* | Java 1.8 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 660 KB | 11317985 |
+| [1611_dp_optimized.py](1611_dp_optimized.py) | Python 3.12 x64 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 848 KB | 11317970 |
+| [1611_dp_optimized.go](1611_dp_optimized.go) | Go 1.14 x64 | dp | O((n + k)·(k + 1)) | AC | 0.015 s | 1248 KB | 11317975 |
+| [1611_dp_optimized.java](1611_dp_optimized.java) | Java 1.8 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 660 KB | 11317985 |
 | [1611_dp_optimized.rs](1611_dp_optimized.rs) | Rust 1.75 x64 | dp | O(n·(k + 1)) | AC | 0.046 s | 224 KB | 11322342 |
 | [1611_dp_optimized.cpp](1611_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n·(k + 1)) | AC | 0.015 s | 204 KB | 11322343 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга.
