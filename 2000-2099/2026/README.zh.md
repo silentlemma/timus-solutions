@@ -126,6 +126,13 @@ Go 版本同样按奇偶性统计空位，并原地填充输入缓冲区。时�
 
 Java 1.8 №11317029.
 
+
+`2026_implementation_parsing_optimized.rs`. 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329372 (Rust 1.75 x64): **0.015 s / 308 KB**.
+
 ## 解答
 
 ### 简单版本
@@ -143,9 +150,10 @@ Java 1.8 №11317029.
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [2026_greedy_optimized.cpp](2026_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n + σ) | AC | 0.015 s | 204 KB | 11316965 |
-| [2026_greedy_optimized.go](2026_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n + σ) | AC | 0.031 s | 1172 KB | 11317080 |
+| [2026_greedy_optimized.go](2026_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n + σ) | AC | 0.031 s | 1172 KB | 11317080 |
 | [2026_greedy_optimized.py](2026_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n + σ) | AC | 0.093 s | 800 KB | 11317086 |
 | [2026_greedy_optimized.rs](2026_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n + σ) | AC | 0.046 s | 456 KB | 11317093 |
 | [2026_greedy_optimized.java](2026_greedy_optimized.java) | Java 1.8 | greedy | O(n + σ) | AC | 0.125 s | 628 KB | 11317096 |
+| [2026_implementation_parsing_optimized.rs](2026_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(n) | AC | 0.015 s | 308 KB | 11329372 |
 
 \* 已通过评测，尚未达到 Go 排名目标。 已通过评测，尚未达到 Rust 排名目标。
