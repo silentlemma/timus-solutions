@@ -102,6 +102,6 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
+| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

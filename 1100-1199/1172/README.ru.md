@@ -103,6 +103,6 @@ Go-версия сохраняет DP с двумя слоями, но хран�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
+| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

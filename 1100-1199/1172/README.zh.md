@@ -92,6 +92,6 @@ Go 仍使用双层 DP，但每格用三个 10⁹ 进制数位保存模式数量�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
+| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
