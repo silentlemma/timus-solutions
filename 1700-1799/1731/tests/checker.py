@@ -4,7 +4,7 @@ masses always exist, so "It is a lie!" is never right."""
 
 import sys
 
-LIMIT = 10 ** 9
+LIMIT = 10**9
 
 
 class Bad(Exception):
