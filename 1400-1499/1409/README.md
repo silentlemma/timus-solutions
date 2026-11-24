@@ -83,7 +83,7 @@ Read the two counts and subtract one from each before printing them in the requi
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1409_math_optimized.cpp](1409_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 124 KB | 11303605 |
 | [1409_math_optimized.java](1409_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 336 KB | 11303746 |
-| [1409_math_optimized.go](1409_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
+| [1409_math_optimized.go](1409_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
 | [1409_math_optimized.py](1409_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.093 s | 248 KB | 11324298 |
 
 \* The marked solutions can improve their target rankings.

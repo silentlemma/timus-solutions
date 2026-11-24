@@ -79,7 +79,7 @@ Larry 的其余 L − 1 个，Larry 没有击中 H − 1 个，答案是 L − 1
 |----|----|----|-----|------|----|----|------|
 | [1409_math_optimized.cpp](1409_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 124 KB | 11303605 |
 | [1409_math_optimized.java](1409_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 336 KB | 11303746 |
-| [1409_math_optimized.go](1409_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
+| [1409_math_optimized.go](1409_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
 | [1409_math_optimized.py](1409_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.093 s | 248 KB | 11324298 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。
