@@ -118,7 +118,5 @@ c = 0, 1, … 时存在的数 c·H + r 组成；它们在第一个用完的列�
 |---|---|---|---|---|---|---|---|
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
-| [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
-| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(n) space | AC | 0.046 s | 720 KB | 11327027 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1506_implementation_optimized.rs](1506_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) time; O(n) space | AC | 0.046 s | 720 KB | 11327027 |
