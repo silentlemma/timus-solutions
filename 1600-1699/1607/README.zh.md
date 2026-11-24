@@ -95,7 +95,7 @@ a、b、c 和 d。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1607_implementation_optimized.java](1607_implementation_optimized.java) \* | Java 1.8 | implementation | O(max(1, c - a)) | AC | 0.125 s | 316 KB | 11303763 |
-| [1607_math.java](1607_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 348 KB | 11327420 |
-| [1607_math.py](1607_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 692 KB | 11327029 |
+| [1607_math.java](1607_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 348 KB | 11327420 |
+| [1607_math.py](1607_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 692 KB | 11327029 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
