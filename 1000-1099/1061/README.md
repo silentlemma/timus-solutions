@@ -121,9 +121,7 @@ G++ 13.2 x64 №11322104 · Go 1.14 x64 №11322105 · Java 1.8 №11322106 · P
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1061_two_pointers.py](1061_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.093 s | 1048 KB | 11317122 |
-| [1061_two_pointers.go](1061_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(N) | AC | 0.015 s | 1088 KB | 11317123 |
+| [1061_two_pointers.go](1061_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.015 s | 1088 KB | 11317123 |
 | [1061_two_pointers.rs](1061_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.015 s | 204 KB | 11317124 |
 | [1061_two_pointers.cpp](1061_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 184 KB | 11317125 |
 | [1061_two_pointers.java](1061_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.093 s | 408 KB | 11317126 |
-
-\* Accepted. The Go rating target remains open.
