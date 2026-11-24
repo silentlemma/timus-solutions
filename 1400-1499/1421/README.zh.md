@@ -93,6 +93,6 @@ Rust 保持共同水位贪心与原交换证明。输入/剩余和≤32000 用16
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
+| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

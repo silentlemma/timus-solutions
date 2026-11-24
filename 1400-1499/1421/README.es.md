@@ -106,6 +106,6 @@ Las implementaciones base aceptadas [1421_greedy.cpp](1421_greedy.cpp), [1421_gr
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
+| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
