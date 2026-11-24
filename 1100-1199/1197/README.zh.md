@@ -94,8 +94,8 @@ g6
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
-| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(N) answer space | AC | 0.078 s | 192 KB | 11327340 |
-| [1197_implementation_optimized.go](1197_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
+| [1197_implementation_optimized.java](1197_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(N) answer space | AC | 0.078 s | 192 KB | 11327340 |
+| [1197_implementation_optimized.go](1197_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
 | [1197_math.py](1197_math.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.093 s | 200 KB | 11324662 |
 
 \* 带星号的解法在受支持编译器中尚未同时达到时间和内存的目标排名，仍可进一步优化。
