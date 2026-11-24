@@ -113,10 +113,8 @@ Frente a `1194_math.rs`: tiempo 0.015 s → 0.015 s; memoria 208 KB → 48 KB.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1194_math_optimized.java](1194_math_optimized.java) \* | Java 1.8 | math | O(1) arithmetic; header input only | AC | 0.093 s | 356 KB | 11327761 |
+| [1194_math_optimized.java](1194_math_optimized.java) | Java 1.8 | math | O(1) arithmetic; header input only | AC | 0.093 s | 356 KB | 11327761 |
 | [1194_math_optimized.cpp](1194_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11325056 |
-| [1194_math_optimized.py](1194_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 652 KB | 11327016 |
-| [1194_math_optimized.rs](1194_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324859 |
-| [1194_math_optimized.go](1194_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 280 KB | 11325654 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1194_math_optimized.py](1194_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 652 KB | 11327016 |
+| [1194_math_optimized.rs](1194_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324859 |
+| [1194_math_optimized.go](1194_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 280 KB | 11325654 |

@@ -111,10 +111,8 @@ Accepted точного исходника Java 1.8 №11327761: 0.093 с / 356 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
-| [1194_math_optimized.java](1194_math_optimized.java) \* | Java 1.8 | math | O(1) arithmetic; header input only | AC | 0.093 s | 356 KB | 11327761 |
+| [1194_math_optimized.java](1194_math_optimized.java) | Java 1.8 | math | O(1) arithmetic; header input only | AC | 0.093 s | 356 KB | 11327761 |
 | [1194_math_optimized.cpp](1194_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11325056 |
-| [1194_math_optimized.py](1194_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 652 KB | 11327016 |
-| [1194_math_optimized.rs](1194_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324859 |
-| [1194_math_optimized.go](1194_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 280 KB | 11325654 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1194_math_optimized.py](1194_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 652 KB | 11327016 |
+| [1194_math_optimized.rs](1194_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324859 |
+| [1194_math_optimized.go](1194_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 280 KB | 11325654 |
