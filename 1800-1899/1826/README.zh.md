@@ -101,8 +101,8 @@ Go 和 Rust 在固定大小的数组中排序过河时间，每步送走剩余�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1826_greedy_optimized.go](1826_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 284 KB | 11311235 |
-| [1826_greedy_optimized.rs](1826_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 52 KB | 11311229 |
-| [1826_greedy_optimized.java](1826_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.078 s | 516 KB | 11324789 |
+| [1826_greedy_optimized.go](1826_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 284 KB | 11311235 |
+| [1826_greedy_optimized.rs](1826_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 52 KB | 11311229 |
+| [1826_greedy_optimized.java](1826_greedy_optimized.java) | Java 1.8 | greedy | O(n log n) | AC | 0.078 s | 516 KB | 11324789 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
