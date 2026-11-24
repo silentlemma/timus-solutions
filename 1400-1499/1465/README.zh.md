@@ -111,6 +111,13 @@ Go 运行时计算与 Accepted 基础版相同的前200个 Grundy 值，沿用�
 
 Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. 历史对照: `1465_games.py` (Python 3.12 x64) — 0.109 s / 444 KB (#11286512).
 
+
+`1465_implementation_parsing_optimized.rs`. 直接读取局面大小，保留带轮次标记的精确 Grundy 递推及既有周期，不加入预计算答案表。 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329333 (Rust 1.75 x64): **0.031 s / 72 KB**.
+
 ## 解答
 
 ### 简单版本
@@ -131,5 +138,6 @@ Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. 历史对照: `1465_
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 | [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
 | [1465_games_optimized.py](1465_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.093 s | 672 KB | 11328554 |
+| [1465_implementation_parsing_optimized.rs](1465_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(1) | AC | 0.031 s | 72 KB | 11329333 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

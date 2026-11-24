@@ -124,6 +124,13 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. Comparación archivada: `1465_games.py` (Python 3.12 x64) — 0.109 s / 444 KB (#11286512).
 
+
+`1465_implementation_parsing_optimized.rs`. El tamaño se lee directamente. Se conservan la recurrencia exacta de Grundy con épocas y el periodo establecido, sin añadir tablas de respuestas precalculadas. La salida directa se especializa a los tipos usados, evitando despacho genérico y cadenas temporales. El texto fijo usa escrituras nativas y los números se convierten exactamente con el signo requerido. Se conservan decisiones matemáticas y versiones simples.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329333 (Rust 1.75 x64): **0.031 s / 72 KB**.
+
 ## Soluciones
 
 ### Sencillas
@@ -144,5 +151,6 @@ Accepted #11328554 (Python 3.12 x64): **0.093 s / 672 KB**. Comparación archiva
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 | [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
 | [1465_games_optimized.py](1465_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.093 s | 672 KB | 11328554 |
+| [1465_implementation_parsing_optimized.rs](1465_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(1) | AC | 0.031 s | 72 KB | 11329333 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
