@@ -18,8 +18,10 @@ def main():
     turn = rng.uniform(0, 2 * math.pi)
     if mode in (5, 6):
         if mode == 5:
-            unit = [(math.cos(turn + k * 2 * math.pi / 3),
-                     math.sin(turn + k * 2 * math.pi / 3)) for k in range(3)]
+            unit = [
+                (math.cos(turn + k * 2 * math.pi / 3), math.sin(turn + k * 2 * math.pi / 3))
+                for k in range(3)
+            ]
             xmin, xmax = min(x for x, _ in unit), max(x for x, _ in unit)
             ymin, ymax = min(y for _, y in unit), max(y for _, y in unit)
             radius = min(2 * BOX / (xmax - xmin), 2 * BOX / (ymax - ymin))
@@ -30,9 +32,11 @@ def main():
         else:
             x, y = rng.uniform(-1e-8, 1e-8), rng.uniform(-1e-8, 1e-8)
             side = rng.uniform(SHORTEST + 1e-5, 25)
-            vertices = [(x, y), (x + side * math.cos(turn), y + side * math.sin(turn)),
-                        (x + side * math.cos(turn + math.pi / 3),
-                         y + side * math.sin(turn + math.pi / 3))]
+            vertices = [
+                (x, y),
+                (x + side * math.cos(turn), y + side * math.sin(turn)),
+                (x + side * math.cos(turn + math.pi / 3), y + side * math.sin(turn + math.pi / 3)),
+            ]
         rng.shuffle(vertices)
         for x, y in vertices:
             print("%.12f %.12f" % (x, y))
