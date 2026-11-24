@@ -115,7 +115,5 @@ x = k − 2 + Σ(bᵢ − gᵢ − 2); если это число отрицат
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
 | [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |
-| [1925_math_optimized.py](1925_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 436 KB | 11302116 |
-| [1925_math_optimized.rs](1925_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.062 s | 56 KB | 11324855 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1925_math_optimized.py](1925_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 436 KB | 11302116 |
+| [1925_math_optimized.rs](1925_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.062 s | 56 KB | 11324855 |
