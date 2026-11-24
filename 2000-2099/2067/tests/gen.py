@@ -7,7 +7,7 @@ import random
 import sys
 
 MOST = 200000
-BIG = 10 ** 8
+BIG = 10**8
 
 
 def line(rng, n, step_s, step_r):

@@ -15,7 +15,7 @@ def pairs(path):
     count = int(words[0])
     if len(words) != 1 + 2 * count:
         raise Bad("expected %d pairs" % count)
-    return {frozenset(map(int, words[1 + 2 * i:3 + 2 * i])) for i in range(count)}, count
+    return {frozenset(map(int, words[1 + 2 * i : 3 + 2 * i])) for i in range(count)}, count
 
 
 def check(source, expected, output):
