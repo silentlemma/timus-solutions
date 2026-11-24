@@ -21,8 +21,13 @@ def extended(seed, mode):
     if mode == 6:
         readings = [-TOP] * N
         questions = [
-            (1, N), (2, N), (1, N - 1), (N // 2, N // 2 + 1),
-            (1, 1), (N, N), (2, N - 1),
+            (1, N),
+            (2, N),
+            (1, N - 1),
+            (N // 2, N // 2 + 1),
+            (1, 1),
+            (N, N),
+            (2, N - 1),
         ]
     elif mode == 4:
         readings = [rng.randint(-TOP, TOP) for _ in range(N)]
