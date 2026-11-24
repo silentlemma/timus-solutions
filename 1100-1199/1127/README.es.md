@@ -113,7 +113,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1127_bruteforce_optimized.go](1127_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(N + C⁴) | AC | 0.046 s | 896 KB | 11311096 |
-| [1127_bruteforce_optimized.rs](1127_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(N + C⁴) | AC | 0.015 s | 220 KB | 11311098 |
+| [1127_bruteforce_optimized.rs](1127_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(N + C⁴) | AC | 0.015 s | 220 KB | 11311098 |
 | [1127_bruteforce_optimized.java](1127_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(24·N+10000) | AC | 0.093 s | 576 KB | 11325009 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
