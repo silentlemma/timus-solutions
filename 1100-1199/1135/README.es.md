@@ -136,8 +136,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
-| [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
-| [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
-| [1135_math_optimized.py](1135_math_optimized.py) \* | Python 3.12 x64 | math | O(I) time; O(I) space | AC | 0.062 s | 628 KB | 11326692 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1135_math_optimized.rs](1135_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
+| [1135_math_optimized.go](1135_math_optimized.go) | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
+| [1135_math_optimized.py](1135_math_optimized.py) | Python 3.12 x64 | math | O(I) time; O(I) space | AC | 0.062 s | 628 KB | 11326692 |
