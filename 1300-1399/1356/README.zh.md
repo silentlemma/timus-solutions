@@ -100,7 +100,7 @@ Go 和 Rust 沿用适用于 N ≤ 10⁹、底数为 2、3、5、7 的确定性 M
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1356_number_theory_optimized.go](1356_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 308 KB | 11311220 |
-| [1356_number_theory_optimized.rs](1356_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 60 KB | 11311225 |
+| [1356_number_theory_optimized.go](1356_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 308 KB | 11311220 |
+| [1356_number_theory_optimized.rs](1356_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 60 KB | 11311225 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
