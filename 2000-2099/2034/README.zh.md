@@ -120,8 +120,6 @@
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
-| [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
-| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.031 s | 5244 KB | 11328337 |
-| [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) \* | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
+| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.031 s | 5244 KB | 11328337 |
+| [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
