@@ -126,8 +126,6 @@
 |---|---|---|---|---|---|---|---|
 | [2000_games_optimized.cpp](2000_games_optimized.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 276 KB | 11307194 |
 | [2000_games_optimized.go](2000_games_optimized.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1232 KB | 11307195 |
-| [2000_games_optimized.java](2000_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(N) auxiliary space | AC | 0.109 s | 748 KB | 11327442 |
-| [2000_prefix_sums.py](2000_prefix_sums.py) \* | Python 3.12 x64 | prefix_sums | O(n) | AC | 0.125 s | 6152 KB | 11325460 |
-| [2000_prefix_sums.rs](2000_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(n) time; O(n) space | AC | 0.046 s | 456 KB | 11325507 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2000_games_optimized.java](2000_games_optimized.java) | Java 1.8 | games | O(N) time; O(N) auxiliary space | AC | 0.109 s | 748 KB | 11327442 |
+| [2000_prefix_sums.py](2000_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(n) | AC | 0.125 s | 6152 KB | 11325460 |
+| [2000_prefix_sums.rs](2000_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(n) time; O(n) space | AC | 0.046 s | 456 KB | 11325507 |
