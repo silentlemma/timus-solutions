@@ -93,8 +93,6 @@ G++ 13.2 x64 №11321922 · Java 1.8 №11321749 · Rust 1.75 x64 №11321912 ·
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1724_strings_optimized.go](1724_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
-| [1724_strings_optimized.rs](1724_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
-| [1724_strings_optimized.py](1724_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |
-
-\* Go 仍有提升排名的空间。 Rust 仍有提升排名的空间。 Python 仍有提升排名的空间。
+| [1724_strings_optimized.go](1724_strings_optimized.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
+| [1724_strings_optimized.rs](1724_strings_optimized.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
+| [1724_strings_optimized.py](1724_strings_optimized.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |

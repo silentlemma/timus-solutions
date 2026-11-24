@@ -111,8 +111,6 @@ G++ 13.2 x64 №11321922 · Java 1.8 №11321749 · Rust 1.75 x64 №11321912 ·
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1724_strings_optimized.go](1724_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
-| [1724_strings_optimized.rs](1724_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
-| [1724_strings_optimized.py](1724_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |
-
-\* The Go rating target remains open. The Rust rating target remains open. The Python rating target remains open.
+| [1724_strings_optimized.go](1724_strings_optimized.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
+| [1724_strings_optimized.rs](1724_strings_optimized.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
+| [1724_strings_optimized.py](1724_strings_optimized.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |

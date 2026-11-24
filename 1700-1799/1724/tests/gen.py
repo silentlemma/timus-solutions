@@ -53,7 +53,9 @@ def main():
     rng = random.Random(seed)
     if mode == 1:
         dna = [rng.choice("AaCc") for _ in range(rng.randint(1, SHORT))]
-        asked = [(l, r) for l in range(1, len(dna) + 1) for r in range(l, len(dna) + 1)]
+        asked = [
+            (left, right) for left in range(1, len(dna) + 1) for right in range(left, len(dna) + 1)
+        ]
     elif mode in (6, 7, 8):
         if mode == 8:
             dna = []
