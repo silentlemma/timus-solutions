@@ -102,6 +102,4 @@ N，然后是 N 个数，每行一个。N 可能为 0。
 |----|----|----|-----|------|----|----|------|
 | [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
 | [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |
-| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |

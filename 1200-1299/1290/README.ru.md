@@ -113,6 +113,4 @@ C++: 156 КБ вместо 280 КБ при том же времени; Python: 0
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
 | [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |
-| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |
