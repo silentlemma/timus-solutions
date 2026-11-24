@@ -132,6 +132,6 @@ Rust 保持排序双指针贪心及原交换论证：最小与最大不能同乘
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
+| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

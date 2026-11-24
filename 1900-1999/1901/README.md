@@ -153,6 +153,6 @@ CPython 3.12. Even the sum of two maximum input weights fits a signed
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
+| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

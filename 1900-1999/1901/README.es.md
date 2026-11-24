@@ -153,6 +153,6 @@ con signo; el número de viajes nunca supera n.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
+| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
