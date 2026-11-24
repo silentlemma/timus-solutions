@@ -127,9 +127,9 @@ Frente a `1009_combinatorics.py`: tiempo 0.078 s → 0.109 s; memoria 404 KB →
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1009_dp_optimized.java](1009_dp_optimized.java) \* | Java 1.8 | dp | O(N) DP time; O(1) state | AC | 0.062 s | 292 KB | 11327757 |
+| [1009_dp_optimized.java](1009_dp_optimized.java) | Java 1.8 | dp | O(N) DP time; O(1) state | AC | 0.062 s | 292 KB | 11327757 |
 | [1009_dp_optimized.go](1009_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.015 s | 796 KB | 11328257 |
 | [1009_dp.py](1009_dp.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.109 s | 196 KB | 11324917 |
-| [1009_math.py](1009_math.py) \* | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 684 KB | 11327875 |
+| [1009_math.py](1009_math.py) | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 684 KB | 11327875 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
