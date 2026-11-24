@@ -10,8 +10,23 @@ import sys
 MOST_N = 201
 MOST_TEAMS = 8
 MOST_NAME = 36
-WORDS = ["Ural", "SU", "State", "University", "St", "Petersburg", "IFMO", "Moscow",
-         "Saratov", "Tech.", "Inst-of", "Arts&Sciences", "Novosibirsk", "Belarusian", "U"]
+WORDS = [
+    "Ural",
+    "SU",
+    "State",
+    "University",
+    "St",
+    "Petersburg",
+    "IFMO",
+    "Moscow",
+    "Saratov",
+    "Tech.",
+    "Inst-of",
+    "Arts&Sciences",
+    "Novosibirsk",
+    "Belarusian",
+    "U",
+]
 
 
 def university(rng):
@@ -22,8 +37,9 @@ def university(rng):
 
 
 def recase(name, rng):
-    return "".join(c.swapcase() if c in string.ascii_letters and rng.random() < 0.3 else c
-                   for c in name)
+    return "".join(
+        c.swapcase() if c in string.ascii_letters and rng.random() < 0.3 else c for c in name
+    )
 
 
 def main():

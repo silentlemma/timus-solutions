@@ -122,6 +122,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1680_strings_optimized.cpp](1680_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(input size) | AC | 0.001 s | 100 KB | 11308250 |
 | [1680_strings_optimized.py](1680_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(input size) | AC | 0.125 s | 244 KB | 11309387 |
-| [1680_strings_optimized.rs](1680_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(nqL) time; O(qL+L) space | AC | 0.015 s | 72 KB | 11325550 |
+| [1680_strings_optimized.rs](1680_strings_optimized.rs) | Rust 1.75 x64 | strings | O(nqL) time; O(qL+L) space | AC | 0.015 s | 72 KB | 11325550 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
