@@ -137,8 +137,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
 | [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
-| [1423_strings_optimized.java](1423_strings_optimized.java) \* | Java 1.8 | strings | O(N) | AC | 0.109 s | 1920 KB | 11326951 |
+| [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.109 s | 1920 KB | 11326951 |
 | [1423_strings_optimized.py](1423_strings_optimized.py) | Python 3.12 x64 | strings | Linear I/O plus runtime substring search; O(N) bytes | AC | 0.062 s | 1592 KB | 11327848 |
-| [1423_strings_optimized.rs](1423_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
+| [1423_strings_optimized.rs](1423_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
