@@ -105,7 +105,5 @@ Accepted точного исходника Go 1.14 №11326972: 0.015 с / 272 �
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1293_math_optimized.java](1293_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 312 KB | 11303733 |
 | [1293_math_optimized.go](1293_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 272 KB | 11326972 |
-| [1293_math_optimized.py](1293_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 596 KB | 11327023 |
+| [1293_math_optimized.py](1293_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 596 KB | 11327023 |
 | [1293_math_optimized.rs](1293_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324850 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
