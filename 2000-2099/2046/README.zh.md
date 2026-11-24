@@ -99,6 +99,6 @@ C++、Go 保持贪心换行，但直接写入定长字符格：四节、三天�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
-| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -143,6 +143,6 @@ Go original usa scanner; C++/Go nuevos leen nombres completos y celdas fijas. Co
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
-| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

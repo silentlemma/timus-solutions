@@ -142,6 +142,6 @@ C++ и Go сохраняют жадный перенос слов, но рису
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
-| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
