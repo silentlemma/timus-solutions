@@ -154,9 +154,7 @@ La versión en Java actualiza las distancias de forma simétrica y descarta los 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1004_shortest_paths_graphs_optimized.cpp](1004_shortest_paths_graphs_optimized.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 136 KB | 11316956 |
-| [1004_shortest_paths_graphs_optimized.go](1004_shortest_paths_graphs_optimized.go) \* | Go 1.14 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 988 KB | 11317015 |
+| [1004_shortest_paths_graphs_optimized.go](1004_shortest_paths_graphs_optimized.go) | Go 1.14 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 988 KB | 11317015 |
 | [1004_shortest_paths_graphs_optimized.rs](1004_shortest_paths_graphs_optimized.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 244 KB | 11317149 |
 | [1004_shortest_paths_graphs_optimized.py](1004_shortest_paths_graphs_optimized.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) | AC | 0.187 s | 4452 KB | 11317152 |
 | [1004_shortest_paths_graphs_optimized.java](1004_shortest_paths_graphs_optimized.java) | Java 1.8 | shortest_paths, graphs | O(N^3) | AC | 0.109 s | 844 KB | 11317153 |
-
-\* Aceptada. El objetivo de clasificación sigue abierto porque el corte no contiene envíos comparables en Go de otros autores.
