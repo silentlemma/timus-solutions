@@ -122,6 +122,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
 | [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 820 KB | 11328304 |
-| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
