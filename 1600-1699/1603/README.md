@@ -125,8 +125,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1603_implementation_optimized.cpp](1603_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(16*2^16) per distinct word | AC | 0.015 s | 176 KB | 11309250 |
 | [1603_implementation_optimized.go](1603_implementation_optimized.go) | Go 1.14 x64 | implementation | O(16*2^16) per distinct word | AC | 0.031 s | 988 KB | 11309252 |
-| [1603_implementation_optimized.java](1603_implementation_optimized.java) \* | Java 1.8 | implementation | O(16*2^16) per distinct word | AC | 0.093 s | 620 KB | 11309251 |
+| [1603_implementation_optimized.java](1603_implementation_optimized.java) | Java 1.8 | implementation | O(16*2^16) per distinct word | AC | 0.093 s | 620 KB | 11309251 |
 | [1603_implementation_optimized.py](1603_implementation_optimized.py) | Python 3.12 x64 | implementation | O(16*2^16) per distinct word | AC | 0.093 s | 1128 KB | 11309249 |
 | [1603_implementation_optimized.rs](1603_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(16*2^16) per distinct word | AC | 0.031 s | 292 KB | 11309253 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
