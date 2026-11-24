@@ -104,9 +104,7 @@ G++ 13.2 x64 №11321834 · Go 1.14 x64 №11321835 · Java 1.8 №11322409 · R
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [2209_math_optimized.py](2209_math_optimized.py) \* | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 428 KB | 11317193 |
+| [2209_math_optimized.py](2209_math_optimized.py) | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 428 KB | 11317193 |
 | [2209_math_optimized.cpp](2209_math_optimized.cpp) | G++ 13.2 x64 | math | O(log M) | AC | 0.015 s | 112 KB | 11322447 |
 | [2209_math_optimized.go](2209_math_optimized.go) | Go 1.14 x64 | math | O(log M) | AC | 0.031 s | 796 KB | 11322448 |
 | [2209_math_optimized.rs](2209_math_optimized.rs) | Rust 1.75 x64 | math | O(log M) | AC | 0.046 s | 212 KB | 11322449 |
-
-\* Python 版本已通过评测，尚未达到目标排名，仍可优化。

@@ -118,9 +118,7 @@ Esta variante lee el camino desde el bit menos significativo, acumula los coefic
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [2209_math_optimized.py](2209_math_optimized.py) \* | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 428 KB | 11317193 |
+| [2209_math_optimized.py](2209_math_optimized.py) | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 428 KB | 11317193 |
 | [2209_math_optimized.cpp](2209_math_optimized.cpp) | G++ 13.2 x64 | math | O(log M) | AC | 0.015 s | 112 KB | 11322447 |
 | [2209_math_optimized.go](2209_math_optimized.go) | Go 1.14 x64 | math | O(log M) | AC | 0.031 s | 796 KB | 11322448 |
 | [2209_math_optimized.rs](2209_math_optimized.rs) | Rust 1.75 x64 | math | O(log M) | AC | 0.046 s | 212 KB | 11322449 |
-
-\* La versión aceptada en Python aún puede mejorar en la clasificación objetivo.
