@@ -82,8 +82,8 @@ The Go teaching port uses ordinary buffered input and two26-entry integer arrays
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
-| [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
-| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
+| [1091_dp_optimized.go](1091_dp_optimized.go) | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
+| [1091_dp.rs](1091_dp.rs) | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

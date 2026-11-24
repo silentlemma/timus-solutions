@@ -81,8 +81,8 @@ Go 快速版保留精确 gcd 递推，直接使用标准句柄，答案缓冲区
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
-| [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
-| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
+| [1091_dp_optimized.go](1091_dp_optimized.go) | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
+| [1091_dp.rs](1091_dp.rs) | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
