@@ -119,6 +119,6 @@ Rust печатает через `BufWriter`. C++ занимает 252 КБ вм
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
-| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.078 s | 648 KB | 11326689 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) | Python 3.12 x64 | bfs | O(n log n) | AC | 0.078 s | 648 KB | 11326689 |
 
 \* Accepted; отдельная рейтинговая цель пока не достигнута: для C++ нужны первые десять мест или топ 15% по времени и памяти, для остальных языковых семейств — первое место по обеим метрикам. Эта отметка отделена от критериев допуска; версию можно оптимизировать дальше.

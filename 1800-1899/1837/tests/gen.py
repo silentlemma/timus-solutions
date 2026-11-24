@@ -31,13 +31,15 @@ def main():
         components = [[CHAMPION] + others[:30], others[30:]]
         for component in components:
             for t in range(0, 30, 2):
-                teams.append(component[t:t + 3])
+                teams.append(component[t : t + 3])
         while len(teams) < count:
             teams.append(rng.sample(rng.choice(components), 3))
     elif mode == 3:
         chain = [CHAMPION] + rng.sample([p for p in pool if p != CHAMPION], 2 * LIMIT)
         for t in range(count):
-            teams.append(chain[2 * t:2 * t + 3] if 2 * t + 3 <= len(chain) else rng.sample(pool, 3))
+            teams.append(
+                chain[2 * t : 2 * t + 3] if 2 * t + 3 <= len(chain) else rng.sample(pool, 3)
+            )
     else:
         for _ in range(count):
             teams.append(rng.sample(pool, 3))
