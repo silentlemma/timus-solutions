@@ -121,8 +121,6 @@ Rust 用两个位集记录问号和空格，并从预计算的检查点继续约
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1098_math_optimized.py](1098_math_optimized.py) \* | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
-| [1098_math_optimized.go](1098_math_optimized.go) \* | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
-| [1098_math_optimized.rs](1098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1098_math_optimized.py](1098_math_optimized.py) | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
+| [1098_math_optimized.go](1098_math_optimized.go) | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
+| [1098_math_optimized.rs](1098_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |

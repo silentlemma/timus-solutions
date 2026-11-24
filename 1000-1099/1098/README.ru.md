@@ -133,8 +133,6 @@ Rust хранит два битовых массива для вопросите
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1098_math_optimized.py](1098_math_optimized.py) \* | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
-| [1098_math_optimized.go](1098_math_optimized.go) \* | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
-| [1098_math_optimized.rs](1098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |
-
-\* Отмеченные решения пока не достигли целевого рейтинга.
+| [1098_math_optimized.py](1098_math_optimized.py) | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
+| [1098_math_optimized.go](1098_math_optimized.go) | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
+| [1098_math_optimized.rs](1098_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |

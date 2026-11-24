@@ -136,8 +136,6 @@ Rust stores two bitsets for question marks and spaces and resumes the Josephus r
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1098_math_optimized.py](1098_math_optimized.py) \* | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
-| [1098_math_optimized.go](1098_math_optimized.go) \* | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
-| [1098_math_optimized.rs](1098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |
-
-\* The marked solutions can improve their target rankings.
+| [1098_math_optimized.py](1098_math_optimized.py) | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
+| [1098_math_optimized.go](1098_math_optimized.go) | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
+| [1098_math_optimized.rs](1098_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |
