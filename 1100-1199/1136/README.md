@@ -136,6 +136,4 @@ instead of 1508 KB. Java and Rust have only the simple solutions.
 | [1136_trees_optimized.cpp](1136_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 188 KB | 11303566 |
 | [1136_trees_optimized.go](1136_trees_optimized.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1052 KB | 11303567 |
 | [1136_trees_optimized.py](1136_trees_optimized.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1028 KB | 11303568 |
-| [1136_dfs_trees.rs](1136_dfs_trees.rs) \* | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1136_dfs_trees.rs](1136_dfs_trees.rs) | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |

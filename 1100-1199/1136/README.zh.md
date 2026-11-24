@@ -124,6 +124,4 @@ Go 还手工解析输入。C++ 内存为 188 KB，而不是 348 KB；Go 为 1052
 | [1136_trees_optimized.cpp](1136_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 188 KB | 11303566 |
 | [1136_trees_optimized.go](1136_trees_optimized.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1052 KB | 11303567 |
 | [1136_trees_optimized.py](1136_trees_optimized.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1028 KB | 11303568 |
-| [1136_dfs_trees.rs](1136_dfs_trees.rs) \* | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1136_dfs_trees.rs](1136_dfs_trees.rs) | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |
