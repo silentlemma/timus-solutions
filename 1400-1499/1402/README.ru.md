@@ -121,6 +121,6 @@
 | [1402_combinatorics_optimized.cpp](1402_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(N) | AC | 0.001 s | 96 KB | 11304432 |
 | [1402_combinatorics_optimized.java](1402_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(N) | AC | 0.109 s | 444 KB | 11304433 |
 | [1402_combinatorics_optimized.py](1402_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(N) | AC | 0.125 s | 244 KB | 11324912 |
-| [1402_combinatorics_optimized.rs](1402_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(N) | AC | 0.062 s | 56 KB | 11325095 |
+| [1402_combinatorics_optimized.rs](1402_combinatorics_optimized.rs) | Rust 1.75 x64 | combinatorics | O(N) | AC | 0.062 s | 56 KB | 11325095 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
