@@ -100,7 +100,5 @@ Rust prueba una coordenada por cada intervalo entre posiciones fijas. En una dis
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
 | [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
-
-\* El corte de clasificación no contiene envíos comparables en Java de otros autores.

@@ -98,7 +98,5 @@ Rust tests one coordinate in every gap between fixed positions. In a valid layou
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
 | [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
-
-\* The saved rating has no comparable Java submissions from other authors.

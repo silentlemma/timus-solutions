@@ -82,7 +82,5 @@ Rust 对固定位置之间的每个区间只测试一个坐标。合法布局的
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
 | [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
-
-\* 排名快照中没有其他作者的可比 Java 提交。

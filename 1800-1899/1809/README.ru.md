@@ -99,7 +99,5 @@ Rust проверяет по одной координате в каждом п�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
 | [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
-
-\* В сохранённом срезе нет сопоставимых посылок Java от других авторов.
