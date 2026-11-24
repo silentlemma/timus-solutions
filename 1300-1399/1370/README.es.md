@@ -118,6 +118,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1370_implementation_optimized.cpp](1370_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 120 KB | 11303744 |
 | [1370_implementation_optimized.java](1370_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 340 KB | 11303603 |
 | [1370_implementation_optimized.py](1370_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N) | AC | 0.14 s | 244 KB | 11325069 |
-| [1370_implementation_optimized.rs](1370_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 52 KB | 11324865 |
+| [1370_implementation_optimized.rs](1370_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 52 KB | 11324865 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
