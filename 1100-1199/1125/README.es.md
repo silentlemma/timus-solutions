@@ -178,7 +178,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1125_bitmask.py](1125_bitmask.py) \* | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
+| [1125_bitmask.py](1125_bitmask.py) | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
 | [1125_bitmask_optimized.py](1125_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.046 s | 580 KB | 11308647 |
 
 **Mejoras históricas del par de máscaras; sin cumplir el30% frente a la simulación actual**
@@ -187,6 +187,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1125_bitmask_optimized.cpp](1125_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.001 s | 132 KB | 11308644 |
 | [1125_bitmask_optimized.java](1125_bitmask_optimized.java) | Java 1.8 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.093 s | 424 KB | 11308646 |
-| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |

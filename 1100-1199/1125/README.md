@@ -179,7 +179,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1125_bitmask.py](1125_bitmask.py) \* | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
+| [1125_bitmask.py](1125_bitmask.py) | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
 | [1125_bitmask_optimized.py](1125_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.046 s | 580 KB | 11308647 |
 
 **Historical bitmask-pair improvements; current 30% simulation criterion not met**
@@ -188,6 +188,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1125_bitmask_optimized.cpp](1125_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.001 s | 132 KB | 11308644 |
 | [1125_bitmask_optimized.java](1125_bitmask_optimized.java) | Java 1.8 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.093 s | 424 KB | 11308646 |
-| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |

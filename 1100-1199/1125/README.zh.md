@@ -151,7 +151,7 @@ WBWWBW
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1125_bitmask.py](1125_bitmask.py) \* | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
+| [1125_bitmask.py](1125_bitmask.py) | Python 3.12 x64 | bitmask | O(MN+MK), K ≤ 405 | AC | 0.046 s | 900 KB | 11279316 |
 | [1125_bitmask_optimized.py](1125_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.046 s | 580 KB | 11308647 |
 
 **原掩码实现对的历史优化；未达相对当前模拟的30%标准**
@@ -160,6 +160,4 @@ WBWWBW
 |---|---|---|---|---|---|---|---|
 | [1125_bitmask_optimized.cpp](1125_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.001 s | 132 KB | 11308644 |
 | [1125_bitmask_optimized.java](1125_bitmask_optimized.java) | Java 1.8 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.093 s | 424 KB | 11308646 |
-| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
