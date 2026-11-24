@@ -5,8 +5,8 @@ alternating sign at the bounds, mode 4 all values at the lower bound."""
 import random
 import sys
 
-MAX_N = 10 ** 5
-MAX_A = 10 ** 5
+MAX_N = 10**5
+MAX_A = 10**5
 SMALL_N = 8
 SMALL_A = 5
 

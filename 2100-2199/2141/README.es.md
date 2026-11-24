@@ -132,6 +132,4 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [2141_dp_optimized.cpp](2141_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 84 KB | 11308803 |
 | [2141_dp_optimized.go](2141_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 924 KB | 11308805 |
-| [2141_dp_optimized.py](2141_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.156 s | 1392 KB | 11308802 |
-
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+| [2141_dp_optimized.py](2141_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.156 s | 1392 KB | 11308802 |

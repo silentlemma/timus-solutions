@@ -132,6 +132,4 @@ n, 1 ≤ n ≤ 10⁵, затем a₁ … aₙ, −10⁵ ≤ aᵢ ≤ 10⁵.
 |---|---|---|---|---|---|---|---|
 | [2141_dp_optimized.cpp](2141_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 84 KB | 11308803 |
 | [2141_dp_optimized.go](2141_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 924 KB | 11308805 |
-| [2141_dp_optimized.py](2141_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.156 s | 1392 KB | 11308802 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
+| [2141_dp_optimized.py](2141_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.156 s | 1392 KB | 11308802 |
