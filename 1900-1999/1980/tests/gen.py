@@ -32,13 +32,13 @@ def generate(seed, mode):
         edges = []
         groups = {}
         for i in range(n - 1):
-            s, l = (
+            s, length = (
                 (rng.randint(1, 300), rng.randint(1, 1000))
                 if mode == "chain_mixed"
                 else (speed, length)
             )
-            edges.append((i, i + 1, s, l))
-            groups[s] = groups.get(s, 0) + l
+            edges.append((i, i + 1, s, length))
+            groups[s] = groups.get(s, 0) + length
         info = {"kind": "unique_chain", "speed_length_sums": groups}
     elif mode == "parallel":
         n = 2
@@ -82,7 +82,7 @@ def generate(seed, mode):
         deadline = 10**6
         raw = [(1, 1000)] * 999 + [(1, 999), (299, 1), (300, 299)]
         n = len(raw) + 1
-        edges = [(i, i + 1, s, l) for i, (s, l) in enumerate(raw)]
+        edges = [(i, i + 1, s, length) for i, (s, length) in enumerate(raw)]
         info = {"kind": "unique_chain", "speed_length_sums": {1: 999999, 299: 1, 300: 299}}
     elif mode == "uniform_bfs":
         n = 2000
@@ -96,7 +96,9 @@ def generate(seed, mode):
         raise ValueError(mode)
     rng.shuffle(edges)
     assert 2 <= n <= 10000 and 1 <= len(edges) <= 10000
-    assert all(0 <= a < b < n and 1 <= s <= 300 and 1 <= l <= 1000 for a, b, s, l in edges)
+    assert all(
+        0 <= a < b < n and 1 <= s <= 300 and 1 <= length <= 1000 for a, b, s, length in edges
+    )
     return n, edges, deadline, info
 
 
@@ -105,6 +107,6 @@ if __name__ == "__main__":
 
     n, edges, deadline, _ = generate(int(sys.argv[1]), sys.argv[2])
     print(n, len(edges))
-    for a, b, s, l in edges:
-        print(a + 1, b + 1, s, l)
+    for a, b, s, length in edges:
+        print(a + 1, b + 1, s, length)
     print(deadline)

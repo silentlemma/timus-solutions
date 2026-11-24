@@ -119,8 +119,6 @@ G++ 13.2 x64 №11322395 · Go 1.14 x64 №11322476 · Java 1.8 №11322462 · P
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1980_binary_search_astar.py](1980_binary_search_astar.py) \* | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
+| [1980_binary_search_astar.py](1980_binary_search_astar.py) | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
 | [1980_binary_search_dijkstra_optimized.go](1980_binary_search_dijkstra_optimized.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 2940 KB | 11318076 |
-| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) \* | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
