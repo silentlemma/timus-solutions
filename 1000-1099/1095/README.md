@@ -111,8 +111,6 @@ G++ 13.2 x64 №11322115 · Go 1.14 x64 №11322116 · Java 1.8 №11322117 · P
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1095_number_theory_optimized.cpp](1095_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.015 s | 112 KB | 11316960 |
 | [1095_number_theory_optimized.py](1095_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.125 s | 436 KB | 11317754 |
-| [1095_number_theory_optimized.go](1095_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 1276 KB | 11317765 |
-| [1095_number_theory_optimized.rs](1095_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.015 s | 192 KB | 11317775 |
+| [1095_number_theory_optimized.go](1095_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 1276 KB | 11317765 |
+| [1095_number_theory_optimized.rs](1095_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.015 s | 192 KB | 11317775 |
 | [1095_number_theory_optimized.java](1095_number_theory_optimized.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.093 s | 1240 KB | 11317780 |
-
-\* The marked solutions can improve their target rankings.
