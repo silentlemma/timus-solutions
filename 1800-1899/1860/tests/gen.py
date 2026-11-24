@@ -4,7 +4,7 @@
 import random
 import sys
 
-MOST = 10 ** 6
+MOST = 10**6
 
 
 def main():
