@@ -94,7 +94,7 @@ Accepted точного исходника Java 1.8 №11327748: 0.093 с / 344 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
-| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; fixed buffers | AC | 0.093 s | 344 KB | 11327748 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) | Java 1.8 | greedy | O(N) time; fixed buffers | AC | 0.093 s | 344 KB | 11327748 |
 | [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
 
 \* Отмеченные решения пока не достигли целевого рейтинга.
