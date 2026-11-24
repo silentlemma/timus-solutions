@@ -98,8 +98,8 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1217_math.go](1217_math.go) \* | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 276 KB | 11311207 |
-| [1217_math.java](1217_math.java) \* | Java 1.8 | math | O(N²) | AC | 0.093 s | 292 KB | 11310353 |
+| [1217_math.go](1217_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 276 KB | 11311207 |
+| [1217_math.java](1217_math.java) | Java 1.8 | math | O(N²) | AC | 0.093 s | 292 KB | 11310353 |
 | [1217_math.rs](1217_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 196 KB | 11310720 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
