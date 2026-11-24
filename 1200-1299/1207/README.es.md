@@ -147,7 +147,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1207_geometry_optimized.java](1207_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.109 s | 636 KB | 11304352 |
-| [1207_geometry_optimized.py](1207_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.093 s | 1780 KB | 11304354 |
+| [1207_geometry_optimized.py](1207_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.093 s | 1780 KB | 11304354 |
 | [1207_geometry_optimized.rs](1207_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 396 KB | 11304353 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
