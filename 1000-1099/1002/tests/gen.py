@@ -19,8 +19,7 @@ if mode in ("limit", "random"):
 if mode == "limit":
     rng = random.Random(int(sys.argv[2]))
     words = [
-        "".join(rng.choice(LETTERS) for _ in range(4 if i < 1000 else 5))
-        for i in range(50000)
+        "".join(rng.choice(LETTERS) for _ in range(4 if i < 1000 else 5)) for i in range(50000)
     ]
     phone = "".join(words[rng.randrange(1000, len(words))].translate(KEYPAD) for _ in range(20))
     print(phone)
