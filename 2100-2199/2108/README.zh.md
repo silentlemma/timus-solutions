@@ -88,7 +88,7 @@ Python 解答把问题转置，因为当愿望链按相反顺序给出时，逐�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2108_graphs_bitmask.cpp](2108_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.062 s | 1140 KB | 11326657 |
-| [2108_graphs_bitmask.go](2108_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.125 s | 1284 KB | 11315237 |
-| [2108_graphs_bitmask.rs](2108_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.046 s | 1072 KB | 11315242 |
+| [2108_graphs_bitmask.go](2108_graphs_bitmask.go) | Go 1.14 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.125 s | 1284 KB | 11315237 |
+| [2108_graphs_bitmask.rs](2108_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.046 s | 1072 KB | 11315242 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
