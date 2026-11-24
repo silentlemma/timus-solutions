@@ -111,8 +111,8 @@ Go 对两种目标颜色分别枚举首行的 16 种按压掩码。某行剩余�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1060_bitmask.go](1060_bitmask.go) \* | Go 1.14 x64 | bitmask | O(H·2^W), H = W = 4 | AC | 0.015 s | 284 KB | 11311214 |
+| [1060_bitmask.go](1060_bitmask.go) | Go 1.14 x64 | bitmask | O(H·2^W), H = W = 4 | AC | 0.015 s | 284 KB | 11311214 |
 | [1060_bitmask_meet_in_middle.py](1060_bitmask_meet_in_middle.py) | Python 3.12 x64 | bitmask, meet_in_middle | O(2^(C/2)), C = 16 | AC | 0.078 s | 624 KB | 11310331 |
-| [1060_bruteforce_bitmask_optimized.java](1060_bruteforce_bitmask_optimized.java) \* | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 524 KB | 11324805 |
+| [1060_bruteforce_bitmask_optimized.java](1060_bruteforce_bitmask_optimized.java) | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 524 KB | 11324805 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
