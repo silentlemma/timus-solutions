@@ -115,7 +115,5 @@ Yes
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2102_number_theory_optimized.java](2102_number_theory_optimized.java) | Java 1.8 | number_theory | Pruned trial division; O(1) storage | AC | 0.109 s | 468 KB | 11327435 |
-| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | Pruned trial division; O(1) bounded storage | AC | 0.125 s | 928 KB | 11327440 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) | PyPy 3.10 x64 | number_theory | Pruned trial division; O(1) bounded storage | AC | 0.125 s | 928 KB | 11327440 |
 | [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.015 s | 108 KB | 11326999 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。

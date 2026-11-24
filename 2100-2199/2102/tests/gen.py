@@ -8,7 +8,7 @@ primes. Mode 4: a random n up to 10^18.
 import random
 import sys
 
-TOP = 10 ** 18
+TOP = 10**18
 SMALL_PRIMES = [2, 3, 5, 7]
 TARGET = 20
 LARGE = [1000003, 999983, 2000003, 1999993, 3000017]
