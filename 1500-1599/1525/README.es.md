@@ -128,9 +128,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1525_math.cpp](1525_math.cpp) | G++ 13.2 x64 | math | O(len) | AC | 0.015 s | 112 KB | 11310466 |
-| [1525_math.go](1525_math.go) \* | Go 1.14 x64 | math | O(len) | AC | 0.015 s | 932 KB | 11310467 |
+| [1525_math.go](1525_math.go) | Go 1.14 x64 | math | O(len) | AC | 0.015 s | 932 KB | 11310467 |
 | [1525_math.py](1525_math.py) | Python 3.12 x64 | math | O(len) | AC | 0.078 s | 520 KB | 11310470 |
-| [1525_math.rs](1525_math.rs) \* | Rust 1.75 x64 | math | O(len) | AC | 0.031 s | 216 KB | 11310469 |
+| [1525_math.rs](1525_math.rs) | Rust 1.75 x64 | math | O(len) | AC | 0.031 s | 216 KB | 11310469 |
 | [1525_implementation_optimized.java](1525_implementation_optimized.java) | Java 1.8 | implementation | O(L) | AC | 0.093 s | 496 KB | 11325017 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
