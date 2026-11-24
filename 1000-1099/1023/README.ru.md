@@ -118,6 +118,6 @@
 |---|---|---|---|---|---|---|---|
 | [1023_games_number_theory_optimized.java](1023_games_number_theory_optimized.java) | Java 1.8 | games, number_theory | O(sqrt(K)) time; O(1) space | AC | 0.109 s | 392 KB | 11308324 |
 | [1023_games_number_theory_optimized.py](1023_games_number_theory_optimized.py) \* | PyPy 3.10 x64 | games, number_theory | O(sqrt(K)) time; O(1) space | AC | 0.140 s | 280 KB | 11309754 |
-| [1023_games_number_theory_optimized.rs](1023_games_number_theory_optimized.rs) \* | Rust 1.75 x64 | games, number_theory | O(√K) | AC | 0.015 s | 56 KB | 11325081 |
+| [1023_games_number_theory_optimized.rs](1023_games_number_theory_optimized.rs) | Rust 1.75 x64 | games, number_theory | O(√K) | AC | 0.015 s | 56 KB | 11325081 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
