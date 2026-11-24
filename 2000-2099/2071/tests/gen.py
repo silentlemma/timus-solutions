@@ -11,7 +11,7 @@ import sys
 
 COCKTAILS = ["A", "B", "P", "AB", "AP", "BP", "ABP"]
 SMALL = 7
-MAX_N = 10 ** 5
+MAX_N = 10**5
 
 
 def main():
