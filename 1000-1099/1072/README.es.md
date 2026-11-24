@@ -123,6 +123,6 @@ Se conservan las cinco bases BFS con entrada habitual. La nueva versión Go anal
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1072_bfs_optimized.go](1072_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
+| [1072_bfs_optimized.go](1072_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

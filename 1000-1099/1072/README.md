@@ -121,6 +121,6 @@ All five ordinary-input BFS base files are preserved. The new Go version parses 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1072_bfs_optimized.go](1072_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
+| [1072_bfs_optimized.go](1072_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
