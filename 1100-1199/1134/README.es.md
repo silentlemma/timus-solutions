@@ -103,6 +103,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1134_greedy_optimized.py](1134_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(N+M) | AC | 0.140 s | 288 KB | 11309377 |
-| [1134_greedy_optimized.rs](1134_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n+m) time; O(n) space | AC | 0.015 s | 72 KB | 11325514 |
+| [1134_greedy_optimized.rs](1134_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n+m) time; O(n) space | AC | 0.015 s | 72 KB | 11325514 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

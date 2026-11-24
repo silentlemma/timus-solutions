@@ -97,6 +97,6 @@ NO
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1134_greedy_optimized.py](1134_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(N+M) | AC | 0.140 s | 288 KB | 11309377 |
-| [1134_greedy_optimized.rs](1134_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n+m) time; O(n) space | AC | 0.015 s | 72 KB | 11325514 |
+| [1134_greedy_optimized.rs](1134_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n+m) time; O(n) space | AC | 0.015 s | 72 KB | 11325514 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

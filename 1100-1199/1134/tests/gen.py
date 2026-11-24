@@ -28,7 +28,7 @@ def main():
             nums = [card - 1 for card in cards]
             if m > 1:
                 k = nums.index(max(nums))
-                nums[k] = rng.choice(nums[:k] + nums[k + 1:])
+                nums[k] = rng.choice(nums[:k] + nums[k + 1 :])
     sys.stdout.write("%d %d\n%s\n" % (n, m, " ".join(map(str, nums))))
 
 
