@@ -104,8 +104,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
-| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
-| [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
+| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
+| [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |

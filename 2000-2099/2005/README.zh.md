@@ -96,8 +96,6 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
-| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
-| [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
+| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
+| [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |
