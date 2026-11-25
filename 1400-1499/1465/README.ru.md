@@ -72,6 +72,10 @@ Black
 White
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1465_implementation_parsing_optimized.rs](1465_implementation_parsing_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Это шахматы Доусона. Пешка, выдвинутая на среднюю горизонталь,
@@ -150,6 +154,6 @@ Accepted #11329333 (Rust 1.75 x64): **0.031 s / 72 KB**.
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 | [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
 | [1465_games_optimized.py](1465_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.093 s | 672 KB | 11328554 |
-| [1465_implementation_parsing_optimized.rs](1465_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(1) | AC | 0.031 s | 72 KB | 11329333 |
+| [1465_implementation_parsing_optimized.rs](1465_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(1) | AC | 0.046 s | 68 KB | 11330232 |
 
 \* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
