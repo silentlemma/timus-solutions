@@ -4,7 +4,7 @@ walking between unlinked ones and walking from the last station to B;
 and it must equal the reference's time. Both within 1e-6."""
 
 import sys
-from math import hypot
+from math import hypot, isfinite
 
 TOL = 1e-6
 
@@ -39,6 +39,8 @@ def read_answer(path, n):
         route = [int(t) for t in tokens[2:]]
     except (ValueError, IndexError):
         fail("expected a time, a count and station numbers")
+    if not isfinite(time):
+        fail("the printed time must be finite")
     if count != len(route) or any(not 1 <= s <= n for s in route):
         fail("the route does not match its count or names a missing station")
     return time, route
