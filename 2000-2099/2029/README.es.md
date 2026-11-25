@@ -161,7 +161,7 @@ Rust determina la respuesta bit a bit, procesando las varillas de destino desde 
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2029_math_optimized.cpp](2029_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 116 KB | 11316969 |
 | [2029_math_optimized.py](2029_math_optimized.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 360 KB | 11320817 |
-| [2029_math_optimized.go](2029_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 804 KB | 11322415 |
+| [2029_math_optimized.go](2029_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 804 KB | 11322415 |
 | [2029_math_optimized.rs](2029_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 52 KB | 11323324 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.
