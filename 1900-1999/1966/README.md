@@ -163,7 +163,7 @@ Rust explores connected segments with breadth-first search and checks intersecti
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1966_dsu_geometry_optimized.py](1966_dsu_geometry_optimized.py) | Python 3.12 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.078 s | 836 KB | 11317361 |
 | [1966_dsu_geometry_optimized.rs](1966_dsu_geometry_optimized.rs) \* | Rust 1.75 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 224 KB | 11317367 |
-| [1966_bfs_geometry.go](1966_bfs_geometry.go) \* | Go 1.14 x64 | bfs, geometry | O(M(N + M)) | AC | 0.031 s | 292 KB | 11323106 |
+| [1966_bfs_geometry.go](1966_bfs_geometry.go) | Go 1.14 x64 | bfs, geometry | O(M(N + M)) | AC | 0.031 s | 292 KB | 11323106 |
 | [1966_bfs_geometry.rs](1966_bfs_geometry.rs) \* | Rust 1.75 x64 | bfs, geometry | O(M(N + M)) | AC | 0.015 s | 52 KB | 11323254 |
 
 \* The Rust rating target remains open.
