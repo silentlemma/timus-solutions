@@ -17,7 +17,7 @@ class Bad(Exception):
 def check(source, expected, output):
     words = open(source).read().split()
     games = int(words[0])
-    rows = words[1:1 + games]
+    rows = words[1 : 1 + games]
     lines = open(output).read().split("\n")
     lines = [line for line in lines if line.strip()]
     if len(lines) > LINES:
@@ -31,7 +31,12 @@ def check(source, expected, output):
                 raise Bad("game %d has no claim" % (game + 1))
             parts = lines[at].split()
             at += 1
-            if len(parts) != 3 or parts[0] not in ("?", "!") or not parts[1].isdigit() or not parts[2].isdigit():
+            if (
+                len(parts) != 3
+                or parts[0] not in ("?", "!")
+                or not parts[1].isdigit()
+                or not parts[2].isdigit()
+            ):
                 raise Bad("bad line %r" % lines[at - 1])
             v, u = int(parts[1]), int(parts[2])
             if not (1 <= v <= n and 1 <= u <= n and v != u):

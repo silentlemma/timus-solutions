@@ -154,10 +154,10 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.015 s | 124 KB | 11326647 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
-| [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_sorting.go](2063_constructive_sorting.go) | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
 | [2063_constructive_sorting.java](2063_constructive_sorting.java) | Java 1.8 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.109 s | 604 KB | 11326597 |
 | [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
-| [2063_constructive_sorting.py](2063_constructive_sorting.py) \* | Python 3.12 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(B+log n_max) space | AC | 0.14 s | 1008 KB | 11326665 |
+| [2063_constructive_sorting.py](2063_constructive_sorting.py) | Python 3.12 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(B+log n_max) space | AC | 0.14 s | 1008 KB | 11326665 |
 | [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
