@@ -17,7 +17,7 @@ class Bad(Exception):
 def check(source, expected, output):
     data = open(source).read().split()
     n, k = int(data[0]), int(data[1])
-    rows = data[2:2 + n]
+    rows = data[2 : 2 + n]
     want = open(expected).read().split()
     got = open(output).read().split()
     if not got or got[0] not in ("POBEDA", "PORAZHENIE"):
@@ -53,8 +53,10 @@ def check(source, expected, output):
             if letter // SIDE != other_letter // SIDE:
                 continue
             if abs(row - other_row) <= 1 and abs(letter - other_letter) <= 1:
-                raise Bad("seats %d%s and %d%s are adjacent"
-                          % (row + 1, LETTERS[letter], other_row + 1, LETTERS[other_letter]))
+                raise Bad(
+                    "seats %d%s and %d%s are adjacent"
+                    % (row + 1, LETTERS[letter], other_row + 1, LETTERS[other_letter])
+                )
 
 
 def main():

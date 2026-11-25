@@ -123,7 +123,7 @@ Rust 1.75 x64, envío 11317691. Tiempo 0,046 → 0,015 s, memoria 252 → 232 KB
 | [2143_dp_bitmask_optimized.cpp](2143_dp_bitmask_optimized.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 120 KB | 11317658 |
 | [2143_dp_bitmask_optimized.py](2143_dp_bitmask_optimized.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.078 s | 716 KB | 11317670 |
 | [2143_dp_bitmask_optimized.java](2143_dp_bitmask_optimized.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.125 s | 520 KB | 11322363 |
-| [2143_dp_bitmask_optimized.go](2143_dp_bitmask_optimized.go) \* | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 316 KB | 11322373 |
+| [2143_dp_bitmask_optimized.go](2143_dp_bitmask_optimized.go) | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 316 KB | 11322373 |
 | [2143_dp_bitmask_optimized.rs](2143_dp_bitmask_optimized.rs) \* | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.015 s | 232 KB | 11317691 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
