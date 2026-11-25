@@ -40,6 +40,10 @@ Output:
 120
 ```
 
+## Acceptance update
+
+Refreshed files: [1876_parsing_optimized.rs](1876_parsing_optimized.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Let k right slippers come out while the left legs are being dressed;
@@ -102,4 +106,4 @@ Accepted #11329209 (Rust 1.75 x64): **0.031 s / 44 KB**. Archived comparison: `1
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
 | [1876_math_optimized.py](1876_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
-| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 44 KB | 11329209 |
+| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 48 KB | 11330237 |

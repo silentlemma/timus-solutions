@@ -34,6 +34,10 @@ a 和 b（40 ≤ a, b ≤ 100）。
 120
 ```
 
+## 已接受提交更新
+
+更新的文件：[1876_parsing_optimized.rs](1876_parsing_optimized.rs)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 设给左脚穿鞋时摸出了 k 只右拖鞋；左脚阶段耗时 40 + 2k 秒。若 k ≥ 40，右脚已全部穿好，右脚阶段为空。这种情况最坏是先摸出全部 b 只右拖鞋：2b + 40 秒。若 k < 40，右脚阶段可能先摸出全部 a − 40 只多余的左拖鞋，每只两秒，再摸出缺少的 40 − k 只右拖鞋。总计 2a + k，在 k = 39 时最大：2a + 39。答案为 max(2b + 40, 2a + 39)。`O(1)`。
@@ -85,4 +89,4 @@ Accepted #11329209 (Rust 1.75 x64): **0.031 s / 44 KB**. 历史对照: `1876_mat
 |----|----|----|-----|------|----|----|------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
 | [1876_math_optimized.py](1876_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
-| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 44 KB | 11329209 |
+| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 48 KB | 11330237 |

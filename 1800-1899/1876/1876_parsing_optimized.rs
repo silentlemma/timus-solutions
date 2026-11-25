@@ -193,5 +193,3 @@ impl Iterator for NativeNumbers {
         }
     }
 }
-
-// SAFETY: the live writable array is passed with its bounded exact size.

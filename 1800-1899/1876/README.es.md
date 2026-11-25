@@ -40,6 +40,10 @@ Salida:
 120
 ```
 
+## Actualización de envíos aceptados
+
+Archivos actualizados: [1876_parsing_optimized.rs](1876_parsing_optimized.rs). Las tablas de soluciones muestran los nuevos Accepted correspondientes exactamente al código fuente de estos archivos. Las mediciones y posiciones comparativas anteriores pertenecen a versiones previas y se conservan como datos históricos. La auditoría en caché confirma implementaciones que cumplen los criterios en todos los lenguajes disponibles. Se conservan las versiones didácticas por su claridad; si un mismo archivo cubre también la versión rápida, debe cumplir el criterio de rendimiento.
+
 ## Solución
 
 Supongamos que salen k zapatillas derechas mientras se calzan las patas
@@ -105,4 +109,4 @@ Accepted #11329209 (Rust 1.75 x64): **0.031 s / 44 KB**. Comparación archivada:
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
 | [1876_math_optimized.py](1876_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
-| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 44 KB | 11329209 |
+| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 48 KB | 11330237 |
