@@ -192,7 +192,7 @@ Python 提交 11322360 耗时 0.078 秒，使用 576 KB。简单版本耗时 0.0
 |----|----|----|-----|------|----|----|---|
 | [1891_parsing_optimized.cpp](1891_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 444 KB | 11317599 |
 | [1891_parsing_optimized.go](1891_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 332 KB | 11322931 |
-| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
+| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
 | [1891_parsing_optimized.py](1891_parsing_optimized.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 576 KB | 11322360 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。

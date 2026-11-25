@@ -217,7 +217,7 @@ El envío 11322360 en Python tardó 0.078 s y usó 576 KB. La versión sencilla 
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1891_parsing_optimized.cpp](1891_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 444 KB | 11317599 |
 | [1891_parsing_optimized.go](1891_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 332 KB | 11322931 |
-| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
+| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
 | [1891_parsing_optimized.py](1891_parsing_optimized.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 576 KB | 11322360 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

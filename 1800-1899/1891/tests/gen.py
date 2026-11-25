@@ -61,9 +61,7 @@ def generate(seed, mode):
         program.append((declared, variable, function, arguments))
         variables[result].append(variable)
     if mode != VALID_MODE and mode != MAX_VALID_MODE:
-        error_mode = (
-            rng.randint(DUPLICATE_MODE, INITIALIZATION_MODE) if maximal else mode
-        )
+        error_mode = rng.randint(DUPLICATE_MODE, INITIALIZATION_MODE) if maximal else mode
         at = rng.randrange(FIRST_RANDOM_LINE, count)
         declared, variable, function, arguments = program[at]
         if error_mode == DUPLICATE_MODE:
@@ -84,8 +82,7 @@ def generate(seed, mode):
 def render(definitions, program):
     lines = [str(len(definitions))]
     lines.extend(
-        f"{name}({', '.join(arguments)}) : {result}"
-        for name, arguments, result in definitions
+        f"{name}({', '.join(arguments)}) : {result}" for name, arguments, result in definitions
     )
     lines.append(str(len(program)))
     lines.extend(
