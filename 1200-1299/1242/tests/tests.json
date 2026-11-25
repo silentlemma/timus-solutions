@@ -2,8 +2,8 @@
   "judging": "tokens",
   "reference": "1242_graphs.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "a family tree with two victims" },
-    { "name": "02", "example": true, "note": "nobody is left to suspect" },
+    { "name": "01", "example": true, "note": "a victim clears ancestors and descendants but not a sibling or a separate family" },
+    { "name": "02", "example": true, "note": "a victim inside a chain clears everybody" },
     { "name": "03", "note": "two strangers, one victim" },
     { "name": "04", "note": "a parent and a child, the child a victim" },
     { "name": "05", "note": "a victim's cousins stay suspects" },

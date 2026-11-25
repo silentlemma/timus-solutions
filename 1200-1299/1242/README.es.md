@@ -36,22 +36,19 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-8
-1 3
-3 6
-4 5
-6 2
-4 6
-8 1
+7
+1 2
+3 2
+4 3
+5 6
 BLOOD
 3
-8
 ```
 
 Salida:
 
 ```
-4 5 7
+1 5 6 7
 ```
 
 ### Ejemplo 2
@@ -59,17 +56,12 @@ Salida:
 Entrada:
 
 ```
-6
+4
 1 2
-3 2
-1 4
+2 3
 3 4
-2 6
-5 2
-5 4
 BLOOD
 2
-5
 ```
 
 Salida:
