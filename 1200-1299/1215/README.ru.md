@@ -108,7 +108,7 @@ Go и Rust обрабатывают рёбра при чтении вершин,
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1215_geometry_optimized.go](1215_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 284 KB | 11311224 |
-| [1215_geometry_optimized.rs](1215_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
-| [1215_geometry_optimized.java](1215_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.109 s | 972 KB | 11324786 |
+| [1215_geometry_optimized.rs](1215_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
+| [1215_geometry_optimized.java](1215_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 972 KB | 11324786 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
