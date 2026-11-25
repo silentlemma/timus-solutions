@@ -128,7 +128,7 @@ The ordinary Python file was Accepted under PyPy; its CPython execution exceeded
 |---|---|---|---|---|---|---|---|
 | [1519_dp_optimized.cpp](1519_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(H·W²·S) | AC | 0.031 s | 444 KB | 11315274 |
 | [1519_dp_optimized.go](1519_dp_optimized.go) \* | Go 1.14 x64 | dp | O(H·W²·S) | AC | 0.031 s | 848 KB | 11315276 |
-| [1519_dp_optimized.rs](1519_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(H·W²·S) | AC | 0.046 s | 440 KB | 11315281 |
+| [1519_dp_optimized.rs](1519_dp_optimized.rs) | Rust 1.75 x64 | dp | O(H·W²·S) | AC | 0.046 s | 440 KB | 11315281 |
 | [1519_dp_optimized.py](1519_dp_optimized.py) \* | Python 3.12 x64 | dp | O(H·W²·S + W·P) | AC | 0.703 s | 4880 KB | 11316056 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
