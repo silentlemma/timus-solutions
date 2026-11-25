@@ -129,7 +129,7 @@ Go construye la salida del método de Horner en un búfer fijo de bytes y la esc
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1059_math_optimized.rs](1059_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 184 KB | 11317923 |
-| [1059_math_optimized.py](1059_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
+| [1059_math_optimized.py](1059_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
 | [1059_math_optimized.go](1059_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 344 KB | 11321909 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.

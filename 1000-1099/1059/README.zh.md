@@ -120,7 +120,7 @@ Go 在固定大小的字节缓冲区中构造霍纳法的输出，再一次性�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1059_math_optimized.rs](1059_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 184 KB | 11317923 |
-| [1059_math_optimized.py](1059_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
+| [1059_math_optimized.py](1059_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
 | [1059_math_optimized.go](1059_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 344 KB | 11321909 |
 
 \* 带星号的版本仍有提升排名的空间。
