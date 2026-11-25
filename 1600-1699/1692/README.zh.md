@@ -76,6 +76,6 @@ Go 和 Rust 根据其他旗帜的编号直接生成当前旗帜。对 k 面旗�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1692_constructive_optimized.go](1692_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 780 KB | 11311145 |
-| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
+| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

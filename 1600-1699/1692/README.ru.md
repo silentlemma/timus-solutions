@@ -85,6 +85,6 @@ Go и Rust формируют каждый флаг сразу по номера
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1692_constructive_optimized.go](1692_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 780 KB | 11311145 |
-| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
+| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
