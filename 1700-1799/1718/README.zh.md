@@ -84,6 +84,6 @@ C++、Go 和 Rust 丢弃不会变化的判定，把其余记录按作者排序�
 |---|---|---|---|---|---|---|---|
 | [1718_sorting.cpp](1718_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 204 KB | 11310341 |
 | [1718_sorting.rs](1718_sorting.rs) \* | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 360 KB | 11310402 |
-| [1718_sorting.go](1718_sorting.go) \* | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 916 KB | 11310848 |
+| [1718_sorting.go](1718_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 916 KB | 11310848 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

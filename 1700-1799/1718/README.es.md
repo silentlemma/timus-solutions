@@ -101,6 +101,6 @@ Las implementaciones base aceptadas [1718_implementation.java](1718_implementati
 |---|---|---|---|---|---|---|---|
 | [1718_sorting.cpp](1718_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 204 KB | 11310341 |
 | [1718_sorting.rs](1718_sorting.rs) \* | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 360 KB | 11310402 |
-| [1718_sorting.go](1718_sorting.go) \* | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 916 KB | 11310848 |
+| [1718_sorting.go](1718_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 916 KB | 11310848 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
