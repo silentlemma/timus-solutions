@@ -53,7 +53,7 @@ def main():
         a, b = rng.sample(names, 2) if n > 1 else (names[0], names[0])
         if (a, b) not in edges and (b, a) not in edges and a != b:
             edges.add((a, b))
-    edges = list(edges)
+    edges = sorted(edges)
     rng.shuffle(edges)
     lines = [rng.choice(names)] + ["%s-%s" % e for e in edges] + ["#"]
     sys.stdout.write("\n".join(lines) + "\n")
