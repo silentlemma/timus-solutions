@@ -71,6 +71,13 @@ the same time.
 
 Compared with `1924_math.py`: time 0.093 s → 0.125 s; memory 396 KB → 192 KB.
 
+
+`1924_math_parsing_optimized.go`. Read the single bounded integer with a small streaming state machine and classify its residue modulo four. This is the same triangular-sum parity test with no multiplication or general numeric parsing. Complete the fixed answer write before process exit.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329532 (Go 1.14 x64): **0.015 s / 276 KB**.
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -97,6 +104,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1924_math_optimized.cpp](1924_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303649 |
 | [1924_math_optimized.java](1924_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 336 KB | 11303788 |
-| [1924_math_optimized.py](1924_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1924_math_optimized.py](1924_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
+| [1924_math_parsing_optimized.go](1924_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 276 KB | 11329532 |

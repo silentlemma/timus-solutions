@@ -65,6 +65,13 @@ black
 
 与 `1924_math.py` 相比：时间 0.093 s → 0.125 s；内存 396 KB → 192 KB。
 
+
+`1924_math_parsing_optimized.go`. 用小型流式状态机读取有界整数，再按模四余数分类。这与三角和奇偶判断等价，无需乘法和通用数字解析。退出前完整写出固定答案。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329532 (Go 1.14 x64): **0.015 s / 276 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -91,6 +98,5 @@ black
 |----|----|----|-----|------|----|----|------|
 | [1924_math_optimized.cpp](1924_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303649 |
 | [1924_math_optimized.java](1924_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 336 KB | 11303788 |
-| [1924_math_optimized.py](1924_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1924_math_optimized.py](1924_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
+| [1924_math_parsing_optimized.go](1924_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 276 KB | 11329532 |

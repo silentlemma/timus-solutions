@@ -71,6 +71,13 @@ el mismo tiempo.
 
 Frente a `1924_math.py`: tiempo 0.093 s → 0.125 s; memoria 396 KB → 192 KB.
 
+
+`1924_math_parsing_optimized.go`. Se lee el entero acotado con un pequeño autómata y se clasifica su residuo módulo cuatro. Equivale a comprobar la paridad de la suma triangular sin multiplicación ni análisis numérico general. Se escribe la respuesta completa antes de salir.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329532 (Go 1.14 x64): **0.015 s / 276 KB**.
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -97,6 +104,5 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1924_math_optimized.cpp](1924_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303649 |
 | [1924_math_optimized.java](1924_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 336 KB | 11303788 |
-| [1924_math_optimized.py](1924_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1924_math_optimized.py](1924_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 684 KB | 11327041 |
+| [1924_math_parsing_optimized.go](1924_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 276 KB | 11329532 |
