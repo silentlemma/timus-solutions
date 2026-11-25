@@ -43,6 +43,10 @@ X、Y 和 Z，每行一个。
 5
 ```
 
+## 已接受提交更新
+
+更新的文件：[1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 两个相等的一半合成一个整体：2^(C−1) + 2^(C−1) = 2^C。因为 A 和 B 整除 C − 1，取
@@ -89,6 +93,6 @@ Accepted #11329514 (Rust 1.75 x64): **0.015 s / 84 KB**.
 |---|---|---|---|---|---|---|---|
 | [1428_math_optimized.go](1428_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
 | [1428_math_optimized.java](1428_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
-| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 84 KB | 11329514 |
+| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.031 s | 80 KB | 11330231 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

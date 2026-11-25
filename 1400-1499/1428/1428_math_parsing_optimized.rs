@@ -39,6 +39,7 @@ impl NativeNumbers {
 impl Iterator for NativeNumbers {
     type Item = i64;
     fn next(&mut self) -> Option<i64> {
+        // Input bounds guarantee that each decimal token fits its destination integer.
         let mut value = 0_i64;
         // SAFETY: %lld writes one live i64, and scanf consumes ordinary whitespace.
         let count = unsafe { scanf(b"%lld\0".as_ptr(), &mut value) };
@@ -59,33 +60,3 @@ pub extern "C" fn main() -> i32 {
         _exit(0)
     }
 }
-
-// Input bounds guarantee that each decimal token fits its destination integer.
-// Input bounds guarantee that each decimal token fits its destination integer.
-
-// Accumulate negative values directly so the minimum signed integer also fits.
-// Accumulate negative values directly so the minimum signed integer also fits.
-
-// Return after all native output writes have completed.
-
-// SAFETY: all inherited-stream writes have completed; no cleanup is needed.
-
-// SAFETY: the caller supplies a live bounded buffer and an inherited stream.
-
-// SAFETY: GetLastError has no pointer arguments and follows the failed read.
-
-// SAFETY: the caller supplies a live bounded slice and an inherited stream.
-
-// SAFETY: the live readable slice is bounded by the documented output size.
-
-// SAFETY: the live writable array is passed with its exact bounded length.
-
-// Work inside one checked slice and commit the cursor
-
-// only at a token or block boundary.
-
-// SAFETY: the live writable array is passed with its bounded exact size.
-
-// Preserved mathematical and I/O notes from the preceding implementation.
-
-// SAFETY: descriptors zero/one are the inherited standard streams.

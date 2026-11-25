@@ -44,6 +44,10 @@ Output:
 5
 ```
 
+## Acceptance update
+
+Refreshed files: [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Two equal halves make a whole: 2^(C−1) + 2^(C−1) = 2^C. Since A and B
@@ -92,6 +96,6 @@ Accepted #11329514 (Rust 1.75 x64): **0.015 s / 84 KB**.
 |---|---|---|---|---|---|---|---|
 | [1428_math_optimized.go](1428_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
 | [1428_math_optimized.java](1428_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
-| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 84 KB | 11329514 |
+| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.031 s | 80 KB | 11330231 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
