@@ -103,7 +103,7 @@ G++ 13.2 x64 №11322266 · Go 1.14 x64 №11322267 · Java 1.8 №11322268 · P
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1474_constructive_optimized.cpp](1474_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.015 s | 224 KB | 11320508 |
 | [1474_constructive_optimized.go](1474_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N^2) | AC | 0.046 s | 1152 KB | 11320528 |
-| [1474_constructive_optimized.java](1474_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 772 KB | 11320556 |
+| [1474_constructive_optimized.java](1474_constructive_optimized.java) | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 772 KB | 11320556 |
 | [1474_constructive_optimized.py](1474_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.109 s | 2044 KB | 11320580 |
 | [1474_constructive_optimized.rs](1474_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.015 s | 248 KB | 11320607 |
 
