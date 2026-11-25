@@ -47,6 +47,10 @@
 Look for second hamburger at computer and chairs.790                            
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Храним массив из 80 символов и позицию курсора. Для `<` и `>` двигаем
@@ -106,4 +110,4 @@ Accepted #11328989 (Rust 1.75 x64): **0.015 s / 52 KB**. Архивное сра
 | [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
 | [1094_simulation_optimized.go](1094_simulation_optimized.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
 | [1094_simulation_optimized.rs](1094_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
-| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.015 s | 52 KB | 11328989 |
+| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.031 s | 48 KB | 11330213 |

@@ -42,6 +42,10 @@
 Look for second hamburger at computer and chairs.790                            
 ```
 
+## 已接受提交更新
+
+更新的文件：[1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 题解
 
 用一个 80 个字符的数组和光标位置模拟。遇到 `<` 和 `>` 移动光标；其他按键写入字符并右移。每次按键后，如果光标
@@ -95,4 +99,4 @@ Accepted #11328989 (Rust 1.75 x64): **0.015 s / 52 KB**. 历史对照: `1094_sim
 | [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
 | [1094_simulation_optimized.go](1094_simulation_optimized.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
 | [1094_simulation_optimized.rs](1094_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
-| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.015 s | 52 KB | 11328989 |
+| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.031 s | 48 KB | 11330213 |

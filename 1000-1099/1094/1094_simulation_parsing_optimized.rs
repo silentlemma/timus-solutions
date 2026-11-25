@@ -93,6 +93,7 @@ pub extern "C" fn main() -> i32 {
     }
     let mut output = [0; OUTPUT_SIZE];
     output[..WIDTH].copy_from_slice(&screen);
+    // Preserve the original putchar contract: screen bytes followed by one ASCII newline.
     output[WIDTH] = b'\n';
     if write_all(&output) {
         0
@@ -100,9 +101,3 @@ pub extern "C" fn main() -> i32 {
         1
     }
 }
-
-// Original per-character I/O contract, retained when replacing it with bounded reads/writes:
-
-// SAFETY: getchar reads standard input and has no pointer arguments.
-// SAFETY: each stored ASCII byte is passed to putchar without pointers.
-// SAFETY: the newline is a valid unsigned character promoted to int.
