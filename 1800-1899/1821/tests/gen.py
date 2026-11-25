@@ -26,7 +26,7 @@ def main():
         size = rng.randint(1, NAME)
         tail = "".join(rng.choice(string.ascii_lowercase) for _ in range(size - 1))
         names.add(rng.choice(string.ascii_uppercase) + tail)
-    names = list(names)
+    names = sorted(names)
     rng.shuffle(names)
     while True:
         if mode == 3:
