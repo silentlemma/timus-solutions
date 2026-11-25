@@ -117,7 +117,7 @@ Read the value directly as bytes and evaluate the two counting formulas from its
 |---|---|---|---|---|---|---|---|
 | [1981_math.cpp](1981_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 440 KB | 11292331 |
 | [1981_math.go](1981_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1100 KB | 11292332 |
-| [1981_math.java](1981_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 448 KB | 11292334 |
+| [1981_math.java](1981_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 376 KB | 11329297 |
 | [1981_math.py](1981_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 460 KB | 11292333 |
 | [1981_math.rs](1981_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB | 11292335 |
 
@@ -128,6 +128,8 @@ Read the value directly as bytes and evaluate the two counting formulas from its
 | [1981_math_optimized.cpp](1981_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 108 KB | 11315134 |
 | [1981_math_optimized.go](1981_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 332 KB | 11315136 |
 | [1981_math_optimized.rs](1981_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11315137 |
-| [1981_math_optimized.py](1981_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 504 KB | 11324245 |
+| [1981_math_optimized.py](1981_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 504 KB | 11324245 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
+
+**Current measurements.** The solution tables record the exact preserved sources and their latest Accepted runs. Earlier performance comparisons describe historical runs; current admission follows the shared [rating criteria](../../RATING_CRITERIA.md).
