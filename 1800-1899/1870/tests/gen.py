@@ -7,7 +7,7 @@ import sys
 from math import gcd
 
 SMALL = 30
-MOST = 10 ** 5
+MOST = 10**5
 BAD = 6
 
 

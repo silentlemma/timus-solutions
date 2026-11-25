@@ -121,10 +121,10 @@ G++ 13.2 x64, submission 11322006. Time 0.015 → 0.015 s, memory 1504 → 112 K
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
-| [1870_constructive_optimized.py](1870_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
+| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
+| [1870_constructive_optimized.py](1870_constructive_optimized.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
 | [1870_constructive_optimized.go](1870_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 924 KB | 11322004 |
-| [1870_constructive_optimized.java](1870_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
+| [1870_constructive_optimized.java](1870_constructive_optimized.java) | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
 | [1870_constructive_optimized.cpp](1870_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 112 KB | 11322006 |
 
 \* The marked versions have room to improve in the ratings.
