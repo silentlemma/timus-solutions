@@ -101,6 +101,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [2105_math_optimized.py](2105_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.125 s | 264 KB | 11309678 |
 | [2105_math_optimized.rs](2105_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 60 KB | 11325618 |
-| [2105_math_optimized.go](2105_math_optimized.go) \* | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
+| [2105_math_optimized.go](2105_math_optimized.go) | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

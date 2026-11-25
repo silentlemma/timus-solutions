@@ -6,12 +6,12 @@ throughout the ride with unequal speeds and a short path."""
 import random
 import sys
 
-MAX_L = 10 ** 9
-MAX_T = 10 ** 6
-MAX_V = 10 ** 3
-MAX_N = 10 ** 5
+MAX_L = 10**9
+MAX_T = 10**6
+MAX_V = 10**3
+MAX_N = 10**5
 SMALL = 10
-SEARCH = 10 ** 4  # divisors tried for an exact end
+SEARCH = 10**4  # divisors tried for an exact end
 
 
 def intervals(rng, total, count):
@@ -43,8 +43,9 @@ def main():
         feed = []
         for kid in (1, 2):
             endpoints = sorted(rng.sample(range(total + 1), MAX_N))
-            feed.extend((kid, start, end - start)
-                        for start, end in zip(endpoints[::2], endpoints[1::2]))
+            feed.extend(
+                (kid, start, end - start) for start, end in zip(endpoints[::2], endpoints[1::2])
+            )
         feed.sort(key=lambda x: x[1])
     else:
         length, total = rng.randint(1, MAX_L), MAX_T

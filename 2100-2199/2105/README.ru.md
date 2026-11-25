@@ -100,6 +100,6 @@ L ≤ 10⁹, T ≤ 10⁶, v_A, v_B ≤ 10³, затем n ≤ 10⁵ остано
 |---|---|---|---|---|---|---|---|
 | [2105_math_optimized.py](2105_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.125 s | 264 KB | 11309678 |
 | [2105_math_optimized.rs](2105_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 60 KB | 11325618 |
-| [2105_math_optimized.go](2105_math_optimized.go) \* | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
+| [2105_math_optimized.go](2105_math_optimized.go) | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
