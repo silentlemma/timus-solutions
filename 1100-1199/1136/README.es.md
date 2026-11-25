@@ -38,30 +38,26 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-9
-1
 7
-5
-21
-22
-27
-25
-20
-10
+9
+31
+17
+55
+80
+63
+42
 ```
 
 Salida:
 
 ```
-27
-21
-22
-25
-20
-7
-1
-5
-10
+80
+55
+63
+31
+9
+17
+42
 ```
 
 ## Solución
