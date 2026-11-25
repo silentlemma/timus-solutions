@@ -106,7 +106,5 @@
 | [1219_constructive_optimized.cpp](1219_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(L) | AC | 0.001 s | 96 KB | 11304363 |
 | [1219_constructive_optimized.go](1219_constructive_optimized.go) | Go 1.14 x64 | constructive | O(L) | AC | 0.001 s | 1624 KB | 11304367 |
 | [1219_constructive_optimized.java](1219_constructive_optimized.java) | Java 1.8 | constructive | O(L) | AC | 0.001 s | 392 KB | 11304365 |
-| [1219_constructive_optimized.py](1219_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(L) | AC | 0.031 s | 420 KB | 11304366 |
+| [1219_constructive_optimized.py](1219_constructive_optimized.py) | Python 3.12 x64 | constructive | O(L) | AC | 0.031 s | 420 KB | 11304366 |
 | [1219_constructive_optimized.rs](1219_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(L) | AC | 0.015 s | 468 KB | 11304368 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
