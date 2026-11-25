@@ -133,10 +133,10 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
-| [1350_implementation_optimized.go](1350_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
+| [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
+| [1350_implementation_optimized.go](1350_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
 | [1350_implementation_optimized.rs](1350_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 192 KB | 11310869 |
-| [1350_bitmask_implementation.java](1350_bitmask_implementation.java) \* | Java 1.8 | bitmask, implementation | Expected O(I+KW+P) time; O(P+KW+K) space | AC | 0.109 s | 448 KB | 11326945 |
+| [1350_bitmask_implementation.java](1350_bitmask_implementation.java) | Java 1.8 | bitmask, implementation | Expected O(I+KW+P) time; O(P+KW+K) space | AC | 0.109 s | 448 KB | 11326945 |
 | [1350_implementation_optimized.java](1350_implementation_optimized.java) \* | Java 1.8 | implementation | O(N·K) | AC | 0.125 s | 3484 KB | 11324808 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

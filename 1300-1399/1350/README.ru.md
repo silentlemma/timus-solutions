@@ -132,10 +132,10 @@ Accepted точного исходника Java 1.8 №11326945: 0.109 с / 448 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
-| [1350_implementation_optimized.go](1350_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
+| [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
+| [1350_implementation_optimized.go](1350_implementation_optimized.go) | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
 | [1350_implementation_optimized.rs](1350_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 192 KB | 11310869 |
-| [1350_bitmask_implementation.java](1350_bitmask_implementation.java) \* | Java 1.8 | bitmask, implementation | Expected O(I+KW+P) time; O(P+KW+K) space | AC | 0.109 s | 448 KB | 11326945 |
+| [1350_bitmask_implementation.java](1350_bitmask_implementation.java) | Java 1.8 | bitmask, implementation | Expected O(I+KW+P) time; O(P+KW+K) space | AC | 0.109 s | 448 KB | 11326945 |
 | [1350_implementation_optimized.java](1350_implementation_optimized.java) \* | Java 1.8 | implementation | O(N·K) | AC | 0.125 s | 3484 KB | 11324808 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
