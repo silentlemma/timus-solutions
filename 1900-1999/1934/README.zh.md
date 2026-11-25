@@ -109,7 +109,7 @@ Go 和 Rust 版本沿用广度优先搜索，并将所有有向边存入一个�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
+| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
 | [1934_shortest_paths_optimized.rs](1934_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.062 s | 4676 KB | 11310369 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -122,7 +122,7 @@ Todas las versiones reconstruyen sin recursión y almacenan la salida.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
+| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
 | [1934_shortest_paths_optimized.rs](1934_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.062 s | 4676 KB | 11310369 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
