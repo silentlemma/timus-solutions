@@ -87,6 +87,13 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328983 (Rust 1.75 x64): **0.031 s / 356 KB**. Archived comparison: `1153_math.rs` (Rust 1.75 x64) — 0.046 s / 456 KB (#11280829).
 
+
+`1153_math_binary_search_parsing_optimized.go`. Compute the square root of 8S+1 with fixed-array decimal arithmetic. Binary search each next root digit instead of trying all digits from nine downwards; retain the exact remainder comparison and subtraction. Subtract one from the resulting root and divide by two. Direct byte input/output avoids math/big initialization and token allocations. For L input digits the arithmetic takes O(L²) time; storage is bounded by the 600-digit input limit.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329520 (Go 1.14 x64): **0.015 s / 312 KB**.
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -118,3 +125,4 @@ These notes describe the simple implementations.
 | [1153_math_optimized.py](1153_math_optimized.py) | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
 | [1153_math_optimized.java](1153_math_optimized.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
 | [1153_math_implementation_optimized.rs](1153_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(L²) | AC | 0.031 s | 356 KB | 11328983 |
+| [1153_math_binary_search_parsing_optimized.go](1153_math_binary_search_parsing_optimized.go) | Go 1.14 x64 | math, binary_search, parsing | O(L²) time; bounded decimal arrays | AC | 0.015 s | 312 KB | 11329520 |

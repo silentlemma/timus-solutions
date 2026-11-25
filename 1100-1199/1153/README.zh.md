@@ -80,6 +80,13 @@
 
 Accepted #11328983 (Rust 1.75 x64): **0.031 s / 356 KB**. 历史对照: `1153_math.rs` (Rust 1.75 x64) — 0.046 s / 456 KB (#11280829).
 
+
+`1153_math_binary_search_parsing_optimized.go`. 用固定数组十进制运算求 8S+1 的平方根。每个根数位用二分搜索代替从九向下试位，保留精确余数比较及减法，再将根减一并除二。直接字节输入输出避免 math/big 初始化和词元分配。L 位输入的运算时间为 O(L²)，存储受 600 位输入上限约束。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329520 (Go 1.14 x64): **0.015 s / 312 KB**.
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -109,3 +116,4 @@ Accepted #11328983 (Rust 1.75 x64): **0.031 s / 356 KB**. 历史对照: `1153_ma
 | [1153_math_optimized.py](1153_math_optimized.py) | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
 | [1153_math_optimized.java](1153_math_optimized.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
 | [1153_math_implementation_optimized.rs](1153_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(L²) | AC | 0.031 s | 356 KB | 11328983 |
+| [1153_math_binary_search_parsing_optimized.go](1153_math_binary_search_parsing_optimized.go) | Go 1.14 x64 | math, binary_search, parsing | O(L²) time; bounded decimal arrays | AC | 0.015 s | 312 KB | 11329520 |

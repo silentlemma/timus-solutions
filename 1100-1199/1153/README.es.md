@@ -88,6 +88,13 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328983 (Rust 1.75 x64): **0.031 s / 356 KB**. Comparación archivada: `1153_math.rs` (Rust 1.75 x64) — 0.046 s / 456 KB (#11280829).
 
+
+`1153_math_binary_search_parsing_optimized.go`. Se calcula la raíz de 8S+1 con aritmética decimal exacta en arreglos fijos. Cada dígito se elige por búsqueda binaria en lugar de probar desde nueve, conservando la comparación y resta exactas del resto. Se resta uno y se divide entre dos. La E/S de bytes evita inicializar math/big y reservar tokens. Para L dígitos, tiempo O(L²) y almacenamiento acotado por los 600 dígitos de entrada.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329520 (Go 1.14 x64): **0.015 s / 312 KB**.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -119,3 +126,4 @@ Estas notas describen las implementaciones sencillas.
 | [1153_math_optimized.py](1153_math_optimized.py) | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
 | [1153_math_optimized.java](1153_math_optimized.java) | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
 | [1153_math_implementation_optimized.rs](1153_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(L²) | AC | 0.031 s | 356 KB | 11328983 |
+| [1153_math_binary_search_parsing_optimized.go](1153_math_binary_search_parsing_optimized.go) | Go 1.14 x64 | math, binary_search, parsing | O(L²) time; bounded decimal arrays | AC | 0.015 s | 312 KB | 11329520 |
