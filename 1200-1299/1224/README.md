@@ -42,6 +42,10 @@ Output:
 4
 ```
 
+## Acceptance update
+
+Refreshed files: [1224_math.py](1224_math.py), [1224_math.rs](1224_math.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 The path alternates horizontal and vertical runs, starting with a
@@ -98,8 +102,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1224_math.cpp](1224_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11283705 |
 | [1224_math.go](1224_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB | 11283706 |
 | [1224_math.java](1224_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1564 KB | 11283708 |
-| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 372 KB | 11283707 |
-| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11283709 |
+| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 352 KB | 11330226 |
+| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 212 KB | 11330227 |
 
 ### Optimized
 

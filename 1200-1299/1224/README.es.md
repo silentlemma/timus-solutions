@@ -43,6 +43,10 @@ Salida:
 4
 ```
 
+## Actualización de envíos aceptados
+
+Archivos actualizados: [1224_math.py](1224_math.py), [1224_math.rs](1224_math.rs). Las tablas de soluciones muestran los nuevos Accepted correspondientes exactamente al código fuente de estos archivos. Las mediciones y posiciones comparativas anteriores pertenecen a versiones previas y se conservan como datos históricos. La auditoría en caché confirma implementaciones que cumplen los criterios en todos los lenguajes disponibles. Se conservan las versiones didácticas por su claridad; si un mismo archivo cubre también la versión rápida, debe cumplir el criterio de rendimiento.
+
 ## Solución
 
 El camino alterna tramos horizontales y verticales, empezando por uno
@@ -100,8 +104,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1224_math.cpp](1224_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11283705 |
 | [1224_math.go](1224_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB | 11283706 |
 | [1224_math.java](1224_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1564 KB | 11283708 |
-| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 372 KB | 11283707 |
-| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11283709 |
+| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 352 KB | 11330226 |
+| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 212 KB | 11330227 |
 
 ### Optimizadas
 
