@@ -107,6 +107,6 @@ n（2 ≤ n ≤ 100），然后是 n × n 矩阵 aᵢⱼ（0 ≤ aᵢⱼ ≤ 100
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
 | [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 816 KB | 11328315 |
-| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
+| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

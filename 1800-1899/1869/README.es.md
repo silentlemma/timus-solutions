@@ -122,6 +122,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
 | [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 816 KB | 11328315 |
-| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
+| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
