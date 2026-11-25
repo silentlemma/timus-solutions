@@ -143,7 +143,7 @@ Prebuild the repeated suffix and a buffer of prefix letters. Write slices of the
 |---|---|---|---|---|---|---|---|
 | [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
 | [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
-| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.171 s | 5116 KB | 11329308 |
 | [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
 | [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
 
@@ -158,3 +158,5 @@ Prebuild the repeated suffix and a buffer of prefix letters. Write slices of the
 | [2045_constructive_parsing_optimized.py](2045_constructive_parsing_optimized.py) | Python 3.12 x64 | constructive, parsing | O(n^2) | AC | 0.078 s | 900 KB | 11329239 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
+
+**Current measurements.** The solution tables record the exact preserved sources and their latest Accepted runs. Earlier performance comparisons describe historical runs; current admission follows the shared [rating criteria](../../RATING_CRITERIA.md).
