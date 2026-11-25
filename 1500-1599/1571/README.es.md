@@ -123,8 +123,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1571_constructive_sorting.cpp](1571_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(N log N) | AC | 0.015 s | 128 KB | 11315139 |
 | [1571_constructive_sorting.go](1571_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(N log N) | AC | 0.015 s | 304 KB | 11315142 |
-| [1571_constructive_sorting.rs](1571_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(N log N) | AC | 0.031 s | 48 KB | 11315152 |
-| [1571_constructive_optimized.java](1571_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.078 s | 668 KB | 11324818 |
+| [1571_constructive_sorting.rs](1571_constructive_sorting.rs) | Rust 1.75 x64 | constructive, sorting | O(N log N) | AC | 0.031 s | 48 KB | 11315152 |
+| [1571_constructive_optimized.java](1571_constructive_optimized.java) | Java 1.8 | constructive | O(N) | AC | 0.078 s | 668 KB | 11324818 |
 | [1571_constructive_optimized.py](1571_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n) under bounded names; O(I) space | AC | 0.125 s | 212 KB | 11325488 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
