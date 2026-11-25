@@ -109,7 +109,7 @@ Rust reconstructs the floor digit by digit, counting how many ones each skipped 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1564_dp.py](1564_dp.py) \* | Python 3.12 x64 | dp | O(log k) | AC | 0.078 s | 436 KB | 11318528 |
+| [1564_dp.py](1564_dp.py) | Python 3.12 x64 | dp | O(log k) | AC | 0.078 s | 436 KB | 11318528 |
 | [1564_dp.java](1564_dp.java) | Java 1.8 | dp | O(log k) | AC | 0.125 s | 396 KB | 11318559 |
 | [1564_dp.go](1564_dp.go) \* | Go 1.14 x64 | dp | O(log k) | AC | 0.031 s | 316 KB | 11322873 |
 | [1564_dp.rs](1564_dp.rs) | Rust 1.75 x64 | dp | O(log k) | AC | 0.031 s | 44 KB | 11323309 |
