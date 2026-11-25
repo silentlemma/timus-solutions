@@ -121,7 +121,7 @@
 |---|---|---|---|---|---|---|---|
 | [1150_math_optimized.java](1150_math_optimized.java) | Java 1.8 | math | O(log N) | AC | 0.078 s | 320 KB | 11308801 |
 | [1150_math_optimized.py](1150_math_optimized.py) \* | PyPy 3.10 x64 | math | O(log N) | AC | 0.140 s | 316 KB | 11309691 |
-| [1150_math_optimized.rs](1150_math_optimized.rs) \* | Rust 1.75 x64 | math | O(log(N+1)) time; O(1) space | AC | 0.046 s | 40 KB | 11325542 |
+| [1150_math_optimized.rs](1150_math_optimized.rs) | Rust 1.75 x64 | math | O(log(N+1)) time; O(1) space | AC | 0.046 s | 40 KB | 11325542 |
 | [1150_math_optimized.go](1150_math_optimized.go) \* | Go 1.14 x64 | math | O(log N) time; O(1) space | AC | 0.015 s | 292 KB | 11325653 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
