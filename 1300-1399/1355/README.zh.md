@@ -50,6 +50,10 @@ T 行答案。
 1
 ```
 
+## 已接受提交更新
+
+更新的文件：[1355_number_theory_math.py](1355_number_theory_math.py)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 路线上每个数都整除下一个数，所以只有 a 整除 b 时才能到达 b。此时每一步都把编号乘上一个大于 1 的因子，所有因子
@@ -103,6 +107,6 @@ T 行答案。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1355_number_theory_math.py](1355_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(T*(P+log Q)) bounded arithmetic, P=1000 | AC | 0.062 s | 584 KB | 11310243 |
+| [1355_number_theory_math.py](1355_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(T*(P+log Q)) bounded arithmetic, P=1000 | AC | 0.062 s | 616 KB | 11330230 |
 | [1355_number_theory_optimized.rs](1355_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(sum sqrt(B/A)) time; O(1) space | AC | 0.015 s | 44 KB | 11325504 |
 | [1355_number_theory_optimized.go](1355_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(Σ√R) time; O(1) space | AC | 0.046 s | 268 KB | 11325656 |

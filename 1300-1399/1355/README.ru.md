@@ -54,6 +54,10 @@ T строк с ответами.
 1
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1355_number_theory_math.py](1355_number_theory_math.py). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Каждое число на пути делит следующее, поэтому до b можно дойти, только
@@ -111,6 +115,6 @@ T строк с ответами.
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1355_number_theory_math.py](1355_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(T*(P+log Q)) bounded arithmetic, P=1000 | AC | 0.062 s | 584 KB | 11310243 |
+| [1355_number_theory_math.py](1355_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(T*(P+log Q)) bounded arithmetic, P=1000 | AC | 0.062 s | 616 KB | 11330230 |
 | [1355_number_theory_optimized.rs](1355_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(sum sqrt(B/A)) time; O(1) space | AC | 0.015 s | 44 KB | 11325504 |
 | [1355_number_theory_optimized.go](1355_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(Σ√R) time; O(1) space | AC | 0.046 s | 268 KB | 11325656 |
