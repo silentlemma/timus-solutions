@@ -58,7 +58,7 @@ def main():
     while len(names) < n:
         size = rng.randint(1, LONGEST)
         names.add("".join(rng.choice(string.ascii_letters) for _ in range(size)))
-    names = list(names)
+    names = sorted(names)
     rng.shuffle(names)
     order = list(range(n))
     rng.shuffle(order)
