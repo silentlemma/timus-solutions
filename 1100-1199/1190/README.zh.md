@@ -84,6 +84,13 @@ C++ 和 Go 读到下一个已知配料占比时，立即处理此前连续未知
 
 已通过评测的基础实现 [1190_greedy.java](1190_greedy.java), [1190_greedy.py](1190_greedy.py), [1190_greedy.rs](1190_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+
+`1190_greedy_parsing_optimized.go`. 为非负数字词元专门解析，按 32 KiB 块读取输入。保留未知份额连续段的上下界总和；下界超过 10000 即输出 NO。显式退出前完成全部输出。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329530 (Go 1.14 x64): **0.015 s / 392 KB**.
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -108,6 +115,7 @@ C++ 和 Go 读到下一个已知配料占比时，立即处理此前连续未知
 |---|---|---|---|---|---|---|---|
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
-| [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
+| [1190_greedy_optimized.java](1190_greedy_optimized.java) | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
+| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.015 s | 392 KB | 11329530 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
