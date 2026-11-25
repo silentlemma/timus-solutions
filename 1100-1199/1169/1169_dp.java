@@ -34,7 +34,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokens = new StringTokenizer(input.readLine());
+        StringBuilder text = new StringBuilder();
+        for (String line = input.readLine(); line != null; line = input.readLine()) {
+            text.append(line).append(' ');
+        }
+        StringTokenizer tokens = new StringTokenizer(text.toString());
         int vertices = Integer.parseInt(tokens.nextToken());
         int target = pairs(vertices) - Integer.parseInt(tokens.nextToken());
         if (target < 0 || target > pairs(vertices)) {

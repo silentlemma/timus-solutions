@@ -55,6 +55,10 @@ Output:
 6 7
 ```
 
+## Acceptance update
+
+Refreshed files: [1169_constructive.py](1169_constructive.py), [1169_constructive.rs](1169_constructive.rs), [1169_dp.java](1169_dp.java). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Removing the bridges of a connected network splits it into
@@ -120,8 +124,8 @@ Accepted #11329235 (Python 3.12 x64): **0.078 s / 988 KB**. Archived comparison:
 | [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 236 KB | 11321735 |
 | [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1680 KB | 11322174 |
 | [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.343 s | 2136 KB | 11322176 |
-| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.109 s | 592 KB | 11328267 |
-| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.031 s | 616 KB | 11322180 |
+| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.078 s | 608 KB | 11330222 |
+| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.046 s | 632 KB | 11330223 |
 
 ### Optimized
 
@@ -129,6 +133,6 @@ Accepted #11329235 (Python 3.12 x64): **0.078 s / 988 KB**. Archived comparison:
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1169_dp.go](1169_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
 | [1169_dp.rs](1169_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
-| [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
+| [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 512 KB | 11330224 |
 | [1169_backtracking.py](1169_backtracking.py) | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
 | [1169_backtracking_parsing_optimized.py](1169_backtracking_parsing_optimized.py) | Python 3.12 x64 | backtracking, parsing | O(N^5) | AC | 0.078 s | 988 KB | 11329235 |

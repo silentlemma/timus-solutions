@@ -1,4 +1,4 @@
-use std::io;
+use std::io::{self, Read};
 
 const SMALLEST_CYCLE: usize = 3;
 
@@ -8,7 +8,7 @@ fn pairs(s: usize) -> usize {
 
 fn main() {
     let mut line = String::new();
-    io::stdin().read_line(&mut line).unwrap();
+    io::stdin().read_to_string(&mut line).unwrap();
     let v: Vec<i64> = line
         .split_whitespace()
         .map(|t| t.parse().unwrap())

@@ -1,3 +1,5 @@
+import sys
+
 SMALLEST_CYCLE = 3
 
 
@@ -6,7 +8,7 @@ def pairs(s):
 
 
 def main():
-    n, k = map(int, input().split())
+    n, k = map(int, sys.stdin.buffer.read().split())
     # a pair is not critical exactly when both computers lie in the same
     # 2-edge-connected part; such a part has one computer or at least three,
     # so the sizes must split n with pairs(size) adding up to pairs(n) - k

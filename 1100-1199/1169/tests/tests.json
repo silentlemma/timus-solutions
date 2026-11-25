@@ -19,6 +19,7 @@
     { "name": "15", "note": "every pair critical among 73 computers" },
     { "name": "16", "note": "eight computers require two blocks of four with no singleton blocks" },
     { "name": "17", "note": "the smallest positive feasible critical-pair count at the maximum N" },
-    { "name": "18", "generator": "random 17 100", "note": "seeded maximum-size case where choosing the largest block first gets stuck" }
+    { "name": "18", "generator": "random 17 100", "note": "seeded maximum-size case where choosing the largest block first gets stuck" },
+    { "name": "whitespace", "note": "input integers on separate lines still describe a triangle" }
   ]
 }
