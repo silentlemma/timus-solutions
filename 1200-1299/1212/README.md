@@ -102,8 +102,8 @@ C++, Go and Rust sort encoded starts in fixed arrays. Go stores the IDs in uint3
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1212_sorting.cpp](1212_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log L) | AC | 0.015 s | 124 KB | 11315806 |
-| [1212_sorting.rs](1212_sorting.rs) \* | Rust 1.75 x64 | sorting | O(L log L) | AC | 0.015 s | 220 KB | 11315821 |
+| [1212_sorting.rs](1212_sorting.rs) | Rust 1.75 x64 | sorting | O(L log L) | AC | 0.015 s | 220 KB | 11315821 |
 | [1212_sorting.go](1212_sorting.go) \* | Go 1.14 x64 | sorting | O(L log L) | AC | 0.015 s | 308 KB | 11315959 |
-| [1212_sorting.py](1212_sorting.py) \* | PyPy 3.10 x64 | sorting | O(L log L) | AC | 0.14 s | 340 KB | 11316273 |
+| [1212_sorting.py](1212_sorting.py) | PyPy 3.10 x64 | sorting | O(L log L) | AC | 0.14 s | 340 KB | 11316273 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -102,8 +102,8 @@ C++, Go и Rust сортируют коды начал в фиксированн
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1212_sorting.cpp](1212_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log L) | AC | 0.015 s | 124 KB | 11315806 |
-| [1212_sorting.rs](1212_sorting.rs) \* | Rust 1.75 x64 | sorting | O(L log L) | AC | 0.015 s | 220 KB | 11315821 |
+| [1212_sorting.rs](1212_sorting.rs) | Rust 1.75 x64 | sorting | O(L log L) | AC | 0.015 s | 220 KB | 11315821 |
 | [1212_sorting.go](1212_sorting.go) \* | Go 1.14 x64 | sorting | O(L log L) | AC | 0.015 s | 308 KB | 11315959 |
-| [1212_sorting.py](1212_sorting.py) \* | PyPy 3.10 x64 | sorting | O(L log L) | AC | 0.14 s | 340 KB | 11316273 |
+| [1212_sorting.py](1212_sorting.py) | PyPy 3.10 x64 | sorting | O(L log L) | AC | 0.14 s | 340 KB | 11316273 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
