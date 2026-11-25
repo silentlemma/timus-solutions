@@ -24,7 +24,7 @@ def main():
         n = LARGEST
         count = {1: 10, 2: 90, 3: 30}[mode]
         length = LONGEST if mode == 3 else rng.randint(1, 8)
-        teams = list({name(rng, length) for _ in range(count)})
+        teams = sorted({name(rng, length) for _ in range(count)})
     print(n)
     for _ in range(n):
         print(rng.choice(teams))
