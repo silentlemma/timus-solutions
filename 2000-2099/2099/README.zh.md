@@ -84,7 +84,7 @@ Rust 用 64 位整数计算点积，并用 128 位整数计算标量三重积。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [2099_geometry_optimized.java](2099_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 360 KB | 11318393 |
-| [2099_geometry_optimized.py](2099_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 472 KB | 11318399 |
+| [2099_geometry_optimized.py](2099_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 472 KB | 11318399 |
 | [2099_geometry_optimized.rs](2099_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323329 |
 
 \* 带星号的解法仍有提升排名的空间。

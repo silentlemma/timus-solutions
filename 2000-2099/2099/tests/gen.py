@@ -9,7 +9,7 @@ import random
 import sys
 
 SMALL = 10
-TOP = 10 ** 6
+TOP = 10**6
 STEP = 10
 
 
@@ -33,9 +33,12 @@ def flight(rng, top):
         t[2] = t[1] + rng.randint(0, STEP)  # the turning point, from A along u
         s1, s2 = rng.randint(0, STEP), rng.randint(1, STEP)
         turn = [a[i] + t[2] * u[i] for i in range(3)]
-        points = [a, [a[i] + t[1] * u[i] for i in range(3)],
-                  [turn[i] + s1 * v[i] for i in range(3)],
-                  [turn[i] + (s1 + s2) * v[i] for i in range(3)]]
+        points = [
+            a,
+            [a[i] + t[1] * u[i] for i in range(3)],
+            [turn[i] + s1 * v[i] for i in range(3)],
+            [turn[i] + (s1 + s2) * v[i] for i in range(3)],
+        ]
         flat = [x for p in points for x in p]
         if max(map(abs, flat)) <= top and len({tuple(p) for p in points}) == len(points):
             return points

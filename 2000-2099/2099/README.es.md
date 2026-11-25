@@ -102,7 +102,7 @@ Rust calcula los productos escalares con 64 bits y amplía el producto triple es
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2099_geometry_optimized.java](2099_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 360 KB | 11318393 |
-| [2099_geometry_optimized.py](2099_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 472 KB | 11318399 |
+| [2099_geometry_optimized.py](2099_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 472 KB | 11318399 |
 | [2099_geometry_optimized.rs](2099_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323329 |
 
 \* Las soluciones marcadas aún pueden mejorar su clasificación.
