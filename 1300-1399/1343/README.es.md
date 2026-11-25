@@ -64,7 +64,7 @@ Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 d
 
 `1343_number_theory_optimized.java`: puesto de tiempo 1/37 y de memoria 2/37 en esta muestra comparable.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+Un asterisco indica una meta de rendimiento que se sabe incumplida según los [criterios comunes](../../RATING_CRITERIA.md). Todos los lenguajes usan los diez primeros o el 15% superior, con una comparación de referencia especial para muestras pequeñas. Por debajo de 1024 KB solo se compara el tiempo. Si una tabla completa no tiene rivales elegibles, una revisión explícita del algoritmo vinculada a las fuentes puede cerrar la evaluación sin asignar un puesto numérico; no se exige el primer puesto ni una mejora del 30%.
 
 ## Soluciones
 
@@ -88,8 +88,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1343_number_theory_optimized.go](1343_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(G log N) | AC | 0.015 s | 312 KB | 11314932 |
 | [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
-| [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
-| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
-| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
+| [1343_number_theory.py](1343_number_theory.py) | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
+| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

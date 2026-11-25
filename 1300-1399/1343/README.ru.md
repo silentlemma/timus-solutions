@@ -64,7 +64,7 @@ k в первой строке, k цифр во второй.
 
 `1343_number_theory_optimized.java`: место по времени 1/37, по памяти 2/37 в этой сопоставимой выборке.
 
-Звёздочка означает недостигнутую рейтинговую цель: для C++ нужны первые десять мест либо топ 15% одновременно по обеим метрикам; для остальных семейств — первое место по обеим. Отдельный критерий допуска может выполняться по рейтингу или улучшению, в том числе при снижении времени либо памяти минимум на 30%.
+Звёздочка означает известное недостижение цели по общим [рейтинговым критериям](../../RATING_CRITERIA.md). Для всех языков действуют топ-10 или топ-15% и отдельное сравнение с эталоном для малых выборок. При памяти меньше 1024 КБ сравнивается только время. Если в полном рейтинге нет подходящих соперников, явная проверка алгоритма с привязкой к исходникам может закрыть оценку без присвоения численного места; первое место и улучшение на 30% не требуются.
 
 ## Решения
 
@@ -88,8 +88,8 @@ k в первой строке, k цифр во второй.
 |---|---|---|---|---|---|---|---|
 | [1343_number_theory_optimized.go](1343_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(G log N) | AC | 0.015 s | 312 KB | 11314932 |
 | [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
-| [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
-| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
-| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
+| [1343_number_theory.py](1343_number_theory.py) | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
+| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

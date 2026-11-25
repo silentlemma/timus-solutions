@@ -62,7 +62,7 @@ Miller–Rabin 使用六个底数 2,3,5,7,11,13。检查小素因子后写 N−1
 
 `1343_number_theory_optimized.java`：在该可比样本中，时间名次 1/37，内存名次 2/37。
 
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+星号表示已知未达到统一的[排名标准](../../RATING_CRITERIA.md)。所有语言均采用前十或前 15% 的规则，小样本则单独与参考提交比较。内存小于 1024 KB 时只比较时间。如果完整排行榜没有合格对手，明确绑定源文件的算法审查可以完成评估，但不赋予数值名次；不要求第一名或至少 30% 的改进。
 
 ## 解答
 
@@ -86,8 +86,8 @@ Miller–Rabin 使用六个底数 2,3,5,7,11,13。检查小素因子后写 N−1
 |---|---|---|---|---|---|---|---|
 | [1343_number_theory_optimized.go](1343_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(G log N) | AC | 0.015 s | 312 KB | 11314932 |
 | [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
-| [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
-| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
-| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
+| [1343_number_theory.py](1343_number_theory.py) | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
+| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
