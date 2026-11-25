@@ -102,7 +102,7 @@ Go 使用固定大小的数组存储地形和电台数据，并复用各行的�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1168_geometry_optimized.py](1168_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.437 s | 1452 KB | 11318011 |
+| [1168_geometry_optimized.py](1168_geometry_optimized.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.437 s | 1452 KB | 11318011 |
 | [1168_geometry_optimized.java](1168_geometry_optimized.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.093 s | 732 KB | 11318028 |
 | [1168_geometry_optimized.go](1168_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.015 s | 392 KB | 11321943 |
 
