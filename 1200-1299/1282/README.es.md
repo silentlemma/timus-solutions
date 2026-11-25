@@ -158,6 +158,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
-| [1282_games_optimized.java](1282_games_optimized.java) \* | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
+| [1282_games_optimized.java](1282_games_optimized.java) | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

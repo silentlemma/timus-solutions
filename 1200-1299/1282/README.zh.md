@@ -148,6 +148,6 @@ Go 从叶子向上求值，为两种可能的当前玩家分别保存结果。�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
-| [1282_games_optimized.java](1282_games_optimized.java) \* | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
+| [1282_games_optimized.java](1282_games_optimized.java) | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

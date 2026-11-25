@@ -156,6 +156,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
-| [1282_games_optimized.java](1282_games_optimized.java) \* | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
+| [1282_games_optimized.java](1282_games_optimized.java) | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
