@@ -5,8 +5,16 @@ import re
 import sys
 
 DIGITS = [
-    "._.|.||_|", ".....|..|", "._.._||_.", "._.._|._|", "...|_|..|",
-    "._.|_.._|", "._.|_.|_|", "._...|..|", "._.|_||_|", "._.|_|._|",
+    "._.|.||_|",
+    ".....|..|",
+    "._.._||_.",
+    "._.._|._|",
+    "...|_|..|",
+    "._.|_.._|",
+    "._.|_.|_|",
+    "._...|..|",
+    "._.|_||_|",
+    "._.|_|._|",
 ]
 COLUMNS = [0, 4, 10, 14]
 WIDTH = 3
@@ -31,10 +39,10 @@ def check(source, expected, output):
         if value >= previous:
             raise Bad("line %d: not below the previous time" % (r + 1))
         previous = value
-        rows = lines[1 + 3 * r:4 + 3 * r]
+        rows = lines[1 + 3 * r : 4 + 3 * r]
         digits = [int(c) for c in word if c != ":"]
         for c, d in zip(COLUMNS, digits):
-            shown = "".join(row[c:c + WIDTH] for row in rows)
+            shown = "".join(row[c : c + WIDTH] for row in rows)
             if any(x != "." and x != y for x, y in zip(shown, DIGITS[d])):
                 raise Bad("line %d: %d does not fit the reading" % (r + 1, d))
 

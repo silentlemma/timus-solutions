@@ -106,7 +106,7 @@ Rust asigna a cada patrón de celdas encendidas una máscara de dígitos y elige
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2081_bitmask.go](2081_bitmask.go) | Go 1.14 x64 | bitmask | O(n) | AC | 0.031 s | 928 KB | 11322015 |
-| [2081_bitmask_optimized.java](2081_bitmask_optimized.java) \* | Java 1.8 | bitmask | O(R) time; O(R) output space | AC | 0.125 s | 464 KB | 11326954 |
+| [2081_bitmask_optimized.java](2081_bitmask_optimized.java) | Java 1.8 | bitmask | O(R) time; O(R) output space | AC | 0.125 s | 464 KB | 11326954 |
 | [2081_bitmask.java](2081_bitmask.java) \* | Java 1.8 | bitmask | O(n) | AC | 0.156 s | 536 KB | 11322017 |
 | [2081_bitmask.rs](2081_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(N) | AC | 0.046 s | 64 KB | 11323256 |
 
