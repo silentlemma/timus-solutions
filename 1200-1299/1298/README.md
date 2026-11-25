@@ -89,6 +89,10 @@ b3
 a5
 ```
 
+## Acceptance update
+
+Refreshed files: [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 View each board square as a vertex, with edges for legal knight moves.
@@ -194,4 +198,4 @@ own same-language simple base, with no artificial optimized copies.
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |

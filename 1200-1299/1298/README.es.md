@@ -90,6 +90,10 @@ b3
 a5
 ```
 
+## Actualización de envíos aceptados
+
+Archivos actualizados: [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go). Las tablas de soluciones muestran los nuevos Accepted correspondientes exactamente al código fuente de estos archivos. Las mediciones y posiciones comparativas anteriores pertenecen a versiones previas y se conservan como datos históricos. La auditoría en caché confirma implementaciones que cumplen los criterios en todos los lenguajes disponibles. Se conservan las versiones didácticas por su claridad; si un mismo archivo cubre también la versión rápida, debe cumplir el criterio de rendimiento.
+
 ## Solución
 
 Cada casilla es un vértice y cada salto de caballo una arista; sea
@@ -192,4 +196,4 @@ mismo lenguaje, sin copias optimizadas artificiales.
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |

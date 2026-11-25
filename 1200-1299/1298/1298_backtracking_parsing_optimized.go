@@ -162,6 +162,8 @@ func writeBytes(data []byte) {
 		}
 	}
 }
+
+// Append signed decimal integers; callers add their fixed ASCII text directly.
 func appendInteger(out []byte, value int64) []byte {
 	var buffer [24]byte
 	at := len(buffer)
@@ -186,5 +188,3 @@ func appendInteger(out []byte, value int64) []byte {
 	}
 	return append(out, buffer[at:]...)
 }
-
-// Only the fixed integer, character, string and decimal formats used here are needed.

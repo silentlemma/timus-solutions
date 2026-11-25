@@ -90,6 +90,10 @@ b3
 a5
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Считаем клетки вершинами графа, а допустимые ходы коня — рёбрами.
@@ -197,4 +201,4 @@ C++ уже проходит согласованное правило топ 15%
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |

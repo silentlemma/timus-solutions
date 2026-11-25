@@ -84,6 +84,10 @@ b3
 a5
 ```
 
+## 已接受提交更新
+
+更新的文件：[1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 把每个格子看作顶点，合法马步看作边，令 `V=N²`。基础版从每个起点做
@@ -167,4 +171,4 @@ Accepted #11329146 (Go 1.14 x64): **0.015 s / 804 KB**. 历史对照: `1298_back
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11329146 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |
