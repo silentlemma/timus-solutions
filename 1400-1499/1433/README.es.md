@@ -110,7 +110,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1433_math.cpp](1433_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 104 KB | 11309265 |
 | [1433_math.java](1433_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11309266 |
-| [1433_math.py](1433_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 284 KB | 11309683 |
+| [1433_math.py](1433_math.py) | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 284 KB | 11309683 |
 | [1433_combinatorics.rs](1433_combinatorics.rs) \* | Rust 1.75 x64 | combinatorics | O(1), four faces | AC | 0.046 s | 60 KB | 11325505 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
