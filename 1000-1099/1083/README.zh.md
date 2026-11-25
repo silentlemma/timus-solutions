@@ -62,6 +62,13 @@
 优化的 Java 解法按 1 KB 分块读入，手工解析 `n`，并逐字节统计感叹号，而不是使用
 `Scanner`：0.093 s，而不是 0.125 s；360 KB，而不是 1544 KB。
 
+
+`1083_math_parsing_optimized.go`. 以紧凑流式状态机读取数字与阶乘标记，保留递减乘积，用栈缓冲转换有界答案，完整写出后退出。无需输入词元字符串或通用数字格式化。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329519 (Go 1.14 x64): **0.015 s / 280 KB**.
+
 ## 各语言说明
 
 - 简单的 C++、Go、Java 和 Rust 解法把感叹号作为一个记号读入并取其长度；Python 统
@@ -87,6 +94,5 @@
 |----|----|----|-----|------|----|----|------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
-| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1083_math_optimized.py](1083_math_optimized.py) | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+| [1083_math_parsing_optimized.go](1083_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(n/k) time; O(1) space | AC | 0.015 s | 280 KB | 11329519 |

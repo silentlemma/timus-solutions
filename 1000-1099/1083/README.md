@@ -69,6 +69,13 @@ The optimized Java solution reads the input in 1 KB blocks, parses `n`
 by hand and counts the exclamation marks byte by byte instead of using
 `Scanner`: 0.093 s instead of 0.125 s and 360 KB instead of 1544 KB.
 
+
+`1083_math_parsing_optimized.go`. Read the number and factorial marks with a compact streaming state machine. Keep the descending multifactorial product, format its bounded answer in a stack buffer, complete all output writes and then exit. No input token string or generic numeric formatter is needed.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329519 (Go 1.14 x64): **0.015 s / 280 KB**.
+
 ## Language notes
 
 - The simple C++, Go, Java and Rust solutions read the marks as one token
@@ -94,6 +101,5 @@ Parse the starting number and the exclamation marks as bytes, then multiply the 
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
-| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
-
-\* The marked solutions can improve their target rankings.
+| [1083_math_optimized.py](1083_math_optimized.py) | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+| [1083_math_parsing_optimized.go](1083_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(n/k) time; O(1) space | AC | 0.015 s | 280 KB | 11329519 |

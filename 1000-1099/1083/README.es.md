@@ -72,6 +72,13 @@ analiza `n` a mano y cuenta los signos de exclamación byte a byte en
 lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y 360 KB en lugar
 de 1544 KB.
 
+
+`1083_math_parsing_optimized.go`. Se leen el número y las marcas con un autómata compacto en flujo. Se conserva el producto descendente y se convierte el resultado acotado en un búfer de pila. Se completan las escrituras antes de terminar, sin cadenas de tokens ni formato numérico general.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329519 (Go 1.14 x64): **0.015 s / 280 KB**.
+
 ## Notas por lenguaje
 
 - Las soluciones simples en C++, Go, Java y Rust leen los signos como un
@@ -98,6 +105,5 @@ Leer el número inicial y los signos de exclamación como bytes y multiplicar lo
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
-| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1083_math_optimized.py](1083_math_optimized.py) | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+| [1083_math_parsing_optimized.go](1083_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(n/k) time; O(1) space | AC | 0.015 s | 280 KB | 11329519 |
