@@ -96,7 +96,7 @@ Go 和 Rust 输出同一构造，先是 n−k+1 个零，再接 1、−1、2、�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [2065_constructive_optimized.go](2065_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 316 KB | 11311234 |
+| [2065_constructive_optimized.go](2065_constructive_optimized.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 316 KB | 11311234 |
 | [2065_constructive_optimized.rs](2065_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 176 KB | 11311148 |
 | [2065_constructive_optimized.java](2065_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary space | AC | 0.093 s | 364 KB | 11327446 |
 

@@ -4,7 +4,7 @@ least possible since every single element is a segment sum."""
 
 import sys
 
-LIMIT = 10 ** 6
+LIMIT = 10**6
 
 
 class Bad(Exception):
