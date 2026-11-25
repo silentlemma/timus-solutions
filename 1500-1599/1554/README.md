@@ -92,6 +92,6 @@ G++ 13.2 x64 №11321745 · Go 1.14 x64 №11322093 · Java 1.8 №11322412 · P
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1554_number_theory_optimized.go](1554_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 968 KB | 11317288 |
 | [1554_number_theory_optimized.rs](1554_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 240 KB | 11317290 |
-| [1554_number_theory_optimized.java](1554_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 528 KB | 11317291 |
+| [1554_number_theory_optimized.java](1554_number_theory_optimized.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 528 KB | 11317291 |
 
 \* The Go rating target remains open. The Rust rating target remains open. The Java rating target remains open.
