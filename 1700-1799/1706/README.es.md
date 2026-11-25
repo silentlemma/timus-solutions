@@ -102,7 +102,7 @@ La versión de Go reutiliza las longitudes de los prefijos comunes al desplazar 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1706_strings_optimized.py](1706_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O((n + k) k) | AC | 0.171 s | 3140 KB | 11318443 |
-| [1706_strings_optimized.rs](1706_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
+| [1706_strings_optimized.rs](1706_strings_optimized.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
 | [1706_strings_optimized.go](1706_strings_optimized.go) \* | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 900 KB | 11320883 |
 
 \* El objetivo de clasificación de PyPy sigue pendiente. El objetivo de clasificación de Rust sigue pendiente.

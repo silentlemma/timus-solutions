@@ -43,7 +43,7 @@ def main():
         n, k = MOST_N, MOST_K
         block = "".join(rng.choice("ab") for _ in range(rng.randint(2, 30)))
         s = (block * n)[:n]
-        s = s[:n // 2] + rng.choice("ab") + s[n // 2 + 1:]
+        s = s[: n // 2] + rng.choice("ab") + s[n // 2 + 1 :]
     print(k)
     print(s)
 

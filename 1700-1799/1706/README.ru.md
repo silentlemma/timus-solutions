@@ -99,7 +99,7 @@ G++ 13.2 x64 №11318452 · Java 1.8 №11321788.
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
 | [1706_strings_optimized.py](1706_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O((n + k) k) | AC | 0.171 s | 3140 KB | 11318443 |
-| [1706_strings_optimized.rs](1706_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
+| [1706_strings_optimized.rs](1706_strings_optimized.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
 | [1706_strings_optimized.go](1706_strings_optimized.go) \* | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 900 KB | 11320883 |
 
 \* Рейтинговая цель для PyPy остаётся открытой. Рейтинговая цель для Rust остаётся открытой.

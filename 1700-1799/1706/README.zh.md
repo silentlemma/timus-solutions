@@ -86,7 +86,7 @@ Go 版本在窗口滑动时复用公共前缀的长度。长度使用 16 位整�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1706_strings_optimized.py](1706_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O((n + k) k) | AC | 0.171 s | 3140 KB | 11318443 |
-| [1706_strings_optimized.rs](1706_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
+| [1706_strings_optimized.rs](1706_strings_optimized.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
 | [1706_strings_optimized.go](1706_strings_optimized.go) \* | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 900 KB | 11320883 |
 
 \* PyPy 仍有提升排名的空间。 Rust 仍有提升排名的空间。
