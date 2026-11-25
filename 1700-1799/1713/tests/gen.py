@@ -19,8 +19,7 @@ def main():
         if mode == 5:
             words = set()
             while len(words) < MOST:
-                words.add("".join(rng.choice("abcdefghijklmnopqrstuvwxyz")
-                                  for _ in range(LONGEST)))
+                words.add("".join(rng.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(LONGEST)))
             words = sorted(words)
         else:
             words = []

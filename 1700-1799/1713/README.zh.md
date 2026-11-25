@@ -91,7 +91,7 @@ C++ 用 32 位整数保存后缀位置，并用字节保存前缀长度。 G++ 1
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1713_strings_optimized.go](1713_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.078 s | 1728 KB | 11317316 |
-| [1713_strings_optimized.rs](1713_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.046 s | 800 KB | 11317319 |
+| [1713_strings_optimized.rs](1713_strings_optimized.rs) | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.046 s | 800 KB | 11317319 |
 | [1713_strings_optimized.java](1713_strings_optimized.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.281 s | 2000 KB | 11317320 |
 | [1713_strings_optimized.py](1713_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.328 s | 12324 KB | 11319668 |
 | [1713_strings_optimized.cpp](1713_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 676 KB | 11322344 |

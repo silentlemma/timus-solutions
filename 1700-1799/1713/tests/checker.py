@@ -11,7 +11,7 @@ class Bad(Exception):
 def check(source, expected, output):
     data = open(source).read().split()
     n = int(data[0])
-    words = data[1:1 + n]
+    words = data[1 : 1 + n]
     want = open(expected).read().split()
     got = open(output).read().split()
     if len(got) != n:
