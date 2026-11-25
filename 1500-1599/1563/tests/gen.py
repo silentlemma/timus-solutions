@@ -32,7 +32,7 @@ def main():
         seen = set()
         while len(seen) < SHOPS:
             seen.add(name(rng))
-        names = list(seen)
+        names = sorted(seen)
         rng.shuffle(names)
     elif mode == 4:
         pool = []
