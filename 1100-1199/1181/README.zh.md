@@ -97,8 +97,8 @@ RBGBRGB
 |---|---|---|---|---|---|---|---|
 | [1181_constructive_optimized.cpp](1181_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 132 KB | 11314704 |
 | [1181_constructive_optimized.go](1181_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 388 KB | 11314727 |
-| [1181_constructive_optimized.java](1181_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 552 KB | 11314749 |
+| [1181_constructive_optimized.java](1181_constructive_optimized.java) | Java 1.8 | constructive | O(N) | AC | 0.109 s | 552 KB | 11314749 |
 | [1181_constructive_optimized.py](1181_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.093 s | 900 KB | 11314762 |
-| [1181_constructive_optimized.rs](1181_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 92 KB | 11314780 |
+| [1181_constructive_optimized.rs](1181_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 92 KB | 11314780 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
