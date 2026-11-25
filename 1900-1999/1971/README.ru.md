@@ -149,7 +149,7 @@ G++ 13.2 x64 №11321877 · Java 1.8 №11321942 · Python 3.12 x64 №11321941 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1971_number_theory_optimized.py](1971_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.296 s | 12456 KB | 11318058 |
+| [1971_number_theory_optimized.py](1971_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.296 s | 12456 KB | 11318058 |
 | [1971_number_theory_optimized.go](1971_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.078 s | 2824 KB | 11318061 |
 | [1971_number_theory_optimized.rs](1971_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.046 s | 2436 KB | 11318063 |
 
