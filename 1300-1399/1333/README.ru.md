@@ -152,7 +152,7 @@ C++ допущен по экономии памяти 39,3%; разница 0,03
 | [1333_geometry_optimized.cpp](1333_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(SN^2), S=4096 | AC | 0.015 s | 136 KB | 11308499 |
 | [1333_geometry_optimized.go](1333_geometry_optimized.go) | Go 1.14 x64 | geometry | O(SN^2), S=4096 | AC | 0.015 s | 1116 KB | 11308504 |
 | [1333_geometry_optimized.java](1333_geometry_optimized.java) | Java 1.8 | geometry | O(SN^2), S=4096 | AC | 0.093 s | 600 KB | 11308510 |
-| [1333_geometry_optimized.py](1333_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(SN log N), S=4096 | AC | 0.109 s | 564 KB | 11308516 |
+| [1333_geometry_optimized.py](1333_geometry_optimized.py) | Python 3.12 x64 | geometry | O(SN log N), S=4096 | AC | 0.109 s | 564 KB | 11308516 |
 | [1333_geometry_optimized.rs](1333_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(S(1+B²)+I) time; O(B+T) space | AC | 0.031 s | 132 KB | 11325547 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
