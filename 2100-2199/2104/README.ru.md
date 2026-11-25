@@ -134,8 +134,8 @@ O(n log n).
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
-| [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
+| [2104_games_optimized.go](2104_games_optimized.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
 | [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
-| [2104_games_optimized.java](2104_games_optimized.java) \* | Java 1.8 | games | O(n) | AC | 0.125 s | 5032 KB | 11325036 |
+| [2104_games_optimized.java](2104_games_optimized.java) | Java 1.8 | games | O(n) | AC | 0.125 s | 5032 KB | 11325036 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

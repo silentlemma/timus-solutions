@@ -10,8 +10,8 @@ import random
 import sys
 
 SMALL = 4
-LONGEST = 2 ** 18
-MAX_N = 5 * 10 ** 5
+LONGEST = 2**18
+MAX_N = 5 * 10**5
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     rng = random.Random(seed)
     n = {1: 2 ** rng.randint(0, SMALL), 2: LONGEST, 3: LONGEST}.get(mode, MAX_N)
     if mode == 5:
-        n = 3 * 2 ** 17
+        n = 3 * 2**17
     weights = "AB" if mode != 3 else rng.choice(["AAAAAAAB", "ABBBBBBB"])
     print(n)
     for _ in range(2):

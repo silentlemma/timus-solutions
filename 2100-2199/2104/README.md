@@ -133,8 +133,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
-| [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
+| [2104_games_optimized.go](2104_games_optimized.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
 | [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
-| [2104_games_optimized.java](2104_games_optimized.java) \* | Java 1.8 | games | O(n) | AC | 0.125 s | 5032 KB | 11325036 |
+| [2104_games_optimized.java](2104_games_optimized.java) | Java 1.8 | games | O(n) | AC | 0.125 s | 5032 KB | 11325036 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
