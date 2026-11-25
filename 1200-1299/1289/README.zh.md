@@ -93,6 +93,6 @@ Go 和 Rust 直接生成同一公式的连续数字段。设 h = floor(N/2)，h 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1289_math_optimized.go](1289_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 904 KB | 11311103 |
-| [1289_math_optimized.rs](1289_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
+| [1289_math_optimized.rs](1289_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

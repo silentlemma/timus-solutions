@@ -103,6 +103,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1289_math_optimized.go](1289_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 904 KB | 11311103 |
-| [1289_math_optimized.rs](1289_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
+| [1289_math_optimized.rs](1289_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
