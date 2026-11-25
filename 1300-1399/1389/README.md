@@ -93,7 +93,7 @@ The accepted base implementations [1389_dp.java](1389_dp.java), [1389_dp.py](138
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1389_dp_optimized.cpp](1389_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 2536 KB | 11315786 |
-| [1389_dp_optimized.go](1389_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 3948 KB | 11315793 |
+| [1389_dp_optimized.go](1389_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 3948 KB | 11315793 |
 | [1389_dp_optimized.rs](1389_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.078 s | 2768 KB | 11315796 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

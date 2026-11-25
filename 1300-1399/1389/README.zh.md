@@ -86,7 +86,7 @@ C++/Go/Rust 保留逆 BFS 叶匹配：交换论证允许最深空闲点匹配空
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1389_dp_optimized.cpp](1389_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 2536 KB | 11315786 |
-| [1389_dp_optimized.go](1389_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 3948 KB | 11315793 |
+| [1389_dp_optimized.go](1389_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 3948 KB | 11315793 |
 | [1389_dp_optimized.rs](1389_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.078 s | 2768 KB | 11315796 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
