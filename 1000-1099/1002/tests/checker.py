@@ -21,7 +21,9 @@ def main():
     inp, expected, output = sys.argv[1:4]
     want = open(expected).read().split("\n")
     got = open(output).read().split("\n")
+    count = 0
     for i, (phone, words) in enumerate(tests(inp)):
+        count = i + 1
         line = got[i].strip() if i < len(got) else ""
         if want[i].strip() == NO_SOLUTION:
             if line != NO_SOLUTION:
@@ -40,6 +42,9 @@ def main():
                 "test %d: %d words, the shortest has %d" % (i + 1, len(used), len(want[i].split()))
             )
             sys.exit(1)
+    if any(line.strip() for line in got[count:]):
+        print("unexpected output after the last answer")
+        sys.exit(1)
 
 
 main()
