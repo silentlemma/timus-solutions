@@ -118,6 +118,38 @@ zero exact-version rivals, this override cannot establish a reference; the
 ordinary cohort and its documented fallback still apply. In particular,
 CPython and PyPy are separate compiler/interpreter versions for the override.
 
+## Explicit algorithm review when there are no rivals
+
+A complete leaderboard with no eligible rivals in the language family, even
+after the compiler fallback, cannot establish a numerical rank. An explicit
+qualitative approval can nevertheless close that language position when:
+
+- The exact candidate and its C++ reference both have verified Accepted source
+  evidence and paired README measurements.
+- The review assesses the algorithm, worst-case bounds and implementation
+  against the problem constraints and the reference, and records its rationale.
+- A durable decision ledger records the problem, language, filenames, compiler
+  versions, Accepted IDs, SHA256 of both sources and the English Task/Input/Output
+  and Checking sections, reviewer, date, review method and evidence provenance.
+
+The reviewer must explicitly approve the decision. Model output alone cannot
+create an approval. Model-assisted reviews must be identified as such and
+include manual adjudication of flagged or invalid answers; they must not be
+described as independent manual proofs of every source.
+
+The private audit reports `pass_manual_review` separately from a numerical pass.
+It retains `unknown_ranking_reference` as the numerical status and does not
+invent a first place. Changed candidate/reference bytes, changed constraints,
+different compiler or Accepted IDs, revoked approval, missing source evidence,
+structural errors, incomplete tables or newly available eligible rivals prevent
+this exception from applying. A known numerical failure cannot be overridden.
+
+The ledger is durable audit input, not a disposable cache or model response.
+Its contents and SHA256 are included in audit evidence. Ordinary offline audits
+reuse it without contacting a model or the judge. This approval assesses the
+algorithm; it is not a measured ranking claim or a reason to change README
+asterisks automatically.
+
 ## Unknown results and README asterisks
 
 An incomplete leaderboard or a complete snapshot with no rivals cannot prove
