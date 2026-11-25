@@ -90,6 +90,6 @@ The accepted base implementations [1682_dsu.java](1682_dsu.java), [1682_dsu.py](
 |---|---|---|---|---|---|---|---|
 | [1682_dsu_optimized.cpp](1682_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(k α(k)) | AC | 0.015 s | 3076 KB | 11315690 |
 | [1682_dsu_optimized.go](1682_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(k α(k)) | AC | 0.031 s | 6364 KB | 11315699 |
-| [1682_dsu_optimized.rs](1682_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(k α(k)) | AC | 0.015 s | 3380 KB | 11315696 |
+| [1682_dsu_optimized.rs](1682_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(k α(k)) | AC | 0.015 s | 3380 KB | 11315696 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
