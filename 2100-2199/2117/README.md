@@ -92,6 +92,13 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328682 (Python 3.12 x64): **0.109 s / 976 KB**. Archived comparison: `2117_number_theory_optimized.py` (Python 3.12 x64) — 0.218 s / 752 KB (#11325465).
 
+
+`2117_number_theory_parsing_optimized.rs`. Retain the exact square-part counting formula. Certify primality using twelve prime bases, deterministic over the input bound, and split composites using batched Brent/Pollard factorization with exact u128 modular arithmetic. This avoids cube-root trial division, but no deterministic worst-case speed bound is claimed. Read numeric tokens through a bounded descriptor buffer and write decimal bytes directly. Keep the inherited text mode for these ASCII integer inputs and skip extra CRT mode changes, generic formatting and legacy-DLL loading. Finish every native output write before exiting.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329541 (Rust 1.75 x64): **0.031 s / 72 KB**.
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
@@ -120,5 +127,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [2117_number_theory_optimized.go](2117_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(C^(1/3)) | AC | 0.046 s | 276 KB | 11315923 |
 | [2117_number_theory_optimized.py](2117_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(C^(1/3)) trial divisions; O(1) integers | AC | 0.218 s | 752 KB | 11325465 |
 | [2117_number_theory_math_optimized.py](2117_number_theory_math_optimized.py) | Python 3.12 x64 | number_theory, math | O(C^(1/3)) trial divisions; O(1) integers | AC | 0.109 s | 976 KB | 11328682 |
+| [2117_number_theory_parsing_optimized.rs](2117_number_theory_parsing_optimized.rs) | Rust 1.75 x64 | number_theory, parsing | Heuristic factorization time; O(log C) storage | AC | 0.031 s | 72 KB | 11329541 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

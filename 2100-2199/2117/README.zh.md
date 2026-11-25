@@ -80,6 +80,13 @@ C（0 ≤ C ≤ 10¹⁸）。
 
 Accepted #11328682 (Python 3.12 x64): **0.109 s / 976 KB**. 历史对照: `2117_number_theory_optimized.py` (Python 3.12 x64) — 0.218 s / 752 KB (#11325465).
 
+
+`2117_number_theory_parsing_optimized.rs`. 保留按平方部分计数的精确公式，用在输入范围内确定性的十二素数基检验判断素数，并以批量 Brent/Pollard 分解及精确 u128 模运算拆分合数，避免立方根试除，但不声称确定性最坏时间界。 通过有界描述符缓冲读取整数，直接写出十进制字节。ASCII 整数输入保留继承的文本模式，避免额外 CRT 模式切换、通用格式化及旧 DLL 加载。完成全部原生写入后退出。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329541 (Rust 1.75 x64): **0.031 s / 72 KB**.
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
@@ -108,5 +115,6 @@ Accepted #11328682 (Python 3.12 x64): **0.109 s / 976 KB**. 历史对照: `2117_
 | [2117_number_theory_optimized.go](2117_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(C^(1/3)) | AC | 0.046 s | 276 KB | 11315923 |
 | [2117_number_theory_optimized.py](2117_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(C^(1/3)) trial divisions; O(1) integers | AC | 0.218 s | 752 KB | 11325465 |
 | [2117_number_theory_math_optimized.py](2117_number_theory_math_optimized.py) | Python 3.12 x64 | number_theory, math | O(C^(1/3)) trial divisions; O(1) integers | AC | 0.109 s | 976 KB | 11328682 |
+| [2117_number_theory_parsing_optimized.rs](2117_number_theory_parsing_optimized.rs) | Rust 1.75 x64 | number_theory, parsing | Heuristic factorization time; O(log C) storage | AC | 0.031 s | 72 KB | 11329541 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

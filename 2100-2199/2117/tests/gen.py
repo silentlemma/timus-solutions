@@ -5,7 +5,7 @@ product of two different large primes."""
 import random
 import sys
 
-TOP = 10 ** 18
+TOP = 10**18
 LARGE = [999983, 1000003, 999979, 1000033]
 SMALL = 30
 
