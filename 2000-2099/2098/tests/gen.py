@@ -4,8 +4,8 @@ largest values, mode 4 an exact tie between the two options."""
 import random
 import sys
 
-MAX_B = 10 ** 5
-MAX_C = 10 ** 4
+MAX_B = 10**5
+MAX_C = 10**4
 MAX_K = 100
 SMALL = 10
 PERCENT = 100
