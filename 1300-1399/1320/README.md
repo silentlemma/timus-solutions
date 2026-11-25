@@ -150,8 +150,8 @@ Historical measurements of previous revisions: - Python/PyPy: preferred teaching
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1320_dsu_optimized.java](1320_dsu_optimized.java) | Java 1.8 | dsu | O((V+M) log V) amortized; O(V) storage | AC | 0.093 s | 408 KB | 11310097 |
-| [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((V+E) alpha(V)) amortized; O(V+I) storage | AC | 0.078 s | 808 KB | 11327483 |
+| [1320_dsu_optimized.py](1320_dsu_optimized.py) | Python 3.12 x64 | dsu | O((V+E) alpha(V)) amortized; O(V+I) storage | AC | 0.078 s | 808 KB | 11327483 |
 | [1320_dsu_optimized.go](1320_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 336 KB | 11325655 |
-| [1320_dsu_optimized.rs](1320_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
+| [1320_dsu_optimized.rs](1320_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
