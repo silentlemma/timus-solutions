@@ -154,6 +154,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
 | [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
-| [2015_sorting_binary_search.java](2015_sorting_binary_search.java) \* | Java 1.8 | sorting, binary_search | O(N+S(N)+M log(N+1)) | AC | 0.093 s | 544 KB | 11325029 |
+| [2015_sorting_binary_search.java](2015_sorting_binary_search.java) | Java 1.8 | sorting, binary_search | O(N+S(N)+M log(N+1)) | AC | 0.093 s | 544 KB | 11325029 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
