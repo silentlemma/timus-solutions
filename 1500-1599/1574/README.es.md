@@ -138,8 +138,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1574_strings_optimized.cpp](1574_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 92 KB | 11326997 |
 | [1574_strings_optimized.go](1574_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 824 KB | 11310380 |
-| [1574_strings_optimized.rs](1574_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 208 KB | 11310379 |
-| [1574_strings_optimized.java](1574_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; O(1) auxiliary space | AC | 0.109 s | 560 KB | 11327330 |
-| [1574_strings_optimized.py](1574_strings_optimized.py) \* | Python 3.12 x64 | strings | O(N) time; O(B) buffer space | AC | 0.093 s | 676 KB | 11326664 |
+| [1574_strings_optimized.rs](1574_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 208 KB | 11310379 |
+| [1574_strings_optimized.java](1574_strings_optimized.java) | Java 1.8 | strings | O(N) time; O(1) auxiliary space | AC | 0.109 s | 560 KB | 11327330 |
+| [1574_strings_optimized.py](1574_strings_optimized.py) | Python 3.12 x64 | strings | O(N) time; O(B) buffer space | AC | 0.093 s | 676 KB | 11326664 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
