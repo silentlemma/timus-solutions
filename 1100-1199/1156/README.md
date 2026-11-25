@@ -112,6 +112,6 @@ Store the reachable group sizes as bitsets. Each connected component updates the
 |---|---|---|---|---|---|---|---|
 | [1156_graphs_optimized.cpp](1156_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.015 s | 112 KB | 11310650 |
 | [1156_graphs_optimized.rs](1156_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.031 s | 64 KB | 11311218 |
-| [1156_graphs_bitmask.py](1156_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O(N + M + N²) | AC | 0.078 s | 712 KB | 11324223 |
+| [1156_graphs_bitmask.py](1156_graphs_bitmask.py) | Python 3.12 x64 | graphs, bitmask | O(N + M + N²) | AC | 0.078 s | 712 KB | 11324223 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
