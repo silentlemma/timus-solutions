@@ -126,7 +126,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1111_geometry_optimized.cpp](1111_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 208 KB | 11310910 |
 | [1111_geometry_optimized.go](1111_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 800 KB | 11311126 |
-| [1111_geometry_optimized.rs](1111_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 80 KB | 11311247 |
-| [1111_geometry_optimized.java](1111_geometry_optimized.java) \* | Java 1.8 | geometry | O(L²+n·L·log(n+1)) | AC | 0.109 s | 664 KB | 11325037 |
+| [1111_geometry_optimized.rs](1111_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 80 KB | 11311247 |
+| [1111_geometry_optimized.java](1111_geometry_optimized.java) | Java 1.8 | geometry | O(L²+n·L·log(n+1)) | AC | 0.109 s | 664 KB | 11325037 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
