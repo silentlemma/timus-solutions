@@ -123,7 +123,7 @@ C++, Go, Java и Rust сохраняют исходную модель Дини�
 |---|---|---|---|---|---|---|---|
 | [1774_matching_optimized.cpp](1774_matching_optimized.cpp) | G++ 13.2 x64 | matching | O(n³) | AC | 0.015 s | 300 KB | 11315516 |
 | [1774_matching_optimized.go](1774_matching_optimized.go) \* | Go 1.14 x64 | matching | O(n³) | AC | 0.031 s | 1020 KB | 11315517 |
-| [1774_matching_optimized.java](1774_matching_optimized.java) \* | Java 1.8 | matching | O(n³) | AC | 0.093 s | 572 KB | 11315518 |
+| [1774_matching_optimized.java](1774_matching_optimized.java) | Java 1.8 | matching | O(n³) | AC | 0.093 s | 572 KB | 11315518 |
 | [1774_matching_optimized.rs](1774_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(n³) | AC | 0.015 s | 312 KB | 11315519 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
