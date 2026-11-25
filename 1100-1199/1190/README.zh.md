@@ -50,6 +50,10 @@ Lecithin 0
 NO
 ```
 
+## 已接受提交更新
+
+更新的文件：[1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 输入保证标出含量已经按不增顺序排列；下面的两次扫描依赖这一前提。
@@ -116,6 +120,6 @@ Accepted #11329530 (Go 1.14 x64): **0.015 s / 392 KB**.
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
 | [1190_greedy_optimized.java](1190_greedy_optimized.java) | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
-| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.015 s | 392 KB | 11329530 |
+| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.031 s | 308 KB | 11330225 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

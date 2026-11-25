@@ -66,6 +66,7 @@ func nextByte() int {
 // Read the single input stream once and convert tokens without fmt reflection.
 // Parse decimal input directly to avoid fmt's reflection and token allocations.
 func integer() int {
+	// Keep the cursor local until the number ends or the current block is exhausted.
 	position, length := inputPosition, inputLength
 	started, value := false, 0
 	for {
@@ -111,5 +112,3 @@ func writeBytes(data []byte) {
 		}
 	}
 }
-
-// Keep the cursor local until the number ends or the current block is exhausted.

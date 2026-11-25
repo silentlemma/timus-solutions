@@ -53,6 +53,10 @@ Lecithin 0
 NO
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 По условию указанные доли уже идут в порядке невозрастания;
@@ -130,6 +134,6 @@ Accepted #11329530 (Go 1.14 x64): **0.015 s / 392 KB**.
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
 | [1190_greedy_optimized.java](1190_greedy_optimized.java) | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
-| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.015 s | 392 KB | 11329530 |
+| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.031 s | 308 KB | 11330225 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

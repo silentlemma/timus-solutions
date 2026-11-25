@@ -53,6 +53,10 @@ Output:
 NO
 ```
 
+## Acceptance update
+
+Refreshed files: [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 The input guarantees that the printed shares are already non-increasing;
@@ -130,6 +134,6 @@ These notes describe the simple implementations.
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
 | [1190_greedy_optimized.java](1190_greedy_optimized.java) | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
-| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.015 s | 392 KB | 11329530 |
+| [1190_greedy_parsing_optimized.go](1190_greedy_parsing_optimized.go) | Go 1.14 x64 | greedy, parsing | O(n) time; O(1) state + bounded I/O | AC | 0.031 s | 308 KB | 11330225 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
