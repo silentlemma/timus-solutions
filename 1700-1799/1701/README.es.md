@@ -154,8 +154,8 @@ G++ 13.2 x64 №11318326 · Java 1.8 №11318331 · Python 3.12 x64 №11318337 
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1701_dsu_optimized.cpp](1701_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 928 KB | 11316975 |
 | [1701_dsu_optimized.go](1701_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 1712 KB | 11317271 |
-| [1701_dsu_optimized.java](1701_dsu_optimized.java) \* | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.125 s | 1320 KB | 11317272 |
-| [1701_dsu_optimized.py](1701_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.234 s | 7652 KB | 11317043 |
-| [1701_dsu_optimized.rs](1701_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 992 KB | 11317269 |
+| [1701_dsu_optimized.java](1701_dsu_optimized.java) | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.125 s | 1320 KB | 11317272 |
+| [1701_dsu_optimized.py](1701_dsu_optimized.py) | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.234 s | 7652 KB | 11317043 |
+| [1701_dsu_optimized.rs](1701_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 992 KB | 11317269 |
 
 \* Aceptada. Aún queda por alcanzar el objetivo de clasificación de Python. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente.

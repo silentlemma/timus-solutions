@@ -4,7 +4,7 @@ satisfy every statement."""
 
 import sys
 
-MOST = 10 ** 9
+MOST = 10**9
 
 
 class Bad(Exception):
@@ -29,7 +29,7 @@ def check(source, expected, output):
     if not all(0 <= s <= MOST for s in salary):
         raise Bad("a salary is out of range")
     for k in range(m):
-        i, j, d = data[2 + 3 * k:5 + 3 * k]
+        i, j, d = data[2 + 3 * k : 5 + 3 * k]
         if salary[i] - salary[j] != d:
             raise Bad("statement %d fails" % (k + 1))
 
