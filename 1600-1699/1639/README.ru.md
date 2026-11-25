@@ -51,6 +51,10 @@
 [second]=:]
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Каждый ход превращает один кусок в два, то есть увеличивает число кусков
@@ -109,4 +113,4 @@ Accepted #11329177 (Rust 1.75 x64): **0.031 s / 52 KB**. Архивное сра
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
 | [1639_games_optimized.py](1639_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
 | [1639_games_optimized.go](1639_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 908 KB | 11328578 |
-| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 52 KB | 11329177 |
+| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 48 KB | 11330235 |

@@ -51,6 +51,10 @@ Output:
 [second]=:]
 ```
 
+## Acceptance update
+
+Refreshed files: [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Every move turns one piece into two, so it raises the number of pieces
@@ -109,4 +113,4 @@ Accepted #11329177 (Rust 1.75 x64): **0.031 s / 52 KB**. Archived comparison: `1
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
 | [1639_games_optimized.py](1639_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
 | [1639_games_optimized.go](1639_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 908 KB | 11328578 |
-| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 52 KB | 11329177 |
+| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 48 KB | 11330235 |

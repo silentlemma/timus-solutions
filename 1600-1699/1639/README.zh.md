@@ -49,6 +49,10 @@
 [second]=:]
 ```
 
+## 已接受提交更新
+
+更新的文件：[1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 每一步都把一块变成两块，也就是块数恰好加一。游戏从一块开始、以 m · n 块结束，所以无论双方怎么走，
@@ -102,4 +106,4 @@ Accepted #11329177 (Rust 1.75 x64): **0.031 s / 52 KB**. 历史对照: `1639_gam
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
 | [1639_games_optimized.py](1639_games_optimized.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
 | [1639_games_optimized.go](1639_games_optimized.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 908 KB | 11328578 |
-| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 52 KB | 11329177 |
+| [1639_parsing_implementation_optimized.rs](1639_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(1) | AC | 0.031 s | 48 KB | 11330235 |
