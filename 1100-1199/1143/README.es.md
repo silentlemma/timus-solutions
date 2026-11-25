@@ -120,6 +120,6 @@ Rust actualiza en el mismo lugar dos filas de costes para intervalos circulares 
 | [1143_dp_optimized.py](1143_dp_optimized.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.125 s | 736 KB | 11318126 |
 | [1143_dp_optimized.java](1143_dp_optimized.java) | Java 1.8 | dp | O(N²) | AC | 0.125 s | 1560 KB | 11318129 |
 | [1143_dp_optimized.cpp](1143_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 148 KB | 11322408 |
-| [1143_dp_optimized.rs](1143_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 144 KB | 11323271 |
+| [1143_dp_optimized.rs](1143_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 144 KB | 11323271 |
 
 \* El corte de clasificación no contiene envíos comparables en Go de otros autores.
