@@ -125,6 +125,13 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328620 (Python 3.12 x64): **0.078 s / 876 KB**. Comparación archivada: `2024_sorting_combinatorics.py` (Python 3.12 x64) — 0.109 s / 776 KB (#11292836).
 
+
+`2024_combinatorics_parsing_optimized.go`. Una sola letra se resuelve con máximo y empates y todo el alfabeto con la longitud total. Los demás límites conservan el orden de frecuencias y la cuenta binomial exacta. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329328 (Go 1.14 x64): **0.015 s / 1468 KB**.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -156,5 +163,6 @@ lineal.
 | [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
 | [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
 | [2024_sorting_combinatorics_optimized.py](2024_sorting_combinatorics_optimized.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.078 s | 876 KB | 11328620 |
+| [2024_combinatorics_parsing_optimized.go](2024_combinatorics_parsing_optimized.go) | Go 1.14 x64 | combinatorics, parsing | O(n) | AC | 0.015 s | 1468 KB | 11329328 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

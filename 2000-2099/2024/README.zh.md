@@ -99,6 +99,13 @@ C++ 和 Rust 边读单词边统计频次，无需保存单词。排序 26 个计
 
 Accepted #11328620 (Python 3.12 x64): **0.078 s / 876 KB**. 历史对照: `2024_sorting_combinatorics.py` (Python 3.12 x64) — 0.109 s / 776 KB (#11292836).
 
+
+`2024_combinatorics_parsing_optimized.go`. 选择一个字母时扫描最大值及并列数，选择整个字母表时直接取总长度；其余限制保留一般频数排序和精确边界二项式计数。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329328 (Go 1.14 x64): **0.015 s / 1468 KB**.
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -127,5 +134,6 @@ CPython 使用相同的线性扫描。
 | [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
 | [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
 | [2024_sorting_combinatorics_optimized.py](2024_sorting_combinatorics_optimized.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.078 s | 876 KB | 11328620 |
+| [2024_combinatorics_parsing_optimized.go](2024_combinatorics_parsing_optimized.go) | Go 1.14 x64 | combinatorics, parsing | O(n) | AC | 0.015 s | 1468 KB | 11329328 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

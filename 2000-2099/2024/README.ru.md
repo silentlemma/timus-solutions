@@ -122,6 +122,13 @@ C++ и Rust считают частоты прямо при чтении сло�
 
 Accepted #11328620 (Python 3.12 x64): **0.078 s / 876 KB**. Архивное сравнение: `2024_sorting_combinatorics.py` (Python 3.12 x64) — 0.109 s / 776 KB (#11292836).
 
+
+`2024_combinatorics_parsing_optimized.go`. Выбор одной буквы обрабатывается поиском максимума и числа равных, выбор всего алфавита — общей длиной. Для остальных ограничений порядок частот и точный биномиальный подсчёт на границе сохранены. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены.
+
+Для этого точного исходника получен собственный Accepted и выполнены единые [рейтинговые критерии](../../RATING_CRITERIA.md). Время и память ниже взяты из одной посылки; повторные измерения судьи могут различаться. Существующие простые и отличающиеся оптимизированные версии сохранены.
+
+Accepted #11329328 (Go 1.14 x64): **0.015 s / 1468 KB**.
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -152,5 +159,6 @@ C++, Go и Rust используют 64-битный тип для сочета�
 | [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
 | [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
 | [2024_sorting_combinatorics_optimized.py](2024_sorting_combinatorics_optimized.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.078 s | 876 KB | 11328620 |
+| [2024_combinatorics_parsing_optimized.go](2024_combinatorics_parsing_optimized.go) | Go 1.14 x64 | combinatorics, parsing | O(n) | AC | 0.015 s | 1468 KB | 11329328 |
 
 \* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
