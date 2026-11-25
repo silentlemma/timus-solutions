@@ -86,7 +86,7 @@ Compared with `1430_number_theory.java`: time 0.109 s → 0.109 s; memory 1684 K
 |---|---|---|---|---|---|---|---|
 | [1430_number_theory_optimized.cpp](1430_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.015 s | 108 KB | 11315180 |
 | [1430_number_theory_optimized.go](1430_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.031 s | 292 KB | 11315184 |
-| [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
-| [1430_number_theory_optimized.java](1430_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 492 KB | 11324975 |
+| [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
+| [1430_number_theory_optimized.java](1430_number_theory_optimized.java) | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 492 KB | 11324975 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
