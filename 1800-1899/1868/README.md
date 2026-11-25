@@ -35,46 +35,38 @@ The amount Vadik pays, in dollars.
 Input:
 
 ```
-Zhejiang_U
-U_of_Michigan_at_Ann_Arbor
-Tsinghua_U
-St._Petersburg_SU
-Nizhny_Novgorod_SU
-Saratov_SU
-Friedrich_Alexander_U
-Donetsk_National_U
-Jagiellonian_U_in_Krakow
-Moscow_SU
-Ural_SU
-U_of_Waterloo
+North_A
+North_B
+North_C
+North_D
+East_A
+East_B
+East_C
+East_D
+West_A
+West_B
+West_C
+West_D
 3
-6
-Moscow_SU : gold
-St._Petersburg_SU_of_ITMO : gold
-Warsaw_U : gold
-Tsinghua_U : gold
-Nizhny_Novgorod_SU : silver
-Saratov_SU : silver
-6
-Warsaw_U : gold
-Saratov_SU : gold
-Tsinghua_U : gold
-Donetsk_National_U : silver
-St._Petersburg_SU_of_ITMO : silver
-Ural_SU : bronze
-6
-Zhejiang_U : gold
-Tsinghua_U : gold
-Shanghai_Jiao_Tong_U : gold
-Fudan_U : gold
-Moscow_SU : silver
-Nizhny_Novgorod_SU : silver
+3
+North_A : gold
+East_A : silver
+West_A : bronze
+4
+North_B : gold
+East_C : silver
+West_D : bronze
+Other : gold
+3
+North_C : silver
+East_B : gold
+Other : bronze
 ```
 
 Output:
 
 ```
-15
+10
 ```
 
 ## Solution

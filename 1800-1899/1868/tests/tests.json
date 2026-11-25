@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1868_implementation.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "the example: three winners" },
+    { "name": "01", "example": true, "note": "two forecasters tie with three correct medals; a third has none" },
     { "name": "02", "note": "one forecaster with an empty forecast" },
     { "name": "03", "note": "a perfect forecast beats a short one" },
     { "name": "04", "note": "names are case-sensitive" },
