@@ -55,7 +55,8 @@ def main():
     people = set()
     while len(people) < n:
         people.add(word(rng, 1, 20))
-    people = sorted(people, key=lambda p: rng.random())
+    people = sorted(people)
+    rng.shuffle(people)
     cities = set()
     while len(cities) < towns:
         cities.add(word(rng, 1, 20))
