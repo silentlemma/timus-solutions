@@ -6,7 +6,7 @@ prime times small primes, 7 the largest allowed number."""
 import random
 import sys
 
-LIMIT = 10 ** 18 - 1
+LIMIT = 10**18 - 1
 WITNESSES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
 
 
@@ -43,13 +43,13 @@ def main():
     seed, mode = (int(v) for v in sys.argv[1:3])
     rng = random.Random(seed)
     if mode == 1:
-        n = rng.randrange(1, 10 ** 5, 2)
+        n = rng.randrange(1, 10**5, 2)
     elif mode == 2:
         n = random_prime(rng, LIMIT // 2, LIMIT)
     elif mode == 3:
-        n = random_prime(rng, 10 ** 8, 10 ** 9) ** 2
+        n = random_prime(rng, 10**8, 10**9) ** 2
     elif mode == 4:
-        n = random_prime(rng, 10 ** 8, 10 ** 9) * random_prime(rng, 10 ** 8, 10 ** 9)
+        n = random_prime(rng, 10**8, 10**9) * random_prime(rng, 10**8, 10**9)
     elif mode == 5:
         n = 1
         while True:
@@ -58,7 +58,7 @@ def main():
                 break
             n *= p
     elif mode == 6:
-        n = random_prime(rng, 10 ** 6, 10 ** 7) ** 2
+        n = random_prime(rng, 10**6, 10**7) ** 2
         while n * 9 <= LIMIT:
             n *= rng.choice((3, 5, 7))
     else:
