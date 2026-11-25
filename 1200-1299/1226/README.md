@@ -31,19 +31,17 @@ The text with every word reversed.
 Input:
 
 ```
-This is an example of a simple test. If you did not 
-understand the ciphering algorithm yet, then write the 
-letters of each word in the reverse order. By the way, 
-"reversing" the text twice restores the original text.
+Signal 42: Keep LETTERS,  reverse words!  
+
+Data_links stay-separated.
 ```
 
 Output:
 
 ```
-sihT si na elpmaxe fo a elpmis tset. fI uoy did ton 
-dnatsrednu eht gnirehpic mhtirogla tey, neht etirw eht 
-srettel fo hcae drow ni eht esrever redro. yB eht yaw, 
-"gnisrever" eht txet eciwt serotser eht lanigiro txet.
+langiS 42: peeK SRETTEL,  esrever sdrow!  
+
+ataD_sknil yats-detarapes.
 ```
 
 ## Solution
