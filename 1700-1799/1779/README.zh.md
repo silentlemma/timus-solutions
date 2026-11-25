@@ -77,6 +77,6 @@ Go 和 Rust 直接输出配对数 floor(n/2) · ceil(n/2)，然后枚举满足 i
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1779_constructive_optimized.go](1779_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 912 KB | 11311102 |
-| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
+| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

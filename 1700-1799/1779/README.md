@@ -86,6 +86,6 @@ The accepted base implementations [1779_constructive.cpp](1779_constructive.cpp)
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1779_constructive_optimized.go](1779_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 912 KB | 11311102 |
-| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
+| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
