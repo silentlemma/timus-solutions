@@ -102,7 +102,7 @@ Go 1.14 x64, посылка 11322475. Время 0,031 → 0,078 с, памят�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [2204_dp_two_pointers_optimized.py](2204_dp_two_pointers_optimized.py) \* | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.578 s | 5308 KB | 11318457 |
+| [2204_dp_two_pointers_optimized.py](2204_dp_two_pointers_optimized.py) | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.578 s | 5308 KB | 11318457 |
 | [2204_dp_two_pointers_optimized.rs](2204_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.046 s | 2416 KB | 11318466 |
 | [2204_dp_two_pointers_optimized.go](2204_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.078 s | 3348 KB | 11322475 |
 
