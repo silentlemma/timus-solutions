@@ -25,9 +25,7 @@ def generate(mode):
     if mode in ("single", "constant"):
         text = [b"!!!"] * MAX_TEXT
     elif mode == "blocked":
-        text = [
-            b"zzz" if index % size == size - 1 else b"!!!" for index in range(MAX_TEXT)
-        ]
+        text = [b"zzz" if index % size == size - 1 else b"!!!" for index in range(MAX_TEXT)]
     elif mode == "outsiders":
         text = [b"zzz"] * MAX_TEXT
     elif mode == "churn":
