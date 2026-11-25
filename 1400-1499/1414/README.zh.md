@@ -98,6 +98,6 @@ C++ 修订版保留 std::set、lower_bound 和二十个名字的上限，以固�
 |---|---|---|---|---|---|---|---|
 | [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.015 s | 900 KB | 11326651 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
-| [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
+| [1414_sorting_optimized.java](1414_sorting_optimized.java) | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
