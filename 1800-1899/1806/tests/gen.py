@@ -25,7 +25,7 @@ def main():
         letters = "0123456789"[: rng.randint(2, 3)]
         while len(numbers) < n:
             numbers.add("".join(rng.choice(letters) for _ in range(DIGITS)))
-        numbers = list(numbers)
+        numbers = sorted(numbers)
     elif mode in (2, 3, 5):
         n = LIMIT
         head = "".join(rng.choice("0123456789") for _ in range(DIGITS - FREE))
@@ -35,7 +35,7 @@ def main():
                 numbers.add(head + tail)
             else:
                 numbers.add("".join(rng.choice("0123456789") for _ in range(DIGITS)))
-        numbers = list(numbers)
+        numbers = sorted(numbers)
     else:
         current = [rng.choice("0123456789") for _ in range(DIGITS)]
         chain = ["".join(current)]
