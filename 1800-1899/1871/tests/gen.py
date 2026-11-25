@@ -77,8 +77,9 @@ def main():
     elif mode == 5:
         # the chain adds 7 per step over 5 steps, the other way 7 + 36
         short = CHAIN_STEP * (SHORT_CHAIN + 1)
-        text = tweet(rng, LONGEST_TWEET - CHAIN_STEP - PREFIX - LONGEST_NAME + 1,
-                     LONGEST_TWEET - short)
+        text = tweet(
+            rng, LONGEST_TWEET - CHAIN_STEP - PREFIX - LONGEST_NAME + 1, LONGEST_TWEET - short
+        )
     else:
         text = tweet(rng, 1, LONGEST_TWEET)
     print(n)

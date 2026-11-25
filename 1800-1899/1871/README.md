@@ -111,7 +111,7 @@ G++ 13.2 x64 №11321936 · Go 1.14 x64 №11322073 · Java 1.8 №11321776 · P
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1871_dijkstra_optimized.go](1871_dijkstra_optimized.go) \* | Go 1.14 x64 | dijkstra | O(E + (n + L) ceil(n / 64)) | AC | 0.031 s | 1024 KB | 11317173 |
+| [1871_dijkstra_optimized.go](1871_dijkstra_optimized.go) | Go 1.14 x64 | dijkstra | O(E + (n + L) ceil(n / 64)) | AC | 0.031 s | 1024 KB | 11317173 |
 | [1871_dijkstra_optimized.rs](1871_dijkstra_optimized.rs) \* | Rust 1.75 x64 | dijkstra | O(E + n + L) | AC | 0.031 s | 204 KB | 11323125 |
 | [1871_dijkstra_optimized.py](1871_dijkstra_optimized.py) | Python 3.12 x64 | dijkstra | O(E + n + L) | AC | 0.078 s | 628 KB | 11322813 |
 
