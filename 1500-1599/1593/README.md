@@ -117,6 +117,6 @@ G++ 13.2 x64 №11322314 · Go 1.14 x64 №11322315 · Java 1.8 №11322316 · P
 | [1593_math_optimized.go](1593_math_optimized.go) \* | Go 1.14 x64 | math | O(n^1/4 log n) expected | AC | 0.031 s | 1104 KB | 11322020 |
 | [1593_math_optimized.java](1593_math_optimized.java) | Java 1.8 | math | O(n^1/4 log n) expected | AC | 0.109 s | 524 KB | 11322021 |
 | [1593_math_optimized.py](1593_math_optimized.py) | Python 3.12 x64 | math | O(n^1/4 log n) expected | AC | 0.093 s | 780 KB | 11322023 |
-| [1593_math_optimized.rs](1593_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^1/4 log n) expected | AC | 0.046 s | 216 KB | 11322024 |
+| [1593_math_optimized.rs](1593_math_optimized.rs) | Rust 1.75 x64 | math | O(n^1/4 log n) expected | AC | 0.046 s | 216 KB | 11322024 |
 
 \* The marked versions have room to improve in the ratings.
