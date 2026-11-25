@@ -19,7 +19,7 @@ def main():
     data = sys.stdin.read().split()
     n = int(data[0])
     # only whether an entry is zero matters: all entries are non-negative
-    a = [sum(1 << j for j in range(n) if data[1 + i * n + j] != "0") for i in range(n)]
+    a = [sum(1 << j for j in range(n) if int(data[1 + i * n + j]) != 0) for i in range(n)]
     low, high = n * (n - 1), n * (n + 1)
     # A^low by repeated squaring
     cur, base, e = [1 << i for i in range(n)], a, low

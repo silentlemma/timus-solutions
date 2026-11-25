@@ -20,6 +20,7 @@
     { "name": "09", "note": "minimum size with only self-loops: positive diagonal but unreachable off-diagonal entries" },
     { "name": "10", "note": "maximum size with two interleaved dense components and no zero row or column" },
     { "name": "11", "note": "cycles of lengths 49 and 50 share a long path, delaying positive powers until near the lower exponent bound" },
-    { "name": "gen8", "generator": "24 4", "note": "small weighted random graph that is strongly connected without a Hamiltonian cycle" }
+    { "name": "gen8", "generator": "24 4", "note": "small weighted random graph that is strongly connected without a Hamiltonian cycle" },
+    { "name": "zero_spelling", "note": "all integer spellings of zero denote absent edges" }
   ]
 }

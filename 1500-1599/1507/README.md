@@ -57,6 +57,10 @@ Output:
 No
 ```
 
+## Acceptance update
+
+Refreshed files: [1507_math.py](1507_math.py). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 The entries are huge, but only whether they are zero matters, and with
@@ -105,7 +109,7 @@ The matrix-power base files are preserved in all five languages. The graph versi
 | [1507_math.cpp](1507_math.cpp) | G++ 13.2 x64 | math | O(n^3) | AC | 0.015 s | 188 KB | 11287289 |
 | [1507_math.go](1507_math.go) | Go 1.14 x64 | math | O(n^3) | AC | 0.031 s | 1184 KB | 11287290 |
 | [1507_math.java](1507_math.java) | Java 1.8 | math | O(n^3) | AC | 0.171 s | 524 KB | 11287292 |
-| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.140 s | 740 KB | 11287291 |
+| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.156 s | 644 KB | 11330234 |
 | [1507_math.rs](1507_math.rs) | Rust 1.75 x64 | math | O(n^3) | AC | 0.046 s | 256 KB | 11287293 |
 
 ### Optimized

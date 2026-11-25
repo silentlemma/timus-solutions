@@ -58,6 +58,10 @@ Salida:
 No
 ```
 
+## Actualización de envíos aceptados
+
+Archivos actualizados: [1507_math.py](1507_math.py). Las tablas de soluciones muestran los nuevos Accepted correspondientes exactamente al código fuente de estos archivos. Las mediciones y posiciones comparativas anteriores pertenecen a versiones previas y se conservan como datos históricos. La auditoría en caché confirma implementaciones que cumplen los criterios en todos los lenguajes disponibles. Se conservan las versiones didácticas por su claridad; si un mismo archivo cubre también la versión rápida, debe cumplir el criterio de rendimiento.
+
 ## Solución
 
 Los elementos son enormes, pero solo importa si son nulos, y con
@@ -110,7 +114,7 @@ Se conservan las bases con potencias matriciales en los cinco lenguajes. Las ver
 | [1507_math.cpp](1507_math.cpp) | G++ 13.2 x64 | math | O(n^3) | AC | 0.015 s | 188 KB | 11287289 |
 | [1507_math.go](1507_math.go) | Go 1.14 x64 | math | O(n^3) | AC | 0.031 s | 1184 KB | 11287290 |
 | [1507_math.java](1507_math.java) | Java 1.8 | math | O(n^3) | AC | 0.171 s | 524 KB | 11287292 |
-| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.140 s | 740 KB | 11287291 |
+| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.156 s | 644 KB | 11330234 |
 | [1507_math.rs](1507_math.rs) | Rust 1.75 x64 | math | O(n^3) | AC | 0.046 s | 256 KB | 11287293 |
 
 ### Optimizadas
