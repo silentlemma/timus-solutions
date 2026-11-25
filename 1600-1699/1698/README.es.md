@@ -96,9 +96,9 @@ La versión optimizada eleva la congruencia del cuadrado seis cifras decimales p
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1698_number_theory_math.py](1698_number_theory_math.py) \* | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
-| [1698_number_theory_math.java](1698_number_theory_math.java) \* | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
+| [1698_number_theory_math.py](1698_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
+| [1698_number_theory_math.java](1698_number_theory_math.java) | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
 | [1698_number_theory_optimized.rs](1698_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.015 s | 220 KB | 11318475 |
-| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
+| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.

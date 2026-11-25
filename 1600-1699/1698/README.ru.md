@@ -96,9 +96,9 @@ Rust объединяет симметричные произведения в �
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1698_number_theory_math.py](1698_number_theory_math.py) \* | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
-| [1698_number_theory_math.java](1698_number_theory_math.java) \* | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
+| [1698_number_theory_math.py](1698_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
+| [1698_number_theory_math.java](1698_number_theory_math.java) | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
 | [1698_number_theory_optimized.rs](1698_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.015 s | 220 KB | 11318475 |
-| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
+| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
 
 \* У отмеченных версий есть запас для улучшения рейтинга.

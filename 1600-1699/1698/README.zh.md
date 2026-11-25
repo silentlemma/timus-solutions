@@ -84,9 +84,9 @@ Rust 将每一位上成对的对称乘积合并，只计算一次并将贡献加
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1698_number_theory_math.py](1698_number_theory_math.py) \* | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
-| [1698_number_theory_math.java](1698_number_theory_math.java) \* | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
+| [1698_number_theory_math.py](1698_number_theory_math.py) | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
+| [1698_number_theory_math.java](1698_number_theory_math.java) | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
 | [1698_number_theory_optimized.rs](1698_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.015 s | 220 KB | 11318475 |
-| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
+| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
 
 \* 带星号的版本仍有提升排名的空间。
