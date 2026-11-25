@@ -134,8 +134,8 @@ G++ 13.2 x64 №11318250 · Java 1.8 №11318255 · Rust 1.75 x64 №11318260.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1732_strings_optimized.cpp](1732_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.031 s | 1000 KB | 11316951 |
-| [1732_strings_optimized.go](1732_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1836 KB | 11317266 |
-| [1732_strings_optimized.java](1732_strings_optimized.java) \* | Java 1.8 | strings | O(L) | AC | 0.125 s | 1036 KB | 11317268 |
+| [1732_strings_optimized.go](1732_strings_optimized.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1836 KB | 11317266 |
+| [1732_strings_optimized.java](1732_strings_optimized.java) | Java 1.8 | strings | O(L) | AC | 0.125 s | 1036 KB | 11317268 |
 | [1732_strings_optimized.py](1732_strings_optimized.py) | Python 3.12 x64 | strings | O(L) | AC | 0.093 s | 2168 KB | 11316946 |
 | [1732_strings_optimized.rs](1732_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 1096 KB | 11317256 |
 

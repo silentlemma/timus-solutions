@@ -47,10 +47,12 @@ def main():
         text = saying(rng, LONGEST - 2 * WORD - 1, "ab")
         target = cut(rng, text) + " " + "b" * WORD * 2
     elif mode == 6:
-        text = "".join(rng.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-                       for _ in range(LONGEST))
+        text = "".join(
+            rng.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            for _ in range(LONGEST)
+        )
         at = rng.randrange(1, LONGEST - 1)
-        target = text[:at] + " " + text[at + 1:]
+        target = text[:at] + " " + text[at + 1 :]
     else:
         text = " ".join(rng.choice("ab") for _ in range(LONGEST // 2))
         target = cut(rng, text)
