@@ -119,7 +119,7 @@ Accepted #11328996 (Rust 1.75 x64): **0.39 s / 10716 KB**. 历史对照: `2062_f
 |---|---|---|---|---|---|---|---|
 | [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
 | [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
-| [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+| [2062_fenwick_optimized.py](2062_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
 | [2062_fenwick_parsing_optimized.rs](2062_fenwick_parsing_optimized.rs) | Rust 1.75 x64 | fenwick, parsing | O(n log n + q tau_max log n) | AC | 0.39 s | 10716 KB | 11328996 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
