@@ -145,7 +145,7 @@ Java 1.8, submission 11322474. Time 0.109 → 0.093 s, memory 6036 → 5024 KB.
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1995_greedy_constructive_optimized.py](1995_greedy_constructive_optimized.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.078 s | 912 KB | 11318477 |
 | [1995_greedy_constructive_optimized.rs](1995_greedy_constructive_optimized.rs) \* | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.015 s | 228 KB | 11318480 |
-| [1995_greedy_constructive_optimized.go](1995_greedy_constructive_optimized.go) \* | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.031 s | 1072 KB | 11322456 |
+| [1995_greedy_constructive_optimized.go](1995_greedy_constructive_optimized.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.031 s | 1072 KB | 11322456 |
 | [1995_greedy_constructive_optimized.java](1995_greedy_constructive_optimized.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 5024 KB | 11322474 |
 
 \* The marked versions have room to improve in the ratings.
