@@ -40,6 +40,9 @@ def main():
             continue
         if count % 2 or green[(a, b)] + green[(b, a)] != count // 2:
             fail("the doors between %d and %d are not green on one side each" % (a, b))
+    if any(line.strip() for line in lines[n:]):
+        print("unexpected output after the last answer")
+        sys.exit(1)
 
 
 main()
