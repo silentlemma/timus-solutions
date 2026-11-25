@@ -104,10 +104,10 @@ Java 1.8, submission 11322007. Time 0.109 → 0.125 s, memory 1268 → 828 KB.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1838_math_optimized.py](1838_math_optimized.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 8196 KB | 11319948 |
-| [1838_math_optimized.rs](1838_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 596 KB | 11319998 |
+| [1838_math_optimized.py](1838_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 8196 KB | 11319948 |
+| [1838_math_optimized.rs](1838_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 596 KB | 11319998 |
 | [1838_math_optimized.go](1838_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1320 KB | 11320023 |
 | [1838_math_optimized.cpp](1838_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 520 KB | 11320066 |
-| [1838_math_optimized.java](1838_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 828 KB | 11322007 |
+| [1838_math_optimized.java](1838_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 828 KB | 11322007 |
 
 \* The marked versions have room to improve in the ratings.

@@ -9,7 +9,7 @@ and one support near each end."""
 import random
 import sys
 
-LIMIT = 10 ** 9
+LIMIT = 10**9
 MOST = 100000
 SMALL = 30
 
