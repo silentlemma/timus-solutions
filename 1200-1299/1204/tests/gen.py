@@ -33,8 +33,17 @@ def main():
     rng = random.Random(seed)
     out = [str(k)]
     if mode == 4:
-        pairs = [(2, 3), (3, 7), (5, 11), (7, 13), (101, 103),
-                 (1009, 2017), (10007, 10009), (30011, 30013), (67, 14925373)]
+        pairs = [
+            (2, 3),
+            (3, 7),
+            (5, 11),
+            (7, 13),
+            (101, 103),
+            (1009, 2017),
+            (10007, 10009),
+            (30011, 30013),
+            (67, 14925373),
+        ]
         values = [p * q for p, q in pairs]
         values = [values[i % len(values)] for i in range(k)]
         rng.shuffle(values)

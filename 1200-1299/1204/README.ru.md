@@ -110,8 +110,8 @@
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1204_number_theory_optimized.java](1204_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
-| [1204_number_theory_trees.py](1204_number_theory_trees.py) \* | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
+| [1204_number_theory_optimized.java](1204_number_theory_optimized.java) | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
+| [1204_number_theory_trees.py](1204_number_theory_trees.py) | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
 | [1204_number_theory_optimized.rs](1204_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(R log log R+Q(pi(R)+log N)) | AC | 0.015 s | 92 KB | 11325500 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
