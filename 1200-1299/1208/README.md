@@ -139,11 +139,11 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1208_backtracking_bitmask.cpp](1208_backtracking_bitmask.cpp) \* | G++ 13.2 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 176 KB | 11308198 |
+| [1208_backtracking_bitmask.cpp](1208_backtracking_bitmask.cpp) | G++ 13.2 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 176 KB | 11308198 |
 | [1208_backtracking_bitmask.go](1208_backtracking_bitmask.go) | Go 1.14 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.031 s | 1104 KB | 11308199 |
 | [1208_backtracking_bitmask_optimized.java](1208_backtracking_bitmask_optimized.java) | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.093 s | 456 KB | 11326964 |
 | [1208_backtracking_bitmask.java](1208_backtracking_bitmask.java) \* | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.125 s | 448 KB | 11308200 |
 | [1208_backtracking_bitmask.rs](1208_backtracking_bitmask.rs) | Rust 1.75 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 224 KB | 11308202 |
-| [1208_bitmask_dp.py](1208_bitmask_dp.py) \* | PyPy 3.10 x64 | bitmask, dp | O(K^2 + 2^(K/2)) time, O(2^(K/2)+K) memory | AC | 0.125 s | 296 KB | 11309782 |
+| [1208_bitmask_dp.py](1208_bitmask_dp.py) | PyPy 3.10 x64 | bitmask, dp | O(K^2 + 2^(K/2)) time, O(2^(K/2)+K) memory | AC | 0.125 s | 296 KB | 11309782 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
