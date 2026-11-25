@@ -42,10 +42,7 @@ def main():
         grid = [[str(1 + (r + c) % 2) for c in range(N)] for r in range(N)]
         finish = (N - 1, N - 2)
     elif mode == 9:
-        columns = [
-            rng.choice(("10", "01", "11", "12", "21", "22", "20", "02"))
-            for _ in range(N)
-        ]
+        columns = [rng.choice(("10", "01", "11", "12", "21", "22", "20", "02")) for _ in range(N)]
         grid = [[column[r] for column in columns] for r in range(2)]
         finish = (1, N - 1)
     elif mode == 6:
