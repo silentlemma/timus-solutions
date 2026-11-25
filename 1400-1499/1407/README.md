@@ -23,7 +23,7 @@ Such a number; any one is accepted.
 
 ## Checking
 
-Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+The checker accepts any number of 1 to 10000 digits, all 1 or 2, whose remainder modulo `2^N` is zero. Extra output is rejected.
 
 ## Examples
 

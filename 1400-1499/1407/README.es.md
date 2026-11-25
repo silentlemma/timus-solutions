@@ -23,7 +23,7 @@ Un número así; se acepta cualquiera.
 
 ## Evaluación
 
-Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+El verificador acepta cualquier número de 1 a 10000 dígitos, todos 1 o 2, divisible por `2^N`. Rechaza la salida adicional.
 
 ## Ejemplos
 

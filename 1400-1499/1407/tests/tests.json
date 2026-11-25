@@ -1,5 +1,5 @@
 {
-  "judging": "exact",
+  "judging": "checker",
   "reference": "1407_constructive.cpp",
   "cases": [
     { "name": "01", "example": true, "note": "example with 12 divisible by 4" },
