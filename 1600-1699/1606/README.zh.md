@@ -12,6 +12,8 @@
 路线是以旗为顶点的折线，始终向下，并且在碰到的每面旗处都必须改变左右方向；也可以直线经过旗而不碰它。
 要碰到尽可能多的旗，并按顺序输出它们。任何最优列表都可接受。
 
+所有坐标均为整数，且 `1 <= x_i, y_i <= 99999`。
+
 时间限制：1 秒。内存限制：64 MB。
 
 ## 输入
@@ -108,7 +110,7 @@ G++ 13.2 x64 №11322284 · Python 3.12 x64 №11321792 · Rust 1.75 x64 №1132
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1606_sorting_greedy.go](1606_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 1544 KB | 11317457 |
-| [1606_sorting_greedy.java](1606_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
+| [1606_sorting_greedy.java](1606_sorting_greedy.java) | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
 | [1606_sorting_greedy.cpp](1606_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 604 KB | 11321028 |
 | [1606_sorting_greedy.py](1606_sorting_greedy.py) | Python 3.12 x64 | sorting, greedy | O(n + H) | AC | 0.14 s | 2996 KB | 11322429 |
 | [1606_sorting_greedy.rs](1606_sorting_greedy.rs) | Rust 1.75 x64 | sorting, greedy | O(n + H) | AC | 0.046 s | 596 KB | 11322430 |

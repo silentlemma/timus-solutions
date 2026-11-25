@@ -16,6 +16,8 @@ banderín que toca; también se puede pasar por un banderín en línea
 recta sin tocarlo. Hay que tocar tantos banderines como sea posible e
 imprimirlos en orden. Vale cualquier lista óptima.
 
+Todas las coordenadas son enteras y cumplen `1 <= x_i, y_i <= 99999`.
+
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
@@ -125,7 +127,7 @@ G++ 13.2 x64 №11322284 · Python 3.12 x64 №11321792 · Rust 1.75 x64 №1132
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1606_sorting_greedy.go](1606_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 1544 KB | 11317457 |
-| [1606_sorting_greedy.java](1606_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
+| [1606_sorting_greedy.java](1606_sorting_greedy.java) | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
 | [1606_sorting_greedy.cpp](1606_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 604 KB | 11321028 |
 | [1606_sorting_greedy.py](1606_sorting_greedy.py) | Python 3.12 x64 | sorting, greedy | O(n + H) | AC | 0.14 s | 2996 KB | 11322429 |
 | [1606_sorting_greedy.rs](1606_sorting_greedy.rs) | Rust 1.75 x64 | sorting, greedy | O(n + H) | AC | 0.046 s | 596 KB | 11322430 |
