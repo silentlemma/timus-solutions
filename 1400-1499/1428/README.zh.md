@@ -64,6 +64,13 @@ Go 保持 X=2^((C−1)/A)、Y=2^((C−1)/B)、Z=2。指数在 0…31，uint64 �
 
 与 `1428_math.java` 相比：时间 0.156 s → 0.109 s；内存 1600 KB → 472 KB。
 
+
+`1428_math_parsing_optimized.rs`. 保留精确的二次幂构造，一次格式化三个整数。 使用匹配的 C 整数扫描及打印格式，刷新输出后才结束进程。MSVC 版本直接绑定旧 CRT 导出；Linux 和 Windows GNU 保留普通 C 库链接。
+
+此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+
+Accepted #11329514 (Rust 1.75 x64): **0.015 s / 84 KB**.
+
 ## 解答
 
 ### 简单版本
@@ -80,7 +87,8 @@ Go 保持 X=2^((C−1)/A)、Y=2^((C−1)/B)、Z=2。指数在 0…31，uint64 �
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
-| [1428_math_optimized.java](1428_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_optimized.go](1428_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+| [1428_math_optimized.java](1428_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 84 KB | 11329514 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

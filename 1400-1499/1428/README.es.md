@@ -67,6 +67,13 @@ Las implementaciones base aceptadas [1428_math.cpp](1428_math.cpp), [1428_math.j
 
 Frente a `1428_math.java`: tiempo 0.156 s → 0.109 s; memoria 1600 KB → 472 KB.
 
+
+`1428_math_parsing_optimized.rs`. Se conserva la construcción exacta con potencias de dos y se formatean juntos los tres enteros. Se usan formatos C correspondientes a los tipos enteros, se vacía la salida y se termina tras completar la respuesta. MSVC enlaza directamente las exportaciones de la CRT heredada; Linux y Windows GNU mantienen el enlace normal con la biblioteca C.
+
+Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
+
+Accepted #11329514 (Rust 1.75 x64): **0.015 s / 84 KB**.
+
 ## Soluciones
 
 ### Sencillas
@@ -83,7 +90,8 @@ Frente a `1428_math.java`: tiempo 0.156 s → 0.109 s; memoria 1600 KB → 472 K
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
-| [1428_math_optimized.java](1428_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_optimized.go](1428_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+| [1428_math_optimized.java](1428_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 84 KB | 11329514 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

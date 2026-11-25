@@ -67,6 +67,13 @@ The accepted base implementations [1428_math.cpp](1428_math.cpp), [1428_math.jav
 
 Compared with `1428_math.java`: time 0.156 s → 0.109 s; memory 1600 KB → 472 KB.
 
+
+`1428_math_parsing_optimized.rs`. Retain the exact power-of-two construction and format the three integers together. Use matching C integer scanning and printing, flush the output stream, and terminate only after the answer is complete. The MSVC build binds the legacy CRT exports directly; the Linux and Windows GNU builds retain their ordinary C-library linkage.
+
+This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
+
+Accepted #11329514 (Rust 1.75 x64): **0.015 s / 84 KB**.
+
 ## Solutions
 
 ### Simple
@@ -83,7 +90,8 @@ Compared with `1428_math.java`: time 0.156 s → 0.109 s; memory 1600 KB → 472
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
-| [1428_math_optimized.java](1428_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_optimized.go](1428_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+| [1428_math_optimized.java](1428_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
+| [1428_math_parsing_optimized.rs](1428_math_parsing_optimized.rs) | Rust 1.75 x64 | math, parsing | O(1) time and space | AC | 0.015 s | 84 KB | 11329514 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
