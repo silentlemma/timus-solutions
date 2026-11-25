@@ -3,6 +3,7 @@ whole field, mode 2 uses a square of the lattice around the first
 pumpkin (many pumpkins on each ray), mode 3 puts the first pumpkin in a
 corner of the field, mode 4 puts it in a corner of a lattice square."""
 
+from math import isqrt
 import random
 import sys
 
@@ -25,7 +26,7 @@ def main():
                 seen.add(p)
                 pts.append(p)
     else:
-        side = max(2, int(n**0.5))
+        side = max(2, isqrt(n - 1) + 1)
         lo = -(side // 2) if mode == 2 else -TOP
         grid = [(lo + i, lo + j) for i in range(side) for j in range(side)]
         first = (0, 0) if mode == 2 else (lo, lo)
