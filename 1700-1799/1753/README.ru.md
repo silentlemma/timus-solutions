@@ -103,8 +103,8 @@ Go и Rust переписывают ту же формулу оптимума ч
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
+| [1753_geometry_optimized.go](1753_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
 | [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
-| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
+| [1753_geometry_optimized.java](1753_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
 
 \* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

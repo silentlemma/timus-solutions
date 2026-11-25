@@ -93,8 +93,8 @@ Go 和 Rust 用比值 q = cbrt(H/(2h)) 改写同一最优公式。H ≤ 2h 时�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
+| [1753_geometry_optimized.go](1753_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
 | [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
-| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
+| [1753_geometry_optimized.java](1753_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
