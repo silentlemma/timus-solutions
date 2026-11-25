@@ -61,6 +61,10 @@ FRED+one
 1400
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [2100_parsing_optimized.rs](2100_parsing_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Начинаем с двух хозяев, прибавляем 2 за ответ, оканчивающийся на
@@ -112,6 +116,6 @@ Accepted #11329207 (Rust 1.75 x64): **0.015 s / 56 KB**. Архивное сра
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
 | [2100_implementation_optimized.go](2100_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
 | [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
-| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.015 s | 56 KB | 11329207 |
+| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.031 s | 48 KB | 11330238 |
 
 \* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

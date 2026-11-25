@@ -61,6 +61,10 @@ Output:
 1400
 ```
 
+## Acceptance update
+
+Refreshed files: [2100_parsing_optimized.rs](2100_parsing_optimized.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Start with the two hosts, add 2 for a reply ending in `+one` and 1
@@ -113,6 +117,6 @@ Accepted #11329207 (Rust 1.75 x64): **0.015 s / 56 KB**. Archived comparison: `2
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
 | [2100_implementation_optimized.go](2100_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
 | [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
-| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.015 s | 56 KB | 11329207 |
+| [2100_parsing_optimized.rs](2100_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n) | AC | 0.031 s | 48 KB | 11330238 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
