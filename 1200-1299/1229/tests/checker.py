@@ -23,11 +23,17 @@ def main():
     inp, _, output = sys.argv[1:4]
     data = open(inp).read().split()
     n, m = int(data[0]), int(data[1])
-    first = [data[2 + i * m : 2 + (i + 1) * m] for i in range(n)]
+    first = [list(map(int, data[2 + i * m : 2 + (i + 1) * m])) for i in range(n)]
     tokens = open(output).read().split()
     if len(tokens) != n * m:
         fail("expected %d numbers, got %d" % (n * m, len(tokens)))
-    second = [tokens[i * m : (i + 1) * m] for i in range(n)]
+    try:
+        labels = [int(token) for token in tokens]
+    except ValueError:
+        fail("brick labels must be integers")
+    if any(not 1 <= label <= n * m // 2 for label in labels):
+        fail("brick labels must be between 1 and the number of bricks")
+    second = [labels[i * m : (i + 1) * m] for i in range(n)]
     lower = {tuple(sorted(c)) for c in bricks(first).values()}
     for label, cells in bricks(second).items():
         if len(cells) != 2:
