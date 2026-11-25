@@ -84,6 +84,10 @@ Output:
 IMPOSSIBLE
 ```
 
+## Acceptance update
+
+Refreshed files: [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+
 ## Solution
 
 Go along the required order and give each problem the least of its
@@ -181,4 +185,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1711_greedy_optimized.py](1711_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
 | [1711_greedy_optimized.java](1711_greedy_optimized.java) | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
 | [1711_greedy_optimized.go](1711_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 976 KB | 11328588 |
-| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 60 KB | 11329353 |
+| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 56 KB | 11330236 |

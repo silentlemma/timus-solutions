@@ -84,6 +84,10 @@ ordered not randomly
 IMPOSSIBLE
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Идём по требуемому порядку и даём каждой задаче наименьшее из её имён,
@@ -181,4 +185,4 @@ Accepted #11329353 (Rust 1.75 x64): **0.015 s / 60 KB**.
 | [1711_greedy_optimized.py](1711_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
 | [1711_greedy_optimized.java](1711_greedy_optimized.java) | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
 | [1711_greedy_optimized.go](1711_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 976 KB | 11328588 |
-| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 60 KB | 11329353 |
+| [1711_greedy_parsing_optimized.rs](1711_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) | AC | 0.015 s | 56 KB | 11330236 |
