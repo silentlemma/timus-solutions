@@ -101,8 +101,8 @@ Las implementaciones base aceptadas [1828_math.py](1828_math.py) también cubren
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1828_math_optimized.cpp](1828_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 68 KB | 11315311 |
-| [1828_math_optimized.go](1828_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 332 KB | 11315314 |
-| [1828_math_optimized.java](1828_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB | 11315307 |
+| [1828_math_optimized.go](1828_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 332 KB | 11315314 |
+| [1828_math_optimized.java](1828_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB | 11315307 |
 | [1828_math_optimized.rs](1828_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 44 KB | 11315315 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

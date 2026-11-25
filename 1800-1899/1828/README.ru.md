@@ -99,8 +99,8 @@ d = (n·Σxa − Σx·Σa) / (n·Σx² − (Σx)²),  b = (Σa − d·Σx) / n.
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1828_math_optimized.cpp](1828_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 68 KB | 11315311 |
-| [1828_math_optimized.go](1828_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 332 KB | 11315314 |
-| [1828_math_optimized.java](1828_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB | 11315307 |
+| [1828_math_optimized.go](1828_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 332 KB | 11315314 |
+| [1828_math_optimized.java](1828_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB | 11315307 |
 | [1828_math_optimized.rs](1828_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 44 KB | 11315315 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
