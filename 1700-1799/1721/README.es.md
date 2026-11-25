@@ -118,6 +118,6 @@ G++ 13.2 x64 №11321920 · Go 1.14 x64 №11322071 · Java 1.8 №11321740 · P
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1721_flow.go](1721_flow.go) \* | Go 1.14 x64 | flow | O(V^2 E + n) | AC | 0.031 s | 1512 KB | 11317338 |
 | [1721_flow.py](1721_flow.py) | Python 3.12 x64 | flow | O(V^2 E + n) | AC | 0.109 s | 1668 KB | 11317340 |
-| [1721_flow.rs](1721_flow.rs) \* | Rust 1.75 x64 | flow | O(V^2 E + n) | AC | 0.015 s | 584 KB | 11317341 |
+| [1721_flow.rs](1721_flow.rs) | Rust 1.75 x64 | flow | O(V^2 E + n) | AC | 0.015 s | 584 KB | 11317341 |
 
 \* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente.

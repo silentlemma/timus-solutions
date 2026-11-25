@@ -18,7 +18,7 @@ def check(source, expected, output):
     people = {}
     for i in range(n):
         k = 1 + FIELDS * i
-        name, kind, rank = words[k:k + FIELDS]
+        name, kind, rank = words[k : k + FIELDS]
         people[name] = (kind, int(rank))
     best = int(open(expected).read().split()[0])
     got = open(output).read().split()
