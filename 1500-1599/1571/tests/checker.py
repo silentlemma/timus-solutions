@@ -34,7 +34,7 @@ def main():
         parts = pair.split("-")
         if (
             len(parts) != 2
-            or not all(p.isalpha() and p.islower() and len(p) <= LONGEST for p in parts)
+            or not all(1 <= len(p) <= LONGEST and all("a" <= ch <= "z" for ch in p) for p in parts)
             or parts[0] == parts[1]
         ):
             fail("%s is not two different languages" % pair)

@@ -23,7 +23,7 @@ def main():
         langs.add("english")
     while len(langs) < n:
         langs.add(language(rng))
-    langs = list(langs)
+    langs = sorted(langs)
     if mode == 3:
         langs[rng.randrange(n)] = langs[rng.randrange(n)]
     rng.shuffle(langs)
