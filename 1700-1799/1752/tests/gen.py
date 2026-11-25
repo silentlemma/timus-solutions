@@ -37,8 +37,9 @@ def tree(rng, n, mode):
         parent = [0, 0] + [v - 1 for v in range(2, n + 1)]
     elif mode == 4:
         handle = n // 2
-        parent = [0, 0] + [v - 1 if v <= handle else rng.randint(1, handle)
-                           for v in range(2, n + 1)]
+        parent = [0, 0] + [
+            v - 1 if v <= handle else rng.randint(1, handle) for v in range(2, n + 1)
+        ]
     elif mode == 5:
         parent = [0, 0] + [1] * (n - 1)
     else:
@@ -61,8 +62,10 @@ def main():
     else:
         # most distances are up to one past the diameter, the rest up to n
         top = diameter(n, edges) + 1
-        queries = [(rng.randint(1, n), rng.randint(0, top if rng.random() < SHORT else n))
-                   for _ in range(QUERIES)]
+        queries = [
+            (rng.randint(1, n), rng.randint(0, top if rng.random() < SHORT else n))
+            for _ in range(QUERIES)
+        ]
     lines = ["%d %d" % (n, len(queries))]
     lines += ["%d %d" % e for e in edges]
     lines += ["%d %d" % e for e in queries]
