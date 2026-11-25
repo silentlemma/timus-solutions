@@ -7,8 +7,8 @@ and 6 accept an optional third argument N (default 10^5; N >= 3)."""
 import random
 import sys
 
-MAX_N = 10 ** 5
-LIMIT = 10 ** 9
+MAX_N = 10**5
+LIMIT = 10**9
 SMALL_N = 7
 SMALL_V = 5
 
