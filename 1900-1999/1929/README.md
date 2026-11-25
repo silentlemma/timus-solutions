@@ -101,8 +101,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
+| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
 | [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
-| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
+| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

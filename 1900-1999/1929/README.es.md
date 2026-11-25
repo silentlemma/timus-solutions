@@ -102,8 +102,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
+| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
 | [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
-| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
+| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
