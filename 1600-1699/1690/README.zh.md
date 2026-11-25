@@ -97,6 +97,6 @@ G++ 13.2 x64 №11317205 · Java 1.8 №11317207 · Rust 1.75 x64 №11317211.
 | [1690_constructive_optimized.py](1690_constructive_optimized.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 952 KB | 11317060 |
 | [1690_constructive_optimized.go](1690_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 948 KB | 11317064 |
 | [1690_constructive_optimized.rs](1690_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 248 KB | 11317069 |
-| [1690_constructive_optimized.java](1690_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.125 s | 744 KB | 11317072 |
+| [1690_constructive_optimized.java](1690_constructive_optimized.java) | Java 1.8 | constructive | O(n) | AC | 0.125 s | 744 KB | 11317072 |
 
 \* 已通过评测，尚未达到 Go 排名目标。 已通过评测，尚未达到 Java 排名目标。
