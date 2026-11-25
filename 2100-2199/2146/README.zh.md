@@ -107,9 +107,9 @@ G++ 13.2 x64 №11318161 · Java 1.8 №11318171.
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [2146_strings_optimized.cpp](2146_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.031 s | 264 KB | 11317091 |
-| [2146_strings_optimized.go](2146_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
+| [2146_strings_optimized.go](2146_strings_optimized.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
 | [2146_strings_optimized.java](2146_strings_optimized.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.109 s | 680 KB | 11317242 |
-| [2146_strings_optimized.py](2146_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
+| [2146_strings_optimized.py](2146_strings_optimized.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
 | [2146_strings_optimized.rs](2146_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.031 s | 368 KB | 11317237 |
 
 \* 排名快照中没有使用同一编译器的其他作者的 Go 或 Rust 提交。Python 的用时排名第二，内存排名第一，满足内存优化标准。

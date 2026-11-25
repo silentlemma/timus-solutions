@@ -6,7 +6,7 @@ divisors) with some letters spoiled, mode 4 10^5 equal letters, mode 5
 import random
 import sys
 
-MAX_N = 10 ** 5
+MAX_N = 10**5
 RICH_N = 83160
 SMALL_N = 6
 FEW = "abc"
@@ -26,7 +26,7 @@ def main():
     elif mode == 3:
         n = RICH_N
         divisors = [d for d in range(1, n + 1) if n % d == 0]
-        d = rng.choice(divisors[:len(divisors) // 2])
+        d = rng.choice(divisors[: len(divisors) // 2])
         block = [rng.choice(ALPHABET) for _ in range(d)]
         s = block * (n // d)
         for i in rng.sample(range(n), SPOILED):

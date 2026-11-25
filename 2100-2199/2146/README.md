@@ -123,9 +123,9 @@ G++ 13.2 x64 №11318161 · Java 1.8 №11318171.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [2146_strings_optimized.cpp](2146_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.031 s | 264 KB | 11317091 |
-| [2146_strings_optimized.go](2146_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
+| [2146_strings_optimized.go](2146_strings_optimized.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
 | [2146_strings_optimized.java](2146_strings_optimized.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.109 s | 680 KB | 11317242 |
-| [2146_strings_optimized.py](2146_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
+| [2146_strings_optimized.py](2146_strings_optimized.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
 | [2146_strings_optimized.rs](2146_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.031 s | 368 KB | 11317237 |
 
 \* The saved comparison has no Go or Rust submissions from other authors with the same compiler. Python ranks second by time and first by memory and meets the memory improvement criterion.
