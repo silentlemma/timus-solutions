@@ -1,3 +1,5 @@
+import sys
+
 import math
 
 KM = 1000  # input distances are in thousands of kilometres
@@ -7,7 +9,7 @@ ROUNDING_SCALE_SQUARED = 4  # square of the half-unit comparison scale
 def main():
     # a = AD, b = AC, c = BD, d = BC; A and B see the chord CD at the same
     # inscribed angle t, so CD^2 = a^2 + b^2 - 2ab cos t = c^2 + d^2 - 2cd cos t
-    a, b, c, d = map(int, input().split())
+    a, b, c, d = map(int, sys.stdin.buffer.read().split())
     den = a * b - c * d
     diff = a * a + b * b - c * c - d * d
     if den == 0 or abs(diff) >= 2 * abs(den) or b * c <= a * d:

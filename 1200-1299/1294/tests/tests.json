@@ -13,6 +13,7 @@
     { "name": "gen3", "generator": "3 2", "note": "a valid orbit with AC as the longest known chord" },
     { "name": "gen4", "generator": "4 3", "note": "inconsistent triangle equations despite matching distance products" },
     { "name": "gen5", "generator": "5 2", "note": "a short BC chord paired with a much longer BD diagonal" },
-    { "name": "07", "note": "zero chord forced by degenerate triangles cannot form an orbit" }
+    { "name": "07", "note": "zero chord forced by degenerate triangles cannot form an orbit" },
+    { "name": "whitespace", "note": "four distances split across two lines" }
   ]
 }
