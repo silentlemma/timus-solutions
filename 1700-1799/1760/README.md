@@ -116,6 +116,6 @@ Rust counts pairs using recursive sums of floor values, their squares, and their
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1760_math_optimized.java](1760_math_optimized.java) | Java 1.8 | math | O(sqrt(n)) | AC | 0.109 s | 404 KB | 11318053 |
 | [1760_math_optimized.go](1760_math_optimized.go) \* | Go 1.14 x64 | math | O(sqrt(n)) | AC | 0.015 s | 288 KB | 11321947 |
-| [1760_number_theory_math.rs](1760_number_theory_math.rs) \* | Rust 1.75 x64 | number_theory, math | O(log n) | AC | 0.046 s | 60 KB | 11323414 |
+| [1760_number_theory_math.rs](1760_number_theory_math.rs) | Rust 1.75 x64 | number_theory, math | O(log n) | AC | 0.046 s | 60 KB | 11323414 |
 
 \* The marked versions have room to improve in the ratings.
