@@ -137,7 +137,7 @@ G++ 13.2 x64 №11322309 · Go 1.14 x64 №11322310 · Java 1.8 №11322311 · P
 | [1440_math.cpp](1440_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 120 KB | 11317373 |
 | [1440_math.rs](1440_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11317560 |
 | [1440_math.go](1440_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 276 KB | 11322935 |
-| [1440_math.java](1440_math.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 512 KB | 11317578 |
-| [1440_math.py](1440_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 548 KB | 11321075 |
+| [1440_math.java](1440_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 512 KB | 11317578 |
+| [1440_math.py](1440_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 548 KB | 11321075 |
 
 \* Отмеченные решения пока не достигли целевого рейтинга.
