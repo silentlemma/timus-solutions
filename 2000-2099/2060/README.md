@@ -150,7 +150,7 @@ G++ 13.2 x64 №11321876 · Go 1.14 x64 №11322094 · Java 1.8 №11318388 · R
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [2060_strings_optimized.go](2060_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 5284 KB | 11318179 |
-| [2060_strings_optimized.py](2060_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(n) | AC | 0.218 s | 7120 KB | 11318375 |
+| [2060_strings_optimized.py](2060_strings_optimized.py) | PyPy 3.10 x64 | strings | O(n) | AC | 0.218 s | 7120 KB | 11318375 |
 | [2060_strings_optimized.java](2060_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 6404 KB | 11318382 |
 | [2060_strings_optimized.rs](2060_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 2832 KB | 11322337 |
 
