@@ -98,7 +98,7 @@ points), as a spare it adds nothing if that frame starts with 0, hence
 
 `2078_dp_simulation.py`. Keep the chronological bowling DP over the four possible pending bonus states (0,0),(1,0),(1,1),(2,1). Unroll minimum/maximum transitions into eight scalar variables, removing per-frame lists and the four-state loop. Last-frame rack-reset rules and extrema remain exact; unreachable sentinels ±10000 stay outside all legal 0..300 scores. O(F) time, constant score state plus O(F) input totals. The selected CPython run is faster but uses more memory than the historical PyPy run; these runtime/metric pairs are not mixed. Preserve the readable backward DP.
 
-Exact-source Python 3.12 x64 Accepted #11327850: 0.078 s / 796 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/227; 174/227. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11309738 (PyPy 3.10 x64): 0.14 s / 276 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+Exact-source Python 3.12 x64 Accepted #11327850: 0.078 s / 796 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/227; 174/227. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. The preserved previous variant has its own paired receipt #11309738 (PyPy 3.10 x64): 0.14 s / 276 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
 
 - `2078_dp_simulation.py`: 0.078 s / 796 KB; retained teaching base `2078_dp.py`: 0.093 s / 708 KB.
 
@@ -107,13 +107,13 @@ Keep the readable backward DP. The chronological dp_simulation variants track pe
 - `2078_dp_simulation.go`: 0.031 s / 312 KB; base `2078_dp.go`: 0.031 s / 1144 KB; relative change: time -0.0%, memory -72.7%.
 - `2078_dp_simulation.java`: 0.109 s / 416 KB; base `2078_dp.java`: 0.125 s / 1660 KB; relative change: time -12.8%, memory -74.9%.
 
-- `2078_dp_simulation.rs`: 0.031 s / 68 KB; base `2078_dp.rs`: 0.031 s / 224 KB; relative change: time -0.0%, memory -69.6%.
+- `2078_dp_simulation.rs`: 0.015 s / 60 KB; base `2078_dp.rs`: 0.031 s / 224 KB; relative change: time -51.6%, memory -73.2%.
+
+Rust 1.75 x64 Accepted #11329569 for the unchanged four-state source: **0.015 s / 60 KB**. Both measurements come from this one run. Against the one eligible same-compiler rival (#10818310, 0.015 s), the time limit is 0.031 s, allowing one displayed timer tick instead of the smaller 15% margin, so this source meets the shared [rating criteria](../../RATING_CRITERIA.md). Memory is excluded below 1024 KB. The five repeats ranged from 0.015 to 0.062 s; this does not establish a new algorithmic speedup. The simple Rust source is preserved.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
-
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+The shared [rating criteria](../../RATING_CRITERIA.md) apply to every language. Below 1024 KB only time is compared; small exact-compiler cohorts use the prescribed reference and 15% allowance. Rust was re-evaluated on 2026-11-24; the other cohort notes below are retained historical snapshots.
 
 - C++: preferred teaching base `2078_dp.cpp`; covering source `2078_dp.cpp`; time/memory places 1/1, other-author entries 42/42.
 
@@ -123,7 +123,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 - Python/PyPy: preferred teaching base `2078_dp.py`; covering source `2078_dp_simulation.py`; time/memory places 153/2, other-author entries 158/158.
 
-- Rust: preferred teaching base `2078_dp.rs`; covering source `2078_dp_simulation.rs`; time/memory places 2/1, other-author entries 1/1.
+- Rust: preferred teaching base `2078_dp.rs`; covering source `2078_dp_simulation.rs`; time/memory places 1/1, other-author entries 1/1.
 
 ## Solutions
 
@@ -143,7 +143,5 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [2078_dp_simulation.go](2078_dp_simulation.go) | Go 1.14 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 312 KB | 11309759 |
 | [2078_dp_simulation.java](2078_dp_simulation.java) | Java 1.8 | dp, simulation | O(F) time; O(1) score state | AC | 0.109 s | 416 KB | 11309301 |
-| [2078_dp_simulation.py](2078_dp_simulation.py) \* | Python 3.12 x64 | dp, simulation | O(F) time; O(1) score state plus O(F) input | AC | 0.078 s | 796 KB | 11327850 |
-| [2078_dp_simulation.rs](2078_dp_simulation.rs) \* | Rust 1.75 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 68 KB | 11309708 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2078_dp_simulation.py](2078_dp_simulation.py) | Python 3.12 x64 | dp, simulation | O(F) time; O(1) score state plus O(F) input | AC | 0.078 s | 796 KB | 11327850 |
+| [2078_dp_simulation.rs](2078_dp_simulation.rs) | Rust 1.75 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.015 s | 60 KB | 11329569 |
