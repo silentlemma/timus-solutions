@@ -97,6 +97,6 @@ Go、Rust 每个邻接集合只用一个 64 位字，因为 p≤50。BFS 按整�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1888_bfs_bitmask.go](1888_bfs_bitmask.go) \* | Go 1.14 x64 | bfs, bitmask | O(n + p²) | AC | 0.031 s | 312 KB | 11315257 |
-| [1888_bfs_bitmask.rs](1888_bfs_bitmask.rs) \* | Rust 1.75 x64 | bfs, bitmask | O(n + p²) | AC | 0.015 s | 68 KB | 11315673 |
+| [1888_bfs_bitmask.rs](1888_bfs_bitmask.rs) | Rust 1.75 x64 | bfs, bitmask | O(n + p²) | AC | 0.015 s | 68 KB | 11315673 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

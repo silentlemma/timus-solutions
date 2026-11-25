@@ -118,6 +118,6 @@ Las implementaciones base aceptadas [1888_bfs.cpp](1888_bfs.cpp), [1888_bfs.java
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1888_bfs_bitmask.go](1888_bfs_bitmask.go) \* | Go 1.14 x64 | bfs, bitmask | O(n + p²) | AC | 0.031 s | 312 KB | 11315257 |
-| [1888_bfs_bitmask.rs](1888_bfs_bitmask.rs) \* | Rust 1.75 x64 | bfs, bitmask | O(n + p²) | AC | 0.015 s | 68 KB | 11315673 |
+| [1888_bfs_bitmask.rs](1888_bfs_bitmask.rs) | Rust 1.75 x64 | bfs, bitmask | O(n + p²) | AC | 0.015 s | 68 KB | 11315673 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
