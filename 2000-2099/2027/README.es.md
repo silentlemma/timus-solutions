@@ -190,8 +190,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
-| [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
+| [2027_simulation_optimized.go](2027_simulation_optimized.go) | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
 | [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
-| [2027_simulation_optimized.java](2027_simulation_optimized.java) \* | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
+| [2027_simulation_optimized.java](2027_simulation_optimized.java) | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

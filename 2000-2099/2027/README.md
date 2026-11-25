@@ -192,8 +192,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
-| [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
+| [2027_simulation_optimized.go](2027_simulation_optimized.go) | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
 | [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
-| [2027_simulation_optimized.java](2027_simulation_optimized.java) \* | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
+| [2027_simulation_optimized.java](2027_simulation_optimized.java) | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

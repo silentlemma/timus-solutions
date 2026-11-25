@@ -157,8 +157,8 @@ C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
-| [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
+| [2027_simulation_optimized.go](2027_simulation_optimized.go) | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
 | [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
-| [2027_simulation_optimized.java](2027_simulation_optimized.java) \* | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
+| [2027_simulation_optimized.java](2027_simulation_optimized.java) | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
