@@ -16,6 +16,9 @@ secuencia entre paréntesis. Para un lado izquierdo y hasta 10 lados
 derechos de a lo sumo 100 caracteres, hay que decir si cada elemento
 químico aparece el mismo número total de veces en ambos lados.
 
+Los multiplicadores explícitos son enteros de al menos 2; si se omiten, valen 1.
+En cada fórmula completa, el número total de átomos de cualquier elemento individual no supera 10000.
+
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
@@ -122,7 +125,7 @@ Rust recorre la fórmula de derecha a izquierda para conocer el multiplicador de
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1186_strings_optimized.java](1186_strings_optimized.java) | Java 1.8 | strings | O(L) per formula | AC | 0.093 s | 420 KB | 11317912 |
-| [1186_strings_optimized.py](1186_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
+| [1186_strings_optimized.py](1186_strings_optimized.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
 | [1186_strings_optimized.rs](1186_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.015 s | 52 KB | 11323410 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.

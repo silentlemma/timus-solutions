@@ -16,6 +16,9 @@ brackets. For a left side and up to 10 right sides of at most 100
 characters each, say whether every chemical element occurs the same total
 number of times on both sides.
 
+Explicit multipliers are integers at least 2; an omitted multiplier is 1.
+In each complete formula, the total count of any individual element is at most 10000.
+
 Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
@@ -122,7 +125,7 @@ Rust scans each formula backward so the multiplier of a group is known before it
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1186_strings_optimized.java](1186_strings_optimized.java) | Java 1.8 | strings | O(L) per formula | AC | 0.093 s | 420 KB | 11317912 |
-| [1186_strings_optimized.py](1186_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
+| [1186_strings_optimized.py](1186_strings_optimized.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
 | [1186_strings_optimized.rs](1186_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.015 s | 52 KB | 11323410 |
 
 \* The marked versions have room to improve in the ratings.

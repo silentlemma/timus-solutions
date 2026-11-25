@@ -13,6 +13,9 @@
 或者用圆括号括起来的序列。给定一个左边和至多 10 个右边（每个至多 100 个字符），
 判断每种化学元素在两边出现的总次数是否都相同。
 
+显式倍数是至少为 2 的整数；省略的倍数为 1。
+每个完整化学式中，任一种元素的原子总数不超过 10000。
+
 时间限制：1 秒。内存限制：64 MB。
 
 ## 输入
@@ -112,7 +115,7 @@ Rust 从右向左扫描公式，在统计组内原子前先读到组的倍数。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1186_strings_optimized.java](1186_strings_optimized.java) | Java 1.8 | strings | O(L) per formula | AC | 0.093 s | 420 KB | 11317912 |
-| [1186_strings_optimized.py](1186_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
+| [1186_strings_optimized.py](1186_strings_optimized.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
 | [1186_strings_optimized.rs](1186_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.015 s | 52 KB | 11323410 |
 
 \* 带星号的版本仍有提升排名的空间。
