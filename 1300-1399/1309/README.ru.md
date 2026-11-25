@@ -109,8 +109,8 @@ Python возводит аффинное преобразование полно
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1309_math_optimized.rs](1309_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.015 s | 204 KB | 11317191 |
+| [1309_math_optimized.rs](1309_math_optimized.rs) | Rust 1.75 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.015 s | 204 KB | 11317191 |
 | [1309_math_optimized.go](1309_math_optimized.go) \* | Go 1.14 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.031 s | 312 KB | 11322858 |
-| [1309_math_optimized.py](1309_math_optimized.py) \* | Python 3.12 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.093 s | 396 KB | 11322405 |
+| [1309_math_optimized.py](1309_math_optimized.py) | Python 3.12 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.093 s | 396 KB | 11322405 |
 
 \* Отмеченные решения пока не достигли целевого рейтинга.
