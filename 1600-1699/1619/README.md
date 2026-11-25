@@ -97,7 +97,7 @@ G++ 13.2 x64 №11321893 · Rust 1.75 x64 №11321911 · Go 1.14 x64 №11322083
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1619_math_optimized.go](1619_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 328 KB | 11321910 |
-| [1619_math_optimized.java](1619_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.062 s | 500 KB | 11317935 |
-| [1619_math_optimized.py](1619_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 372 KB | 11317944 |
+| [1619_math_optimized.java](1619_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.062 s | 500 KB | 11317935 |
+| [1619_math_optimized.py](1619_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 372 KB | 11317944 |
 
 \* The marked solutions can improve their target rankings.
