@@ -2,7 +2,7 @@
   "judging": "checker",
   "reference": "1517_suffix_structures.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "a shared phrase lies inside both speeches with different surrounding text" },
+    { "name": "01", "example": true, "note": "a unique three-letter shared substring inside two otherwise disjoint strings" },
     { "name": "02", "note": "one equal letter" },
     { "name": "03", "note": "nothing in common: an empty speech" },
     { "name": "04", "note": "one speech reversed: only single letters match" },

@@ -29,15 +29,15 @@ Se acepta cualquier respuesta óptima. Se verifica que aparezca en ambas cadenas
 Entrada:
 
 ```
-28
-VOTEFORTHEGREATALBANIAFORYOU
-CHOOSETHEGREATALBANIANFUTURE
+12
+ABCDXYZEFGHI
+JKLXYZMNOPQR
 ```
 
 Salida:
 
 ```
-THEGREATALBANIA
+XYZ
 ```
 
 ## Solución

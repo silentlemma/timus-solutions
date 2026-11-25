@@ -29,15 +29,15 @@ Any longest common substring is accepted. The checker verifies that the output o
 Input:
 
 ```
-28
-VOTEFORTHEGREATALBANIAFORYOU
-CHOOSETHEGREATALBANIANFUTURE
+12
+ABCDXYZEFGHI
+JKLXYZMNOPQR
 ```
 
 Output:
 
 ```
-THEGREATALBANIA
+XYZ
 ```
 
 ## Solution
