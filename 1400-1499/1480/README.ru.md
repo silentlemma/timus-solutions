@@ -42,6 +42,10 @@ N.
 3 2
 ```
 
+## Обновление принятых посылок
+
+Обновлённые файлы: [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs). Новые Accepted точных исходников приведены в таблицах решений. Прежние сравнительные измерения и места для этих файлов относятся к предыдущим версиям исходников и сохранены как исторические данные. Сохранённый аудит подтверждает проходящие реализации по всем доступным языкам. Учебные версии сохраняются ради простоты; если один исходник также закрывает быструю версию, он должен выполнять критерий производительности.
+
 ## Решение
 
 Пусть V=N², t=⌊N/2⌋. Раскрасим таблицу шахматно. В порядке чтения
@@ -158,6 +162,6 @@ Accepted #11329180 (Rust 1.75 x64): **0.015 s / 84 KB**. Архивное сра
 |---|---|---|---|---|---|---|---|
 | [1480_constructive_optimized.cpp](1480_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 100 KB | 11315374 |
 | [1480_constructive_optimized.go](1480_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N²) | AC | 0.015 s | 276 KB | 11315828 |
-| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 84 KB | 11329180 |
+| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.031 s | 72 KB | 11330233 |
 
 \* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

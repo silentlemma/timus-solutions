@@ -39,6 +39,10 @@ N。
 3 2
 ```
 
+## 已接受提交更新
+
+更新的文件：[1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs)。解答表列出了与当前源文件完全对应的新 Accepted 结果。这些文件此前的比较测量和排名属于旧源文件版本，作为历史数据保留。缓存审计确认该题所有可用语言均有达标实现。保留教学版本以保持清晰；若同一源文件同时承担快速版本的角色，它也必须满足性能标准。
+
 ## 解法
 
 设 V=N²，t=⌊N/2⌋。将表格按棋盘染色，按阅读顺序在偶色格填入
@@ -132,6 +136,6 @@ Accepted #11329180 (Rust 1.75 x64): **0.015 s / 84 KB**. 历史对照: `1480_con
 |---|---|---|---|---|---|---|---|
 | [1480_constructive_optimized.cpp](1480_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 100 KB | 11315374 |
 | [1480_constructive_optimized.go](1480_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N²) | AC | 0.015 s | 276 KB | 11315828 |
-| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 84 KB | 11329180 |
+| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.031 s | 72 KB | 11330233 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
