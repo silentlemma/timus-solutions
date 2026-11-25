@@ -88,6 +88,6 @@ i + K не умещаются в одно окно, так что размер �
 |---|---|---|---|---|---|---|---|
 | [1579_greedy_optimized.cpp](1579_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 512 KB | 11315408 |
 | [1579_greedy_optimized.go](1579_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.015 s | 1232 KB | 11315410 |
-| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
+| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

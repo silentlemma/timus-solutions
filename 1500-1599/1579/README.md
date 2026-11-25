@@ -89,6 +89,6 @@ The accepted base implementations [1579_greedy.java](1579_greedy.java), [1579_gr
 |---|---|---|---|---|---|---|---|
 | [1579_greedy_optimized.cpp](1579_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 512 KB | 11315408 |
 | [1579_greedy_optimized.go](1579_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.015 s | 1232 KB | 11315410 |
-| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
+| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
