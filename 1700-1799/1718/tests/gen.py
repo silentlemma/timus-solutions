@@ -40,7 +40,7 @@ def main():
         while len(names) < AUTHORS:
             names.add("".join(rng.choice(NAME_CHARS) for _ in range(rng.randint(1, LONGEST))))
         # no two names may differ only in case
-        names = list({w.lower(): w for w in names}.values())
+        names = list({w.lower(): w for w in sorted(names)}.values())
     print(n)
     for _ in range(n):
         print(rng.choice(names), verdict(rng))
