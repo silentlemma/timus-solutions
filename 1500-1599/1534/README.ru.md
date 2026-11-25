@@ -143,9 +143,9 @@ Go читает три целых числа в фиксированный бу�
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [1534_math_optimized.java](1534_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
-| [1534_math_optimized.rs](1534_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
-| [1534_math_optimized.py](1534_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
+| [1534_math_optimized.java](1534_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
+| [1534_math_optimized.rs](1534_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
+| [1534_math_optimized.py](1534_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
 | [1534_math_optimized.go](1534_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 796 KB | 11322414 |
 
 \* У отмеченных версий есть запас для улучшения рейтинга.

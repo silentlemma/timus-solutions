@@ -133,9 +133,9 @@ Go 将三个整数读入固定缓冲区，再一次写出两个积分总数。 G
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1534_math_optimized.java](1534_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
-| [1534_math_optimized.rs](1534_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
-| [1534_math_optimized.py](1534_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
+| [1534_math_optimized.java](1534_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
+| [1534_math_optimized.rs](1534_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
+| [1534_math_optimized.py](1534_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
 | [1534_math_optimized.go](1534_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 796 KB | 11322414 |
 
 \* 带星号的版本仍有提升排名的空间。

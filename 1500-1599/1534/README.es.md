@@ -145,9 +145,9 @@ Go lee los tres enteros en un búfer fijo y escribe ambos totales en una sola ll
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1534_math_optimized.java](1534_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
-| [1534_math_optimized.rs](1534_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
-| [1534_math_optimized.py](1534_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
+| [1534_math_optimized.java](1534_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
+| [1534_math_optimized.rs](1534_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
+| [1534_math_optimized.py](1534_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
 | [1534_math_optimized.go](1534_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 796 KB | 11322414 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.
