@@ -82,7 +82,7 @@ i ≤ K. Модуля нет, поэтому числа длинные; в Pytho
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1513_dp_optimized.go](1513_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 5652 KB | 11310357 |
+| [1513_dp_optimized.go](1513_dp_optimized.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 5652 KB | 11310357 |
 | [1513_dp_optimized.rs](1513_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 2564 KB | 11310364 |
 | [1513_dp_optimized.java](1513_dp_optimized.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 7 080 KB | 11324211 |
 
