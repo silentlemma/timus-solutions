@@ -94,7 +94,7 @@ n (1 ≤ n ≤ 100), затем n строк по три даты `dd.mm.yyyy` �
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1759_implementation_optimized.go](1759_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
+| [1759_implementation_optimized.go](1759_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
 | [1759_implementation_optimized.rs](1759_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 52 KB | 11315247 |
 
 \* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

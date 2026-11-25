@@ -79,7 +79,7 @@ Go/Rust 直接读取日期三个数字部分，避免拆分字符串和逐日期
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1759_implementation_optimized.go](1759_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
+| [1759_implementation_optimized.go](1759_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
 | [1759_implementation_optimized.rs](1759_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 52 KB | 11315247 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -94,7 +94,7 @@ The accepted base implementations [1759_implementation.cpp](1759_implementation.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1759_implementation_optimized.go](1759_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
+| [1759_implementation_optimized.go](1759_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
 | [1759_implementation_optimized.rs](1759_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 52 KB | 11315247 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
