@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         int n = new Scanner(System.in).nextInt();
-        // threes are best: a 4 or more splits into parts with a larger product, and
+        // a part above 4 improves when split into 2 and the rest; 4 only ties
         // three 2s lose to two 3s; a leftover 1 joins a 3 to make 2 + 2
         if (n < FOUR) {
             System.out.println(n);

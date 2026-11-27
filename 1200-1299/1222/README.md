@@ -34,13 +34,13 @@ Repository tests compare the complete output text, ignoring only trailing whites
 Input:
 
 ```
-5
+7
 ```
 
 Output:
 
 ```
-6
+12
 ```
 
 ## Solution
@@ -54,6 +54,8 @@ two 3s (`8 < 9`), so there are at most two 2s. That leaves: all 3s when
 4) instead of a 3 when the remainder is 1. For `N` up to 3 the eagle
 alone is best. The product has up to 478 digits. `O(N²)` digit
 operations for the repeated multiplication by 3.
+
+The result has O(N) digits/bits. Growing decimal vectors, big-integer values and decimal output require O(N) live value/output space plus library arithmetic workspace; the optimized C++ source instead reserves a fixed 1000-entry digit array. Repeated small multiplication has a conservative O(N²) digit-work bound. Library exponentiation uses larger multiplications; the common bound is not a claim that built-in power repeats N multiplications.
 
 Pitfalls:
 
@@ -69,7 +71,7 @@ test.
 
 `1222_math_optimized.java`. Keep the optimal split into threes, replacing a remainder one by a factor four; handle N<4 separately. Compute the same product in base-10^9 limbs with online multipliers up to 3^18, without BigInteger or precomputed answers. Each long intermediate is below 10^9*3^18<2^63. Decimal output pads lower limbs to nine digits. Conservative O(N²) arithmetic work and O(N) storage; the simple mathematical version remains.
 
-Exact-source Java 1.8 Accepted #11327402: 0.093 s / 348 KB. Saved 2026-11-20 compiler-cohort comparison: time 12/136, memory 2/136. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304486 was 0.125 s / 484 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 Accepted #11327402 is 0.093 s / 348 KB. Saved 2026-11-20 comparison: time 12/136, memory 2/136. It qualifies by time only below 1024 KB, without a separate first-place target or asterisk. Earlier optimized #11304486 at 0.125 s / 484 KB is a distinct historical pair, not this current file receipt. The simple Java algorithm is preserved; its comment-only revision is tracked below.
 
 - `1222_math_optimized.java`: 0.093 s / 348 KB; retained teaching base `1222_math.java`: 0.093 s / 1708 KB.
 
@@ -84,27 +86,22 @@ at most 478 digits: {1222_math_optimized.cpp}.
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+These are historical differences between paired Accepted values, not a universal 30%-gain admission rule. Simple versions remain. Negative reduction means increased cost; raw timing below one tick is not a portable speedup guarantee.
 
 - `1222_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +45.83%; base: `1222_math.cpp`.
 
-`1222_math_optimized.py`. Keep the maximum-product partition into threes, with N<4 handled directly and a remainder one replaced by a four. The exact result is unchanged; pow and the basic ** are equivalent integer exponentiation. With an O(N)-bit result, a conservative schoolbook arithmetic and decimal-output bound is O(N²) time and O(N) bits. The measured gain comes from the standalone runtime implementation. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+`1222_math_optimized.py` keeps the same exact maximum-product formula, using threes and replacing remainder one with four. It uses pow rather than ** and explicitly flushes stdout before os._exit(0). Its O(N)-bit result has a conservative schoolbook arithmetic/decimal-conversion bound O(N²), with O(N) value/output storage plus runtime workspace. The separate PyPy 0.109 s / 248 KB and base CPython 0.078 s / 396 KB pairs show different interpreter/run costs; they do not isolate a causal gain from exit or pow. The simple algorithm is preserved, with its proof-comment correction tracked below.
 
 Compared with `1222_math.py`: time 0.078 s → 0.109 s; memory 396 KB → 248 KB.
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Apply the shared [rating criteria](../../RATING_CRITERIA.md) to the cached source-bound receipts. Both C++, Go, base CPython, optimized Java and both Rust receipts qualify. Simple Java misses required memory; the PyPy alternative misses time and keeps its marker. Below1024 KB compare only time; Go at 1184 KB requires both metrics and its exact-compiler reference. Rust uses the same-language fallback: both 0.031 s / 208 KB and 0.015 s / 64 KB qualify numerically, not from an empty table or memory-gain exception. Old PyPy ranks 19/61 (time), 3/61 (memory) are historical, not a current first-place target.
 
-`1222_math_optimized.py`: time place 19/61, memory place 3/61 in this comparable sample.
+This review corrects only the proof comment in `1222_math.cpp`, `1222_math_optimized.cpp`, `1222_math.go`, `1222_math.java`, `1222_math.py` and `1222_math.rs`: splitting a part above 4 strictly improves its product; 4=2+2 only ties. Executable text and every other comment are unchanged. Their table receipts and qualification above describe the historical exact bytes.
 
-`1222_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
-
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -112,17 +109,17 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1222_math.cpp](1222_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.015 s | 192 KB | 11283695 |
-| [1222_math.go](1222_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1184 KB | 11283696 |
-| [1222_math.java](1222_math.java) | Java 1.8 | math | O(N²) | AC | 0.093 s | 1708 KB | 11283698 |
-| [1222_math.py](1222_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.078 s | 396 KB | 11283697 |
-| [1222_math.rs](1222_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.031 s | 208 KB | 11283699 |
+| [1222_math.cpp](1222_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.015 s | 176 KB | 11331135 |
+| [1222_math.go](1222_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1216 KB | 11331004 |
+| [1222_math.java](1222_math.java) | Java 1.8 | math | O(N²) | AC | 0.109 s | 1688 KB | 11331043 |
+| [1222_math.py](1222_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.093 s | 420 KB | 11331062 |
+| [1222_math.rs](1222_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 204 KB | 11331100 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1222_math_optimized.cpp](1222_math_optimized.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 104 KB | 11304484 |
+| [1222_math_optimized.cpp](1222_math_optimized.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.015 s | 112 KB | 11331136 |
 | [1222_math_optimized.java](1222_math_optimized.java) | Java 1.8 | math | O(N²) time; O(N) space | AC | 0.093 s | 348 KB | 11327402 |
 | [1222_math_optimized.py](1222_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N²) | AC | 0.109 s | 248 KB | 11324929 |
 | [1222_math_optimized.rs](1222_math_optimized.rs) | Rust 1.75 x64 | math | O(n²) limb work; O(n) digits | AC | 0.015 s | 64 KB | 11325523 |
