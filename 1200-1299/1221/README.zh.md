@@ -16,7 +16,7 @@
 
 ## 输入
 
-每张纸给出 `N` 和 `N` 行格子；最后是 `0`。
+每张纸给整数 `1 ≤ N ≤ 100`，随后 N 行各 N 个二进制格（`1`黑、`0`白），格间可有或无空格。最终 `0` 结束输入，不是一张纸。
 
 ## 输出
 
@@ -29,25 +29,20 @@
 输入：
 
 ```
-6
-1 1 0 1 1 0
-1 0 0 0 1 1
-0 0 0 0 0 0
-1 0 0 0 1 1
-1 1 0 1 1 1
-0 1 1 1 1 1
 4
-1 0 0 1
-0 0 0 0
-0 0 0 0
-1 0 0 1
+1011
+0001
+1011
+1111
+1
+0
 0
 ```
 
 输出：
 
 ```
-5
+3
 No solution
 ```
 
@@ -71,13 +66,15 @@ No solution
 答案已在 300 个包含随机纸张、植入图形的纸张和单色纸张的文件上与另一份独立解答
 比对。
 
+S 张纸最大边长 N 时，逐行验证算法保留 `O(N²)` 活跃格/前缀项，搜索时间至多 `O(Σ N_i⁴)`，另读 I 字节输入。C++/Go 每次处理一张并用有界缓冲流式输出。Java 保留全部答案，额外 `O(S)`。基础 Python/Rust 还保存全部输入，当前纸张 `O(N²)` 外另用 `O(I + S)`，Python 还有临时平坦格列表。优化 Python 读取有界块、按字节保存格/前缀（行计数≤100），但仍保留 S 个答案，空间 `O(N² + S + B + T)`，B 为块大小、T 为最大 token，不保留整个输入。搜索仍为 O(N⁴)，不是变换前缀算法。Go 前缀表逻辑 O(N²)，实际固定 M=100，共101²+200²个 uint16项及缓冲。每张清零 O(M²)，建表 O(N²)，搜索 O(N³)；小纸张也分配 O(M²+B) 空间。
+
 ## 优化解法
 
-新 Go 算法使用原网格及 u=row+column、v=row−column+N−1 变换后的两张二维白格前缀和表。半径 r 的菱形变成轴对齐矩形，未使用的另一奇偶性位置为零。菱形实际包含 A=2r(r+1)+1 格。要求变换矩形及外围边长 2r+1 的正方形各有 A 个白格：前者保证菱形全白，后者保证其余格全黑。每次检查 O(1)，全部中心与半径 O(N³)，预处理及空间 O(N²)。计数最多 10000，可用 uint16。保留 O(N⁴) 的逐行基础版，其他四种语言已有合格基础版也覆盖快速集合。
+新 Go 算法使用原网格及 u=row+column、v=row−column+N−1 变换后的两张二维白格前缀和表。半径 r 的菱形变成轴对齐矩形，未使用的另一奇偶性位置为零。菱形实际包含 A=2r(r+1)+1 格。要求变换矩形及外围边长 2r+1 的正方形各有 A 个白格：前者保证菱形全白，后者保证其余格全黑。每次检查 O(1)，全部中心与半径 O(N³)，预处理及空间 O(N²)。计数最多 10000，可用 uint16。
 
 通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.001 秒，内存为 352 KB，基础版为 2116 KB。
 
-已通过评测的基础实现 [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+精确源码缓存及统一[排名标准](../../RATING_CRITERIA.md)确认除基础 Python 外全部版本达标。Python 快速覆盖为 #11328771 的0.156 s / 924 KB，低于1024 KB只要求时间。基础 #11283692 的0.140 s / 1908 KB通过时间却未过必需内存参照（上限901.6 KB）。记录稍慢仍可达标，不声称算法加速。C++/Java/Rust及优化 Go只比时间；基础 Go的2116 KB需两项并回退同语言版本。Python/Rust使用适用精确编译器参照。所有有意义教学版不标星保留，指标对不变。
 
 ### 新的已通过版本
 
@@ -87,11 +84,19 @@ No solution
 
 Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. 历史对照: `1221_implementation.py` (Python 3.12 x64) — 0.14 s / 1908 KB (#11283692).
 
+Accepted #11328771及数值准入对应历史精确源码。结构检查要求把原有空白界限32命名为`WHITESPACE_LIMIT`，反向代换可逐字节还原。算法、注释与基础Python保留。新哈希待后续批次独立Accepted，旧指标对不证明新字节。
+
 ## 各语言说明
 
 以下说明针对基础实现。
 
 - 所有语言都逐个数字读取格子，所以行内有无空格都可以。
+
+## 检查
+
+`tests/tests.json` 使用 `lines`：保留纸张顺序及每张一行，忽略每行首尾和重复空白。行数、拼写/大小写（`No solution`）及 token 顺序仍重要；不回答终止0。自制样例和小测试逐格检查候选与曼哈顿距离所定颜色，不使用前缀和。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -102,7 +107,7 @@ Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. 历史对照: `1221_
 | [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
 | [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
 | [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
-| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.14 s | 1908 KB | 11283692 |
 | [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
 
 ### 优化版本
@@ -110,4 +115,4 @@ Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. 历史对照: `1221_
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1221_prefix_sums.go](1221_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
-| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.156 s | 924 KB | 11328771 |
+| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.171 s | 932 KB | 11331077 |

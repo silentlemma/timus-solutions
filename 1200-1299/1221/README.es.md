@@ -18,7 +18,7 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-Para cada hoja, `N` y `N` filas de casillas; y luego `0`.
+Cada hoja empieza con entero `1 ≤ N ≤ 100`, seguido de N filas de N celdas binarias (`1` negro, `0` blanco), con o sin espacios entre celdas. El `0` final termina la entrada y no es una hoja.
 
 ## Salida
 
@@ -31,25 +31,20 @@ Para cada hoja, el tamaño de la mayor figura así o `No solution`.
 Entrada:
 
 ```
-6
-1 1 0 1 1 0
-1 0 0 0 1 1
-0 0 0 0 0 0
-1 0 0 0 1 1
-1 1 0 1 1 1
-0 1 1 1 1 1
 4
-1 0 0 1
-0 0 0 0
-0 0 0 0
-1 0 0 1
+1011
+0001
+1011
+1111
+1
+0
 0
 ```
 
 Salida:
 
 ```
-5
+3
 No solution
 ```
 
@@ -81,13 +76,17 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 300
 archivos de hojas aleatorias, con figuras plantadas y de un solo color.
 
+Para S hojas y lado máximo N, la comprobación por filas guarda `O(N²)` entradas vivas de cuadrícula/prefijos y busca en hasta `O(Σ N_i⁴)` tiempo, más lectura de I bytes. C++/Go procesan una hoja y emiten respuestas con búferes acotados. Java guarda todas las respuestas: añade `O(S)` espacio. Python/Rust sencillos retienen además toda la entrada: `O(I + S)` adicional a la hoja `O(N²)`; Python mantiene también lista plana temporal. Python optimizado lee bloques acotados y usa bytes para celdas/prefijos (cuentas por fila≤100), pero conserva las S respuestas: espacio `O(N² + S + B + T)` con bloque B y token máximo T, sin entrada completa. Sigue buscando en O(N⁴), no usa prefijos transformados. Go de prefijos tiene tablas lógicas O(N²), pero arrays reales fijos M=100 con 101²+200² entradas uint16 más búferes. Limpiar cuesta O(M²) por hoja, construir O(N²), buscar O(N³); espacio asignado O(M²+B) incluso con hoja pequeña.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-Go usa dos tablas de prefijos 2D de celdas blancas: la cuadrícula original y la transformación u=row+column, v=row−column+N−1. El rombo de radio r se convierte en rectángulo; los huecos de paridad aportan cero. Contiene A=2r(r+1)+1 celdas reales. Se exigen A blancas en ese rectángulo y exactamente A en el cuadrado exterior de lado 2r+1. Así el rombo es totalmente blanco y el resto negro. Cada comprobación cuesta O(1); todos los centros y radios, O(N³), con preparación y espacio O(N²). Los conteos ≤10000 caben en uint16. Se conservan las bases O(N⁴) por filas y las otras cuatro también cubren el conjunto rápido.
+Go usa dos tablas de prefijos 2D de celdas blancas: la cuadrícula original y la transformación u=row+column, v=row−column+N−1. El rombo de radio r se convierte en rectángulo; los huecos de paridad aportan cero. Contiene A=2r(r+1)+1 celdas reales. Se exigen A blancas en ese rectángulo y exactamente A en el cuadrado exterior de lado 2r+1. Así el rombo es totalmente blanco y el resto negro. Cada comprobación cuesta O(1); todos los centros y radios, O(N³), con preparación y espacio O(N²). Los conteos ≤10000 caben en uint16.
 
 El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.001 s de la base y usa 352 KB frente a 2116 KB.
 
-Las implementaciones base aceptadas [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché exacta y los [criterios compartidos](../../RATING_CRITERIA.md) confirman todas salvo Python sencillo. Python rápido es #11328771 con 0.156 s / 924 KB: bajo 1024 KB solo exige tiempo. La base #11283692 de 0.140 s / 1908 KB cumple tiempo pero falla memoria exigida (límite 901.6 KB). Puede cumplir una ejecución registrada algo más lenta sin afirmar aceleración algorítmica. C++/Java/Rust y Go optimizado solo comparan tiempo; Go sencillo con 2116 KB necesita ambas y grupo del mismo lenguaje. Python/Rust usan referencias exactas aplicables. Las bases didácticas significativas quedan sin estrella, y los pares se conservan.
 
 ### Nuevas versiones aceptadas
 
@@ -97,12 +96,18 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328771 (Python 3.12 x64): **0.156 s / 924 KB**. Comparación archivada: `1221_implementation.py` (Python 3.12 x64) — 0.14 s / 1908 KB (#11283692).
 
+Accepted #11328771 y su admisión numérica corresponden al fuente histórico exacto. El linter exige nombrar `WHITESPACE_LIMIT` el límite existente de blancos 32; invertir la sustitución restaura exactamente los bytes previos. Se conservan algoritmo, comentarios y Python sencillo. El hash nuevo requiere Accepted propio en el lote posterior; el par anterior no certifica bytes nuevos.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes leen las casillas cifra a cifra, así que valen las
   filas con o sin espacios.
+
+## Evaluación
+
+`tests/tests.json` usa `lines`: conserva orden de hojas y una línea por respuesta, ignorando blancos iniciales/finales y repetidos dentro de cada línea. Importan número de líneas, texto/mayúsculas (`No solution`) y orden de tokens; no se responde al 0 final. El ejemplo propio y casos pequeños se verifican comparando cada celda candidata con el color por distancia Manhattan, sin prefijos.
 
 ## Soluciones
 
@@ -113,7 +118,7 @@ Estas notas describen las implementaciones sencillas.
 | [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
 | [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
 | [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
-| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.14 s | 1908 KB | 11283692 |
 | [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
 
 ### Optimizadas
@@ -121,4 +126,4 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1221_prefix_sums.go](1221_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
-| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.156 s | 924 KB | 11328771 |
+| [1221_implementation_optimized.py](1221_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.171 s | 932 KB | 11331077 |

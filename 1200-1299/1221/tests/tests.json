@@ -2,7 +2,7 @@
   "judging": "lines",
   "reference": "1221_implementation.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "a figure of size 5, then none" },
+    { "name": "01", "example": true, "note": "own packed-row size-three figure in a four-cell sheet, then a singleton with no figure" },
     { "name": "02", "note": "rows without spaces, the smallest figure, tiny sheets, a broken corner" },
     { "name": "big1", "generator": "1 10 100 1", "note": "ten random sheets of the largest size" },
     { "name": "big2", "generator": "2 10 100 2", "note": "planted figures with a few cells flipped" },

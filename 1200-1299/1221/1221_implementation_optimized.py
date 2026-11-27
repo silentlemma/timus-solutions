@@ -3,6 +3,7 @@ from array import array
 import sys
 
 INPUT_BUFFER_BYTES = 4096
+WHITESPACE_LIMIT = 32
 
 
 def words():
@@ -14,7 +15,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > WHITESPACE_LIMIT else b""
         yield from parts
     if pending:
         yield pending
