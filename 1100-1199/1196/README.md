@@ -23,6 +23,10 @@ Time limit: 1.5 seconds. Memory limit: 64 MB.
 
 The number of matching entries.
 
+## Checking
+
+The repository tests compare the integer output token exactly; whitespace and line separators between tokens are ignored. They do not require a particular spelling of surrounding whitespace.
+
 ## Examples
 
 ### Example 1
@@ -51,8 +55,10 @@ Output:
 The teacher's list is already sorted, so each of the student's years is
 looked up by binary search; every match counts, including repeats on the
 student's side, while repeats on the teacher's side change nothing.
-`O(N + M log N)`. With a million numbers to read, reading the input quickly
+`O(N + M log(N + 1))`. With a million numbers to read, reading the input quickly
 matters more than the lookups.
+
+Binary searches take O(N + M log(N + 1)) time, including the N = 1 case; parsing additionally costs O(I) for I input bytes. C++/Go/Java retain O(N) teacher entries and fixed-size input buffers; optimized Rust does the same with a 65536-byte buffer. Simple Rust additionally retains the entire O(I) input String. Python uses O(U + L) storage for U distinct teacher years and the largest current input line of L bytes, with U ≤ N. Both Python variants stream student years rather than keeping M queries; expected hash-set time is O(N + M), plus input reading. This expected bound is not a worst-case hash-collision guarantee.
 
 Pitfalls:
 
@@ -75,13 +81,16 @@ reader instead of a 1 MB word scanner, keeps them as `int32` and
 searches them with its own binary search: 0.062 s instead of 0.171 s and
 996 KB instead of 5576 KB. The optimized Rust solution parses the dates
 by hand from a 64 KB buffer instead of reading the whole input into a
-string and keeps them as `u32`: 320 KB instead of 9300 KB, with the same
-time. The optimized Python solution relies on one date per line: it
+string and keeps them as `u32`: 320 KB instead of 9300 KB; the paired time increases from 0.031 s to 0.046 s. The optimized Python solution relies on one date per line: it
 converts each line as it is and counts the known dates with `map`
 instead of a Python loop: 0.343 s instead of 0.687 s and 1324 KB instead
 of 1456 KB.
 
 ## Language notes
+
+Use the shared [rating criteria](../../RATING_CRITERIA.md) and source-bound cached audit. All optimized versions pass; simple Rust also passes. The other simple sources remain unstarred teaching implementations even where their numerical targets are missed. Below 1024 KB only time counts. Both Python rows and simple Go/Rust use at least 1024 KB and require both metrics; optimized Python and simple Rust pass both. Go and Rust use the reference comparison for their 7 and 4 exact-version rivals, respectively; the time tolerance includes one displayed judge tick. There is no separate first-place or 30%-gain requirement.
+
+Only an explanatory input-buffer comment was added to `1196_binary_search_optimized.java`; the executable program is unchanged. Its table entry #11302071 and 0.218 s / 420 KB remain historical paired Accepted evidence.
 
 - Python puts the teacher's years in a set; the other languages binary
   search the sorted array.
@@ -91,24 +100,26 @@ of 1456 KB.
 
 Parse years directly from buffered bytes and search the sorted primitive array without boxing. Accepted submission 11302071 took 0.218 s and used 420 KB. The simple version took 0.328 s and used 592 KB.
 
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
+
 ## Solutions
 
 ### Simple
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1196_binary_search.cpp](1196_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N + M log N) | AC | 0.687 s | 256 KB | 11283484 |
-| [1196_binary_search.go](1196_binary_search.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.171 s | 5576 KB | 11283485 |
-| [1196_binary_search.java](1196_binary_search.java) | Java 1.8 | binary_search | O(N + M log N) | AC | 0.328 s | 592 KB | 11303453 |
-| [1196_binary_search.rs](1196_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.031 s | 9300 KB | 11283493 |
+| [1196_binary_search.cpp](1196_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.687 s | 256 KB | 11283484 |
+| [1196_binary_search.go](1196_binary_search.go) | Go 1.14 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.171 s | 5576 KB | 11283485 |
+| [1196_binary_search.java](1196_binary_search.java) | Java 1.8 | binary_search | O(N + M log(N + 1)) | AC | 0.328 s | 592 KB | 11303453 |
+| [1196_binary_search.rs](1196_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.031 s | 9300 KB | 11283493 |
 | [1196_hashing.py](1196_hashing.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.687 s | 1456 KB | 11283490 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1196_binary_search_optimized.cpp](1196_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 260 KB | 11303577 |
-| [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.062 s | 996 KB | 11303718 |
-| [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 320 KB | 11303720 |
+| [1196_binary_search_optimized.cpp](1196_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.046 s | 260 KB | 11303577 |
+| [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.062 s | 996 KB | 11303718 |
+| [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.046 s | 320 KB | 11303720 |
 | [1196_hashing_optimized.py](1196_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.343 s | 1324 KB | 11303721 |
-| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) | Java 1.8 | binary_search | O(N + M log N) | AC | 0.218 s | 420 KB | 11302071 |
+| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) | Java 1.8 | binary_search | O(N + M log(N + 1)) | AC | 0.218 s | 456 KB | 11331037 |

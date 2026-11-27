@@ -1,4 +1,6 @@
 public class Main {
+    // Parse bounded blocks into primitives instead of using StreamTokenizer.
+    // Keep only the teacher array; each student query is searched as it arrives.
     private static final int BUFFER_SIZE = 4096;
     private static final byte[] buffer = new byte[BUFFER_SIZE];
     private static int position, length;

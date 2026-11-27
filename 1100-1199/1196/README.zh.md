@@ -22,6 +22,10 @@
 
 匹配的条数。
 
+## 评测方式
+
+仓库测试精确比较整数答案词元，忽略词元间空白和换行，不要求特定的外围空白格式。
+
 ## 样例
 
 ### 样例 1
@@ -48,8 +52,10 @@
 ## 解法
 
 老师的列表已经排好序，所以学生的每个年份都用二分查找；每次匹配都计数，包括学生
-一方的重复，而老师一方的重复不影响结果。`O(N + M log N)`。要读入一百万个数，快速
+一方的重复，而老师一方的重复不影响结果。`O(N + M log(N + 1))`。要读入一百万个数，快速
 读入比查找本身更重要。
+
+二分查找时间 O(N + M log(N + 1))，包含 N = 1；I 字节输入另加 O(I) 解析。C++/Go/Java 保存 O(N) 教师年份和固定输入缓冲；优化 Rust 同样如此，缓冲为 65536 字节。基础 Rust 另保留整个 O(I) 输入 String。Python 空间 O(U + L)，U 为教师不同年份数且 U ≤ N，L 为最长当前输入行字节数。两份 Python 都流式处理学生年份，不保留 M 个查询；哈希集合期望时间 O(N + M)，另加读取，不是碰撞最坏情况保证。
 
 注意事项：
 
@@ -67,11 +73,15 @@
 优化的 Go 解法从 4 KB 的带缓冲读取器手工解析日期，而不是用 1 MB 缓冲的按词扫描器，
 日期存为 `int32`，并用自己写的二分查找：0.062 s，而不是 0.171 s；996 KB，而不是
 5576 KB。优化的 Rust 解法从 64 KB 缓冲区手工解析日期，而不是把整个输入读成字符串，
-日期存为 `u32`：320 KB，而不是 9300 KB，时间不变。优化的 Python 解法利用每行恰好
+日期存为 `u32`：320 KB，而不是 9300 KB，成对时间由 0.031 s 增至 0.046 s。优化的 Python 解法利用每行恰好
 一个日期这一点：直接转换每一行，并用 `map` 而不是 Python 循环统计已知日期：
 0.343 s，而不是 0.687 s；1324 KB，而不是 1456 KB。
 
 ## 各语言说明
+
+采用统一[排名标准](../../RATING_CRITERIA.md)及源码绑定缓存审计。全部优化版及基础 Rust 通过。其他基础版即使未过数值门槛仍作为不标星教学源码保留。低于 1024 KB 只计时间。两行 Python、基础 Go/Rust 均至少 1024 KB，需两项；优化 Python、基础 Rust 两项通过。Go、Rust 分别有 7、4 个精确版本对手，采用参照比较，时间允许一个显示刻度。无独立第一名或 30% 改进要求。
+
+`1196_binary_search_optimized.java` 仅增加输入缓冲说明注释，可执行程序未变。表中 #11302071 及 0.
 
 - Python 把老师的年份放进集合；其他语言在排序数组上二分查找。
 - Python 逐行读取学生的年份。若一次性切分全部输入，内存中会同时存在一百万个小字符串，约 62 MB，
@@ -79,24 +89,26 @@
 
 直接从字节缓冲区解析年份，在排序后的基本类型数组中查找。通过的提交 11302071 用时 0.218 秒、占用 420 KB；简单版用时 0.328 秒、占用 592 KB。
 
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
+
 ## 解答
 
 ### 简单版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1196_binary_search.cpp](1196_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N + M log N) | AC | 0.687 s | 256 KB | 11283484 |
-| [1196_binary_search.go](1196_binary_search.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.171 s | 5576 KB | 11283485 |
-| [1196_binary_search.java](1196_binary_search.java) | Java 1.8 | binary_search | O(N + M log N) | AC | 0.328 s | 592 KB | 11303453 |
-| [1196_binary_search.rs](1196_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.031 s | 9300 KB | 11283493 |
+| [1196_binary_search.cpp](1196_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.687 s | 256 KB | 11283484 |
+| [1196_binary_search.go](1196_binary_search.go) | Go 1.14 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.171 s | 5576 KB | 11283485 |
+| [1196_binary_search.java](1196_binary_search.java) | Java 1.8 | binary_search | O(N + M log(N + 1)) | AC | 0.328 s | 592 KB | 11303453 |
+| [1196_binary_search.rs](1196_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.031 s | 9300 KB | 11283493 |
 | [1196_hashing.py](1196_hashing.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.687 s | 1456 KB | 11283490 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1196_binary_search_optimized.cpp](1196_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 260 KB | 11303577 |
-| [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.062 s | 996 KB | 11303718 |
-| [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 320 KB | 11303720 |
+| [1196_binary_search_optimized.cpp](1196_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.046 s | 260 KB | 11303577 |
+| [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.062 s | 996 KB | 11303718 |
+| [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log(N + 1)) | AC | 0.046 s | 320 KB | 11303720 |
 | [1196_hashing_optimized.py](1196_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.343 s | 1324 KB | 11303721 |
-| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) | Java 1.8 | binary_search | O(N + M log N) | AC | 0.218 s | 420 KB | 11302071 |
+| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) | Java 1.8 | binary_search | O(N + M log(N + 1)) | AC | 0.218 s | 456 KB | 11331037 |
