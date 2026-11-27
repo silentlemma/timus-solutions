@@ -23,7 +23,7 @@ int main() {
     for (int i = 1; i <= n; i++)
         weighted += (long long)(n + 1 - i) * read_cents();
     long long num = (long long)n * first + last - 2 * weighted, den = n + 1;
-    // the answer has two decimals; rounding only guards against bad input
+    // Round the exact answer for two-decimal output; valid values need not be whole cents.
     long long q = (2 * std::llabs(num) + den) / (2 * den);
     printf("%s%lld.%02lld\n", num < 0 && q > 0 ? "-" : "", q / CENTS, q % CENTS);
 }

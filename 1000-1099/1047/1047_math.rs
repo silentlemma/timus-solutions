@@ -15,7 +15,7 @@ fn main() {
     // a[N+1] - a[0] = (N + 1) d[1] + 2 sum (N + 1 - i) c[i]
     let weighted: i64 = (1..=n).map(|i| (n + 1 - i) * read_cents()).sum();
     let (num, den) = (n * first + last - 2 * weighted, n + 1);
-    // the answer has two decimals; rounding only guards against bad input
+    // Round the exact answer for two-decimal output; valid values need not be whole cents.
     let q = (2 * num.abs() + den) / (2 * den);
     let sign = if num < 0 && q > 0 { "-" } else { "" };
     println!("{}{}.{:02}", sign, q / CENTS, q % CENTS);

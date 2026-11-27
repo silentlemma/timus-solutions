@@ -84,6 +84,12 @@ centésimas: todas las entradas pasan a ser enteras, el numerador queda por
 debajo de unos `10^12`, y el resultado de dividir entre `N + 1` se redondea
 a la centésima más cercana.
 
+La fórmula conserva un número constante de acumuladores. C++/Go/Java
+simples leen incrementalmente con búfer acotado o token/línea actual.
+Rust simple guarda O(I) bytes de entrada; Python conserva además O(N)
+fracciones: O(I+N). I es longitud de entrada. Go/Rust optimizados usan
+búferes fijos; el coste aritmético en bits depende de los enteros.
+
 Detalles a tener en cuenta:
 
 - sumar 3000 términos en coma flotante puede desviarse, y la salida debe
@@ -92,11 +98,27 @@ Detalles a tener en cuenta:
 - una respuesta negativa entre −1 y 0 debe imprimirse como `-0.35`, no
   como `0.35` ni `-0.-35`.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 Go y Rust leen los valores de dos decimales como centésimas enteras con signo. Acumulan la suma ponderada al leer y dividen N·a₀ + aₙ₊₁ − 2Σ(N+1−i)cᵢ entre N+1. Redondean la magnitud a la centésima más cercana, alejándose de cero en los empates, y recuperan el signo. El cero redondeado se imprime sin signo negativo. Ambas versiones leen y formatean mediante búferes fijos de bytes, sin conversiones de cadenas.
 
-Las implementaciones base aceptadas [1047_math.cpp](1047_math.cpp), [1047_math.java](1047_math.java), [1047_math.py](1047_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Accepted pareados: Go mantiene 0.015 s y baja de 1140 a 788 KB
+(30.9% menos memoria). Rust pasa de 0.031 s / 264 KB a 0.015 s / 176 KB
+(33.3% menos memoria). Un tick no prueba una aceleración estable aislada.
+
+La caché confirma las bases C++, Java y Python con los
+[criterios compartidos](../../RATING_CRITERIA.md), sin duplicados. C++
+inferior a 1 MiB compara solo tiempo; Java/Python requieren ambas métricas
+y no llevan asterisco. Go usa referencia pequeña del compilador exacto;
+el optimizado inferior a 1 MiB compara solo tiempo. Rust también compara
+solo tiempo mediante puesto ordinario.
+
+Las revisiones de los cinco archivos simples 1047_math solo corrigen
+el comentario de redondeo: entradas válidas pueden producir un valor
+exacto entre centésimas. Se conservan algoritmos
+simples y comentarios explicativos útiles.
 
 ## Notas por lenguaje
 
@@ -111,11 +133,11 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1047_math.cpp](1047_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 156 KB | 11278637 |
-| [1047_math.go](1047_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1140 KB | 11278638 |
-| [1047_math.java](1047_math.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 1460 KB | 11278641 |
-| [1047_math.py](1047_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.109 s | 1068 KB | 11278640 |
-| [1047_math.rs](1047_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 264 KB | 11278644 |
+| [1047_math.cpp](1047_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 136 KB | 11331160 |
+| [1047_math.go](1047_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1104 KB | 11331021 |
+| [1047_math.java](1047_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1340 KB | 11331049 |
+| [1047_math.py](1047_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 1244 KB | 11331070 |
+| [1047_math.rs](1047_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 260 KB | 11331157 |
 
 ### Optimizadas
 
@@ -123,5 +145,3 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1047_math_optimized.go](1047_math_optimized.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
 | [1047_math_optimized.rs](1047_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

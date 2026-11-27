@@ -31,7 +31,7 @@ public class Main {
             weighted += (n + 1 - i) * readCents();
         }
         long num = n * first + last - 2 * weighted, den = n + 1;
-        // the answer has two decimals; rounding only guards against bad input
+        // Round the exact answer for two-decimal output; valid values need not be whole cents.
         long q = (2 * Math.abs(num) + den) / (2 * den);
         String sign = num < 0 && q > 0 ? "-" : "";
         System.out.println(sign + q / CENTS + "." + String.format("%02d", q % CENTS));

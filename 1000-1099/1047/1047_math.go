@@ -27,7 +27,7 @@ func main() {
 		weighted += (n + 1 - i) * readCents()
 	}
 	num, den := n*first+last-2*weighted, n+1
-	// the answer has two decimals; rounding only guards against bad input
+	// Round the exact answer for two-decimal output; valid values need not be whole cents.
 	abs := num
 	if abs < 0 {
 		abs = -abs

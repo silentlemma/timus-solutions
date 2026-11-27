@@ -13,7 +13,7 @@ def main():
     # a[N+1] - a[0] = (N + 1) d[1] + 2 sum (N + 1 - i) c[i]
     weighted = sum((n - i) * ci for i, ci in enumerate(c))
     a1 = (n * first + last - 2 * weighted) / (n + 1)
-    # the answer has two decimals; rounding only guards against bad input
+    # Round the exact answer for two-decimal output; valid values need not be whole cents.
     q = round(abs(a1) * CENTS)
     sign = "-" if a1 < 0 and q > 0 else ""
     print("%s%d.%02d" % (sign, q // CENTS, q % CENTS))

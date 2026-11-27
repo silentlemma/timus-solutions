@@ -15,6 +15,7 @@
     { "name": "big3", "generator": "3 3000 3 300", "note": "the longest sequence of small values" },
     { "name": "09", "note": "mixed nonzero coefficients cancel exactly to an answer of 0.00" },
     { "name": "10", "note": "only the final coefficient is nonzero, so its weight must be one" },
-    { "name": "11", "note": "maximum length with alternating 0.01 and 1999.99 terms stresses decimal cancellation" }
+    { "name": "11", "note": "maximum length with alternating 0.01 and 1999.99 terms stresses decimal cancellation" },
+    { "name": "12", "note": "valid non-cent exact result 1/300 rounds to 0.00" }
   ]
 }
