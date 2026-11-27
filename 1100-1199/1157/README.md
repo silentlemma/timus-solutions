@@ -9,7 +9,7 @@ Original problem from the Ural Team Programming Championship, Perm, April 2001, 
 ## Task
 
 A boy lays out all his square tiles as rectangles. Given `M`, `N` and
-`K` (`M, N ≤ 50`, `K ≤ 9999`), find the smallest number of tiles `L` such
+`K` (`1 ≤ M, N ≤ 50`, `1 ≤ K ≤ 9999`), find the smallest number of tiles `L` such
 that `L` tiles can form exactly `N` different rectangles and `L − K` tiles
 exactly `M` different rectangles. Print `0` if there is no such `L` up to
 10000.
@@ -18,13 +18,16 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
 
-`M`, `N` and `K`.
+Integers M, N and K, with 1<=M,N<=50 and 1<=K<=9999.
 
 ## Output
 
 The smallest `L`, or `0`.
 
 ## Checking
+
+Compare the single integer answer token by token, ignoring whitespace,
+as specified by tests.json. The reference is the simple C++ sieve.
 
 Independently factor all tile counts `1..10000` and compute divisor
 counts from prime exponents. This supplies the expected shape-count
@@ -85,17 +88,26 @@ fewer increments and compact storage. Java also replaces `Scanner` with
 a numeric vector. These are distinct implementations of the same
 divisor-pair sieve approach, hence the `_optimized` suffix.
 
+This pair-sieve section applies to optimized C++, Java, Python and
+Rust. Optimized Go retains the full divisor sieve of its base, using
+int counters and computing shapes from divisor counts; its change
+is the token reader and reused output buffer, not byte storage or
+pair enumeration. Both algorithms use O(B log B) time and O(B) words
+or bytes as appropriate; full-input readers additionally retain I
+input bytes.
+
 Measured against each language's original base, C++ memory drops
 216 → 120 KB (44.4%), Python 712 → 428 KB (39.9%), and Java
 1620 → 420 KB (74.1%). C++ and Python keep their recorded times;
-Java also improves 0.125 → 0.078 s (37.6%). Rust qualifies by time,
+Java also improves 0.125 → 0.078 s (37.6%). Rust improves in recorded time,
 0.046 → 0.015 s (67.4%); its memory drops only 25.3%, 300 → 224 KB.
-Each published version has its own exact-source Accepted.
+These measurements belong to the preceding Accepted revisions.
 
-The Go candidate was also Accepted, but memory improves only 8.2%,
-1172 → 1076 KB, and its 0.031 → 0.015 s change is one timer tick.
-That tick is not reliable speedup evidence, so this candidate is not
-added as an optimized source. The original Go base is retained.
+The earlier Go pair-sieve experiment (0.015 s / 1076 KB) was not
+published as that source. The current distinct optimized Go file
+exists: it uses the full divisor sieve with faster I/O and had
+Accepted #11328509, 0.031 s / 1040 KB. Its base remains available.
+A one-tick difference alone does not prove repeatable acceleration.
 
 ### Accepted source update
 
@@ -105,16 +117,23 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328509 (Go 1.14 x64): **0.031 s / 1040 KB**. Archived comparison: `1157_number_theory.go` (Go 1.14 x64) — 0.031 s / 1172 KB (#11281331).
 
+The current optimized Go revision moves the limit comment beside
+its constant and names the unchanged 64-bit strconv width. The algorithm and all simple sources remain unchanged.
+
 ## Language notes
 
-The rating snapshot is from 2 November 2026. Optimized C++ has time
-place 1 and memory place 2 against 73 filtered other-author entries and
-meets the target. Python has places 2 and 2 against 16 entries; Java has
-places 1 and 2 against five. Under the established stricter non-C++
-comparison profile, which requires first place in both metrics, these
-two retain stars despite their admitted gains. The Go and Rust filtered
-samples are empty: their formal coverage provides no competitive claim.
-Ranking and the measured 30% admission criterion are separate.
+Current admission follows the shared [rating criteria](../../RATING_CRITERIA.md),
+not an obsolete first-place or 30% gain rule. The source-bound cached
+audit confirms time-only admission below 1 MiB for both C++ sources,
+both Python sources, both Rust sources and optimized Java. Rust uses
+the recorded fallback to all compiler versions, with one eligible
+Rust 1.58 rival; this is not an empty cohort or a small exact-version
+reference. The preceding optimized Go receipt passes both small-
+cohort metrics (two Go 1.14 rivals). Java/Go bases remain teaching
+versions even though they miss their applicable metrics. No current
+row has a star; these conclusions concern the cached evidence.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -136,4 +155,4 @@ Ranking and the measured 30% admission criterion are separate.
 | [1157_number_theory_optimized.java](1157_number_theory_optimized.java) | Java 1.8 | number_theory | O(B log B) | AC | 0.078 s | 420 KB | 11308317 |
 | [1157_number_theory_optimized.py](1157_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(B log B) | AC | 0.078 s | 428 KB | 11308301 |
 | [1157_number_theory_optimized.rs](1157_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(B log B) | AC | 0.015 s | 224 KB | 11308320 |
-| [1157_number_theory_optimized.go](1157_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(B log B) | AC | 0.031 s | 1040 KB | 11328509 |
+| [1157_number_theory_optimized.go](1157_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(B log B) | AC | 0.015 s | 1024 KB | 11331013 |

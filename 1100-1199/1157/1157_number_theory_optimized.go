@@ -2,14 +2,14 @@ package main
 
 import (
 	"io"
+	"io/ioutil"
 	"os"
 	"strconv"
-
-	// limit: answers above it are reported as 0
-	"io/ioutil"
 )
 
+// limit: answers above it are reported as 0
 const limit = 10000
+const numericBitSize = 64
 
 func main() {
 	var m, n, k int
@@ -65,11 +65,11 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		case *int:
 			*value, err = strconv.Atoi(word)
 		case *int64:
-			*value, err = strconv.ParseInt(word, 10, 64)
+			*value, err = strconv.ParseInt(word, 10, numericBitSize)
 		case *uint64:
-			*value, err = strconv.ParseUint(word, 10, 64)
+			*value, err = strconv.ParseUint(word, 10, numericBitSize)
 		case *float64:
-			*value, err = strconv.ParseFloat(word, 64)
+			*value, err = strconv.ParseFloat(word, numericBitSize)
 		default:
 			panic("unsupported input type")
 		}
@@ -101,7 +101,7 @@ func fastPrint(writer io.Writer, spaced, newline bool, values ...interface{}) (i
 		case uint64:
 			buffer = strconv.AppendUint(buffer, value, 10)
 		case float64:
-			buffer = strconv.AppendFloat(buffer, value, 'g', -1, 64)
+			buffer = strconv.AppendFloat(buffer, value, 'g', -1, numericBitSize)
 		case bool:
 			buffer = strconv.AppendBool(buffer, value)
 		default:
