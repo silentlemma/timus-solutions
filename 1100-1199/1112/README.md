@@ -62,6 +62,15 @@ swapped for it without creating an overlap. Repeating the argument on the
 rest proves the greedy choice. The kept segments are disjoint, so their
 order by right end is also their order by left end. `O(N log N)`.
 
+The simple sources retain O(N) input segments and up to O(N) chosen
+segments; sort scratch/stack stays within O(N). Python also creates a
+sorted list. Full input adds I retained bytes in Python/Rust, and
+collected answer text adds P bytes in Python/Java/Rust. C++/Go stream
+output with fixed buffers. Compacted optimized variants avoid a second
+chosen array, but still store O(N) segment cells. Optimized Go keeps
+both segment lists and its I-byte full input; specialized I/O does not
+make its algorithm in-place. With bounded endpoint width, P=O(N).
+
 Pitfalls:
 
 - touching segments (one ends where the next starts) share no inner point
@@ -95,10 +104,15 @@ segments are written over the front of the same arrays:
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+The paired measurements below record actual changes, not a universal
+30% improvement or independent admission gate. Go #11328499 uses
+1000 KB versus 1156 KB at the same 0.015 s: about 13.5% less memory.
+Other measured reductions remain historical facts; a negative reduction
+means increased cost. Keep all meaningful bases. Admission and markers
+follow the shared current policy.
+
+The current 1112_greedy_optimized.go revision only names unchanged
+64-bit numeric conversions and the 64-byte initial output capacity. The algorithm, simple version and substantive comments are preserved.
 
 - `1112_greedy_optimized.cpp`: time reduction +0.00%; memory reduction
   +41.67%; base: `1112_greedy.cpp`.
@@ -120,11 +134,25 @@ Accepted #11328499 (Go 1.14 x64): **0.015 s / 1000 KB**. Archived comparison: `1
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+The 18 November 2026 notes describe a historical snapshot. Current
+comparisons discard rival times below 0.015 s before cohort selection,
+while our own smaller times are floored only for comparison. Paired
+Accepted measurements remain raw. Use the shared current policy.
 
-`1112_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+The cached exact-source audit confirms optimized C++/Go/Java/Rust.
+Rust has eligible rivals and passes ordinary time rank at 64 KB;
+its gain over the base is not an alternative admission rule. Go uses
+an exact-compiler small-cohort time comparison at 1000 KB. Optimized
+PyPy still fails time and retains its star, despite lower memory;
+the simple CPython source already covers Python by time rank.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Current admission uses the shared [rating criteria](../../RATING_CRITERIA.md):
+ordinary top-ten/top-15% comparisons or the exact-compiler small-cohort
+reference when applicable, with time only below 1 MiB. A 30% gain and a
+separate first-place language target are not admission criteria. Keep
+meaningful teaching versions without optimization-target stars.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -146,6 +174,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
 | [1112_greedy_optimized.rs](1112_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
 | [1112_greedy_optimized.py](1112_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n log n) time; O(n) space | AC | 0.125 s | 272 KB | 11325703 |
-| [1112_greedy_optimized.go](1112_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1000 KB | 11328499 |
+| [1112_greedy_optimized.go](1112_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 992 KB | 11331008 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

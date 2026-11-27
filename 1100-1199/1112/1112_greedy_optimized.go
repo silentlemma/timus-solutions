@@ -13,6 +13,9 @@ import (
 	"sort"
 )
 
+const numericBitSize = 64
+const initialOutputCapacity = 64
+
 func main() {
 	in := bufio.NewReader(os.Stdin)
 	var n int
@@ -71,11 +74,11 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		case *int:
 			*value, err = strconv.Atoi(word)
 		case *int64:
-			*value, err = strconv.ParseInt(word, 10, 64)
+			*value, err = strconv.ParseInt(word, 10, numericBitSize)
 		case *uint64:
-			*value, err = strconv.ParseUint(word, 10, 64)
+			*value, err = strconv.ParseUint(word, 10, numericBitSize)
 		case *float64:
-			*value, err = strconv.ParseFloat(word, 64)
+			*value, err = strconv.ParseFloat(word, numericBitSize)
 		default:
 			panic("unsupported input type")
 		}
@@ -86,7 +89,7 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 	return len(targets), nil
 }
 
-var fastOutputBuffer = make([]byte, 0, 64)
+var fastOutputBuffer = make([]byte, 0, initialOutputCapacity)
 
 // Reuse one output buffer; io.Writer cannot retain it after Write returns.
 func fastPrint(writer io.Writer, spaced, newline bool, values ...interface{}) (int, error) {
@@ -107,7 +110,7 @@ func fastPrint(writer io.Writer, spaced, newline bool, values ...interface{}) (i
 		case uint64:
 			buffer = strconv.AppendUint(buffer, value, 10)
 		case float64:
-			buffer = strconv.AppendFloat(buffer, value, 'g', -1, 64)
+			buffer = strconv.AppendFloat(buffer, value, 'g', -1, numericBitSize)
 		case bool:
 			buffer = strconv.AppendBool(buffer, value)
 		default:

@@ -65,6 +65,15 @@ elección voraz. Los segmentos conservados son disjuntos, así que su orden
 por extremo derecho es también su orden por extremo izquierdo.
 `O(N log N)`.
 
+Las bases retienen O(N) intervalos de entrada y hasta O(N) elegidos;
+la memoria temporal/pila de ordenación cabe en O(N). Python crea además
+una lista ordenada. Entrada completa añade I bytes en Python/Rust;
+respuesta acumulada añade P en Python/Java/Rust. C++/Go emiten por flujo
+con búfer fijo. Las optimizadas compactadas evitan otra lista elegida,
+pero guardan O(N) celdas. Go optimizado conserva ambas listas y sus
+I bytes de entrada: especializar E/S no vuelve el algoritmo in-place.
+Con ancho de extremos acotado, P=O(N).
+
 Detalles a tener en cuenta:
 
 - los segmentos que se tocan (uno termina donde empieza el siguiente) no
@@ -78,6 +87,8 @@ Detalles a tener en cuenta:
 Las respuestas se comprobaron con el comprobador en todas las pruebas y en
 150 conjuntos aleatorios, con cadenas de segmentos que se tocan,
 segmentos repetidos y anidados.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
@@ -100,10 +111,15 @@ de los mismos arreglos: {1112_greedy_optimized.java}.
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Los pares siguientes muestran cambios reales, no una reducción
+universal del 30% ni una admisión independiente. Go #11328499 usa
+1000 KB frente a 1156 KB al mismo 0.015 s: cerca de 13,5% menos memoria.
+Las otras reducciones siguen siendo hechos históricos; una reducción
+negativa significa mayor coste. Se conservan bases significativas;
+admisión y asteriscos siguen la política común actual.
+
+La revisión actual de 1112_greedy_optimized.go solo nombra las
+conversiones intactas de 64 bits y capacidad inicial de 64 bytes. Se conservan algoritmo, base y comentarios.
 
 - `1112_greedy_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +41.67%; base: `1112_greedy.cpp`.
@@ -125,11 +141,23 @@ Accepted #11328499 (Go 1.14 x64): **0.015 s / 1000 KB**. Comparación archivada:
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Las notas del 18 de noviembre de 2026 son una instantánea histórica.
+Hoy se excluyen tiempos rivales bajo 0.015 s antes de elegir cohorte;
+nuestros tiempos menores solo se elevan para comparar. Se conservan
+pares Accepted originales y se usa la política común actual.
 
-`1112_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+La caché del fuente exacto confirma C++/Go/Java/Rust optimizados.
+Rust tiene rivales elegibles y cumple puesto temporal ordinario con
+64 KB; su mejora frente a la base no da admisión independiente. Go
+con 1000 KB usa referencia temporal pequeña del compilador exacto.
+PyPy optimizado todavía falla tiempo y conserva asterisco pese a
+ahorrar memoria; CPython simple ya cubre Python por puesto temporal.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La admisión actual usa los [criterios compartidos](../../RATING_CRITERIA.md):
+puestos top diez/top 15% o referencia pequeña del compilador exacto
+cuando corresponde; bajo 1 MiB solo tiempo. Mejorar 30% o una meta
+aparte de primer puesto no da admisión. Se conservan bases significativas
+sin asteriscos de objetivos de optimización.
 
 ## Soluciones
 
@@ -151,6 +179,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
 | [1112_greedy_optimized.rs](1112_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
 | [1112_greedy_optimized.py](1112_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n log n) time; O(n) space | AC | 0.125 s | 272 KB | 11325703 |
-| [1112_greedy_optimized.go](1112_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1000 KB | 11328499 |
+| [1112_greedy_optimized.go](1112_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 992 KB | 11331008 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
