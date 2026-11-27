@@ -87,11 +87,13 @@ para todos los exponentes primos hasta 10 000; el resto viene de la
 lista publicada y coincide con el ejemplo y con los valores que cita el
 enunciado.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1352_number_theory_optimized.rs`. Conserva tabla exacta de primeros 38 exponentes Mersenne del enunciado. Lee Q índices en flujo y emite cada entero por runtime C, sin Strings completos ni to_string por respuesta. O(Q) tiempo y O(1) espacio auxiliar para tabla fija; no introduce otro test de primalidad ni tabla de respuestas.
 
-Frente a `1352_number_theory.rs`: tiempo 0.001 s → 0.001 s; memoria 216 KB → 56 KB.
+Frente a `1352_number_theory.rs`: tiempo 0.031 s → 0.001 s; memoria 216 KB → 56 KB.
 
 ### Nuevas versiones aceptadas
 
@@ -112,11 +114,22 @@ Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
 
 El código CPython sin cambios se midió tres veces más: (0.078 s, 468 KB), (0.093 s, 400 KB) y (0.046 s, 312 KB). La tabla usa el último par real Accepted; repetir la medición no constituye una mejora algorítmica. En la muestra guardada de intérpretes actuales comparables, esa ejecución comparte el puesto 1/30 en tiempo y ocupa el 11/30 en memoria. Por debajo de 1 MiB, la admisión considera el puesto por tiempo. La versión sencilla ya cumple el criterio, por lo que no se añade una copia Python con nombre optimized.
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Rigen los [criterios comunes](../../RATING_CRITERIA.md), sin primer
+puesto separado ni admisión por mejora del 30%. Sólo memoria estrictamente
+menor que 1024 KB excluye su comparación; con 1024 KB cuentan ambas.
+Se excluyen rivales bajo 0.015 s; sólo nuestro tiempo usa suelo.
+Rust tiene tres rivales antiguos del mismo lenguaje en el fallback;
+puestos temporales base/rápido 4/4 y 1/4 cumplen, sin muestra vacía.
 
-`1352_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+La tabla fija de 38 entradas ocupa O(1). C++/Go sencillos transmiten
+consultas y salida con O(1) acotado. Java guarda O(T) salida;
+Python conserva entrada dividida y salida unida, Rust Strings de
+entrada/salida: O(I+T), I bytes de entrada. Núcleo O(T), lectura total
+O(I+T). Rust/Go/Java rápidos transmiten con búferes fijos, espacio O(1).
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+En `1352_parsing_optimized.go` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11329135 y sus medidas corresponden a los bytes exactos previos.
+
+En `1352_number_theory_parsing_optimized.java` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11329348 y sus medidas corresponden a los bytes exactos previos.
 
 ## Soluciones
 
@@ -135,7 +148,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
-| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 792 KB | 11331002 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.062 s | 496 KB | 11331042 |
 
 **Mediciones actuales.** Las tablas registran las últimas ejecuciones Accepted del código exacto conservado. Las comparaciones anteriores describen ejecuciones históricas; la admisión actual sigue los [criterios compartidos](../../RATING_CRITERIA.md).

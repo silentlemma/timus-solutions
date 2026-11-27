@@ -83,7 +83,7 @@ T 行，每行一个指数。
 
 `1352_number_theory_optimized.rs`. 保留题定前 38 个 Mersenne 素数指数的精确表。流式读 Q 个下标，立即经 C 运行时输出整数，不留输入/输出 String 或逐答案 to_string 分配。固定表下 O(Q) 时间、O(1) 辅助空间，不引入新素性算法或额外答案表。
 
-与 `1352_number_theory.rs` 相比：时间 0.001 s → 0.001 s；内存 216 KB → 56 KB。
+与 `1352_number_theory.rs` 相比：时间 0.031 s → 0.001 s；内存 216 KB → 56 KB。
 
 ### 新的已通过版本
 
@@ -102,13 +102,24 @@ Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
 
 ## 各语言说明
 
-完全未修改的 CPython 源码又运行三次，结果依次为 (0.078 s, 468 KB)、(0.093 s, 400 KB)、(0.046 s, 312 KB)。表格记录最后一次真实 Accepted 的成对指标；重复测量并不代表算法本身加速。在保存的当前解释器可比样本中，该次提交按时间并列第 1/30，按内存第 11/30。内存不超过 1 MiB 时，准入仅看时间排名。清晰的基础实现已经满足条件，因此不添加重复的 optimized Python 源文件。
+完全未修改的 CPython 源码又运行三次，结果依次为 (0.078 s, 468 KB)、(0.093 s, 400 KB)、(0.046 s, 312 KB)。表格记录最后一次真实 Accepted 的成对指标；重复测量并不代表算法本身加速。在保存的当前解释器可比样本中，该次提交按时间并列第 1/30，按内存第 11/30。内存严格小于 1 MiB（1024 KB） 时，准入仅看时间排名。清晰的基础实现已经满足条件，因此不添加重复的 optimized Python 源文件。
 
-新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+适用统一的[标准](../../RATING_CRITERIA.md)，没有单独第一名目标或改善
+30% 准入。只有严格小于 1024 KB 才不比较内存；恰好 1024 KB 时两项均须
+比较。排除快于 0.015 s 的对手，仅我们自己的时间取下限。Rust 在同语言
+旧编译器回退中有三个合格对手，基础/优化时间名次 4/4、1/4 均通过，
+并非空样本自动准入。
 
-`1352_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+38 项常量表空间 O(1)。简单 C++/Go 流式查询/输出，仅有界 O(1) 存储。
+简单 Java 保存 O(T) 输出；Python 保留拆分输入及拼接输出，Rust 保留
+输入/输出 String，空间 O(I+T)，I 为输入字节。查询核心 O(T)，完整字节
+解析 O(I+T)。优化 Rust/Go/Java 用固定缓冲流式处理，额外空间 O(1)。
 
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+`1352_parsing_optimized.go` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+`1352_number_theory_parsing_optimized.java` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -127,7 +138,7 @@ Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
-| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 792 KB | 11331002 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.062 s | 496 KB | 11331042 |
 
 **当前测量。** 解法表记录所保留精确源码的最新 Accepted 结果。此前的性能比较描述历史提交；当前准入遵循统一的[排名标准](../../RATING_CRITERIA.md)。

@@ -18,7 +18,7 @@ func main() {
 	for i := 0; i < count; i++ {
 		out = appendInteger(out, int64(exponents[integer()-1]))
 		out = append(out, '\n')
-		if len(out) > outputCapacity-24 {
+		if len(out) > outputCapacity-integerScratchBytes {
 			writeBytes(out)
 			out = out[:0]
 		}
@@ -27,6 +27,7 @@ func main() {
 }
 
 const inputBufferBytes = 256
+const integerScratchBytes = 24
 
 var inputBuffer [inputBufferBytes]byte
 var inputPosition, inputLength int
@@ -96,7 +97,7 @@ func writeBytes(data []byte) {
 	}
 }
 func appendInteger(out []byte, value int64) []byte {
-	var buffer [24]byte
+	var buffer [integerScratchBytes]byte
 	at := len(buffer)
 	negative := value < 0
 	var magnitude uint64

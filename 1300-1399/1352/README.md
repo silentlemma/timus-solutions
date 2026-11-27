@@ -89,7 +89,7 @@ and agree with the example and the entries named in the statement.
 
 `1352_number_theory_optimized.rs`. Keep the exact table of the first 38 Mersenne-prime exponents specified by the problem. Stream Q indices directly into that table and write each integer immediately through the C runtime, avoiding retained input/output Strings and per-answer to_string allocations. O(Q) time and O(1) auxiliary space under the fixed table; no new primality algorithm or additional answer table is introduced.
 
-Compared with `1352_number_theory.rs`: time 0.001 s → 0.001 s; memory 216 KB → 56 KB.
+Compared with `1352_number_theory.rs`: time 0.031 s → 0.001 s; memory 216 KB → 56 KB.
 
 ### Accepted source update
 
@@ -110,11 +110,25 @@ Accepted #11329348 (Java 1.8): **0.046 s / 480 KB**.
 
 The unchanged CPython source was measured three more times: (0.078 s, 468 KB), (0.093 s, 400 KB), and (0.046 s, 312 KB). The table records the last actual Accepted pair; these repeated measurements do not constitute an algorithmic speedup. In the saved comparable current-interpreter sample, that run shares time place 1/30 and has memory place 11/30. With memory below 1 MiB, admission uses the time ranking. The readable baseline already meets it, so no duplicate optimized Python source is added.
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Use the shared [criteria](../../RATING_CRITERIA.md): no separate
+first-place target or 30% improvement admission. Only memory strictly
+below 1024 KB excludes memory comparison; at 1024 KB both metrics count.
+Rivals below 0.015 s are excluded; our own time is floored. Rust has
+three eligible older-compiler rivals in its same-language fallback;
+base/optimized time ranks 4/4 and 1/4 pass, not an empty-sample rule.
 
-`1352_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+The 38-entry table is fixed O(1) space. Simple C++/Go stream queries
+and answers with O(1) bounded storage. Simple Java accumulates O(T)
+output; Python retains split input and joined output, and Rust keeps
+input/output Strings, using O(I+T) space for I input bytes. The lookup
+kernel is O(T), full byte-input work O(I+T). Optimized Rust/Go/Java
+stream through fixed buffers, O(1) auxiliary storage.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Only lint-required constants in `1352_parsing_optimized.go` were given names; their values, algorithm and comments are unchanged. Accepted #11329135 describes the preceding exact bytes and paired metrics.
+
+Only lint-required constants in `1352_number_theory_parsing_optimized.java` were given names; their values, algorithm and comments are unchanged. Accepted #11329348 describes the preceding exact bytes and paired metrics.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -133,7 +147,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
-| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 796 KB | 11329135 |
-| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.046 s | 480 KB | 11329348 |
+| [1352_parsing_optimized.go](1352_parsing_optimized.go) | Go 1.14 x64 | parsing | O(T) | AC | 0.015 s | 792 KB | 11331002 |
+| [1352_number_theory_parsing_optimized.java](1352_number_theory_parsing_optimized.java) | Java 1.8 | number_theory, parsing | O(T) time; O(1) auxiliary space | AC | 0.062 s | 496 KB | 11331042 |
 
 **Current measurements.** The solution tables record the exact preserved sources and their latest Accepted runs. Earlier performance comparisons describe historical runs; current admission follows the shared [rating criteria](../../RATING_CRITERIA.md).

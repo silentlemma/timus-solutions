@@ -10,6 +10,7 @@ public class Main {
     };
 
     private static final int BUFFER_BYTES = 1024;
+    private static final int BYTE_MASK = 255;
     private static final byte[] INPUT = new byte[BUFFER_BYTES];
     private static final byte[] OUTPUT = new byte[BUFFER_BYTES];
     private static final byte[] DIGITS = new byte[16];
@@ -26,7 +27,7 @@ public class Main {
                 return -1;
             }
         }
-        return INPUT[inputPosition++] & 255;
+        return INPUT[inputPosition++] & BYTE_MASK;
     }
 
     private static int readInt() throws IOException {
