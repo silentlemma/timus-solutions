@@ -3,6 +3,7 @@ from array import array
 import sys
 
 INPUT_BUFFER_BYTES = 4096
+ASCII_SPACE = ord(" ")
 
 KINDS = 3
 # the input: lengths, prices, then N and the two stations, then positions
@@ -20,7 +21,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > ASCII_SPACE else b""
         yield from parts
     if pending:
         yield pending

@@ -21,9 +21,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-`L1 L2 L3 C1 C2 C3`, luego `N`, luego las dos estaciones (en cualquier
-orden) y luego las `N - 1` distancias de las estaciones 2..`N` a la
-estación 1.
+`L1 L2 L3 C1 C2 C3`, luego `N` y dos números de estación distintos
+en `1..N` (en cualquier orden). Las siguientes `N - 1` líneas dan
+distancias enteras positivas y distintas desde la estación 1 hasta
+las estaciones 2..`N`, en orden creciente.
 
 ## Salida
 
@@ -94,6 +95,14 @@ alcanza esa tarifa. Al crecer `i`, esos orígenes más lejanos solo avanzan,
 así que se guarda un puntero por tarifa y se adelanta mientras la distancia
 supere `Lk`. Cada paso prueba tres candidatos: `O(N)` en total.
 
+Ambas DP guardan `O(N)` posiciones y costes; los tres punteros añaden
+solo estado constante. Las bases Python y Rust también guardan toda
+la entrada, `O(I)`, siendo `I` su longitud. Python optimizado usa arreglos
+compactos `O(N)` y bloques acotados. Rust optimizado conserva solo
+`K = b - a + 1` posiciones/costes: `O(K)`. Go optimizado reserva arreglos
+para el límite de 10000 estaciones; su capacidad es lineal en ese límite,
+no constante con independencia de él.
+
 Detalles a tener en cuenta:
 
 - las estaciones pueden venir en orden decreciente;
@@ -101,19 +110,28 @@ Detalles a tener en cuenta:
   que un viaje de longitud `X ≤ L1` cuesta `C1`, no `C3`;
 - la respuesta cabe en 32 bits, pero usa enteros de 64 bits para las sumas.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 Go y Rust mantienen un puntero móvil por tarifa a la primera estación que queda dentro de su alcance. El coste mínimo hasta cada estación no decrece, así que ese puntero da el predecesor más barato para la tarifa. Ambas versiones leen las posiciones en orden y guardan solo el tramo entre los dos extremos. Las posiciones y los costes caben en enteros de 32 bits. Go usa vectores fijos para hasta 10000 estaciones y entrada y salida directa de bytes.
 
-Las implementaciones base aceptadas [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp), [1031_dp_two_pointers.java](1031_dp_two_pointers.java), [1031_dp_two_pointers.py](1031_dp_two_pointers.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases C++ de tres punteros y Java cubren también el conjunto rápido
+sin duplicados. Los [criterios compartidos](../../RATING_CRITERIA.md)
+comparan solo tiempo para sus mediciones inferiores a 1 MiB. Python simple
+permanece didáctico: sus 1684 KB superan el umbral de memoria de la muestra
+pequeña en caché. Python optimizado, de 896 KB, cumple solo por tiempo;
+su fuente independiente cubre el conjunto rápido de Python.
 
 ### Nuevas versiones aceptadas
 
 Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
 
-`1031_dp_two_pointers_optimized.py`. Las posiciones y costes se guardan en arreglos de 64 bits sin signo en vez de listas de enteros Python. Se mantienen la DP de billetes y los punteros móviles; 64 bits cubren las coordenadas grandes verificadas. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+`1031_dp_two_pointers_optimized.py`. Las posiciones y costes se guardan en arreglos de 64 bits sin signo en vez de listas de enteros Python. Los elementos de 64 bits dejan margen aritmético; las coordenadas válidas siguen limitadas a `10^9`. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
 
 Accepted #11328768 (Python 3.12 x64): **0.078 s / 896 KB**. Comparación archivada: `1031_dp_two_pointers.py` (Python 3.12 x64) — 0.078 s / 1684 KB (#11278428).
+
+`1031_dp_two_pointers_optimized.py`: la revisión actual nombra el umbral ASCII de espacio sin cambiarlo.
 
 ## Notas por lenguaje
 
@@ -141,4 +159,4 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
 | [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
-| [1031_dp_two_pointers_optimized.py](1031_dp_two_pointers_optimized.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 896 KB | 11328768 |
+| [1031_dp_two_pointers_optimized.py](1031_dp_two_pointers_optimized.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.093 s | 928 KB | 11331076 |
