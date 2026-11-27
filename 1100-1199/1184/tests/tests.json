@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1184_binary_search.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "four cables, eleven pieces of two metres" },
+    { "name": "01", "example": true, "note": "own three-cable stock: seven pieces of1.27m, but only six at1.28m" },
     { "name": "02", "note": "one cable, one piece" },
     { "name": "03", "note": "more pieces than centimetres, the answer is 0.00" },
     { "name": "04", "note": "one very long cable and one short one" },

@@ -46,17 +46,16 @@ All four published sources have their own exact-byte Accepted.
 Input:
 
 ```
-4 11
-8.02
-7.43
-4.57
-5.39
+3 7
+4.17
+3.08
+2.54
 ```
 
 Output:
 
 ```
-2.00
+1.27
 ```
 
 ## Solution
@@ -82,7 +81,16 @@ though each input cable is at least one metre.
 
 ## Optimized solutions
 
-The `_optimized` files retain the same exact integer binary search,
+Only the C++, Java, Python and Rust optimized sources use the
+tighter bounds and early piece-count exit described next. The Go
+I/O variant keeps low=0 and high=M, sums every cable at each probe,
+and stores int64 lengths; it does not compute S or stop at K.
+Its changes are token input and fixed integer output. Both search
+forms are correct and have worst-case O(N log C) time/O(N) cable
+storage; the Go reader has an 8192-byte refill buffer and retains
+only the current token rather than all input.
+
+Those four optimized implementations retain the same exact integer binary search,
 with tighter proved bounds and smaller input/storage representations.
 Let M be the longest cable and S the total length. A single longest cable
 can provide K pieces of length `floor(M/K)`, so `low=M/K` is a valid lower
@@ -108,12 +116,14 @@ retaining a full token list or boxed-integer list. Auxiliary I/O buffers
 are bounded; cable storage remains linear. All five readable bases remain
 byte for byte unchanged.
 
-Exact-source Accepted memory: C++ 168 versus 280 KB (40.0% less), Java
-448 versus 6284 KB (92.9% less), Python 516 versus 1580 KB (67.3% less),
-Rust 220 versus 420 KB (47.6% less). C++ times 0.031→0.015 s differ by
-only one judge tick, so time alone is not used for admission. Java is
-0.125→0.093 s; Python stays 0.078 s and Rust stays 0.015 s. All four
-qualify independently by measured memory, not by timing noise.
+Exact-source Accepted memory: C++ 168 versus 280 KB (40.0% less),
+Java 448 versus 6284 KB (92.9% less), Python 516 versus 1580 KB
+(67.3% less), Rust 220 versus 420 KB (47.6% less). C++ times
+0.031→0.015 s differ by one tick, which alone is not proof of
+algorithmic acceleration. Java is 0.125→0.093 s; Python stays
+0.078 s and Rust stays 0.015 s. These are measured tradeoffs,
+not an independent memory-gain admission requirement; qualification
+uses the shared ranking policy.
 
 ### Accepted source update
 
@@ -123,17 +133,29 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328934 (Go 1.14 x64): **0.031 s / 1332 KB**. Archived comparison: `1184_binary_search.go` (Go 1.14 x64) — 0.031 s / 1688 KB (#11283358).
 
+The current Go I/O revision corrects the formatter comment and
+names the unchanged 128-byte inline token capacity for structural lint:
+it supports the integer %d verb with optional width and zero
+padding; dot and newline are literal output, not floating formats. Accepted #11328934 (0.031 s / 1332 KB), the table and its cache
+comparison describe preceding bytes.
+
 ## Language notes
 
-The original five implementations retain their straightforward search.
-The new Python source was accepted in CPython 3.12; no PyPy metrics are
-substituted. C++, Java and Rust meet the current rating profile. Python
-is second by time and first by memory in the filtered snapshot, so its
-admitted row keeps a star and room for improvement. Go has no eligible
-competing authors here: its base gives formal coverage, not evidence of
-superiority. The C++ target is top 15% or first ten places in both metrics;
-other families require first in both. Each memory gain uses its own
-unchanged same-language simple Accepted base.
+Use the shared [rating criteria](../../RATING_CRITERIA.md), not
+the former first-place/30%-gain profile. The source-bound cache
+confirms C++/Java/Python optimized versions by time only below
+1024 KB. Python has no failure marker; its qualifying CPython
+base also covers the family, with both metrics at 1580 KB. Go
+has two exact-version rivals, not an empty sample: its Accepted
+I/O variant passes both limits 0.078 s / 1499.60 KB; the 1688 KB
+base misses memory and remains an unstarred teaching version.
+Rust base/optimized pass the exact-version one-rival comparison
+using time only. C++/Java bases also remain for teaching despite
+missing their metrics. Other compilers are used only when no
+current-compiler rivals exist. No fresh standings were fetched;
+all raw paired metrics and simple sources are preserved.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -155,4 +177,4 @@ unchanged same-language simple Accepted base.
 | [1184_binary_search_optimized.java](1184_binary_search_optimized.java) | Java 1.8 | binary_search | O(N log C) | AC | 0.093 s | 448 KB | 11308743 |
 | [1184_binary_search_optimized.py](1184_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
 | [1184_binary_search_optimized.rs](1184_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N log C) | AC | 0.015 s | 220 KB | 11308751 |
-| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11328934 |
+| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11331018 |

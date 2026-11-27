@@ -38,17 +38,16 @@
 输入：
 
 ```
-4 11
-8.02
-7.43
-4.57
-5.39
+3 7
+4.17
+3.08
+2.54
 ```
 
 输出：
 
 ```
-2.00
+1.27
 ```
 
 ## 解法
@@ -68,7 +67,14 @@ L 可行则更小的正长度都可行；L 不可行则更大都不可行。保�
 
 ## 优化解法
 
-`_optimized` 保留同一精确整数二分，使用更紧的已证明边界和紧凑输入存储。
+下述更紧边界及达到 K 后提前停止仅用于优化 C++、Java、
+Python、Rust。Go 的输入输出版仍用 low=0、high=M，每次
+遍历全部电缆，存 int64 长度；不计算 S，也不在 K 处停止。
+其改进为词元读取及固定整数输出。两种搜索都正确，最坏
+时间 O(N log C)、电缆空间 O(N)。Go 用 8192 字节可重填
+输入缓冲，仅保留当前词元，不保留全部输入。
+
+这四份优化实现保留同一精确整数二分，使用更紧的已证明边界和紧凑输入存储。
 设 M 为最长长度、S 为总长。最长的一根就能切 K 段长 `floor(M/K)` 的电缆，
 故正的 `low=M/K` 可行，零仍作哨兵。任意可行 L 都有 `L≤M`、`K·L≤S`，
 所以 `high=min(M,floor(S/K))`，不会丢掉最优解。
@@ -84,11 +90,12 @@ C++、Java 用有限字节缓冲直接读入 32 位数组，跳过长度词的�
 不保留完整输入字符串或逐词替换。CPython 按规定逐行读入 `array('I')`，不保留
 全部输入词或装箱 int 列表。I/O 缓冲固定，长度存储线性，五份清晰基础源码逐字节保留。
 
-精确源码 Accepted 内存：C++ 168 对 280 KB（少 40.0%），Java 448 对
-6284 KB（少 92.9%），Python 516 对 1580 KB（少 67.3%），Rust 220
-对 420 KB（少 47.6%）。C++ 0.031→0.015 s 仅差一个评测计时单位，不凭此
-单独准入。Java 0.125→0.093 s，Python 仍 0.078 s，Rust 仍 0.015 s。
-四版均凭实测内存而非计时噪声满足条件。
+精确源码 Accepted 内存：C++ 168 对 280 KB（少 40.0%），
+Java 448 对 6284 KB（92.9%），Python 516 对 1580 KB（67.3%），
+Rust 220 对 420 KB（47.6%）。C++ 0.031→0.015 s 仅差一刻度，
+本身不证明算法加速。Java 0.125→0.093 s，Python 仍 0.078 s，
+Rust 仍 0.015 s。这是实测取舍，并非独立内存收益准入条件；
+资格按统一排名规则。
 
 ### 新的已通过版本
 
@@ -98,13 +105,24 @@ C++、Java 用有限字节缓冲直接读入 32 位数组，跳过长度词的�
 
 Accepted #11328934 (Go 1.14 x64): **0.031 s / 1332 KB**. 历史对照: `1184_binary_search.go` (Go 1.14 x64) — 0.031 s / 1688 KB (#11283358).
 
+当前 Go 修订改正格式器注释，并为原有 128 字节内联词元缓冲
+命名以通过结构检查。格式器支持带可选宽度和补零的整数
+%d，点及换行是字面输出，不是浮点格式。Accepted #11328934
+（0.
+
 ## 各语言说明
 
-五份旧实现保留直接的二分。新 Python 使用 Accepted 的 CPython 3.12，
-不代入 PyPy 指标。C++、Java、Rust 已达当前目标；Python 在过滤样本中时间
-第二、内存第一，故准入行保留星号，仍可改进。Go 没有符合条件的其他作者提交，
-其基础版只获形式覆盖，不证明优势。C++ 两项同时前 15% 或前十名，其他语言族
-两项均第一。各项内存收益均与同语言、不变的简单 Accepted 基础版比较。
+采用统一[排名标准](../../RATING_CRITERIA.md)，而非旧第一名/
+30% 收益。源码绑定缓存确认优化 C++/Java/Python，低于
+1024 KB 仅时间。Python 无失败标记，CPython 基础版在
+1580 KB 时两项合格，也覆盖语言。Go 精确版本有两位对手，
+不是空样本：输入输出版 Accepted 两项通过 0.078 s /
+1499.60 KB 限额，1688 KB 基础未过内存但保留教学且不标星。
+Rust 基础/优化对同版本唯一对手仅计时间且通过。C++/Java
+基础即使指标未过也保留教学。无当前对手才用同语言其他
+编译器；未新下载排名，原始成对指标与简单源码保留。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -126,4 +144,4 @@ Accepted #11328934 (Go 1.14 x64): **0.031 s / 1332 KB**. 历史对照: `1184_bin
 | [1184_binary_search_optimized.java](1184_binary_search_optimized.java) | Java 1.8 | binary_search | O(N log C) | AC | 0.093 s | 448 KB | 11308743 |
 | [1184_binary_search_optimized.py](1184_binary_search_optimized.py) | Python 3.12 x64 | binary_search | O(N log C) | AC | 0.078 s | 516 KB | 11308745 |
 | [1184_binary_search_optimized.rs](1184_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N log C) | AC | 0.015 s | 220 KB | 11308751 |
-| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11328934 |
+| [1184_binary_search_parsing_implementation_optimized.go](1184_binary_search_parsing_implementation_optimized.go) | Go 1.14 x64 | binary_search, parsing, implementation | O(N log C) | AC | 0.031 s | 1332 KB | 11331018 |

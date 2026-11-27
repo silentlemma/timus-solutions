@@ -53,6 +53,8 @@ func main() {
 
 const inputBufferBytes = 8192
 
+const inlineTokenBytes = 128
+
 var fastInputReader io.Reader
 var fastInputBuffer [inputBufferBytes]byte
 var fastInputPosition, fastInputLength int
@@ -72,7 +74,7 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		if err != nil {
 			return index, err
 		}
-		var inline [128]byte
+		var inline [inlineTokenBytes]byte
 		word := inline[:0]
 		for {
 			word = append(word, ch)
@@ -136,7 +138,8 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 
 var fastFormatBuffer = make([]byte, 0, 64)
 
-// Only the fixed integer, character, string and decimal formats used here are needed.
+// Only %d with optional width/zero-padding is used.
+// The decimal dot and newline are emitted literally.
 func fastFormatted(writer io.Writer, format string, values ...interface{}) (int, error) {
 	buffer := fastFormatBuffer[:0]
 	argument := 0
