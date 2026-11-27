@@ -31,7 +31,7 @@ int main() {
             }
     }
     // the time of v is what it needs to tell its whole subtree; the slowest
-    // subtrees are called first, the i-th call starting at minute i
+    // subtrees are called first, the one-based i-th call completing at elapsed minute i
     std::vector<int> time(n + 1, 0);
     std::vector<std::vector<int>> kids(n + 1);
     for (size_t i = order.size(); i-- > 0;) {

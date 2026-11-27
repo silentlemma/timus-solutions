@@ -37,7 +37,7 @@ fn main() {
         i += 1;
     }
     // the time of v is what it needs to tell its whole subtree; the slowest
-    // subtrees are called first, the i-th call starting at minute i
+    // subtrees are called first, the one-based i-th call completing at elapsed minute i
     let mut time = vec![0usize; n + 1];
     let mut kids: Vec<Vec<usize>> = vec![Vec::new(); n + 1];
     for &v in order.iter().rev() {

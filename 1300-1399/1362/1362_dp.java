@@ -59,7 +59,7 @@ public class Main {
                 }
         }
         // the time of v is what it needs to tell its whole subtree; the slowest
-        // subtrees are called first, the i-th call starting at minute i
+        // subtrees are called first, the one-based i-th call completing at elapsed minute i
         int[] time = new int[n + 1], kidCount = new int[n + 1];
         for (int v = 1; v <= n; v++)
             if (parent[v] > 0)

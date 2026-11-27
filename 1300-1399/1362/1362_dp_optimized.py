@@ -26,7 +26,7 @@ def main():
                 parent[u] = v
                 order.append(u)
     # time[v]: minutes v needs to tell its whole subtree; the slowest
-    # subtrees are called first, the i-th call starting at minute i
+    # subtrees are called first, the one-based i-th call completing at elapsed minute i
     kids = [None] * (n + 1)
     answer = 0
     for v in reversed(order):

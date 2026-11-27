@@ -20,12 +20,15 @@ Límite de tiempo: 2 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-N, luego N líneas: la línea K enumera los subordinados del empleado K y
-termina en 0. La última línea tiene el número de Tanya.
+1 ≤ N ≤ 100000 empleados tienen ID únicos de 1 a N. Siguen N líneas: la línea K enumera subordinados directos de K y termina en 0. La última línea da el ID de Tanya en el mismo rango; la jerarquía es un árbol.
 
 ## Salida
 
 El menor número de minutos.
+
+## Comprobación
+
+Comparación de tokens (`judging: tokens`): un entero, el mínimo tiempo transcurrido en minutos; se ignoran separadores blancos.
 
 ## Ejemplos
 
@@ -34,24 +37,20 @@ El menor número de minutos.
 Entrada:
 
 ```
-10
+6
 2 3 0
-4 5 7 0
-6 9 0
-0
-0
-8 10 0
+4 5 0
+6 0
 0
 0
 0
-0
-2
+4
 ```
 
 Salida:
 
 ```
-5
+4
 ```
 
 ## Solución
@@ -72,6 +71,8 @@ El árbol se recorre en anchura y los tiempos se calculan desde las
 hojas hacia arriba, así que ni una cadena de 100 000 necesita
 recursión. `O(N log N)`.
 
+Todas las bases conservan O(N) datos de árbol, recorrido, DP y tiempos de hijos. C++/Go/Java en flujo añaden búferes acotados; Python/Rust retienen toda la entrada: O(N+I), I bytes de entrada. Listas de hijos y mayor fila temporal de ordenación suman O(N), sin pila recursiva.
+
 Detalles a tener en cuenta:
 
 - el director no siempre es la raíz: si Tanya es subordinada, la noticia sube y
@@ -85,13 +86,17 @@ Las respuestas se compararon con una búsqueda sobre todas las formas de
 llamar, minuto a minuto, en 400 árboles aleatorios de hasta 8
 empleados.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-C++, Go y Rust conservan la llamada primero al subárbol más lento. Cada empleado guarda jefe original, primer hijo y siguiente hermano; enumeran vecinos no dirigidos sin contenedores por vértice ni objetos duplicados por arista. Un orden BFS plano y padres enraízan en el informador; su jefe original es otro vecino y el director puede ser distinto. Se procesa al revés, reuniendo tiempos de hijos en un prefijo reutilizado, ordenando de mayor a menor y tomando max(time[i]+i+1). Las hojas requieren cero. Identificadores y tiempos caben en 32 bits: un horario secuencial termina en N−1 minutos. Tiempo O(N log N), árbol O(N), sin recorrido recursivo. C++ y Go leen en flujo; Rust guarda la entrada y usa O(N+bytes de entrada). Se conservan las bases; Java y Python reutilizan las admitidas.
+C++, Go y Rust conservan la llamada primero al subárbol más lento. Cada empleado guarda jefe original, primer hijo y siguiente hermano; enumeran vecinos no dirigidos sin contenedores por vértice ni objetos duplicados por arista. Un orden BFS plano y padres enraízan en el informador; su jefe original es otro vecino y el director puede ser distinto. Se procesa al revés, reuniendo tiempos de hijos en un prefijo reutilizado, ordenando de mayor a menor y tomando max(time[i]+i+1). Las hojas requieren cero. Identificadores y tiempos caben en 32 bits: un horario secuencial termina en N−1 minutos. Tiempo O(N log N), árbol O(N), sin recorrido recursivo. C++ y Go leen en flujo; Rust guarda la entrada y usa O(N+bytes de entrada). Se conservan las bases; Java reutiliza su base válida; Python usa una fuente optimizada separada.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.031 s de la base y usa 3 948 KB frente a 15320 KB.
 
-Las implementaciones base aceptadas [1362_dp.java](1362_dp.java), [1362_dp.py](1362_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Java reutiliza su base con ambas métricas necesarias en puesto 1/22. Python usa [1362_dp_optimized.py](1362_dp_optimized.py), Accepted previo de fuente exacta #11328667, 0.312 s / 29520 KB. Siete rivales CPython exactos seleccionan la tercera referencia, límites 0.34040 s / 39495.60 KB: requiere y cumple ambas. La base didáctica 0.468 s / 33988 KB incumple tiempo. Los [criterios comunes](../../RATING_CRITERIA.md) excluyen memoria sólo estrictamente bajo 1024 KB; exactamente 1024 KB requiere ambas, excluyen rivales bajo 0.015 s y sólo nuestro tiempo usa suelo. C++ rápido cumple ambas 1/58; Go/Rust cumplen fallback antiguo del mismo lenguaje. Se conservan bases sin duplicados optimizados idénticos.
+
+Siete archivos reciben sólo correcciones explicativas de comentarios: las cinco bases y Python rápido aclaran que la llamada i desde uno termina al minuto transcurrido i; Go rápido mueve el comentario del arreglo de trabajo junto al bucle inverso de recolección y ordenación. Algoritmos y comentarios útiles se conservan.
 
 ### Nuevas versiones aceptadas
 
@@ -114,17 +119,17 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1362_dp.cpp](1362_dp.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.171 s | 8896 KB | 11285481 |
-| [1362_dp.go](1362_dp.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.093 s | 17784 KB | 11285489 |
-| [1362_dp.java](1362_dp.java) | Java 1.8 | dp | O(N log N) | AC | 0.093 s | 6848 KB | 11285508 |
-| [1362_dp.py](1362_dp.py) | Python 3.12 x64 | dp | O(N log N) | AC | 0.468 s | 33988 KB | 11285503 |
-| [1362_dp.rs](1362_dp.rs) | Rust 1.75 x64 | dp | O(N log N) | AC | 0.031 s | 15320 KB | 11285514 |
+| [1362_dp.cpp](1362_dp.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.156 s | 8876 KB | 11331148 |
+| [1362_dp.go](1362_dp.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.046 s | 17960 KB | 11331028 |
+| [1362_dp.java](1362_dp.java) | Java 1.8 | dp | O(N log N) | AC | 0.109 s | 6912 KB | 11331053 |
+| [1362_dp.py](1362_dp.py) | Python 3.12 x64 | dp | O(N log N) | AC | 0.484 s | 33412 KB | 11331080 |
+| [1362_dp.rs](1362_dp.rs) | Rust 1.75 x64 | dp | O(N log N) | AC | 0.031 s | 15508 KB | 11331126 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1362_dp_optimized.cpp](1362_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.015 s | 2824 KB | 11315122 |
-| [1362_dp_optimized.go](1362_dp_optimized.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.015 s | 4256 KB | 11315125 |
+| [1362_dp_optimized.go](1362_dp_optimized.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.031 s | 4276 KB | 11331029 |
 | [1362_dp_optimized.rs](1362_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N log N) | AC | 0.046 s | 3948 KB | 11315130 |
-| [1362_dp_optimized.py](1362_dp_optimized.py) | Python 3.12 x64 | dp | O(N log N) | AC | 0.312 s | 29520 KB | 11328667 |
+| [1362_dp_optimized.py](1362_dp_optimized.py) | Python 3.12 x64 | dp | O(N log N) | AC | 0.328 s | 29420 KB | 11331081 |

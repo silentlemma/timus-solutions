@@ -136,6 +136,7 @@ func main() {
 			visit(next, vertex, &tail)
 		}
 	}
+	// Reuse one scratch prefix for every employee's descending child times.
 	for cursor := tail - 1; cursor >= 0; cursor-- {
 		vertex := order[cursor]
 		used := 0
@@ -155,7 +156,6 @@ func main() {
 		}
 		finish[vertex] = best
 	}
-	// Reuse one scratch prefix for every employee's descending child times.
 	writeNumber(int(finish[source]))
 	output[used] = '\n'
 	used++

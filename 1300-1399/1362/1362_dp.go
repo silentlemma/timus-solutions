@@ -44,7 +44,7 @@ func main() {
 		}
 	}
 	// the time of v is what it needs to tell its whole subtree; the slowest
-	// subtrees are called first, the i-th call starting at minute i
+	// subtrees are called first, the one-based i-th call completing at elapsed minute i
 	time := make([]int, n+1)
 	kids := make([][]int, n+1)
 	for i := len(order) - 1; i >= 0; i-- {
