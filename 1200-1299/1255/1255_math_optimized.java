@@ -68,6 +68,8 @@ public class Main {
         return (n * n - side * side) / k;
     }
     public static void main(String[] args) throws java.io.IOException {
+        // Consume both inputs before number() reuses their buffer for output.
+        // No unread input is needed once writing begins.
         int n = nextInt(), k = nextInt();
         number(pack(n, k));
         write('\n');

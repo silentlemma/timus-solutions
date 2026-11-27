@@ -32,13 +32,13 @@ Comparar un token entero exacto, ignorando espacios de formato. El nuevo código
 Entrada:
 
 ```
-5 3
+11 4
 ```
 
 Salida:
 
 ```
-8
+30
 ```
 
 ## Solución
@@ -76,23 +76,25 @@ Detalles a tener en cuenta:
 La fórmula se comparó con una búsqueda exhaustiva para todos los N y K
 de 2 a 7.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1255_math_optimized.java`. Mantiene fórmula exacta del cuadrado de esquina: N<K da cero; si no r=N mod K, s=min(r,K-r), respuesta (N*N-s*s)/K. Sin flotantes ni tabla. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
 
-Accepted exacto Java 1.8 #11327763: 0.078 s / 340 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/27, memoria 2/27. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11309313 era 0.109 s / 320 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted histórico de fuente exacta Java 1.8 #11327763: 0.078 s / 340 KB. La cohorte guardada 2026-11-20 daba tiempo 2/27 y memoria 2/27. Los criterios actuales solo exigen tiempo por debajo de 1024 KB: esta pareja numérica histórica pasa sin primer puesto ni asterisco separado. #11309313 fue otra pareja histórica, 0.109 s / 320 KB. Código ejecutable y cinco bases intactos.
 
 - `1255_math_optimized.java`: 0.078 s / 340 KB; base didáctica conservada `1255_math.java`: 0.125 s / 1600 KB.
 
-Se usa la misma fórmula entera del cuadrado de esquina: r=N mod K, s=min(r,K-r); si N>=K, (N*N-s*s)//K; en caso contrario cero. No hay redondeos ni tabla de respuestas. El archivo compacto lee el flujo de texto existente y escribe directamente el entero exacto. Su envío propio en PyPy acredita el ahorro; se declaran el intérprete y el aumento temporal. Se conservan las cinco bases.
+Ambos Python calculan la misma fórmula entera exacta. El compacto lee una línea y escribe el entero sin salto final; la base usa input/print. Las medidas cambian fuente E intérprete: base CPython 3.12 y compacto PyPy 3.10. Prueban parejas observadas, no una reducción de memoria aislada causada por editar el código; no hay experimento con igual intérprete. PyPy compacto tarda más, y menor memoria no sustituye el criterio de tiempo.
 
 - `1255_math_optimized.py`: 0.140 s / 248 KB; base `1255_math.py`: 0.078 s / 376 KB; cambio respecto a la base: tiempo +79.5%, memoria -34.0%.
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Rigen [criterios comunes](../../RATING_CRITERIA.md) para todas las familias: top diez o top 15% ordinario; cohortes escasas del compilador exacto usan referencia primera/segunda/tercera prescrita, margen 15% y tick del juez. Bajo 1024 KB solo tiempo, en otro caso ambas métricas. Sin primer puesto no-C++ separado, corte ID ni aprobación automática por muestra vacía. Caché ligada a fuente admite C++/Java rápido por tiempo ordinario; Go 1132 KB por ambas referencias escasas; CPython base/Rust por tiempo escaso. Java sencillo queda docente pese a fallar. PyPy compacto falla tiempo y mantiene asterisco.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+Siguen solo filas históricas del 1–2 noviembre 2026: puestos, tamaños de muestra y fuentes de cobertura anteriores no acreditan admisión actual:
 
 - C++: base didáctica preferida `1255_math.cpp`; fuente que cubre `1255_math.cpp`; puestos tiempo/memoria 1/2, registros de otros autores 31/31.
 
@@ -120,7 +122,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
-| [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 348 KB | 11331206 |
+| [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 248 KB | 11309692 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

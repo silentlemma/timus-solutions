@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1255_math.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "one corner cell left over" },
+    { "name": "01", "example": true, "note": "own 11-by-11 board: pinwheel packing leaves one corner-square cell" },
     { "name": "02", "note": "the coffin longer than the cemetery" },
     { "name": "03", "note": "the largest cemetery, the shortest coffin" },
     { "name": "04", "note": "remainder of one with the square side at its maximum" },

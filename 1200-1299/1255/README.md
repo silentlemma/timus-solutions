@@ -32,13 +32,13 @@ Compare one exact integer token; formatting whitespace is ignored. The new exact
 Input:
 
 ```
-5 3
+11 4
 ```
 
 Output:
 
 ```
-8
+30
 ```
 
 ## Solution
@@ -80,19 +80,19 @@ The formula was compared with an exhaustive search for all N and K from
 
 `1255_math_optimized.java`. Keep the exact corner-square formula: if N<K output zero; otherwise r=N mod K, s=min(r,K-r), answer=(N*N-s*s)/K. No floating-point arithmetic or answer table. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
 
-Exact-source Java 1.8 Accepted #11327763: 0.078 s / 340 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/27, memory 2/27. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11309313 was 0.109 s / 320 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Historical exact-source Java 1.8 Accepted #11327763: 0.078 s / 340 KB. The saved 2026-11-20 cohort recorded time 2/27 and memory 2/27. Current shared criteria use time only below 1024 KB; this historical numerical pair passes and has no separate first-place asterisk. Earlier #11309313 was 0.109 s / 320 KB, a different historical pair. All executable code and five teaching files are preserved.
 
 - `1255_math_optimized.java`: 0.078 s / 340 KB; retained teaching base `1255_math.java`: 0.125 s / 1600 KB.
 
-Use exactly the same integer corner-square formula as the teaching sources. For r=N mod K, let s=min(r,K-r); if N>=K, return (N*N-s*s)//K, otherwise zero. No floating-point rounding or answer table is involved. The compact source reads the existing text stream and writes the exact integer directly. Its own PyPy run supplies the memory saving; interpreter identity and the increased runtime are explicit below. The five simple files remain unchanged.
+Both Python files compute the same exact integer corner-square formula. The compact file reads one text line and writes the integer without a final newline; the teaching file uses input/print. The measurements below compare different source AND interpreter: CPython 3.12 for the base and PyPy 3.10 for the compact file. They establish observed pairs, not an isolated memory gain caused by the source edit. No matched-interpreter experiment is recorded. The compact PyPy run is slower; its lower memory does not make it pass the time target.
 
 - `1255_math_optimized.py`: 0.140 s / 248 KB; base `1255_math.py`: 0.078 s / 376 KB; relative change: time +79.5%, memory -34.0%.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The shared [rating criteria](../../RATING_CRITERIA.md) apply to every family: ordinary top ten or top 15%; sparse exact-compiler cohorts use the prescribed first/second/third reference, 15% allowance and judge-tick tolerance. Below 1024 KB only time is required, otherwise both metrics. There is no independent non-C++ first-place requirement, submission-ID cutoff or automatic pass from an empty peer sample. The source-bound saved audit admits C++ and fast Java by ordinary time ranking; Go 1132 KB by both sparse-reference metrics; base CPython and Rust by sparse-reference time. Simple Java remains teaching despite missing metrics. Compact PyPy fails the time reference, so its existing asterisk remains. The comment-revised Java needs fresh byte-level Accepted as noted above.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+Historical 1–2 November 2026 snapshot rows follow for provenance only. Their old places, peer counts and chosen covering files are not current admission evidence:
 
 - C++: preferred teaching base `1255_math.cpp`; covering source `1255_math.cpp`; time/memory places 1/2, other-author entries 31/31.
 
@@ -103,6 +103,8 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 - Python/PyPy: preferred teaching base `1255_math.py`; covering source `1255_math_optimized.py`; time/memory places 6/1, other-author entries 7/7.
 
 - Rust: preferred teaching base `1255_math.rs`; covering source `1255_math.rs`; time/memory places 1/1, other-author entries 0/0.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -120,7 +122,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
-| [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
+| [1255_math_optimized.java](1255_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 348 KB | 11331206 |
+| [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 248 KB | 11309692 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
