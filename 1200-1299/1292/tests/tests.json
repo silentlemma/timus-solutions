@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1292_math.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "chains of three and six steps" },
+    { "name": "01", "example": true, "note": "own example: expanding gap and the slowest convergence boundary" },
     { "name": "02", "note": "a single step from the smallest and largest keys" },
     { "name": "03", "note": "the key 12558 needs exactly 14 steps to reach 153" },
     { "name": "04", "note": "long chains at the largest base number stop at 153" },
@@ -10,7 +10,7 @@
     { "name": "gen1", "generator": "1 1", "note": "short chains, often cut before 153" },
     { "name": "gen2", "generator": "2 2", "note": "any N and key" },
     { "name": "gen3", "generator": "3 3", "note": "the maximum query count with the slowest key" },
-    { "name": "06", "note": "one ship one unit past the previous base" },
+    { "name": "06", "note": "minimum legal batch: retain the original one-unit offset and add a fixed-point query" },
     { "name": "07", "note": "zero digits in trailing and internal positions preserve the digit-cube sum" },
     { "name": "08", "note": "the largest first gap, 2916, followed through contractions and expansions" },
     { "name": "gen4", "generator": "1292 4", "note": "every valid key at N = 2 with seeded random ship positions" },

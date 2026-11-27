@@ -14,14 +14,15 @@ primera a distancia K del extremo de la ruta, y si el tramo antes de la
 base i mide x, el tramo después mide F(x). La clave K es múltiplo de 3.
 
 Una nave está entre las bases N − 1 y N, a distancia L de la base
-N − 1. Para cada una de T ≤ 33 333 consultas con 2 ≤ N ≤ 33 333 y
+N − 1. Para cada una de 2 ≤ T ≤ 33 333 consultas con 2 ≤ N ≤ 33 333 y
 3 ≤ K ≤ 33 333, hay que imprimir la distancia de la nave a la base N.
 
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-T y luego T líneas con N, K y L.
+T y luego T líneas con N, K y L, donde `L ≥ 1`. La nave está entre
+las dos bases indicadas; L es su desplazamiento dentro de ese tramo.
 
 ## Salida
 
@@ -39,22 +40,22 @@ Entrada:
 
 ```
 2
-4 6 123
-7 93 49
+3 12 100
+16 12558 152
 ```
 
 Salida:
 
 ```
-18
-104
+629
+1
 ```
 
 ## Solución
 
 Si el extremo de la ruta cuenta como base 0, el tramo antes de la base
-N es F aplicada N − 1 veces a K, y la respuesta es ese tramo menos L. El
-ejemplo lo confirma: 6 → 216 → 225 → 141, y 141 − 123 = 18.
+N es F aplicada N − 1 veces a K, y la respuesta es ese tramo menos L. Nuestro
+ejemplo lo confirma: 12 → 9 → 729, y 729 − 100 = 629.
 
 Aplicar F hasta 33 332 veces por consulta sería demasiado lento para
 33 333 consultas, pero la cadena se estabiliza casi enseguida. Como
@@ -73,7 +74,11 @@ Detalles a tener en cuenta:
 - el tramo puede ser mucho mayor que K, por ejemplo F(99) = 1458
   (prueba 05).
 
-Las respuestas se compararon con aplicar F las N − 1 veces completas.
+Cada respuesta fija/generada se comprueba por composición independiente
+de funciones (saltos binarios), sin parar en 153. Un barrido aparte
+de las 11111 claves válidas certifica la cota de catorce pasos.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
@@ -81,9 +86,15 @@ Las respuestas se compararon con aplicar F las N − 1 veces completas.
 
 Frente a `1292_math.py`: tiempo 0.265 s → 0.125 s; memoria 7972 KB → 3 344 KB.
 
-Ambas versiones procesan cada consulta hasta el paso pedido o el punto fijo 153 y escriben con un búfer acotado. Go consulta los cubos de las cifras en una tabla de diez entradas. C++ suma dos resultados precalculados para bloques de tres cifras y mantiene el desplazamiento y la resta en enteros con signo de 64 bits. Go también usa desplazamientos de 64 bits con signo y búferes de bytes para entrada y salida, sin crear una cadena por número. El espacio auxiliar es constante.
+C++ y Go optimizados procesan cada consulta hasta el paso pedido o el punto fijo 153 y escriben con un búfer acotado. Go consulta los cubos de las cifras en una tabla de diez entradas. C++ suma dos resultados precalculados para bloques de tres cifras y mantiene el desplazamiento y la resta en enteros con signo de 64 bits. Go también usa desplazamientos de 64 bits con signo y búferes de bytes para entrada y salida, sin crear una cadena por número. El espacio auxiliar es constante.
 
-Las implementaciones base aceptadas [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Java sencillo ya cumple la comparación ordinaria guardada de tiempo y
+memoria y se reutiliza como rápido sin duplicar el archivo. Python y
+Rust sencillos se conservan para enseñanza: Python supera el límite
+de tiempo del grupo pequeño y Rust el de memoria. Sus archivos
+optimizados separados aportan resultados válidos. Ambos Go y C++
+optimizado también cumplen; C++ sencillo se conserva por claridad.
+La afirmación anterior de admisión universal de las bases queda obsoleta.
 
 ### Nuevas versiones aceptadas
 
@@ -93,13 +104,40 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328962 (Rust 1.75 x64): **0.015 s / 144 KB**. Comparación archivada: `1292_math.rs` (Rust 1.75 x64) — 0.001 s / 2124 KB (#11284596).
 
+El Rust rápido actual solo extrae la capacidad interna 32 a
+`INLINE_TOKEN_BYTES` para cumplir el lint estricto; algoritmo y
+comentarios siguen intactos. #11328962 y sus medidas corresponden
+a los bytes anteriores.
+
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Rigen los [criterios compartidos](../../RATING_CRITERIA.md), sin exigir
+primer puesto por lenguaje ni admisión separada por mejorar un 30%.
+El ranking ordinario exige diez primeros o 15% superior en las métricas
+necesarias. Con 1–10 rivales válidos del mismo compilador, la comparación
+de referencia sustituye al puesto. Por debajo de 1024 KB solo se exige
+tiempo. Se excluyen rivales más rápidos que `0.015 s`; solo nuestro
+tiempo se eleva a ese mínimo. Se conservan pares Accepted originales,
+incluido `0.001 s`. No hay corte por fecha ni ID.
 
-`1292_math_optimized.py`: puesto de tiempo 1/19 y de memoria 5/19 en esta muestra comparable.
+Los puestos PyPy del 18 de noviembre de 2026 (tiempo 1/19, memoria 5/19)
+son históricos. La auditoría congelada ligada al fuente admite PyPy
+optimizado #11325483 con referencia de nueve rivales del mismo compilador:
+`0.125 s / 3344 KB`, límites `0.19665 s / 7672.80 KB`. CPython base
+#11284592 tiene `0.265 s`, sobre su límite `0.21505 s`. Rust base
+#11284596 usa 2124 KB, sobre su límite 1904.40 KB; Rust optimizado
+#11328962 usa 144 KB y cumple por tiempo.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+Sean `I` y `Z` los bytes de entrada/salida y `B` los búferes fijos.
+C++ y Go sencillos procesan flujos con espacio auxiliar `O(B)`. Java
+retiene salida (`O(Z+B)`); Python sencillo retiene tokens y respuestas
+(`O(I+T+Z)`); Rust sencillo retiene entrada (`O(I+B)`). C++/Go rápidos
+usan tablas y búferes fijos; Rust rápido usa búferes acotados y tokens
+internos para los números cortos prometidos: `O(B)`. Python rápido
+retiene como máximo un bloque de tokens y salida: `O(B)` con las
+longitudes numéricas prometidas. En la descripción anterior `Q = T`.
+Con tokens de longitud arbitraria S, el token pendiente de Python y
+el espacio spill de Rust añadirían `O(S)`.
 
 ## Soluciones
 
@@ -120,4 +158,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
 | [1292_math_optimized.go](1292_math_optimized.go) | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
 | [1292_math_optimized.py](1292_math_optimized.py) | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
-| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11328962 |
+| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11331118 |

@@ -14,14 +14,15 @@ from the route's end, and if the gap before base i is x, the gap after
 it is F(x). The key K is a multiple of 3.
 
 A ship is between bases N − 1 and N, at distance L from base N − 1.
-For each of T ≤ 33 333 queries with 2 ≤ N ≤ 33 333 and
+For each of 2 ≤ T ≤ 33 333 queries with 2 ≤ N ≤ 33 333 and
 3 ≤ K ≤ 33 333, print the distance from the ship to base N.
 
 Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
 
-T, then T lines with N, K and L.
+T, then T lines with N, K and L, where `L ≥ 1`. The ship lies between
+the two named bases; L is its offset within that gap.
 
 ## Output
 
@@ -39,22 +40,22 @@ Input:
 
 ```
 2
-4 6 123
-7 93 49
+3 12 100
+16 12558 152
 ```
 
 Output:
 
 ```
-18
-104
+629
+1
 ```
 
 ## Solution
 
 Counting the route's end as base 0, the gap before base N is F applied
-N − 1 times to K, and the answer is that gap minus L. The sample
-confirms it: 6 → 216 → 225 → 141, and 141 − 123 = 18.
+N − 1 times to K, and the answer is that gap minus L. Our example
+confirms it: 12 → 9 → 729, and 729 − 100 = 629.
 
 Applying F up to 33 332 times per query would be too slow for 33 333
 queries, but the chain settles almost at once. Since d³ ≡ d (mod 3),
@@ -72,7 +73,9 @@ Pitfalls:
 - the gap can be much larger than K, for example F(99) = 1458
   (test 05).
 
-The answers were compared with applying F all N − 1 times.
+All fixed/generated answers are checked by independent function
+composition (binary lifting), without stopping at 153. Exhaustive
+inspection of all 11111 valid keys separately certifies the fourteen-step bound.
 
 ## Optimized solutions
 
@@ -80,9 +83,15 @@ The answers were compared with applying F all N − 1 times.
 
 Compared with `1292_math.py`: time 0.265 s → 0.125 s; memory 7972 KB → 3 344 KB.
 
-Both versions evaluate each query until the requested step or the fixed point 153 and write answers through a bounded buffer. Go looks up each digit's cube in a ten-entry table. C++ combines two precomputed cube sums for three-digit blocks and keeps the ship offset and subtraction in signed 64-bit integers. Go also uses signed 64-bit offsets and direct byte buffers for input and output, without allocating a string per number. Auxiliary space is constant.
+Optimized C++ and Go evaluate each query until the requested step or the fixed point 153 and write answers through a bounded buffer. Go looks up each digit's cube in a ten-entry table. C++ combines two precomputed cube sums for three-digit blocks and keeps the ship offset and subtraction in signed 64-bit integers. Go also uses signed 64-bit offsets and direct byte buffers for input and output, without allocating a string per number. Auxiliary space is constant.
 
-The accepted base implementations [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Simple Java already meets the saved ordinary comparison on time and
+memory and can be reused as a fast solution without a duplicate file.
+Simple Python and Rust remain teaching implementations: Python misses
+the sparse time limit, and Rust misses the sparse memory limit. Their
+separate optimized files supply qualifying results. Both Go versions
+and optimized C++ also qualify; simple C++ remains for clarity.
+The earlier universal admission claim for all base files is superseded.
 
 ### Accepted source update
 
@@ -92,13 +101,41 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328962 (Rust 1.75 x64): **0.015 s / 144 KB**. Archived comparison: `1292_math.rs` (Rust 1.75 x64) — 0.001 s / 2124 KB (#11284596).
 
+The current Rust fast file only extracts the inline token capacity 32 into
+`INLINE_TOKEN_BYTES` to satisfy strict lint; its algorithm and comments
+are unchanged. #11328962 and its measurements describe the preceding
+exact bytes.
+
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Use the shared [rating criteria](../../RATING_CRITERIA.md), without a
+language-specific first-place rule or separate 30%-improvement admission.
+Ordinary comparisons require top ten or top 15% for the required metrics.
+With 1–10 eligible rivals on the same compiler, the sparse reference
+comparison replaces rank admission. Below 1024 KB only time is required.
+Foreign times below `0.015 s` are excluded; only our own time uses that
+floor. Raw Accepted pairs, including `0.001 s`, remain unchanged.
+There is no date or submission-ID cutoff.
 
-`1292_math_optimized.py`: time place 1/19, memory place 5/19 in this comparable sample.
+The 18 November 2026 PyPy ranks (time 1/19, memory 5/19) are historical.
+The source-bound frozen audit admits optimized PyPy #11325483 by the
+nine-rival exact-compiler reference: `0.125 s / 3344 KB` versus limits
+`0.19665 s / 7672.80 KB`. Base CPython #11284592 has `0.265 s`, above
+its `0.21505 s` limit. Base Rust #11284596 uses 2124 KB, above its
+1904.40 KB limit; optimized Rust #11328962 uses 144 KB and passes time.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Let `I` and `Z` be input/output bytes and `B` fixed buffers. Simple C++
+and Go stream queries and use `O(B)` auxiliary space. Java retains
+the output (`O(Z+B)`), simple Python retains input tokens and answers
+(`O(I+T+Z)`), and simple Rust retains input (`O(I+B)`). Fast C++/Go
+use fixed lookup tables/buffers; fast Rust uses bounded input/output
+and inline tokens for the promised short numbers: `O(B)` space.
+Fast Python keeps at most a block of tokens and an output block; under
+the promised bounded number lengths it is also `O(B)`. Here `Q = T`
+in the earlier fast-Python discussion. With arbitrary token length S,
+its pending token and Rust spill storage would add `O(S)` space.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -119,4 +156,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
 | [1292_math_optimized.go](1292_math_optimized.go) | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
 | [1292_math_optimized.py](1292_math_optimized.py) | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
-| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11328962 |
+| [1292_math_implementation_optimized.rs](1292_math_implementation_optimized.rs) | Rust 1.75 x64 | math, implementation | O(T * 14 * digits) | AC | 0.015 s | 144 KB | 11331118 |
