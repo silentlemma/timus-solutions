@@ -33,13 +33,13 @@ Repository tests compare the complete output text, ignoring only trailing whites
 Input:
 
 ```
-2
+4
 ```
 
 Output:
 
 ```
-1980
+5989500
 ```
 
 ## Solution
@@ -52,6 +52,8 @@ digits are from 1 to 9, which allows `8 + 7 + … + 1 = 36` pairs; in each
 of the other `K − 1` positions the digits are from 0 to 9, which allows
 `10 + 9 + … + 1 = 55` pairs. The answer is `36 · 55^(K−1)`, a number of
 up to 87 digits. `O(K²)` with schoolbook multiplication.
+
+The result needs O(K) decimal digits or bits up to a constant factor. Simple C++/Rust keep growing decimal-digit vectors and Rust also builds an O(K) output String; Go/Java/Python keep arbitrary-precision integers and decimal output, with O(K) live value/output storage plus arithmetic-library workspace and input buffers. The schoolbook O(K²) time is a conservative arithmetic/conversion model, not a claim that built-in exponentiation repeats K multiplications. Optimized Java allocates exactly 2K digit entries plus O(K) answer bytes; optimized C++ reserves a fixed 100-entry stack array for K ≤ 50. The proof 36·55^(K−1) < 100^K gives at most 2K digits, with equality at K=2 and K=3.
 
 Pitfalls:
 
@@ -66,11 +68,11 @@ The formula was checked by brute force over all pairs for `K = 2` and
 
 `1206_combinatorics_optimized.java`. Keep the carry-free counting formula 36*55^(K-1). For K<=50, store the at-most-100 decimal digits explicitly and multiply by 55 online K-1 times, then emit bytes directly. This changes the arithmetic representation, not the counting argument, and stores no precomputed answers. Conservative O(K²) digit work and O(K) digit storage replace BigInteger initialization; the simple BigInteger formula remains available.
 
-Exact-source Java 1.8 Accepted #11327341: 0.109 s / 308 KB. Saved 2026-11-20 compiler-cohort comparison: time 14/141, memory 1/141. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304422 was 0.125 s / 448 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Historical exact-source Java 1.8 Accepted #11327341 is 0.109 s / 308 KB; saved 2026-11-20 comparison is time 14/141, memory 1/141. It meets the shared time-only criterion below 1024 KB, without a separate first-place target or marker. Earlier #11304422 is the separate historical pair 0.125 s / 448 KB. This review changes only the capacity comment from fewer than 2K to at most 2K; executable bytes apart from that comment are identical.
 
 - `1206_combinatorics_optimized.java`: 0.109 s / 308 KB; retained teaching base `1206_combinatorics.java`: 0.14 s / 1748 KB.
 
-`1206_combinatorics_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327017 measures 0.078 s / 612 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 2/76, memory rank 60/76. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11324911, 0.14 s / 252 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+The selected exact-source CPython 3.12 Accepted #11327017 for `1206_combinatorics_optimized.py` is 0.078 s / 612 KB; saved 2026-11-20 ranks are time 2/76, memory 60/76. Below 1024 KB it passes on time alone. Compared with current base #11283600, 0.109 s / 416 KB, time decreases by 28.44% and memory increases by 47.12%: this is not a 30% gain in either metric. Historical PyPy 3.10 #11324911 is the distinct pair 0.140 s / 252 KB; the memory-saving comparison later refers to that run, not to the selected CPython row.
 
 The optimized C++ solution multiplies the same decimal digits by 55, but
 in a fixed array of 100 entries on the stack instead of a growing
@@ -81,25 +83,20 @@ in a fixed array of 100 entries on the stack instead of a growing
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+These are historical differences between the paired Accepted runs, not a universal 30%-gain admission rule. The simple sources remain; negative reduction denotes increased cost. Current admission is evaluated by the shared rating policy.
 
 - `1206_combinatorics_optimized.cpp`: time reduction +0.00%; memory
   reduction +46.81%; base: `1206_combinatorics.cpp`.
 
-`1206_combinatorics_optimized.py`. Keep the exact formula 36*55^(K-1) and Python arbitrary-precision integers. Both the basic ** expression and pow here already use integer exponentiation; no new counting algorithm is claimed. A conservative schoolbook bit-cost bound, including decimal conversion, is O(K²) time and O(K) bits for the answer. The changed implementation reads the one input token and finishes without the function wrapper and normal teardown. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+`1206_combinatorics_optimized.py`. Keep the exact formula 36*55^(K-1) and Python arbitrary-precision integers. Both the basic ** expression and pow here already use integer exponentiation; no new counting algorithm is claimed. A conservative schoolbook bit-cost bound, including decimal conversion, is O(K²) time and O(K) bits for the answer. The changed implementation reads the one input token and finishes without the function wrapper and normal teardown. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its historical PyPy Accepted demonstrates a memory reduction; the selected current CPython Accepted instead trades increased memory for a lower recorded time. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
 Compared with `1206_combinatorics.py`: time 0.109 s → 0.14 s; memory 416 KB → 252 KB.
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Apply the shared [rating criteria](../../RATING_CRITERIA.md) and source-bound cache. Both C++, Go, Rust and the receipt-bound optimized Java/Python sources meet the numerical criteria. Simple Java/Python miss them and remain unstarred teaching versions. The Java comment-only revision still needs fresh Accepted as noted above. Below 1024 KB compare time only; Go at 1200 KB requires both metrics and uses its two exact-version rivals. Rust uses its one-rival reference comparison. No separate first-place, 30%-gain or historical PyPy rank replaces current coverage.
 
-Earlier PyPy comparison: `1206_combinatorics_optimized.py`: time place 65/76, memory place 2/76 in this comparable sample.
-
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -109,7 +106,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics.cpp](1206_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 188 KB | 11283595 |
 | [1206_combinatorics.go](1206_combinatorics.go) | Go 1.14 x64 | combinatorics | O(K²) | AC | 0.031 s | 1200 KB | 11283596 |
-| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.140 s | 1748 KB | 11283601 |
+| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.14 s | 1748 KB | 11283601 |
 | [1206_combinatorics.py](1206_combinatorics.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.109 s | 416 KB | 11283600 |
 | [1206_combinatorics.rs](1206_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(K²) | AC | 0.015 s | 212 KB | 11283602 |
 
@@ -118,5 +115,5 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
-| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(K²) time; O(K) space | AC | 0.109 s | 308 KB | 11327341 |
+| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(K²) time; O(K) space | AC | 0.078 s | 356 KB | 11331216 |
 | [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.078 s | 612 KB | 11327017 |

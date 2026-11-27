@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws java.io.IOException {
         int k = nextInt();
-        // The same 36*55^(k-1) has fewer than 2*k decimal digits, with k <= 50.
+        // The same 36*55^(k-1) has at most 2*k decimal digits, with k <= 50.
         int[] digits = new int[2 * k];
         digits[0] = FIRST % DECIMAL;
         digits[1] = FIRST / DECIMAL;

@@ -2,7 +2,7 @@
   "judging": "exact",
   "reference": "1206_combinatorics.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "two-digit numbers" },
+    { "name": "01", "example": true, "note": "own four-digit-number example checked by addition-state DP" },
     { "name": "02", "note": "three-digit numbers, checked by brute force" },
     { "name": "03", "note": "ten digits, still within 64 bits" },
     { "name": "04", "note": "near-maximum digit length" },
@@ -14,6 +14,7 @@
     { "name": "10", "note": "largest result within signed 128-bit arithmetic" },
     { "name": "11", "note": "overflow even with unsigned 128-bit arithmetic" },
     { "name": "12", "generator": "random 1206 13 21", "note": "seeded random intermediate length, checking exact digits beyond floating-point precision" },
-    { "name": "13", "generator": "random 1207 24 48", "note": "seeded random upper-range length, checking a long decimal result away from the endpoint" }
+    { "name": "13", "generator": "random 1207 24 48", "note": "seeded random upper-range length, checking a long decimal result away from the endpoint" },
+    { "name": "14", "note": "minimum legal K fills exactly 2K digit slots" }
   ]
 }
