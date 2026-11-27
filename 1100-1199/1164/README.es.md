@@ -27,7 +27,12 @@ Las letras sobrantes, ordenadas, en una línea.
 
 ## Evaluación
 
-Comparar exactamente las mayúsculas restantes; si no quedan letras, se admite salida vacía. El nuevo código Python exacto pasó 11 pruebas del repositorio con PyPy 3.10. Las otras variantes conservan sus propias pruebas de destino y Accepted exactos. La salida se compara según el verificador del problema.
+Comparación exacta de tokens separados por espacios según
+tests.json. Respuesta no vacía: un token de mayúsculas ordenadas;
+resto vacío: cero tokens, por lo que salida vacía o solo espacios
+es válida. Referencia: 1164_strings.cpp. PyPy pasó anteriormente
+11 casos; comprobaciones guardadas y pares Accepted anteriores
+siguen como evidencia histórica. Abajo se marcan revisiones pendientes.
 
 ## Ejemplos
 
@@ -73,11 +78,18 @@ almacenadas, `O(N M + W)` acota el espacio de todas las versiones;
 las versiones en flujo retienen menos entrada. Se conservan sin cambios
 las cinco fuentes Accepted originales.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1164_strings_optimized.java`. Java conserva 26 balances de letras: añade la cuadrícula, resta las palabras y emite los saldos positivos alfabéticamente. Toda colocación válida consume el mismo multiconjunto, sin buscar caminos. countLetters recorre directamente los bytes mayúsculos del token en un búfer recargable de 1024 bytes, sin cadenas por palabra, decodificación UTF-8 ni arreglos de caracteres. La respuesta aún usa StringBuilder. Con W letras de palabras y A letras de salida: tiempo O(N*M+W+A), espacio auxiliar O(A+26) más el búfer fijo. Conserva las bases didácticas.
 
-Accepted exacto Java 1.8 #11327328: 0.093 s / 456 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/32, memoria 2/32. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324785 era 0.109 s / 500 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted exacto Java 1.8 #11327328: 0,093 s / 456 KB. Comparación
+guardada del 2026-11-20: tiempo 4/32, memoria 2/32. Bajo 1024 KB
+solo cuenta tiempo, por lo que cumple sin estrella según la política
+común; no hay otra meta de primer puesto. El anterior #11324785
+de 0,109 s / 500 KB sigue como otro par histórico, no medición de
+este fuente. Se conservan los archivos didácticos.
 
 - `1164_strings_optimized.java`: 0.093 s / 456 KB; base didáctica conservada `1164_strings.java`: 0.109 s / 1640 KB.
 
@@ -98,11 +110,24 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328513 (Go 1.14 x64): **0.015 s / 968 KB**. Comparación archivada: `1164_strings.go` (Go 1.14 x64) — 0.031 s / 1184 KB (#11283056).
 
+La revisión Go optimizada actual solo nombra el ancho intacto
+de 64 bits en helpers strconv. Algoritmo,
+salida y todas las bases intactos.
+
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Rigen los [criterios compartidos](../../RATING_CRITERIA.md) para
+todas las familias, sin primer puesto aparte ni admisión por mejora
+del 30%. Se excluyen rivales bajo 0,015 s, solo nuestro tiempo
+tiene suelo comparativo. Bajo 1024 KB solo tiempo; de lo contrario
+ambas métricas. Puestos ordinarios o comparación pequeña de versión
+exacta, sin corte por ID o fecha.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La caché ligada a fuentes confirma todos los optimizados anteriores
+y bases didácticas C++/Python/Rust según sus métricas. Go/Java
+simples se conservan aunque fallen sus metas. Java optimizado:
+0,093 s / 456 KB, tiempo 4/32, memoria 2/32; solo cuenta tiempo.
+Ninguna fila necesita estrella en esa instantánea.
 
 ## Soluciones
 
@@ -124,4 +149,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1164_strings_optimized.py](1164_strings_optimized.py) | PyPy 3.10 x64 | strings | O(N M + W) | AC | 0.109 s | 260 KB | 11309679 |
 | [1164_strings_optimized.java](1164_strings_optimized.java) | Java 1.8 | strings | O(N M + W + A) time; O(A + 26) space + fixed buffer | AC | 0.093 s | 456 KB | 11327328 |
 | [1164_strings_optimized.rs](1164_strings_optimized.rs) | Rust 1.75 x64 | strings | O(I+A) time; O(26) space | AC | 0.015 s | 60 KB | 11325544 |
-| [1164_strings_optimized.go](1164_strings_optimized.go) | Go 1.14 x64 | strings | O(N M + W) | AC | 0.015 s | 968 KB | 11328513 |
+| [1164_strings_optimized.go](1164_strings_optimized.go) | Go 1.14 x64 | strings | O(N M + W) | AC | 0.031 s | 972 KB | 11331014 |

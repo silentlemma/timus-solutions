@@ -26,7 +26,13 @@ The leftover letters, sorted, on one line.
 
 ## Checking
 
-Compare the remaining uppercase-letter token exactly; an empty remainder permits empty output. The new exact Python source passed 11 repository fixtures under PyPy 3.10. Other retained native variants keep their own saved target-runtime checks and exact Accepted receipts. Compare output according to the problem checker, not by choosing one historical formatting.
+Compare whitespace-separated tokens exactly, as selected by
+tests.json. A nonempty answer is one sorted uppercase-letter token;
+an empty remainder has no tokens, so empty or whitespace-only
+output is accepted. The reference is 1164_strings.cpp. The PyPy
+source previously passed 11 repository fixtures; saved runtime
+checks and preceding exact-source Accepted pairs remain historical
+evidence.
 
 ## Examples
 
@@ -74,7 +80,12 @@ storage. All five original Accepted sources are retained unchanged.
 
 `1164_strings_optimized.java`. Java keeps the same 26 letter balances: add every grid letter, subtract every given word, then emit positive balances alphabetically. Every valid placement consumes exactly that multiset, so no path search is needed. countLetters scans uppercase token bytes directly from a 1024-byte refillable buffer instead of allocating word strings, decoding UTF-8 and making character arrays. The answer still uses StringBuilder. With W word letters and A output letters, time O(N*M+W+A); auxiliary space O(A+26) plus the fixed input buffer. Teaching versions remain unchanged.
 
-Exact-source Java 1.8 Accepted #11327328: 0.093 s / 456 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/32, memory 2/32. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324785 was 0.109 s / 500 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 Accepted #11327328: 0.093 s / 456 KB.
+Saved 2026-11-20 comparison: time 4/32, memory 2/32. Below 1024 KB
+only time matters, so the version qualifies without a star under
+the shared criteria; no separate first-place target exists. The
+previous #11324785, 0.109 s / 500 KB, remains a separate historical
+pair, not this source measurement. Teaching files are preserved.
 
 - `1164_strings_optimized.java`: 0.093 s / 456 KB; retained teaching base `1164_strings.java`: 0.109 s / 1640 KB.
 
@@ -95,11 +106,27 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328513 (Go 1.14 x64): **0.015 s / 968 KB**. Archived comparison: `1164_strings.go` (Go 1.14 x64) — 0.031 s / 1184 KB (#11283056).
 
+The current optimized Go revision only names the unchanged
+64-bit width in strconv helpers. Its
+algorithm, output and all simple versions remain unchanged.
+
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Shared [rating criteria](../../RATING_CRITERIA.md) apply to all
+families, without a separate first-place or 30% improvement rule.
+Exclude rivals below 0.015 s; floor only our measured time when
+comparing. Below 1024 KB compare only time, otherwise both metrics.
+Use ordinary ranks or the exact-version small-cohort override.
+There is no submission-ID or date cutoff.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The source-bound cached audit confirms all preceding optimized
+versions and the C++/Python/Rust teaching bases under applicable
+metrics. Go/Java bases remain simple teaching versions despite
+missing their targets. The saved optimized Java pair is 0.093 s /
+456 KB with time rank 4/32, memory rank 2/32; time alone governs
+its admission. No row needs a star in this snapshot.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -121,4 +148,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1164_strings_optimized.py](1164_strings_optimized.py) | PyPy 3.10 x64 | strings | O(N M + W) | AC | 0.109 s | 260 KB | 11309679 |
 | [1164_strings_optimized.java](1164_strings_optimized.java) | Java 1.8 | strings | O(N M + W + A) time; O(A + 26) space + fixed buffer | AC | 0.093 s | 456 KB | 11327328 |
 | [1164_strings_optimized.rs](1164_strings_optimized.rs) | Rust 1.75 x64 | strings | O(I+A) time; O(26) space | AC | 0.015 s | 60 KB | 11325544 |
-| [1164_strings_optimized.go](1164_strings_optimized.go) | Go 1.14 x64 | strings | O(N M + W) | AC | 0.015 s | 968 KB | 11328513 |
+| [1164_strings_optimized.go](1164_strings_optimized.go) | Go 1.14 x64 | strings | O(N M + W) | AC | 0.031 s | 972 KB | 11331014 |
