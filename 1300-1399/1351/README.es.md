@@ -18,13 +18,23 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-D, X1, Y1, X2, Y2, luego N, luego N líneas con los puntos. Todos los
-números son enteros de valor absoluto a lo sumo 30 000, y ningún punto
-es el origen.
+Enteros D, X1, Y1, X2, Y2, luego N y N pares de coordenadas;
+1 ≤ D, N ≤ 30000, magnitudes de coordenadas hasta 30000. Ningún
+objetivo es el origen y ambos vectores frontera son no nulos. El
+enunciado guardado exige módulo de cada componente frontera al menos
+1, pero su ejemplo oficial contiene ceros. Siguiendo el ejemplo, estas
+fuentes admiten rayos no nulos alineados con ejes. El sector antihorario
+desde derecha a izquierda es estrictamente menor que 180°.
 
 ## Salida
 
 N líneas con `YES` o `NO`.
+
+## Evaluación
+
+Comparación de tokens (`judging: tokens`): exactamente N respuestas
+`YES` o `NO` en orden, distinguiendo mayúsculas. Se incluyen rayos
+frontera y círculo de alcance; los espacios no importan.
 
 ## Ejemplos
 
@@ -88,11 +98,20 @@ Las respuestas se compararon con una comprobación de ángulos con `atan2`
 en 18 pruebas generadas y con una solución independiente en 300
 sectores aleatorios, incluidos los de ancho cero.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-C++, Go y Rust conservan la distancia al cuadrado y las dos pruebas de producto cruzado. Cuando el sector mide más de 0° y menos de 180°, la intersección de los semiplanos cerrados coincide con el sector. Si los rayos coinciden, esas pruebas admiten toda su recta. Un producto escalar negativo excluye los puntos de la recta situados detrás del origen. Cada coordenada tiene magnitud máxima 30 000. La suma o diferencia de dos productos de coordenadas está acotada en valor absoluto por 2·30 000² = 1,8·10⁹ y cabe en 32 bits con signo. Procesar los puntos con búferes de entrada y salida de 4096 y 8192 bytes elimina las cadenas crecientes de Rust, las respuestas acumuladas de C++ y Scanner/conversión Go. Tiempo O(N), memoria extra constante, sin ángulos aproximados. Se conservan bases; Java/Python reutilizan las admitidas.
+C++, Go y Rust conservan la distancia al cuadrado y las dos pruebas de producto cruzado. Cuando el sector mide más de 0° y menos de 180°, la intersección de los semiplanos cerrados coincide con el sector. Si los rayos coinciden, esas pruebas admiten toda su recta. Un producto escalar negativo excluye los puntos de la recta situados detrás del origen. Cada coordenada tiene magnitud máxima 30 000. La suma o diferencia de dos productos de coordenadas está acotada en valor absoluto por 2·30 000² = 1,8·10⁹ y cabe en 32 bits con signo. Procesar los puntos con búferes de entrada y salida de 4096 y 8192 bytes elimina las cadenas crecientes de Rust, las respuestas acumuladas de C++ y Scanner/conversión Go. Tiempo O(N), memoria extra constante, sin ángulos aproximados. Se conservan bases; Java reutiliza la base admitida; Python usa su variante en flujo separada.
 
-Las implementaciones base aceptadas [1351_geometry.java](1351_geometry.java), [1351_geometry.py](1351_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Java reutiliza la base: tiempo 8/17 y memoria 5/17, ambos necesarios
+y top diez. Python se cubre con
+[1351_geometry_optimized.py](1351_geometry_optimized.py), Accepted
+#11328774 `0.093 s / 1172 KB`, no la base de 6832 KB. Cinco rivales
+exactos CPython dan tercera referencia `0.109 s / 5170.40 KB`;
+con 1172 KB cuentan ambas métricas y cumple. La base falla memoria.
+Rigen los [criterios comunes](../../RATING_CRITERIA.md); se mantienen
+fuentes sencillas útiles sin duplicarlas.
 
 ### Nuevas versiones aceptadas
 
@@ -104,12 +123,23 @@ Accepted #11328774 (Python 3.12 x64): **0.093 s / 1172 KB**. Comparación archiv
 
 ## Notas por lenguaje
 
+El recorrido geométrico O(N) no implica espacio constante para todas
+las bases. C++/Java guardan O(N) salida; Go transmite con O(B).
+Python retiene entrada, tokens, enteros y respuestas: O(I+N+B), I
+bytes de entrada. Rust sencillo guarda String de entrada y salida:
+O(I+N+B). B son búferes acotados; C++/Java usan O(N+B). Los rápidos
+C++/Go/Rust usan búferes fijos O(B). Python rápido guarda bloques de
+entrada y lotes de 1024 respuestas, más un token incompleto. Tiempo
+total O(I+N), estado geométrico O(1).
+
 Estas notas describen las implementaciones sencillas.
 
 - C++, Go, Java y Rust usan enteros de 64 bits para los productos
   cruzados y los cuadrados; Python usa enteros de precisión arbitraria.
 - Java lee con `StreamTokenizer`; sus valores double guardan estos
   enteros con exactitud.
+
+En `1351_geometry_optimized.py` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11328774 y sus medidas corresponden a los bytes exactos previos.
 
 ## Soluciones
 
@@ -119,7 +149,7 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB | 11285165 |
 | [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB | 11285171 |
-| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
+| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.14 s | 1328 KB | 11285176 |
 | [1351_geometry.py](1351_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
 | [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB | 11285179 |
 
@@ -130,4 +160,4 @@ Estas notas describen las implementaciones sencillas.
 | [1351_geometry_optimized.cpp](1351_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 76 KB | 11315502 |
 | [1351_geometry_optimized.go](1351_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
 | [1351_geometry_optimized.rs](1351_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
-| [1351_geometry_optimized.py](1351_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 1172 KB | 11328774 |
+| [1351_geometry_optimized.py](1351_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 1280 KB | 11331087 |

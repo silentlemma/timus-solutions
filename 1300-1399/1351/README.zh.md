@@ -15,11 +15,19 @@ D ≤ 30 000。对 N ≤ 30 000 个点中的每一个，若该点在扇形内且
 
 ## 输入
 
-D、X1、Y1、X2、Y2，然后是 N，再是 N 行点的坐标。所有数都是整数，绝对值不超过 30 000，且没有点位于原点。
+整数 D、X1、Y1、X2、Y2，接着 N 和 N 对坐标。1 ≤ D, N ≤ 30000，
+坐标绝对值不超过 30000。目标不在原点，两条边界向量均非零。缓存题面
+写每个边界分量的绝对值至少为 1，但官方样例却包含零分量。遵循样例，
+这些实现允许非零的轴向边界射线。从右边界逆时针到左边界的扇形小于 180°。
 
 ## 输出
 
 N 行，每行 `YES` 或 `NO`。
+
+## 评测方式
+
+记号比较（`judging: tokens`）：按点的顺序输出恰好 N 个区分大小写的
+`YES` 或 `NO`。边界射线及射程圆周均计入，空白分隔不影响结果。
 
 ## 样例
 
@@ -70,9 +78,14 @@ NO
 
 ## 优化解法
 
-C++、Go、Rust 保留距离平方与两个叉积判断。扇区宽度大于 0° 且小于 180° 时，两个闭半平面的交集恰好是扇区。两条边界射线重合时，叉积判断会保留整条直线，此时用负点积排除原点后方的点。坐标绝对值至多 30000，两个坐标乘积的和或差的绝对值至多 2·30000² = 1.8·10⁹，适用有符号 32 位整数。逐点处理，输入和输出缓冲区分别为 4096 和 8192 字节，消除 Rust 增长字符串、C++ 答案累计及 Go Scanner 字符串解析。时间 O(N)，额外空间常数；不依赖浮点角度。保留全部简单版，Java/Python 复用已达标基础版。
+C++、Go、Rust 保留距离平方与两个叉积判断。扇区宽度大于 0° 且小于 180° 时，两个闭半平面的交集恰好是扇区。两条边界射线重合时，叉积判断会保留整条直线，此时用负点积排除原点后方的点。坐标绝对值至多 30000，两个坐标乘积的和或差的绝对值至多 2·30000² = 1.8·10⁹，适用有符号 32 位整数。逐点处理，输入和输出缓冲区分别为 4096 和 8192 字节，消除 Rust 增长字符串、C++ 答案累计及 Go Scanner 字符串解析。时间 O(N)，额外空间常数；不依赖浮点角度。保留全部简单版，Java 复用达标基础版，Python 使用单独的流式版本。
 
-已通过评测的基础实现 [1351_geometry.java](1351_geometry.java), [1351_geometry.py](1351_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+Java 复用基础版，时间 8/17 和内存 5/17 两项均需且均在前十。Python
+由 [1351_geometry_optimized.py](1351_geometry_optimized.py) 覆盖，Accepted
+#11328774 为 `0.093 s / 1172 KB`，而非 6832 KB 基础版。五个精确 CPython
+对手的第三参考上限为 `0.109 s / 5170.40 KB`；1172 KB 时两项均须且
+均已通过，基础版则内存未通过。适用统一的[标准](../../RATING_CRITERIA.md)，
+有意义的简单源码保留，不复制相同文件。
 
 ### 新的已通过版本
 
@@ -84,10 +97,21 @@ Accepted #11328774 (Python 3.12 x64): **0.093 s / 1172 KB**. 历史对照: `1351
 
 ## 各语言说明
 
+O(N) 几何扫描不代表所有基础版均为常数空间。C++/Java 保留 O(N) 输出；
+Go 流式输出，仅 O(B) 缓冲。Python 保留输入、词元、整数和输出，空间
+O(I+N+B)，I 为输入字节。简单 Rust 保留输入和输出 String，同为 O(I+N+B)。
+B 表示有界解析/I/O 缓冲；C++/Java 为 O(N+B)。优化 C++/Go/Rust 流式
+使用固定缓冲 O(B)；优化 Python 保存输入块及 1024 答案批次，另有未完成
+词元。含字节解析的总时间 O(I+N)，几何状态为 O(1)。
+
 以下说明针对基础实现。
 
 - C++、Go、Java 和 Rust 用 64 位整数计算叉积和平方，Python 用任意精度整数。
 - Java 用 `StreamTokenizer` 读入；其 double 值能精确表示这些整数。
+
+`1351_geometry_optimized.py` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -97,7 +121,7 @@ Accepted #11328774 (Python 3.12 x64): **0.093 s / 1172 KB**. 历史对照: `1351
 |---|---|---|---|---|---|---|---|
 | [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB | 11285165 |
 | [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB | 11285171 |
-| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
+| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.14 s | 1328 KB | 11285176 |
 | [1351_geometry.py](1351_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
 | [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB | 11285179 |
 
@@ -108,4 +132,4 @@ Accepted #11328774 (Python 3.12 x64): **0.093 s / 1172 KB**. 历史对照: `1351
 | [1351_geometry_optimized.cpp](1351_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 76 KB | 11315502 |
 | [1351_geometry_optimized.go](1351_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
 | [1351_geometry_optimized.rs](1351_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
-| [1351_geometry_optimized.py](1351_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 1172 KB | 11328774 |
+| [1351_geometry_optimized.py](1351_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 1280 KB | 11331087 |

@@ -3,6 +3,7 @@ import sys
 
 OUTPUT_CHUNK_LINES = 1024
 INPUT_BUFFER_BYTES = 4096
+WHITESPACE = 32
 
 HEADER = 6  # the range, both borders and the count
 
@@ -16,7 +17,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > WHITESPACE else b""
         yield from parts
     if pending:
         yield pending
