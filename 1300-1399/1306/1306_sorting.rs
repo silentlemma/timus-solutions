@@ -8,7 +8,7 @@ fn main() {
     input.read_line(&mut line).unwrap();
     let n: usize = line.trim().parse().unwrap();
     // the n / 2 + 1 smallest numbers seen so far, as a max-heap: half the
-    // input is enough, because the median is the largest or second largest
+    // input is enough: odd N uses the largest; even N uses the mean of the two largest
     let keep = n / 2 + 1;
     let mut heap: BinaryHeap<i32> = BinaryHeap::with_capacity(keep);
     // one number per line, read line by line: the whole input (up to 3 MB)

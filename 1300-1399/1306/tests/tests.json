@@ -2,10 +2,10 @@
   "judging": "exact",
   "reference": "1306_sorting.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "an even count: the mean of 4 and 5" },
+    { "name": "01", "example": true, "note": "own example: six values, the mean of 4 and 7" },
     { "name": "02", "note": "a single number" },
-    { "name": "03", "note": "0 and 2^31 - 1: the sum needs more than 32 bits" },
-    { "name": "04", "note": "twice 2^31 - 1: the sum overflows a 32-bit unsigned" },
+    { "name": "03", "note": "0 and 2^31 - 1: signed 32-bit sum fits, the median ends in .5" },
+    { "name": "04", "note": "twice 2^31 - 1: signed 32-bit sum overflows, unsigned 32-bit sum fits" },
     { "name": "05", "note": "an odd count, unsorted" },
     { "name": "06", "note": "repeated values around the middle" },
     { "name": "07", "note": "a decreasing sequence" },

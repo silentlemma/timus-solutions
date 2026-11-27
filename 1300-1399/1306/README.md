@@ -23,6 +23,11 @@ N, then the N numbers, one per line.
 
 The median with one decimal.
 
+## Checking
+
+Exact comparison (`judging: exact` in `tests/tests.json`): one line
+with the exact median, one decimal digit (`.0` or `.5`) and a newline.
+
 ## Examples
 
 ### Example 1
@@ -30,17 +35,19 @@ The median with one decimal.
 Input:
 
 ```
-4
-3
 6
+12
+1
+9
 4
-5
+2
+7
 ```
 
 Output:
 
 ```
-4.5
+5.5
 ```
 
 ## Solution
@@ -58,7 +65,14 @@ replaces the top when it is smaller than the top. At the end:
 - for even N the top and, after one pop, the new top are the two middle
   elements.
 
-`O(N log N)` time, `O(N / 2)` memory.
+`O(N log N)` worst-case heap work; `O(I+N log N)` including I input
+bytes. The active heap holds `⌊N/2⌋+1` elements. Both C++ versions
+reserve a fixed 125001-element array (500004 bytes for 32-bit
+elements), so their allocated auxiliary space is `O(C+B)` for maximum
+capacity C and bounded I/O storage B, not proportional to each actual
+small N. Rust reserves only `⌊N/2⌋+1` i32 elements, but also retains
+its longest input line H: `O(N/2+H+B)`. Under ordinary bounded-width
+lines the variable storage is `O(N)`; all answers use widened sums.
 
 Pitfalls:
 
@@ -79,10 +93,16 @@ by one, and replaces the top with a single downward sift instead of
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+The percentages below compare the recorded Accepted runs; they are
+not admission thresholds. See [Rating criteria](../../RATING_CRITERIA.md):
+ordinary top-ten/top-15% rules, replaced for 1–10 exact-version rivals
+by the selected-reference comparison with 15% or one timer tick.
+Below 1024 KB only time is compared. Meaningful simple versions stay.
+The C++ fast run meets its recorded time criterion; the Rust base
+also meets its recorded small-cohort time criterion. Source identity
+and numerical qualification are separate requirements.
+
+Only comments changed in the simple C++ and Rust files. Algorithms and other useful comments are preserved.
 
 - `1306_sorting_optimized.cpp`: time reduction +84.73%; memory reduction
   +8.97%; base: `1306_sorting.cpp`.
@@ -93,14 +113,16 @@ asterisk concerns the rating target only.
   also offers Rust 1.75, so there are C++ and Rust solutions; Go, Python
   and Java cannot be submitted.
 
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
+
 ## Solutions
 
 ### Simple
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.203 s | 624 KB | 11284855 |
-| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.046 s | 700 KB | 11304528 |
+| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.218 s | 608 KB | 11331139 |
+| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.031 s | 704 KB | 11331103 |
 
 ### Optimized
 

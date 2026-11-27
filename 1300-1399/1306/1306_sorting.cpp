@@ -6,7 +6,7 @@ const int MAXN = 250000;
 const int KEEP = MAXN / 2 + 1;
 
 // the KEEP smallest numbers seen so far, as a max-heap: half the input is
-// enough, because the median is the largest or second largest of them
+// enough: odd N uses the largest; even N uses the mean of the two largest
 unsigned heap[KEEP];
 
 int main() {
