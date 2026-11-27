@@ -56,6 +56,13 @@
 只有距离 1 到 5 有关系，所以对每个空路口依次查看距离为 1、2…… 的路口：距离为 `d` 的一圈有 `4d` 个格子，距离 5 以内共 60
 个。在第一个出现分部的距离上，答案就是这一圈上掩码的按位或；到此停止。每一圈的偏移量预先列出一次。`O(H · W · 60)`，约 140 万次检查。
 
+简单版保存 H*W 网格掩码及 60 个环偏移，半径固定五时为 O(HW)
+个字。C++/Java/Python/Rust 累计 P 字节输出，Rust 另留一行字符串。
+Go 用固定缓冲流式输出。Python/Rust 保留 I 字节完整输入，
+Python 还有拆分记号，相应另计 O(I+P)。Python BFS 保存 HW 标签、
+HW 距离字节及至多 HW 队列下标，加一行文本，仍为 O(HW)，
+并非环偏移表示。
+
 注意事项：
 
 - 类型用按位或合并而不是相加：最近距离上两个同类型的分部只算一次（在 `3 0 6` 中，中间得到 `7` 而不是 `9`）；
@@ -70,7 +77,14 @@ C++、Go 和 Rust 将网格存入扁平的 16 位掩码数组，外围补五格�
 
 通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 240 KB，基础版为 628 KB。
 
-已通过评测的基础实现 [1121_bruteforce.java](1121_bruteforce.java), [1121_bruteforce.py](1121_bruteforce.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+精确源码缓存确认简单 Java 通过两项普通名次。简单 Python
+未通过适用的大内存比较；不同的 1148 KB Python BFS 按小样本
+两项指标覆盖该语言。其他合格机器语言版本各有自身证据。
+不复制合格基础版，也不把 BFS 收据归给简单半径扫描。
+
+当前 1121_bfs_optimized.py 仅修正 BFS 注释，并为原空白界限
+32、未到达标记 255 命名。Accepted #11328770（0.125 s /
+1148 KB）属于之前字节。
 
 ### 新的已通过版本
 
@@ -85,6 +99,8 @@ Accepted #11328770 (Python 3.12 x64): **0.125 s / 1148 KB**. 历史对照: `1121
 以下说明针对基础实现。
 
 - 各语言都扫描同样的预先算好的圈。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -105,4 +121,4 @@ Accepted #11328770 (Python 3.12 x64): **0.125 s / 1148 KB**. 历史对照: `1121
 | [1121_bruteforce_optimized.cpp](1121_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 160 KB | 11311133 |
 | [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
 | [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
-| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.125 s | 1148 KB | 11328770 |
+| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.109 s | 944 KB | 11331072 |

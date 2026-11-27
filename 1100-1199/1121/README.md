@@ -63,6 +63,14 @@ appears, the answer is the bitwise OR of the masks on that ring; stop
 there. The offsets of each ring are listed once in advance.
 `O(H · W · 60)`, about 1.4 million checks.
 
+The simple versions retain H*W grid masks and 60 ring offsets: O(HW)
+words with fixed reach five. C++/Java/Python/Rust accumulate P output
+bytes; Rust also retains a row of strings. Go streams output through
+a fixed buffer. Python/Rust retain I full-input bytes, and Python
+keeps split tokens, so include O(I+P) where applicable. The Python BFS
+retains HW labels, HW distance bytes and up to HW queue indices, plus
+row text: still O(HW), not an offset-ring representation.
+
 Pitfalls:
 
 - the types are combined with OR, not added: two branches of the same type
@@ -81,7 +89,17 @@ C++, Go and Rust store the grid as one flat array of 16-bit masks with a five-ce
 
 The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 240 KB versus 628 KB.
 
-The accepted base implementations [1121_bruteforce.java](1121_bruteforce.java), [1121_bruteforce.py](1121_bruteforce.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The source-bound cache confirms Java simple by both ordinary ranks.
+Python simple does not pass its applicable large-memory comparison;
+the distinct 1148-KB Python BFS version covers that language by both
+small-cohort metrics. Other retained native passing sources retain
+their own evidence. Do not duplicate a passing base or attribute the
+BFS receipt to the simple radius scan.
+
+The current 1121_bfs_optimized.py revision corrects only its BFS
+comment and names the unchanged whitespace cutoff 32 and unreached
+distance sentinel 255. Accepted #11328770 (0.125 s / 1148 KB) belongs
+to preceding bytes.
 
 ### Accepted source update
 
@@ -96,6 +114,8 @@ Accepted #11328770 (Python 3.12 x64): **0.125 s / 1148 KB**. Archived comparison
 These notes describe the simple implementations.
 
 - All languages scan the same precomputed rings.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -116,4 +136,4 @@ These notes describe the simple implementations.
 | [1121_bruteforce_optimized.cpp](1121_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 160 KB | 11311133 |
 | [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
 | [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
-| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.125 s | 1148 KB | 11328770 |
+| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.109 s | 944 KB | 11331072 |

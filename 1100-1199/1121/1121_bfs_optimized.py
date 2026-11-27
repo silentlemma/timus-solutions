@@ -3,6 +3,8 @@ from array import array
 import sys
 
 INPUT_BUFFER_BYTES = 4096
+MAX_ASCII_WHITESPACE = 32
+UNREACHED_DISTANCE = 255
 
 REACH = 5
 
@@ -16,7 +18,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > MAX_ASCII_WHITESPACE else b""
         yield from parts
     if pending:
         yield pending
@@ -27,14 +29,14 @@ def main():
     h, w = next(values), next(values)
     cells = h * w
     labels = array("H", (next(values) for _ in range(cells)))
-    distance = bytearray([255]) * cells
+    distance = bytearray([UNREACHED_DISTANCE]) * cells
     queue = array("I")
     for index, mask in enumerate(labels):
         if mask:
             distance[index] = 0
             queue.append(index)
-    # the cells at each distance 1..5, as offsets around a crossing
-    # are processed together by breadth-first search.
+    # FIFO order processes every distance layer before expanding the next.
+    # Equal-distance parents merge branch types before a cell expands.
     head = 0
     while head < len(queue):
         vertex = queue[head]
@@ -50,7 +52,7 @@ def main():
             vertex + 1 if column + 1 < w else cells,
         ):
             if 0 <= neighbor < cells:
-                if distance[neighbor] == 255:
+                if distance[neighbor] == UNREACHED_DISTANCE:
                     distance[neighbor] = following
                     labels[neighbor] = labels[vertex]
                     queue.append(neighbor)

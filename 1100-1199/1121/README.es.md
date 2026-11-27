@@ -66,6 +66,14 @@ de las máscaras de ese anillo; ahí se para. Los desplazamientos de cada
 anillo se listan una vez de antemano. `O(H · W · 60)`, unos 1,4 millones
 de comprobaciones.
 
+Las bases retienen H*W máscaras y 60 desplazamientos: O(HW) palabras
+con radio cinco fijo. C++/Java/Python/Rust acumulan P bytes de salida;
+Rust además una fila de cadenas. Go emite con búfer fijo. Python/Rust
+conservan I bytes de entrada, Python añade tokens: contar O(I+P) donde
+corresponda. BFS Python guarda HW etiquetas, HW bytes de distancia y
+hasta HW índices de cola más texto de fila: aún O(HW), sin representación
+por anillos de offsets.
+
 Detalles a tener en cuenta:
 
 - los tipos se combinan con «o», no se suman: dos sucursales del mismo
@@ -80,13 +88,25 @@ sucursales a la vez hasta la distancia 5, donde los tipos más cercanos de
 un cruce son la unión de los de sus vecinos una capa más cerca, en todas
 las pruebas y 40 mapas aleatorios.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 C++, Go y Rust guardan la cuadrícula en un vector plano de máscaras de 16 bits, rodeado por cinco celdas de ceros. Los desplazamientos lineales precalculados recorren cada anillo de Manhattan sin comprobar límites de coordenadas. El primer anillo con una unión no nula da la respuesta, que se escribe inmediatamente con salida almacenada en búfer. Go usa vectores fijos para la cuadrícula y los anillos, lee enteros desde un búfer reutilizable de bytes y escribe las cifras sin crear cadenas.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 240 KB frente a 628 KB.
 
-Las implementaciones base aceptadas [1121_bruteforce.java](1121_bruteforce.java), [1121_bruteforce.py](1121_bruteforce.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché del fuente confirma Java simple por ambos puestos ordinarios.
+Python simple falla la comparación aplicable de gran memoria; el BFS
+Python distinto de 1148 KB cubre el lenguaje por ambas métricas
+pequeñas. Otras variantes nativas que cumplen tienen su propia evidencia.
+No se duplica una base que cumple ni se atribuye el recibo BFS al
+barrido simple por radios.
+
+La revisión actual de 1121_bfs_optimized.py solo corrige el comentario
+BFS y nombra el límite intacto de espacios 32 y centinela no alcanzado
+255. Accepted #11328770 (0.125 s / 1148 KB) pertenece a los bytes
+anteriores.
 
 ### Nuevas versiones aceptadas
 
@@ -121,4 +141,4 @@ Estas notas describen las implementaciones sencillas.
 | [1121_bruteforce_optimized.cpp](1121_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 160 KB | 11311133 |
 | [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
 | [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
-| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.125 s | 1148 KB | 11328770 |
+| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.109 s | 944 KB | 11331072 |
