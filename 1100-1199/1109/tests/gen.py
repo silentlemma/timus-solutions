@@ -14,12 +14,24 @@ HUBS = 10
 def main():
     seed, m, n, k, mode = (int(x) for x in sys.argv[1:6])
     rng = random.Random(seed)
+    if not (1 <= m <= 1000 and 1 <= n <= 1000 and mode in range(4)):
+        raise ValueError("expected 1..1000 vertices per side and mode 0..3")
+    if k < max(m, n):
+        raise ValueError("K must be at least max(M, N) to cover every vertex")
     pairs = []
-    # everyone needs a pair first
-    for a in range(1, m + 1):
-        pairs.append((a, rng.randint(1, n)))
-    for b in range(1, n + 1):
-        pairs.append((rng.randint(1, m), b))
+    if k < m + n:
+        # A shuffled minimum edge cover leaves room for exactly K pairs.
+        left, right = list(range(1, m + 1)), list(range(1, n + 1))
+        rng.shuffle(left)
+        rng.shuffle(right)
+        for i in range(max(m, n)):
+            pairs.append((left[i % m], right[i % n]))
+    else:
+        # Preserve the seeded random coverage for the larger existing cases.
+        for a in range(1, m + 1):
+            pairs.append((a, rng.randint(1, n)))
+        for b in range(1, n + 1):
+            pairs.append((rng.randint(1, m), b))
     while len(pairs) < k:
         if mode == 1:
             a = rng.randint(1, m)

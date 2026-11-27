@@ -8,8 +8,8 @@ import (
 
 const bufSize = 1 << 16
 
-// matching runs Hopcroft-Karp: BFS layers from the free left vertices, then
-// vertex-disjoint shortest augmenting paths along the layers
+// matching uses BFS layers and augmenting-path DFS with current-arc iterators.
+// A free right endpoint is accepted at any depth, not only the shortest one.
 type matching struct {
 	adj                      [][]int
 	matchL, matchR, dist, it []int

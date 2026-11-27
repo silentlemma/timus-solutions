@@ -2,8 +2,8 @@
 #include <queue>
 #include <vector>
 
-// Hopcroft-Karp: BFS layers from the free left vertices, then vertex-disjoint
-// shortest augmenting paths along the layers
+// BFS layers guide augmenting-path DFS with current-arc iterators.
+// A free right endpoint is accepted at any depth, not only the shortest one.
 struct Matching {
     int m, n;
     std::vector<std::vector<int>> adj;

@@ -3,8 +3,8 @@ from collections import deque
 
 
 def max_matching(adj, n):
-    """Hopcroft-Karp: BFS layers from the free left vertices, then
-    vertex-disjoint shortest augmenting paths found by an iterative DFS."""
+    """BFS layers guide iterative augmenting-path DFS with current-arc iterators.
+    Free right endpoints are accepted at any depth, not only the shortest one."""
     m = len(adj)
     match_l, match_r = [-1] * m, [-1] * n
     for v in range(m):

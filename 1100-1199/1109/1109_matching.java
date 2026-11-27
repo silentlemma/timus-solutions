@@ -36,8 +36,8 @@ public class Main {
     static int[][] adj;
     static int[] matchL, matchR, dist, it;
 
-    // Hopcroft-Karp: BFS layers from the free left vertices, then
-    // vertex-disjoint shortest augmenting paths along the layers
+    // BFS layers guide augmenting-path DFS with current-arc iterators.
+    // A free right endpoint is accepted at any depth, not only the shortest one.
     static boolean layer() {
         Arrays.fill(dist, -1);
         ArrayDeque<Integer> queue = new ArrayDeque<>();

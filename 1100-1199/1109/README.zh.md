@@ -16,6 +16,8 @@
 
 `M N K`，然后是 `K` 行 `a b`：左顶点 `a` 与右顶点 `b` 之间的一条边。边可能重复。
 
+左侧编号满足 1<=a<=M，右侧满足 1<=b<=N。
+
 ## 输出
 
 最少的边数。
@@ -79,7 +81,11 @@
 
 `1109_bfs_bitmask_matching.py`. 答案仍为最小边覆盖 M+N 减最大匹配，题目保证无孤立点。令 L=min(M,N)、R=max(M,N)。4096 字节分块保留未完数字和半对端点。预先构造右点位值，用 OR 建整数邻接掩码，重复边不改变结果。增广 BFS 先检查空闲邻点，再让每个已匹配右点对每个根至多访问一次，沿父指针翻转路径。令 B=max(1,ceil(R/w)) 为整数机器字数，保守界为 O(I+(K+LR)*B) 时间、O((L+R)*B) 图及掩码峰值存储，另加有限输入缓冲和匹配数组；Python 宽整数操作不是常数时间。main 内先刷新单个答案再 os._exit(0)。保留 BFS 位掩码算法，与教学 DFS 及旧分层搜索不同。
 
-精确源代码 Python 3.12 x64 Accepted #11327428：0.093 s / 1412 KB。2026-11-20 保存的编译器组比较：时间 3/28、内存 1/28。内存达到 1024 KB 时严格收录要求时间和内存均达标：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11308424（Python 3.12 x64）为 0.14 s / 3868 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+精确 Python 3.12 x64 Accepted #11327428 为 0.093 s / 1412 KB。
+2026-11-20 保存的时间/内存名次 3/28、1/28 是历史值；当前缓存
+也确认两项适用指标合格。没有单独的第一名目标，该行没有星号。
+旧运行 #11308424（0.14 s / 3868 KB）仍是独立历史测量对，
+不是此源代码的当前测量。
 
 - `1109_bfs_bitmask_matching.py`: 0.093 s / 1412 KB; 保留教学基础版 `1109_matching.py`: 0.093 s / 8516 KB.
 
@@ -97,7 +103,7 @@
 原生输入缓冲为 4096 字节。
 只输出一个整数。算法不同于 DFS 及旧分层搜索，故采用不同方法名。
 
-旧版本历史测量：五版按内存准入：C++ 280 KB 对新的简单 C++ 496 KB，节省 43.5%；
+旧版本历史测量（内存收益，不是准入标准）：C++ 280 KB 对新的简单 C++ 496 KB，节省 43.5%；
 Go 1292/2512，48.6%；Java 680/1264，46.2%；Python 3868/8516，54.6%；
 Rust 356/1820，80.4%。C++ 0.031→0.015 s 仅一刻度，不宣称可靠加速。
 Python 0.140 对 0.093 s，记录时间多 50.5%；Java/Go/Rust 也各高一个刻度。
@@ -105,12 +111,23 @@ Python 0.140 对 0.093 s，记录时间多 50.5%；Java/Go/Rust 也各高一个�
 
 ## 各语言说明
 
-新 C++ DFS 是首选简单版，旧 C++ 分层搜索保留为另一 Accepted 算法；
-其他语言保留旧简单基础版。所有快版与当前同语言基础版比较，包括新 C++。
-Python 使用 CPython 3.12。2026 年 11 月 2 日快照：快 C++ 对 74 条筛选后
-其他作者记录两项第一；Java 对六条记录为 3/1，Python 对 25 条为 11/12，
-均加星号。Go/Rust 空样本只给形式覆盖，不证明竞争优势。目标为 C++ 两项均
-前 15% 或前十名，其他语言族两项第一；达到准入收益但排名未达标的版本保留星号。
+首选简单版是新 C++ DFS，旧 C++ 分层算法仍保留。2026 年 11 月
+2 日名次属于历史比较，不是当前准入证据。精确源码缓存确认
+快速 C++/Go/Python/Rust 和简单 Go/Java/Rust。快速 Java 仍未通过
+时间目标，保留星号；简单 Java 可直接覆盖该语言，无须复制。
+Go 使用精确编译器小样本参考，其他合格版本使用普通名次。
+快速 C++/Rust 低于 1 MiB，仅比时间；快速 Go/Python 比两项。
+空样本不能证明数值准入。
+
+当前准入使用统一[排名标准](../../RATING_CRITERIA.md)：普通前十/前
+15%，或适用时精确编译器小样本参考；低于 1 MiB 只比时间。改善
+30% 或单独语言第一名不构成准入条件。保留有意义的教学版本，
+不添加优化目标星号。
+
+表中收据属于修改前字节：C++ #11279197、Go #11279198、
+Java #11279200、Python #11279199、Rust #11279201。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -119,11 +136,11 @@ Python 使用 CPython 3.12。2026 年 11 月 2 日快照：快 C++ 对 74 条筛
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1109_dfs_matching.cpp](1109_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(M(V+K)) | AC | 0.031 s | 496 KB | 11308433 |
-| [1109_matching.go](1109_matching.go) | Go 1.14 x64 | matching | O(L(V+K)) | AC | 0.015 s | 2512 KB | 11279198 |
-| [1109_matching.java](1109_matching.java) | Java 1.8 | matching | O(L(V+K)) | AC | 0.125 s | 1264 KB | 11279200 |
-| [1109_matching.py](1109_matching.py) | Python 3.12 x64 | matching | O(L(V+K)) | AC | 0.093 s | 8516 KB | 11279199 |
-| [1109_matching.rs](1109_matching.rs) | Rust 1.75 x64 | matching | O(L(V+K)) | AC | 0.015 s | 1820 KB | 11279201 |
-| [1109_matching.cpp](1109_matching.cpp) | G++ 13.2 x64 | matching | O(L(V+K)) | AC | 0.062 s | 468 KB | 11279197 |
+| [1109_matching.go](1109_matching.go) | Go 1.14 x64 | matching | O(L(V+K)) | AC | 0.031 s | 2500 KB | 11331019 |
+| [1109_matching.java](1109_matching.java) | Java 1.8 | matching | O(L(V+K)) | AC | 0.109 s | 1244 KB | 11331047 |
+| [1109_matching.py](1109_matching.py) | Python 3.12 x64 | matching | O(L(V+K)) | AC | 0.093 s | 7840 KB | 11331066 |
+| [1109_matching.rs](1109_matching.rs) | Rust 1.75 x64 | matching | O(L(V+K)) | AC | 0.015 s | 1792 KB | 11331110 |
+| [1109_matching.cpp](1109_matching.cpp) | G++ 13.2 x64 | matching | O(L(V+K)) | AC | 0.046 s | 452 KB | 11331142 |
 
 ### 优化版本
 
@@ -131,7 +148,7 @@ Python 使用 CPython 3.12。2026 年 11 月 2 日快照：快 C++ 对 74 条筛
 |---|---|---|---|---|---|---|---|
 | [1109_bfs_bitmask_matching.cpp](1109_bfs_bitmask_matching.cpp) | G++ 13.2 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.015 s | 280 KB | 11308425 |
 | [1109_bfs_bitmask_matching.go](1109_bfs_bitmask_matching.go) | Go 1.14 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 1292 KB | 11308428 |
-| [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 680 KB | 11308426 |
+| [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.14 s | 680 KB | 11308426 |
 | [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) | Python 3.12 x64 | bfs, bitmask, matching | O(I+(K+LR)*B) time; O((L+R)*B) peak state | AC | 0.093 s | 1412 KB | 11327428 |
 | [1109_bfs_bitmask_matching.rs](1109_bfs_bitmask_matching.rs) | Rust 1.75 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 356 KB | 11308431 |
 

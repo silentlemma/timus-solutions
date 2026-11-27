@@ -20,6 +20,8 @@ Límite de tiempo: 0,5 segundos. Límite de memoria: 64 MB.
 `M N K` y luego `K` líneas `a b`: una arista entre el vértice izquierdo
 `a` y el vértice derecho `b`. Las aristas pueden repetirse.
 
+Las etiquetas izquierdas cumplen 1<=a<=M y las derechas 1<=b<=N.
+
 ## Salida
 
 El menor número de aristas.
@@ -90,11 +92,18 @@ se usa la cota segura `O(L(V+K))`, con cursores de aristas y hasta
 `L=min(M,N)` fases exitosas, sin asumir la cota estricta de Hopcroft–Karp
 basada en rutas mínimas. Espacio `O(V+K)`.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1109_bfs_bitmask_matching.py`. La respuesta sigue siendo la cobertura mínima de aristas M+N menos el emparejamiento máximo; no hay vértices aislados. Sean L=min(M,N), R=max(M,N). El lector de 4096 bytes conserva números incompletos y medias parejas. Construye máscaras enteras mediante OR con bits derechos precalculados; las aristas repetidas no alteran nada. BFS busca primero vecinos libres y después visita cada vértice derecho emparejado como máximo una vez por raíz; invierte el camino mediante padres. Con B=max(1,ceil(R/w)) palabras por entero, una cota conservadora es O(I+(K+LR)*B) tiempo y O((L+R)*B) almacenamiento máximo de grafo y máscaras, más entrada acotada y vectores de emparejamiento: las operaciones anchas no son constantes. Vacía la salida antes de os._exit(0) dentro de main. Mantiene el algoritmo BFS con máscaras, distinto del DFS didáctico y de la búsqueda por capas conservada.
 
-Accepted exacto Python 3.12 x64 #11327428: 0.093 s / 1412 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/28, memoria 1/28. Con 1024 KB o más la admisión estricta exige tiempo y memoria: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11308424 (Python 3.12 x64) era 0.14 s / 3868 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted exacto Python 3.12 x64 #11327428: 0.093 s / 1412 KB.
+Los puestos guardados 3/28 y 1/28 del 2026-11-20 son históricos;
+la caché actual también confirma ambas métricas aplicables. No hay
+meta separada de primer puesto ni asterisco en esta fila. El envío
+anterior #11308424 (0.14 s / 3868 KB) sigue siendo un par histórico
+distinto, no la medición actual de este fuente.
 
 - `1109_bfs_bitmask_matching.py`: 0.093 s / 1412 KB; base didáctica conservada `1109_matching.py`: 0.093 s / 8516 KB.
 
@@ -117,7 +126,7 @@ derechos emparejados que extraer, acotando también el trabajo de enteros Python
 Lectores nativos usan 4096 bytes.
 Se imprime un entero. El algoritmo difiere de DFS y de capas: nombre propio.
 
-Mediciones históricas de revisiones anteriores: Las cinco se admiten por memoria: C++ 280 KB frente a la NUEVA base C++
+Mediciones históricas de revisiones anteriores: Las cinco reducen memoria: C++ 280 KB frente a la NUEVA base C++
 de 496 KB, 43,5% menos; Go 1292/2512, 48,6%; Java 680/1264, 46,2%; Python
 3868/8516, 54,6%; Rust 356/1820, 80,4%. C++ 0,031→0,015 s es un tick,
 sin prueba fiable de aceleración. Python registra 0,140 frente a 0,093 s,
@@ -126,14 +135,25 @@ con el compromiso temporal explícito.
 
 ## Notas por lenguaje
 
-El nuevo DFS C++ es la base sencilla preferida; el C++ de capas queda
-como otro algoritmo Accepted. Otros lenguajes retienen sus bases. Se compara
-cada rápido con su base ACTUAL, incluido el nuevo C++. Python usa CPython3.12.
-Instantánea del 2 de noviembre de 2026: C++ rápido 1/1 frente a 74 entradas
-filtradas de otros autores; Java 3/1 frente a seis y Python 11/12 frente a
-25 llevan asterisco. Go/Rust tienen muestras vacías, solo cobertura formal.
-Meta C++:15% superior o primeros diez en ambas métricas; otras familias,
-primero en ambas. Las mejoras admitidas bajo la meta mantienen asterisco.
+El DFS C++ nuevo sigue como base preferida y se retiene el algoritmo
+anterior por capas. Los puestos del 2 de noviembre de 2026 son
+históricos. La caché ligada al fuente confirma rápidos C++/Go/Python/Rust
+y simples Go/Java/Rust. Java rápido sigue fallando tiempo y conserva
+asterisco; Java simple cubre el lenguaje sin copia. Go usa referencia
+pequeña del compilador exacto; los demás admitidos usan puestos
+ordinarios. C++/Rust rápidos bajo 1 MiB solo comparan tiempo; Go/Python
+rápidos comparan ambas métricas. Una cohorte vacía no prueba admisión.
+
+La admisión actual usa los [criterios compartidos](../../RATING_CRITERIA.md):
+puestos top diez/top 15% o referencia pequeña del compilador exacto
+cuando corresponde; bajo 1 MiB solo tiempo. Mejorar 30% o una meta
+aparte de primer puesto no da admisión. Se conservan bases significativas
+sin asteriscos de objetivos de optimización.
+
+Los recibos de la tabla
+pertenecen a los bytes anteriores: C++ #11279197, Go #11279198,
+Java #11279200, Python #11279199 y Rust #11279201. Se conservan
+algoritmos, alternativas simples y mediciones; no se iniciaron envíos.
 
 ## Soluciones
 
@@ -142,11 +162,11 @@ primero en ambas. Las mejoras admitidas bajo la meta mantienen asterisco.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1109_dfs_matching.cpp](1109_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(M(V+K)) | AC | 0.031 s | 496 KB | 11308433 |
-| [1109_matching.go](1109_matching.go) | Go 1.14 x64 | matching | O(L(V+K)) | AC | 0.015 s | 2512 KB | 11279198 |
-| [1109_matching.java](1109_matching.java) | Java 1.8 | matching | O(L(V+K)) | AC | 0.125 s | 1264 KB | 11279200 |
-| [1109_matching.py](1109_matching.py) | Python 3.12 x64 | matching | O(L(V+K)) | AC | 0.093 s | 8516 KB | 11279199 |
-| [1109_matching.rs](1109_matching.rs) | Rust 1.75 x64 | matching | O(L(V+K)) | AC | 0.015 s | 1820 KB | 11279201 |
-| [1109_matching.cpp](1109_matching.cpp) | G++ 13.2 x64 | matching | O(L(V+K)) | AC | 0.062 s | 468 KB | 11279197 |
+| [1109_matching.go](1109_matching.go) | Go 1.14 x64 | matching | O(L(V+K)) | AC | 0.031 s | 2500 KB | 11331019 |
+| [1109_matching.java](1109_matching.java) | Java 1.8 | matching | O(L(V+K)) | AC | 0.109 s | 1244 KB | 11331047 |
+| [1109_matching.py](1109_matching.py) | Python 3.12 x64 | matching | O(L(V+K)) | AC | 0.093 s | 7840 KB | 11331066 |
+| [1109_matching.rs](1109_matching.rs) | Rust 1.75 x64 | matching | O(L(V+K)) | AC | 0.015 s | 1792 KB | 11331110 |
+| [1109_matching.cpp](1109_matching.cpp) | G++ 13.2 x64 | matching | O(L(V+K)) | AC | 0.046 s | 452 KB | 11331142 |
 
 ### Optimizadas
 
@@ -154,7 +174,7 @@ primero en ambas. Las mejoras admitidas bajo la meta mantienen asterisco.
 |---|---|---|---|---|---|---|---|
 | [1109_bfs_bitmask_matching.cpp](1109_bfs_bitmask_matching.cpp) | G++ 13.2 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.015 s | 280 KB | 11308425 |
 | [1109_bfs_bitmask_matching.go](1109_bfs_bitmask_matching.go) | Go 1.14 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 1292 KB | 11308428 |
-| [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 680 KB | 11308426 |
+| [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.14 s | 680 KB | 11308426 |
 | [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) | Python 3.12 x64 | bfs, bitmask, matching | O(I+(K+LR)*B) time; O((L+R)*B) peak state | AC | 0.093 s | 1412 KB | 11327428 |
 | [1109_bfs_bitmask_matching.rs](1109_bfs_bitmask_matching.rs) | Rust 1.75 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 356 KB | 11308431 |
 
