@@ -9,8 +9,9 @@ fn main() {
         .into_iter()
         .filter(|&c| c != b'\r' && c != b'\n')
         .collect();
-    // Josephus: with m characters left, the one that stays last sits at
-    // (survivor of m - 1) + STEP, counted from where the first deletion was
+    // Josephus: J(m) is zero-based from the original counting start.
+    // After the first deletion, counting restarts STEP positions from that start.
+    // Thus J(m) = (J(m - 1) + STEP) % m, with J(1) = 0.
     let survivor = (2..=text.len()).fold(0, |s, m| (s + STEP) % m);
     let answer = match text[survivor] {
         b'?' => "Yes",

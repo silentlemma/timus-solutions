@@ -6,8 +6,9 @@ STEP = 1999
 def main():
     data = sys.stdin.buffer.read()
     n = sum(1 for c in data if c not in b"\r\n")
-    # Josephus: with m characters left, the one that stays last sits at
-    # (survivor of m - 1) + STEP, counted from where the first deletion was
+    # Josephus: J(m) is zero-based from the original counting start.
+    # After the first deletion, counting restarts STEP positions from that start.
+    # Thus J(m) = (J(m - 1) + STEP) % m, with J(1) = 0.
     survivor = 0
     for m in range(2, n + 1):
         survivor = (survivor + STEP) % m

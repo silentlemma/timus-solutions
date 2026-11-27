@@ -8,8 +8,9 @@ int main() {
     for (int c; (c = getchar()) != EOF;)
         if (c != '\r' && c != '\n')
             text += (char)c;
-    // Josephus: with m characters left, the one that stays last sits at
-    // (survivor of m - 1) + STEP, counted from where the first deletion was
+    // Josephus: J(m) is zero-based from the original counting start.
+    // After the first deletion, counting restarts STEP positions from that start.
+    // Thus J(m) = (J(m - 1) + STEP) % m, with J(1) = 0.
     int survivor = 0;
     for (int m = 2; m <= (int)text.size(); m++)
         survivor = (survivor + STEP) % m;

@@ -17,8 +17,9 @@ func main() {
 			text = append(text, c)
 		}
 	}
-	// Josephus: with m characters left, the one that stays last sits at
-	// (survivor of m - 1) + step, counted from where the first deletion was
+	// Josephus: J(m) is zero-based from the original counting start.
+	// After the first deletion, counting restarts step positions from that start.
+	// Thus J(m) = (J(m - 1) + step) % m, with J(1) = 0.
 	survivor := 0
 	for m := 2; m <= len(text); m++ {
 		survivor = (survivor + step) % m
