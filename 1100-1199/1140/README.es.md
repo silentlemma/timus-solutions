@@ -67,6 +67,16 @@ distancias de `m` a los puntos `a`, `0` y `b` es mínima en su mediana, así
 que se toma `m` como la mediana de `a`, `0` y `b` y se imprimen las partes
 no nulas de `X −(a − m)`, `Y −m`, `Z −(b − m)`. `O(n)`.
 
+El estado geométrico son tres totales y hasta tres segmentos candidatos:
+O(1) palabras numéricas acotadas en todas las versiones, sin recursión.
+C++/Go/Java simples leen incrementalmente con búferes acotados. Python
+simple retiene entrada y tokens split, Rust el String: O(I) bytes
+adicionales. Go/Rust optimizados no retienen entrada completa; para
+Rust esto sí cambia la base. Python optimizado guarda bloque de 4096
+bytes, partes split y token incompleto: O(4096+T), longitud máxima de
+token T, en vez de O(I). Leer I bytes añade O(I) tiempo a O(n)
+actualizaciones geométricas.
+
 Detalles a tener en cuenta:
 
 - cuando `a` y `b` tienen el mismo signo, parte del camino va por `Y`;
@@ -83,21 +93,46 @@ Las respuestas se comprobaron con el comprobador en todas las pruebas y en
 con una búsqueda en anchura sobre todas las celdas a 100 o menos del
 centro.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-Go y Rust acumulan solo las tres sumas por dirección al leer el recorrido. Obtienen la mediana de a, cero y b limitando cero al intervalo entre a y b. De ella salen directamente las tres longitudes de vuelta, omitiendo las nulas. El espacio auxiliar es constante.
+Las dos optimizadas nativas conservan la fórmula de mediana. Go cambia
+map[string]int por un arreglo de tres enteros, sort.Ints de tres valores
+por clamp explícito, fmt.Fscan por Scanner/ScanWords y strconv.Atoi,
+y líneas fmt por pequeño búfer de bytes. Su base ya guardaba solo
+tres totales. Rust sustituye read_to_string y parser genérico por
+stdin.lock().bytes() y lector decimal con signo, con tres totales i32.
+Su base ya hallaba mediana con min/max: clamp es la misma operación
+constante, no nueva geometría. Se omiten longitudes cero y ambas
+bases legibles permanecen.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 188 KB frente a 344 KB.
 
-Las implementaciones base aceptadas [1140_geometry.cpp](1140_geometry.cpp), [1140_geometry.java](1140_geometry.java), [1140_geometry.py](1140_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché exacta confirma C++/Java reutilizados solo tiempo bajo 1 MiB.
+Python simple 0.125 s/776 KB falla la referencia temporal pequeña;
+la revisión separada 0.062 s/828 KB cubre Python. Go simple cumple
+ambas métricas pequeñas, Go optimizado solo tiempo; ambos Rust cumplen
+puestos temporales ordinarios bajo 1 MiB. Rigen los
+[criterios compartidos](../../RATING_CRITERIA.md), sin estrellas en
+fuentes didácticos ni copias optimizadas idénticas.
 
 ### Nuevas versiones aceptadas
 
 Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
 
-`1140_geometry_implementation_optimized.py`. Los tokens se leen como bytes en bloques acotados y se acumulan directamente los dos ejes. Se conserva la fórmula geométrica sin almacenar toda la entrada. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+`1140_geometry_implementation_optimized.py`. Sustituye lectura/split
+de texto completo por bloques os.read, llevando solo token incompleto
+entre bloques. Sigue sumando tres direcciones en un diccionario,
+luego deriva dos ejes y ordena (a,0,b) como la base; no acumula
+directamente dos ejes. Claves byte y os._exit tras vaciar salida
+completa son cambios de implementación; geometría y base permanecen.
 
 Accepted #11329035 (Python 3.12 x64): **0.062 s / 828 KB**. Comparación archivada: `1140_geometry.py` (Python 3.12 x64) — 0.125 s / 776 KB (#11279441).
+
+La revisión Python optimizada solo nombra el umbral ASCII intacto
+32 de espacio al separar bloques. Fórmula de mediana, valores,
+base y comentarios sustantivos se conservan.
 
 ## Notas por lenguaje
 
@@ -123,4 +158,4 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1140_geometry_optimized.go](1140_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 908 KB | 11311067 |
 | [1140_geometry_optimized.rs](1140_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 188 KB | 11311072 |
-| [1140_geometry_implementation_optimized.py](1140_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(n) | AC | 0.062 s | 828 KB | 11329035 |
+| [1140_geometry_implementation_optimized.py](1140_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(n) | AC | 0.078 s | 796 KB | 11331074 |

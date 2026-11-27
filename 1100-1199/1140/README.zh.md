@@ -60,6 +60,14 @@ Z -2
 处最小，所以取 `m` 为 `a`、`0`、`b` 的中位数，并输出 `X −(a − m)`、`Y −m`、
 `Z −(b − m)` 中非零的部分。`O(n)`。
 
+几何状态是三个总量及至多三个返程段候选，所有版本用 O(1)
+个有界数值字，无递归。简单 C++/Go/Java 逐步读取，只保留有界
+缓冲及该状态。简单 Python 保存完整输入和 split 记号，Rust
+保存输入 String，另占 O(I) 字节。优化 Go/Rust 不保留完整输入；
+Rust 因此有别于基础版。优化 Python 用 4096 字节块、split 片段
+及未完成记号，最长记号 T 时为 O(4096+T)，而非 O(I)。读取
+I 字节另加 O(I) 时间，几何更新为 O(n)。
+
 注意事项：
 
 - 当 `a` 与 `b` 同号时，部分路程沿 `Y` 走；异号时 `m = 0`，不用 `Y`；
@@ -73,25 +81,48 @@ Z -2
 
 ## 优化解法
 
-Go 和 Rust 读取路径时只累计三个方向的总长度。将零限制到 a 和 b 之间的区间，即可得到 a、零和 b 的中位数，再直接算出三个返程长度并省略零长度段。辅助空间保持为常数。
+两个原生优化版保留相同中位数公式。Go 将 map[string]int
+换为三个整数数组、三数 sort.Ints 换为显式 clamp、fmt.Fscan
+换为 Scanner/ScanWords 及 strconv.Atoi，fmt 格式行换为小字节
+输出缓冲。基础版本来就只存三个总量。Rust 以 stdin.lock().bytes()
+及直接有符号数读取替代 read_to_string 和通用 token 解析，
+总量改为三个 i32 数组。其基础版本来就用 min/max 求中位数；
+clamp 是相同常数规模操作，不是新几何算法。继续省略零长度，
+两份简单源码均保留。
 
 通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 188 KB，基础版为 344 KB。
 
-已通过评测的基础实现 [1140_geometry.cpp](1140_geometry.cpp), [1140_geometry.java](1140_geometry.java), [1140_geometry.py](1140_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+精确源码缓存确认复用 C++/Java 在低于 1 MiB 时仅按时间合格。
+简单 Python 0.125 s/776 KB 未过小样本时间参考，由独立
+0.062 s/828 KB 修订覆盖。简单 Go 通过小样本两项，优化 Go
+仅比时间；两个 Rust 都通过低于 1 MiB 的普通时间名次。使用
+统一[排名标准](../../RATING_CRITERIA.md)，教学源码不加星号，
+不创建相同优化副本。
 
 ### 新的已通过版本
 
 以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
 
-`1140_geometry_implementation_optimized.py`. 按有界块读取字节词元，直接累计两轴总量，保留几何公式而不保存完整输入。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+`1140_geometry_implementation_optimized.py` 用 os.read 分块替代
+完整文本读取/split，仅跨块携带未完成记号。仍像基础版一样
+用字典累计三个方向总量，再算两轴、排序 (a,0,b) 求中位数，
+并非直接累计两轴。字节键及完整输出刷新后 os._exit 是实现
+改变；几何算法和简单文件保留。
 
 Accepted #11329035 (Python 3.12 x64): **0.062 s / 828 KB**. 历史对照: `1140_geometry.py` (Python 3.12 x64) — 0.125 s / 776 KB (#11279441).
+
+当前优化 Python 修订仅将分块记号解析原有 ASCII 空格阈值32
+命名。表内 Accepted #11329035（0.062 s / 828 KB）属于此前字节，
+本次常量命名仍待新的精确源码 Accepted。中位数公式、数值、
+简单源码及实质注释均保留。
 
 ## 各语言说明
 
 以下说明针对基础实现。
 
 - 所有语言都累加长度并取同样的中位数。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -111,4 +142,4 @@ Accepted #11329035 (Python 3.12 x64): **0.062 s / 828 KB**. 历史对照: `1140_
 |---|---|---|---|---|---|---|---|
 | [1140_geometry_optimized.go](1140_geometry_optimized.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 908 KB | 11311067 |
 | [1140_geometry_optimized.rs](1140_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 188 KB | 11311072 |
-| [1140_geometry_implementation_optimized.py](1140_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(n) | AC | 0.062 s | 828 KB | 11329035 |
+| [1140_geometry_implementation_optimized.py](1140_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(n) | AC | 0.078 s | 796 KB | 11331074 |
