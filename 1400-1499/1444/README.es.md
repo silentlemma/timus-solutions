@@ -78,6 +78,8 @@ El corte predeterminado de las soluciones, al comienzo de la ordenación
 angular, ya cumple esta regla.
 `O(N log N)`.
 
+Las bases usan espacio auxiliar O(N) para registros de puntos/direcciones, índices ordenados, posible salida acumulada y espacio de ordenación. Lectores de toda la entrada retienen además I bytes; no se construye matriz de intersecciones por pares.
+
 Detalles a tener en cuenta:
 
 - varias calabazas en un mismo rayo se comen de la más cercana a la más
@@ -89,6 +91,8 @@ Detalles a tener en cuenta:
 - la calabaza 1 en una esquina deja un hueco de más de media vuelta
   (pruebas 04, gen3, gen4).
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1444_geometry_optimized.py`. Conserva rangos angulares exactos empaquetados, distancia Manhattan/ID para empates, ordenación y hueco de media vuelta. Mueve la construcción a main para usar variables locales en el bucle. No cambian límites, separación de rangos enteros ni orden; sin aproximar ángulos por flotantes. O(N log N) tiempo/O(N) espacio. Más rápido, pero 4100 KB frente a 3976 KB optimizados anteriores; conserva bases.
@@ -97,7 +101,7 @@ Accepted exacto CPython 3.12 #11326683: 0.14 s / 4100 KB. Comparación guardada 
 
 - `1444_geometry_optimized.py`: 0.14 s / 4100 KB; base didáctica conservada `1444_geometry.py` (Python 3.12 x64): 0.453 s / 11600 KB; cambio de tiempo -69.1%; cambio de memoria -64.7%.
 
-Se ordenan claves enteras exactas de dirección, evitando productos cruzados repetidos. Un parámetro racional basado en la longitud Manhattan es monótono alrededor del origen. La cota de coordenadas garantiza una separación mínima entre fracciones distintas, por lo que escalar y truncar no fusiona direcciones. La clave incluye rango angular, distancia cuadrada e índice; los puntos del mismo rayo siguen de cerca a lejos. El hueco angular determina el mismo corte cíclico de la prueba simple, sin ángulos de coma flotante.
+Se ordenan claves enteras exactas de dirección, evitando productos cruzados repetidos. Un parámetro racional basado en la longitud Manhattan es monótono alrededor del origen. La cota de coordenadas garantiza una separación mínima entre fracciones distintas, por lo que escalar y truncar no fusiona direcciones. La clave incluye rango angular, distancia Manhattan |dx|+|dy| e índice; los puntos del mismo rayo siguen de cerca a lejos. El hueco angular determina el mismo corte cíclico de la prueba simple, sin ángulos de coma flotante.
 
 - `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; base `1444_geometry.cpp`: 0.062 s / 444 KB; cambio respecto a la base: tiempo -75.8%, memoria -27.9%.
 - `1444_geometry_optimized.go`: 0.031 s / 1188 KB; base `1444_geometry.go`: 0.078 s / 2336 KB; cambio respecto a la base: tiempo -60.3%, memoria -49.1%.
@@ -115,17 +119,13 @@ Accepted #11329201 (Rust 1.75 x64): **0.015 s / 668 KB**. Comparación archivada
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Rigen los [criterios comunes](../../RATING_CRITERIA.md), ignorando memoria sólo estrictamente bajo 1024 KB. No hay regla aparte de primer puesto ni mejora del 30%. C++/Java/Python usan top diez o 15% normalmente; con 1–10 rivales del compilador exacto se aplica referencia elegida y tolerancia de fluctuación/tick.
 
-- C++: base didáctica preferida `1444_geometry.cpp`; versión que cubre `1444_geometry_optimized.cpp`; puestos tiempo/memoria 1/10, registros de otros autores 352/352.
+Se conservan las bases didácticas `1444_geometry.*`. Cubren C++/Go/Java/Python los `1444_geometry_optimized.*`: tiempo C++ 1/353 con 320 KB, Java 1/260 con 736 KB, tiempo/memoria Python 2/74 y 1/74 con 4100 KB. Go optimizado 0.031 s / 1188 KB cumple límites de cinco rivales 0.12535 s / 3459.20 KB.
 
-- Go: base didáctica preferida `1444_geometry.go`; versión que cubre `1444_geometry_optimized.go`; puestos tiempo/memoria 1/1, registros de otros autores 4/4.
+Cubre Rust `1444_implementation_parsing_optimized.rs`, Accepted #11329201: 0.015 s / 668 KB, cumpliendo tiempo 0.078 s del único rival sin comparar memoria. Se conserva marcado el antiguo `1444_geometry_optimized.rs`: 1244 KB supera el límite exigido 929.20 KB. Rust sencillo de 2104 KB también lo incumple. El rango histórico 1/2 no establece admisión bajo la sustitución por cohorte pequeña. Las medidas históricas emparejadas anteriores siguen siendo observaciones, no criterios alternativos actuales.
 
-- Java: base didáctica preferida `1444_geometry.java`; versión que cubre `1444_geometry_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 6/6.
-
-- Python/PyPy: Accepted exacto CPython 3.12 #11326683: 0.14 s / 4100 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 2/74, memoria 1/74. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
-
-- Rust: base didáctica preferida `1444_geometry.rs`; versión que cubre `1444_geometry_optimized.rs`; puestos tiempo/memoria 1/2, registros de otros autores 1/1.
+En `1444_implementation_parsing_optimized.rs` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11329201 y sus medidas corresponden a los bytes exactos previos.
 
 ## Soluciones
 
@@ -150,6 +150,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
 | [1444_geometry_optimized.py](1444_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.14 s | 4100 KB | 11326683 |
 | [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
-| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.015 s | 668 KB | 11329201 |
+| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.046 s | 656 KB | 11331111 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

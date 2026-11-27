@@ -75,6 +75,8 @@ pumpkins would touch the initial segment. The solutions' default cut at
 the start of the angular sort already satisfies this rule.
 `O(N log N)`.
 
+The simple versions use O(N) auxiliary storage for point/direction records, sorted indices and any accumulated output, including sorting workspace. Whole-input readers additionally retain I input bytes; no pairwise intersection matrix is constructed.
+
 Pitfalls:
 
 - several pumpkins on one ray must be eaten from the nearest outwards
@@ -94,7 +96,7 @@ Exact-source CPython 3.12 Accepted #11326683: 0.14 s / 4100 KB. Comparison saved
 
 - `1444_geometry_optimized.py`: 0.14 s / 4100 KB; retained teaching base `1444_geometry.py` (Python 3.12 x64): 0.453 s / 11600 KB; time change -69.1%; memory change -64.7%.
 
-Replace repeated cross-product comparisons during sorting with exact packed integer direction keys. A rational parameter based on Manhattan length is monotone around the origin. The coordinate bound gives a minimum separation between distinct fractions, so scaling and taking the floor cannot merge distinct directions. Pack the direction rank, squared distance and original index; same-ray points still appear nearest first. The angular gap identifies the same cyclic cut as the simple proof. No floating-point angle is used.
+Replace repeated cross-product comparisons during sorting with exact packed integer direction keys. A rational parameter based on Manhattan length is monotone around the origin. The coordinate bound gives a minimum separation between distinct fractions, so scaling and taking the floor cannot merge distinct directions. Pack the direction rank, Manhattan distance |dx|+|dy| and original index; same-ray points still appear nearest first. The angular gap identifies the same cyclic cut as the simple proof. No floating-point angle is used.
 
 - `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; base `1444_geometry.cpp`: 0.062 s / 444 KB; relative change: time -75.8%, memory -27.9%.
 - `1444_geometry_optimized.go`: 0.031 s / 1188 KB; base `1444_geometry.go`: 0.078 s / 2336 KB; relative change: time -60.3%, memory -49.1%.
@@ -112,17 +114,15 @@ Accepted #11329201 (Rust 1.75 x64): **0.015 s / 668 KB**. Archived comparison: `
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The shared [criteria](../../RATING_CRITERIA.md) apply, with memory ignored only strictly below 1024 KB, no separate first-place or 30%-improvement rule. C++/Java/Python use ordinary top-ten or top-15% comparisons; exact-compiler samples of 1–10 rivals instead use the selected reference and jitter/tick limits.
 
-- C++: preferred teaching base `1444_geometry.cpp`; covering source `1444_geometry_optimized.cpp`; time/memory places 1/10, other-author entries 352/352.
+Retain `1444_geometry.*` as the teaching bases. The covering C++/Go/Java/Python sources are `1444_geometry_optimized.*`; C++ time is 1/353 at 320 KB, Java time 1/260 at 736 KB, and Python time/memory 2/74 and 1/74 at 4100 KB. Go optimized 0.031 s / 1188 KB meets its five-rival limits 0.12535 s / 3459.20 KB.
 
-- Go: preferred teaching base `1444_geometry.go`; covering source `1444_geometry_optimized.go`; time/memory places 1/1, other-author entries 4/4.
+Rust coverage comes from `1444_implementation_parsing_optimized.rs`, Accepted #11329201: 0.015 s / 668 KB, which passes the single-rival time limit 0.078 s with memory ignored. Older `1444_geometry_optimized.rs` is retained and marked: its 1244 KB exceeds the required memory limit 929.20 KB. Simple Rust at 2104 KB also fails that limit. The old rank 1/2 alone does not establish admission under the small-cohort override. Historical paired measurements above remain observations, not current alternative criteria.
 
-- Java: preferred teaching base `1444_geometry.java`; covering source `1444_geometry_optimized.java`; time/memory places 1/1, other-author entries 6/6.
+Only lint-required constants in `1444_implementation_parsing_optimized.rs` were given names; their values, algorithm and comments are unchanged. Accepted #11329201 describes the preceding exact bytes and paired metrics.
 
-- Python/PyPy: Exact-source CPython 3.12 Accepted #11326683: 0.14 s / 4100 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 2/74, memory rank 1/74. At least 1024 KB: both strict metrics are required and pass.
-
-- Rust: preferred teaching base `1444_geometry.rs`; covering source `1444_geometry_optimized.rs`; time/memory places 1/2, other-author entries 1/1.
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -147,6 +147,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
 | [1444_geometry_optimized.py](1444_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.14 s | 4100 KB | 11326683 |
 | [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
-| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.015 s | 668 KB | 11329201 |
+| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.046 s | 656 KB | 11331111 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

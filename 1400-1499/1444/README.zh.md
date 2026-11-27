@@ -65,6 +65,8 @@ K，然后按吃的顺序给出南瓜编号，每行一个。任何正确的路�
 较近的南瓜时会碰到最初的线段。代码默认在角度排序的开头切开，已经满足这一要求。
 `O(N log N)`。
 
+简单版辅助空间 O(N)，用于点/方向记录、排序索引、可能累积的输出及排序工作空间。全量读取输入的实现还保留 I 字节；不构建两两相交矩阵。
+
 注意事项：
 
 - 同一射线上的多个南瓜要由近到远吃（测试 03、06、gen2）；
@@ -80,7 +82,7 @@ K，然后按吃的顺序给出南瓜编号，每行一个。任何正确的路�
 
 - `1444_geometry_optimized.py`: 0.14 s / 4100 KB; 保留的教学基础版 `1444_geometry.py` (Python 3.12 x64): 0.453 s / 11600 KB; 时间变化 -69.1%; 内存变化 -64.7%.
 
-排序使用精确打包整数方向键，避免反复比较叉积。基于曼哈顿长度的有理参数沿圆周单调变化。坐标上界保证不同分数的最小间隔，因此放大取整不会合并不同方向。键包含方向秩、距离平方及原编号，同射线仍按由近到远排列。角度间隙给出与基础证明相同的循环切点，不计算浮点角度。
+排序使用精确打包整数方向键，避免反复比较叉积。基于曼哈顿长度的有理参数沿圆周单调变化。坐标上界保证不同分数的最小间隔，因此放大取整不会合并不同方向。键包含方向秩、曼哈顿距离 |dx|+|dy|及原编号，同射线仍按由近到远排列。角度间隙给出与基础证明相同的循环切点，不计算浮点角度。
 
 - `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; 基础版 `1444_geometry.cpp`: 0.062 s / 444 KB; 相对基础版的变化: 时间 -75.8%, 内存 -27.9%.
 - `1444_geometry_optimized.go`: 0.031 s / 1188 KB; 基础版 `1444_geometry.go`: 0.078 s / 2336 KB; 相对基础版的变化: 时间 -60.3%, 内存 -49.1%.
@@ -98,17 +100,15 @@ Accepted #11329201 (Rust 1.75 x64): **0.015 s / 668 KB**. 历史对照: `1444_ge
 
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+适用统一[标准](../../RATING_CRITERIA.md)，仅严格低于 1024 KB 时忽略内存，无独立第一名或改善 30% 规则。C++/Java/Python 普通比较采用前十或前 15%；精确编译器 1–10 个对手改用选定参考与抖动/计时刻度容差。
 
-- C++: 优先教学基础版 `1444_geometry.cpp`; 覆盖实现 `1444_geometry_optimized.cpp`; 时间/内存名次 1/10, 其他作者记录 352/352.
+教学基础 `1444_geometry.*` 保留。C++/Go/Java/Python 由 `1444_geometry_optimized.*` 覆盖：C++ 320 KB 时间 1/353，Java 736 KB 时间 1/260，Python 4100 KB 时间/内存 2/74、1/74。优化 Go 0.031 s / 1188 KB 满足五个对手的 0.12535 s / 3459.20 KB 限额。
 
-- Go: 优先教学基础版 `1444_geometry.go`; 覆盖实现 `1444_geometry_optimized.go`; 时间/内存名次 1/1, 其他作者记录 4/4.
+Rust 由 `1444_implementation_parsing_optimized.rs` 覆盖，Accepted #11329201：0.015 s / 668 KB，满足唯一对手的时间限额 0.078 s，不比较内存。旧 `1444_geometry_optimized.rs` 保留星号，1244 KB 超过必需的 929.20 KB；简单 Rust 2104 KB 也不满足。旧排名 1/2 不能绕过小样本规则。上方历史成对测量仍是观察，不是当前替代标准。
 
-- Java: 优先教学基础版 `1444_geometry.java`; 覆盖实现 `1444_geometry_optimized.java`; 时间/内存名次 1/1, 其他作者记录 6/6.
+`1444_implementation_parsing_optimized.rs` 仅将检查要求的常量命名，数值、算法及注释未变。
 
-- Python/PyPy: 精确源代码 CPython 3.12 Accepted #11326683：0.14 s / 4100 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 2/74，内存排名 1/74。至少 1024 KB：两个严格指标均须通过，两项已通过。
-
-- Rust: 优先教学基础版 `1444_geometry.rs`; 覆盖实现 `1444_geometry_optimized.rs`; 时间/内存名次 1/2, 其他作者记录 1/1.
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -133,6 +133,6 @@ Accepted #11329201 (Rust 1.75 x64): **0.015 s / 668 KB**. 历史对照: `1444_ge
 | [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
 | [1444_geometry_optimized.py](1444_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.14 s | 4100 KB | 11326683 |
 | [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
-| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.015 s | 668 KB | 11329201 |
+| [1444_implementation_parsing_optimized.rs](1444_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N log N) | AC | 0.046 s | 656 KB | 11331111 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

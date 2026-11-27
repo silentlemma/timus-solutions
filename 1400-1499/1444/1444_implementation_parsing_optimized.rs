@@ -1,5 +1,7 @@
 #![no_main]
 
+const U64_DECIMAL_DIGITS: usize = 20;
+
 fn half(v: (i64, i64)) -> u8 {
     if v.1 > 0 || (v.1 == 0 && v.0 > 0) {
         0
@@ -234,7 +236,7 @@ impl NativeOutput {
         }
     }
     fn unsigned(&mut self, mut value: u64) {
-        let mut digits = [0_u8; 20];
+        let mut digits = [0_u8; U64_DECIMAL_DIGITS];
         let mut first = digits.len();
         loop {
             first -= 1;
