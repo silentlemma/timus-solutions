@@ -12,6 +12,8 @@ struct Statement {
 };
 
 class Sets {
+    // Each link is 2*parent + edge parity; the low bit stores the parity.
+    // At most 2q <= 10000 nodes keep every packed link within uint16_t.
     std::vector<std::uint16_t> link;
     std::vector<unsigned char> rank;
 

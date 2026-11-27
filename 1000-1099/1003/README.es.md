@@ -95,10 +95,16 @@ conjunto, la ecuación debe coincidir con las paridades ya conocidas; si no, se
 unen los conjuntos con la paridad correcta en la arista nueva. La primera
 ecuación que no coincide da `X`.
 
-Las posiciones llegan hasta `10^9`, pero aparecen como mucho `2q`: se asignan a
-identificadores consecutivos con una tabla hash. Con compresión de caminos y
-unión por rango el trabajo es `O(q · α(q))` por prueba; Python omite los rangos
-y tarda `O(q log q)`.
+Las posiciones llegan hasta `10^9`, pero aparecen como mucho `2q`; tablas
+hash les asignan IDs consecutivos. Con compresión de caminos y unión por
+rango, las versiones hash tardan `O(q · α(q))` esperado por prueba; Python
+didáctico omite rangos y tarda `O(q log q)` esperado. Se suponen operaciones
+hash de tiempo constante esperado, sin garantizar el peor caso de colisiones;
+las tablas indican esta condición. DSU, mapas y afirmaciones almacenadas
+usan espacio auxiliar `O(q)` por prueba. Las versiones Python y Rust que
+guardan toda la entrada y la salida acumulada añaden espacio `O(I + O)`;
+el lector de Java puede conservar una línea completa. `I` y `O` son las
+longitudes totales de entrada y salida.
 
 Detalles a tener en cuenta:
 
@@ -107,9 +113,18 @@ Detalles a tener en cuenta:
   prueba;
 - una prueba puede no tener ninguna afirmación.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-`1003_dsu_hashing_optimized.py`. Mantiene DSU exacto de paridad, IDs de coordenadas al vuelo y compresión iterativa por abuelo. Padre/paridad siguen codificados como 2*parent+parity, ahora en una lista nativa en vez de shorts, evitando conversiones por acceso; los rangos siguen en bytearray. No cambian orden, primera contradicción ni consumo posterior. Trabajo esperado O(Q α(Q)) más entrada; estado O(Q) y lectura por líneas.
+`1003_dsu_hashing_optimized.py`. Frente al Python didáctico, combina las
+listas separadas de padres y paridades en valores `2 * parent + parity`,
+añade rangos en un bytearray y sustituye las rutas almacenadas por
+compresión iterativa por abuelo con paridad. Consume tokens de cada línea
+bajo demanda sin conservar todos los casos ni las líneas de salida. La
+base no tiene rangos ni almacenamiento de enteros cortos empaquetados. No
+cambian la primera contradicción ni el consumo posterior. Trabajo esperado
+DSU/hash `O(q · α(q))`, estado `O(q)`, más entrada y la línea actual.
 
 Accepted exacto CPython 3.12 #11326679: 0.062 s / 1040 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 3/35, memoria 1/35. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
 
@@ -117,7 +132,17 @@ Accepted exacto CPython 3.12 #11326679: 0.062 s / 1040 KB. Comparación guardada
 
 Ambas codifican juntos padre y paridad. C++ usa entradas de 16 bits; el Python actual usa enteros normales en lista, no un arreglo de almacenamiento de 16 bits. La paridad ocupa el bit inferior. C++ primero ordena y elimina las posiciones repetidas, luego busca sus índices por búsqueda binaria. Python asigna índices según se necesitan con una tabla hash y reconecta cada nodo visitado con su abuelo usando la paridad combinada. Las ecuaciones se comprueban en orden de entrada.
 
-Las bases Accepted conservadas [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp), [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
+La auditoría en caché confirma las bases C++ y Java por clasificación, y Go
+por la comparación de muestra pequeña del compilador exacto. La base Rust
+sigue siendo un Accepted didáctico válido, pero supera el límite de memoria
+de esa comparación (1268 KB frente a 1265 KB); cumple
+`1003_dsu_hashing_optimized.rs`. Python queda cubierto por su versión optimizada.
+Se aplican los [criterios compartidos](../../RATING_CRITERIA.md), sin duplicar
+fuentes ni crear metas independientes por lenguaje.
+
+Se añadieron comentarios explicativos al C++ de enlaces empaquetados y al
+Python optimizado después de Accepted #11310464 y #11326679. El código
+ejecutable no cambia; la tabla conserva las mediciones históricas pareadas.
 
 ### Nuevas versiones aceptadas
 
@@ -147,16 +172,16 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp) | G++ 13.2 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 632 KB | 11277428 |
-| [1003_dsu_hashing.go](1003_dsu_hashing.go) | Go 1.14 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.046 s | 3420 KB | 11277429 |
-| [1003_dsu_hashing.java](1003_dsu_hashing.java) | Java 1.8 | dsu, hashing | O(q·α(q)) per test | AC | 0.109 s | 4788 KB | 11277431 |
-| [1003_dsu_hashing.py](1003_dsu_hashing.py) | Python 3.12 x64 | dsu, hashing | O(q log q) per test | AC | 0.093 s | 4388 KB | 11277430 |
-| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.001 s | 1268 KB | 11277432 |
+| [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp) | G++ 13.2 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.015 s | 632 KB | 11277428 |
+| [1003_dsu_hashing.go](1003_dsu_hashing.go) | Go 1.14 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.046 s | 3420 KB | 11277429 |
+| [1003_dsu_hashing.java](1003_dsu_hashing.java) | Java 1.8 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.109 s | 4788 KB | 11277431 |
+| [1003_dsu_hashing.py](1003_dsu_hashing.py) | Python 3.12 x64 | dsu, hashing | O(q log q) expected per test | AC | 0.093 s | 4388 KB | 11277430 |
+| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.001 s | 1268 KB | 11277432 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11310464 |
-| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
-| [1003_dsu_hashing_optimized.rs](1003_dsu_hashing_optimized.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 1260 KB | 11328483 |
+| [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11331144 |
+| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.078 s | 1292 KB | 11331212 |
+| [1003_dsu_hashing_optimized.rs](1003_dsu_hashing_optimized.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.015 s | 1260 KB | 11328483 |

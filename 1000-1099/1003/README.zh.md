@@ -87,8 +87,13 @@
 `find` 返回根以及该结点相对于根的奇偶性。对于新方程：如果两端在同一集合中，方程必须与已知的
 奇偶性一致；否则用新边上正确的奇偶性合并两个集合。第一个不一致的方程给出 `X`。
 
-位置最大到 `10^9`，但出现的位置最多 `2q` 个：用哈希表把它们映射为连续编号。使用路径压缩和按秩
-合并，每组测试的复杂度为 `O(q · α(q))`；Python 未按秩合并，为 `O(q log q)`。
+位置最大到 `10^9`，但最多出现 `2q` 个。哈希表将它们映射为连续编号。
+使用路径压缩和按秩合并，哈希版本每例的期望时间为 `O(q · α(q))`；
+教学 Python 不按秩合并，期望时间为 `O(q log q)`。哈希操作假定为期望常数时间，
+不保证碰撞最坏情况；表中也注明期望界。每例的 DSU、坐标映射和已保存陈述
+需要 `O(q)` 辅助空间。保存全部输入和累计输出的 Python、Rust 版本另需
+`O(I + O)` 缓冲空间；Java 的逐行读取可能保存一整行。`I` 和 `O` 为总输入、
+输出长度。
 
 注意事项：
 
@@ -98,7 +103,12 @@
 
 ## 优化解法
 
-`1003_dsu_hashing_optimized.py`. 保留精确前缀奇偶 DSU、按需坐标编号和迭代奇偶路径折半。父节点与边奇偶仍编码为 2*parent+parity，但 Python 改用原生列表替代短整数数组，避免逐次取值转换；秩仍为 bytearray。输入顺序、首个矛盾和剩余语句消费均不变。DSU/哈希期望 O(Q α(Q)) 加输入，状态 O(Q)，逐行读取。
+`1003_dsu_hashing_optimized.py`。与教学 Python 相比，本版将独立的父节点和
+奇偶列表合并为 `2 * parent + parity` 整数列表，增加 bytearray 秩数组，
+并用迭代奇偶路径折半替代保存整条路径。它逐行惰性读取记号，不保留全部测试和
+输出行。教学版本没有秩数组，也不使用短整数打包存储。首个矛盾及剩余语句的
+读取不变。DSU/哈希的期望工作量为 `O(q · α(q))`，状态空间 `O(q)`，另计
+输入处理和当前输入行。
 
 精确源代码 CPython 3.12 Accepted #11326679：0.062 s / 1040 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 3/35，内存排名 1/35。至少 1024 KB：两个严格指标均须通过，两项已通过。
 
@@ -106,7 +116,15 @@
 
 两种版本都联合编码父节点与边奇偶性；C++ 使用 16 位条目，当前 Python 则用普通整数列表而非 16 位存储数组；最低位保存奇偶性。C++ 先排序并去重所有前缀位置，再二分查找编号。Python 通过哈希表按需分配编号，遍历时把访问到的节点连到祖父，并合并两条边的奇偶性。方程按输入顺序检查。
 
-保留的 Accepted 基础版 [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp), [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) 在保存比较中也通过所需指标的严格前十或前 15% 标准，直接复用而不复制源文件。保留其余教学版；星号表示单独的语言排名目标。
+缓存审计确认简单 C++、Java 按排名通过，简单 Go 按精确编译器的小样本比较通过。
+简单 Rust 仍是合法的教学 Accepted，但未通过该比较的内存界限
+（1268 KB，高于 1265 KB）；`1003_dsu_hashing_optimized.rs` 通过。Python
+由优化版本满足要求。统一使用[排名标准](../../RATING_CRITERIA.md)，无需复制
+相同源文件，也不另设语言目标。
+
+打包链接的 C++ 和优化 Python 源码在 Accepted #11310464、#11326679 之后
+加入了解释性注释。可执行代码不变；表中保留这些提交的历史配对指标。带新注释的
+源码将在下一批提交中重新取得精确源码的 Accepted。
 
 ### 新的已通过版本
 
@@ -126,22 +144,24 @@ Accepted #11328483 (Rust 1.75 x64): **0.015 s / 1260 KB**. 历史对照: `1003_d
 - **Java**：每组测试使用大小为 `2q` 的数组，用 `HashMap<Integer, Integer>` 编号，迭代 `find`。
 - **Rust**：`HashMap<i64, usize>` 配合 `entry().or_insert_with()` 创建结点；迭代 `find`。
 
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
+
 ## 解答
 
 ### 简单版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp) | G++ 13.2 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 632 KB | 11277428 |
-| [1003_dsu_hashing.go](1003_dsu_hashing.go) | Go 1.14 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.046 s | 3420 KB | 11277429 |
-| [1003_dsu_hashing.java](1003_dsu_hashing.java) | Java 1.8 | dsu, hashing | O(q·α(q)) per test | AC | 0.109 s | 4788 KB | 11277431 |
-| [1003_dsu_hashing.py](1003_dsu_hashing.py) | Python 3.12 x64 | dsu, hashing | O(q log q) per test | AC | 0.093 s | 4388 KB | 11277430 |
-| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.001 s | 1268 KB | 11277432 |
+| [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp) | G++ 13.2 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.015 s | 632 KB | 11277428 |
+| [1003_dsu_hashing.go](1003_dsu_hashing.go) | Go 1.14 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.046 s | 3420 KB | 11277429 |
+| [1003_dsu_hashing.java](1003_dsu_hashing.java) | Java 1.8 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.109 s | 4788 KB | 11277431 |
+| [1003_dsu_hashing.py](1003_dsu_hashing.py) | Python 3.12 x64 | dsu, hashing | O(q log q) expected per test | AC | 0.093 s | 4388 KB | 11277430 |
+| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.001 s | 1268 KB | 11277432 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11310464 |
-| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
-| [1003_dsu_hashing_optimized.rs](1003_dsu_hashing_optimized.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 1260 KB | 11328483 |
+| [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11331144 |
+| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.078 s | 1292 KB | 11331212 |
+| [1003_dsu_hashing_optimized.rs](1003_dsu_hashing_optimized.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.015 s | 1260 KB | 11328483 |

@@ -3,6 +3,8 @@ from sys import stdin
 END_OF_INPUT = -1
 
 
+# A link stores 2*parent + edge parity. Path halving reconnects a node to
+# its grandparent and XORs the two edge parities to preserve the relation.
 def find(links, node):
     parity = 0
     edge = links[node]
