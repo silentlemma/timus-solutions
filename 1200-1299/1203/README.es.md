@@ -19,11 +19,15 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-`N` y luego `Ts Te` para cada charla.
+La primera línea contiene el entero N, 1 ≤ N ≤ 100000. Cada una de las N siguientes contiene tiempos enteros Ts Te con 1 ≤ Ts < Te ≤ 30000.
 
 ## Salida
 
 El mayor número de charlas.
+
+## Evaluación
+
+Las pruebas comparan exactamente el token entero de respuesta e ignoran blancos y saltos de línea.
 
 ## Ejemplos
 
@@ -32,18 +36,20 @@ El mayor número de charlas.
 Entrada:
 
 ```
-5
-3 4
-1 5
+7
+8 10
+1 2
+5 8
+3 5
 6 7
-4 5
-1 3
+10 11
+12 14
 ```
 
 Salida:
 
 ```
-3
+5
 ```
 
 ## Solución
@@ -60,6 +66,8 @@ posterior al último final elegido, se puede tomar una charla que termina
 en `e`, y es la que antes termina de las disponibles. `O(N + T)` con
 `T = 30000`.
 
+El arreglo de inicios ocupa O(T). Las bases C++/Go/Java leen charlas en flujo con búfer fijo: espacio O(T + B), B tamaño acotado del búfer. Python sencillo conserva además O(I) de entrada/tokens y O(N) referencias de cortes; Rust sencillo guarda el String O(I) y valores analizados O(N): total O(T + I + N). Go optimizado también retiene todos los bytes de entrada: O(T + I). C++/Rust optimizados con búfer y Python por bloques con arreglo usan O(T + B + L), L longitud del token mayor. Los inicios de 16 bits reducen constantes, no el tamaño O(T) de la tabla. Se cuenta el almacenamiento de entrada; el trabajo de cubetas sigue siendo O(N + T) en todos.
+
 Detalles a tener en cuenta:
 
 - una charla que empieza en el mismo minuto en que termina la anterior no
@@ -70,6 +78,8 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 300
 entradas aleatorias y en todas las pruebas.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 Las soluciones optimizadas (C++, Rust) analizan los números a mano
@@ -77,7 +87,7 @@ directamente desde el búfer de entrada en lugar de `scanf` o de leer
 toda la entrada en una cadena, y guardan los inicios más tardíos como
 números de 16 bits, ya que todos los tiempos son a lo sumo 30 000. C++
 necesita 0.001 s en lugar de 0.109 s y 164 KB en lugar de 304 KB; Rust,
-276 KB en lugar de 4176 KB, con el mismo tiempo.
+276 KB en lugar de 4176 KB, mientras su tiempo emparejado sube de 0.015 s a 0.031 s.
 
 La solución optimizada en Python lee la entrada en bloques de 16 KB y la
 analiza a medida que la necesita, y guarda los inicios más tardíos en un
@@ -93,6 +103,8 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 Accepted #11328521 (Go 1.14 x64): **0.031 s / 6052 KB**. Comparación archivada: `1203_greedy.go` (Go 1.14 x64) — 0.125 s / 4420 KB (#11303282).
 
 ## Notas por lenguaje
+
+Esta revisión solo nombra los parámetros existentes de 64 bits de conversión entera/flotante en `1203_greedy_optimized.go`; expandir las constantes reproduce el texto ejecutable original. Go sencillo y los comentarios significativos no cambian.
 
 Ningún lenguaje necesita nada especial.
 
@@ -113,6 +125,6 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1203_greedy_optimized.cpp](1203_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.001 s | 164 KB | 11303579 |
-| [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.140 s | 980 KB | 11303723 |
+| [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.14 s | 980 KB | 11303723 |
 | [1203_greedy_optimized.rs](1203_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.031 s | 276 KB | 11303580 |
-| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.031 s | 6052 KB | 11328521 |
+| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.015 s | 6228 KB | 11330991 |

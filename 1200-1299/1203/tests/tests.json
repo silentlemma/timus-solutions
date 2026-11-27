@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1203_greedy.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "talks touching at their ends cannot both be attended" },
+    { "name": "01", "example": true, "note": "own seven-talk schedule includes strict endpoint conflicts and five compatible talks" },
     { "name": "02", "note": "one talk over the whole day" },
     { "name": "03", "note": "one talk starts the minute the other ends" },
     { "name": "04", "note": "a one-minute gap is enough" },

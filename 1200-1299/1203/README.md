@@ -18,11 +18,15 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
 
-`N`, then `Ts Te` for each talk.
+The first line contains integer N, 1 ≤ N ≤ 100000. Each of the next N lines contains integer start/end times Ts Te with 1 ≤ Ts < Te ≤ 30000.
 
 ## Output
 
 The largest number of talks.
+
+## Checking
+
+Repository tests compare the integer answer token exactly, ignoring whitespace and line separators.
 
 ## Examples
 
@@ -31,18 +35,20 @@ The largest number of talks.
 Input:
 
 ```
-5
-3 4
-1 5
+7
+8 10
+1 2
+5 8
+3 5
 6 7
-4 5
-1 3
+10 11
+12 14
 ```
 
 Output:
 
 ```
-3
+5
 ```
 
 ## Solution
@@ -57,6 +63,8 @@ latest start among the talks ending at `e`. Sweep the minutes in order;
 when the latest start at `e` is after the last chosen end, a talk ending
 at `e` can be taken, and it is the earliest ending one available.
 `O(N + T)` for `T = 30000`.
+
+The latest-start array uses O(T) storage. C++/Go/Java bases read talks incrementally with fixed input buffering, so their space is O(T + B), where B is the bounded buffer size. Simple Python additionally retains O(I) input/tokens and O(N) slice references; simple Rust retains the O(I) input String and O(N) parsed values: total O(T + I + N). Optimized Go also retains the whole input bytes, using O(T + I). Buffered optimized C++/Rust and the chunked Python array need O(T + B + L) space, L the longest token length. Their 16-bit latest-start entries reduce constants without changing the O(T) table size. These bounds include input storage; all algorithms still do O(N + T) bucket work.
 
 Pitfalls:
 
@@ -73,8 +81,7 @@ The optimized solutions (C++, Rust) parse the numbers by hand straight
 from the input buffer instead of `scanf` or reading the whole input into
 a string, and keep the latest starts as 16-bit numbers, since all times
 are at most 30 000. C++ needs 0.001 s instead of 0.109 s and 164 KB
-instead of 304 KB; Rust needs 276 KB instead of 4176 KB, with the same
-time.
+instead of 304 KB; Rust needs 276 KB instead of 4176 KB, while its paired time increases from 0.015 s to 0.031 s.
 
 The optimized Python solution reads the input in 16 KB blocks and parses
 it lazily, and keeps the latest starts in an `array` of 16-bit numbers
@@ -91,7 +98,11 @@ Accepted #11328521 (Go 1.14 x64): **0.031 s / 6052 KB**. Archived comparison: `1
 
 ## Language notes
 
+This review only names the existing 64-bit integer/float conversion parameters in `1203_greedy_optimized.go`; expanding the constants reproduces the original executable text. The simple Go version and all meaningful comments remain unchanged.
+
 No language needs anything special.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -110,6 +121,6 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1203_greedy_optimized.cpp](1203_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.001 s | 164 KB | 11303579 |
-| [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.140 s | 980 KB | 11303723 |
+| [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.14 s | 980 KB | 11303723 |
 | [1203_greedy_optimized.rs](1203_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.031 s | 276 KB | 11303580 |
-| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.031 s | 6052 KB | 11328521 |
+| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.015 s | 6228 KB | 11330991 |
