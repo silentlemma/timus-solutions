@@ -4,7 +4,14 @@ import (
 	"os"
 )
 
-var moves = [8][2]int{{1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}, {-2, 1}, {-1, 2}}
+const knightMoves = 8
+const largestImpossibleBoard = 4
+const integerScratchBytes = 24
+
+var moves = [knightMoves][2]int{
+	{1, 2}, {2, 1}, {2, -1}, {1, -2},
+	{-1, -2}, {-2, -1}, {-2, 1}, {-1, 2},
+}
 
 var (
 	n    int
@@ -12,7 +19,7 @@ var (
 	path [][2]int
 )
 
-func freeSquares(c, r int, out *[8][2]int) int {
+func freeSquares(c, r int, out *[knightMoves][2]int) int {
 	count := 0
 	for _, m := range moves {
 		nc, nr := c+m[0], r+m[1]
@@ -34,9 +41,9 @@ func tour(c, r int) bool {
 	}
 	// Warnsdorff's rule: try first the squares with the fewest onward
 	// moves, and the search still backtracks, so it is exact
-	var next [8][2]int
+	var next [knightMoves][2]int
 	count := freeSquares(c, r, &next)
-	var degree, order [8]int
+	var degree, order [knightMoves]int
 	for i, sq := range next[:count] {
 		degree[i] = freeSquares(sq[0], sq[1], nil)
 		order[i] = i
@@ -63,7 +70,7 @@ func tour(c, r int) bool {
 
 func main() {
 	n = integer()
-	if n >= 2 && n <= 4 {
+	if n >= 2 && n <= largestImpossibleBoard {
 		writeBytes([]byte("IMPOSSIBLE\n"))
 		return
 	}
@@ -85,7 +92,7 @@ func main() {
 		out = append(out, byte('a'+sq[0]))
 		out = appendInteger(out, int64(sq[1]+1))
 		out = append(out, '\n')
-		if len(out) > outputCapacity-24 {
+		if len(out) > outputCapacity-integerScratchBytes {
 			writeBytes(out)
 			out = out[:0]
 		}
@@ -165,7 +172,7 @@ func writeBytes(data []byte) {
 
 // Append signed decimal integers; callers add their fixed ASCII text directly.
 func appendInteger(out []byte, value int64) []byte {
-	var buffer [24]byte
+	var buffer [integerScratchBytes]byte
 	at := len(buffer)
 	negative := value < 0
 	var magnitude uint64

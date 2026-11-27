@@ -26,15 +26,13 @@ N² casillas, una por línea, o `IMPOSSIBLE`.
 
 ## Evaluación
 
-Se valida el testigo: exactamente N² casillas distintas dentro del
-tablero y cada transición un salto de caballo. Diferentes recorridos
-correctos son válidos; no se comparan sus textos ni se presupone el mismo
-desempate. Ambos programas nuevos pasaron ocho entradas del repositorio
-en Java 8 y CPython 3.12, cubriendo todos los valores permitidos N=1..8.
-Se volvieron a leer y validar independientemente las 16 salidas y códigos
-de salida. Para `IMPOSSIBLE`, otra búsqueda ordinaria enumeró todos los
-inicios y rutas para N≤4, con 30102 llamadas recursivas, sin simetrías,
-orden por grado ni poda de aislados. Ambos tienen Accepted de sus bytes exactos.
+Se valida el testigo, no el texto de un recorrido concreto: exactamente
+N² casillas distintas dentro del tablero, una por línea, y cada
+desplazamiento consecutivo es un salto de caballo. Ocho fuentes se
+ejecutan para todo N=1..8: 64 salidas reales y códigos verificados. Para IMPOSSIBLE, una búsqueda independiente simple enumera todos
+los inicios y caminos de N=2,3,4 sin simetría, orden por grado ni
+poda de aislados. Se comprueban directamente el caso único y
+recorridos N=5..8.
 
 ## Ejemplos
 
@@ -43,7 +41,7 @@ orden por grado ni poda de aislados. Ambos tienen Accepted de sus bytes exactos.
 Entrada:
 
 ```
-3
+2
 ```
 
 Salida:
@@ -57,37 +55,48 @@ IMPOSSIBLE
 Entrada:
 
 ```
-5
+6
 ```
 
 Salida:
 
 ```
 a1
-c2
-e1
-d3
-e5
-c4
-d2
-e4
-c5
-a4
-b2
-d1
-e3
-d5
-b4
-a2
-c1
-e2
-c3
-b1
-a3
-b5
-d4
 b3
 a5
+c6
+e5
+f3
+e1
+c2
+a3
+b1
+d2
+f1
+e3
+f5
+d4
+e6
+f4
+e2
+c1
+a2
+b4
+a6
+c5
+d3
+f2
+d1
+b2
+c4
+d6
+b5
+c3
+e4
+f6
+d5
+b6
+a4
 ```
 
 ## Actualización de envíos aceptados
@@ -114,11 +123,18 @@ la imposibilidad para N=2,3,4. Para N=5,6,7,8 la salida real proporciona
 un recorrido completo. No tiene que ser cerrado ni empezar en una casilla
 concreta. El comportamiento observado de la heurística no prueba una cota.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1298_backtracking_optimized.java`. Conserva retroceso completo ordenado por Warnsdorff y representantes de simetría. Actualiza grados al retirar el vértice actual; máscara de aislados permite la misma poda en tiempo constante. Cada rama fallida restaura los grados modificados y la máscara guardada. Conserva orden estable y excepción del último vértice, sin límite de búsqueda. Cota gruesa O(V²·8^V), O(V) palabras acotadas con V=N²≤64; sin recorridos precalculados.
 
-Accepted exacto Java 1.8 #11327756: 0.078 s / 376 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/26, memoria 2/26. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11308542 era 0.125 s / 396 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Java 1.8 exacto #11327756 mide `0.078 s / 376 KB`, con puestos
+guardados del 20 de noviembre de 2026: tiempo 1/26, memoria 2/26.
+Bajo 1024 KB solo se exige tiempo, así que cumple. La fila actual
+no tiene asterisco ni existe una meta separada de primero en ambas.
+El anterior #11308542 (`0.125 s / 396 KB`) es un par histórico
+distinto; se conservan las bases didácticas.
 
 - `1298_backtracking_optimized.java`: 0.078 s / 376 KB; base didáctica conservada `1298_backtracking.java`: 0.156 s / 7116 KB.
 
@@ -162,21 +178,38 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 `1298_backtracking_parsing_optimized.go`. Se rechazan los tableros2x2,3x3y4x4antes del retroceso. Una DP independiente de subconjuntos y extremos prueba que no tienen camino hamiltoniano de caballo; se conservan búsqueda exacta y empates para los demás tamaños. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
 
-Accepted #11329146 (Go 1.14 x64): **0.015 s / 804 KB**. Comparación archivada: `1298_backtracking.go` (Go 1.14 x64) — 0.015 s / 4468 KB (#11284709).
+El Go histórico #11329146 fue `0.015 s / 804 KB`. El fuente exacto
+seleccionado #11330229 mide `0.015 s / 780 KB`, como en la tabla;
+base #11284709 sigue con `0.015 s / 4468 KB`.
 
 ## Notas por lenguaje
 
-Las cinco versiones anteriores conservan la búsqueda clara por coordenadas
-y sus recorridos aceptados. Las dos de máscaras pueden imprimir otro orden
-válido. La tabla indica el runtime real: el nuevo Python fue aceptado en
-CPython 3.12, no PyPy.
+Rigen los [criterios compartidos](../../RATING_CRITERIA.md): diez primeros o
+15% superior para métricas necesarias, sustituidos por referencia
+con 1–10 rivales válidos del mismo compilador. Bajo 1024 KB solo
+se exige tiempo. Se excluyen rivales menores de `0.015 s`; solo
+nuestro tiempo comparado se eleva a ese mínimo. Empates comparten
+puesto y corte porcentual redondea arriba. No hay primer puesto
+separado, corte ID/fecha ni admisión solo por mejorar30%. Ninguna
+fila actual tiene asterisco.
 
-Ambas versiones nuevas están admitidas, pero aún no son primeras en alguna
-métrica: ambas filas llevan asterisco. La base C++ ya cumple el 15% superior
-o primeros diez puestos en ambas métricas. Go y Rust no tienen envíos de
-otros autores elegibles en la muestra filtrada: es cobertura formal, no
-superioridad demostrada. Cada comparación usa su propia base sencilla del
-mismo lenguaje, sin copias optimizadas artificiales.
+La auditoría congelada ligada a fuentes admite C++ sencillo por
+ranking ordinario temporal y Java rápido con tiempo1/26. CPython
+rápido #11308531 (`0.062 s / 636 KB`) cumple el límite `0.093 s`
+de nueve rivales. Go tiene dos rivales: seleccionado #11330229
+(`0.015 s / 780 KB`) cumple `0.062 s`; Go base4468KB supera su
+límite de memoria1127.00KB. Rust tiene un rival y cumple `0.031 s`.
+La afirmación anterior sin rivales Go/Rust queda obsoleta. Java y
+Python sencillos se conservan para enseñanza aunque no cumplan
+sus comparaciones. Algoritmos, comentarios y celdas Accepted se preservan.
+
+Las búsquedas sencillas por coordenadas siguen completas; máscaras
+pueden imprimir otro recorrido válido. La tabla selecciona CPython
+3.12 para Python rápido, sin copias artificiales idénticas.
+
+El lint estricto exige nombres para movimientos Go8, límite imposible4
+y capacidad decimal24. El archivo actual solo extrae esas constantes;
+sustituir sus valores recupera exactamente los bytes Accepted previos. #11330229 y sus medidas describen esa versión.
 
 ## Soluciones
 
@@ -196,4 +229,4 @@ mismo lenguaje, sin copias optimizadas artificiales.
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11331017 |

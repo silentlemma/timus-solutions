@@ -25,15 +25,13 @@ N² squares, one per line, or `IMPOSSIBLE`.
 
 ## Checking
 
-Validate the output as a witness: exactly N² distinct in-board squares,
-each consecutive displacement a knight move. Different correct tours are
-allowed; do not compare their text or assume the same tie order. Both new
-programs passed all eight repository inputs in Java 8 and CPython 3.12,
-covering every allowed value N=1..8. The actual 16 outputs and exit codes
-were re-read and checked independently. For `IMPOSSIBLE`, a separate plain
-search enumerated every start and legal path for N≤4, using 30102 recursive
-calls in total, without symmetry, degree ordering or isolated-vertex pruning.
-Both sources also have their own exact-byte Accepted submissions.
+Validate output as a witness, not by comparing tours: exactly N²
+distinct in-board coordinates, one per line, every consecutive
+displacement a knight move. All eight source files run on every
+allowed board size N=1..8, giving 64 actual outputs and exit codes. For IMPOSSIBLE, an independent plain search enumerates every start
+and legal path for N=2,3,4 without symmetry, degree ordering or
+isolated-vertex pruning. The one-square and N=5..8 tours are checked
+directly.
 
 ## Examples
 
@@ -42,7 +40,7 @@ Both sources also have their own exact-byte Accepted submissions.
 Input:
 
 ```
-3
+2
 ```
 
 Output:
@@ -56,37 +54,48 @@ IMPOSSIBLE
 Input:
 
 ```
-5
+6
 ```
 
 Output:
 
 ```
 a1
-c2
-e1
-d3
-e5
-c4
-d2
-e4
-c5
-a4
-b2
-d1
-e3
-d5
-b4
-a2
-c1
-e2
-c3
-b1
-a3
-b5
-d4
 b3
 a5
+c6
+e5
+f3
+e1
+c2
+a3
+b1
+d2
+f1
+e3
+f5
+d4
+e6
+f4
+e2
+c1
+a2
+b4
+a6
+c5
+d3
+f2
+d1
+b2
+c4
+d6
+b5
+c3
+e4
+f6
+d5
+b6
+a4
 ```
 
 ## Acceptance update
@@ -118,7 +127,12 @@ Do not treat the heuristic's empirical behavior as an asymptotic proof.
 
 `1298_backtracking_optimized.java`. Keep complete Warnsdorff-ordered backtracking and symmetry representatives. Maintain each active vertex degree incrementally when removing the current vertex; an isolated-bit mask makes the existing impossibility test constant time. Restore exactly those neighbor degrees and the saved mask on every failed branch. Stable move ordering and the single-vertex exception remain; there is no search cutoff. The coarse exponential bound remains O(V²·8^V), with O(V) bounded-word state for V=N²≤64. No tours are stored.
 
-Exact-source Java 1.8 Accepted #11327756: 0.078 s / 376 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/26, memory 2/26. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11308542 was 0.125 s / 396 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 #11327756 measures `0.078 s / 376 KB`, with
+saved 20 November 2026 ranks time 1/26 and memory 2/26. Below 1024 KB
+only time is required, so it qualifies. The current row has no star
+and there is no separate first-place-in-both language target. The
+previous optimized run #11308542 (`0.125 s / 396 KB`) is a distinct
+historical pair; teaching sources remain unchanged.
 
 - `1298_backtracking_optimized.java`: 0.078 s / 376 KB; retained teaching base `1298_backtracking.java`: 0.156 s / 7116 KB.
 
@@ -164,21 +178,40 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 `1298_backtracking_parsing_optimized.go`. Reject 2x2, 3x3 and 4x4 square boards before backtracking. Independent subset/endpoint dynamic programming verifies that these boards have no Hamiltonian knight path. Preserve exact search and stable move ties for all remaining sizes. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
 
-Accepted #11329146 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `1298_backtracking.go` (Go 1.14 x64) — 0.015 s / 4468 KB (#11284709).
+Historical earlier Go run #11329146 was `0.015 s / 804 KB`.
+The selected exact-source run is #11330229 `0.015 s / 780 KB`,
+as in the table. Base #11284709 remains `0.015 s / 4468 KB`.
 
 ## Language notes
 
-The original five implementations retain their readable coordinate-based
-search and existing accepted tours. The two mask versions may print a
-different valid order. The table names the actually accepted runtime;
-the new Python source was accepted with CPython 3.12, not PyPy.
+Use the shared [rating criteria](../../RATING_CRITERIA.md): ordinary
+top ten or top 15% for required metrics, replaced by reference
+comparison with 1–10 eligible exact-compiler rivals. Below 1024 KB
+only time is required. Exclude rival times below `0.015 s`; floor
+only our own comparison time. Ties share rank and percentage cutoffs
+round up. No separate first-place target, ID/date cutoff or admission
+merely for a 30% gain applies. No current table row carries a star.
 
-Both admitted new versions still miss the first-place target in at least
-one metric, so both rows carry a star. The C++ base already meets the
-agreed top-15%-or-first-ten criterion in both metrics. Go and Rust have no
-eligible competing authors in the filtered snapshot: their bases give
-formal coverage, not evidence of superiority. Comparisons use each source's
-own same-language simple base, with no artificial optimized copies.
+The frozen source-bound audit admits simple C++ by ordinary time
+ranking and optimized Java by ordinary time rank 1/26. Optimized
+CPython #11308531 (`0.062 s / 636 KB`) passes its nine-rival time
+limit `0.093 s`. Go has two eligible rivals: selected #11330229
+(`0.015 s / 780 KB`) passes time limit `0.062 s`; base Go 4468 KB
+misses its 1127.00 KB memory limit. Rust has one rival and passes
+time limit `0.031 s`. Thus the old no-rival Go/Rust assertion is stale.
+Base Java and Python remain for teaching despite missing their
+required comparisons. All search algorithms, comments and receipt cells remain unchanged.
+
+The coordinate-based simple searches remain complete. Mask versions
+may print different valid tours. The table selects CPython 3.12 for
+the optimized Python file; no artificial optimized copies are needed.
+
+Strict lint requires names for Go’s move count8, impossible-board bound4
+and integer scratch capacity24. The current file only extracts these
+constants; substituting their values returns preceding Accepted bytes
+exactly. #11330229 and its measurements describe that earlier revision.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -198,4 +231,4 @@ own same-language simple base, with no artificial optimized copies.
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
 | [1298_backtracking_optimized.java](1298_backtracking_optimized.java) | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
-| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 780 KB | 11330229 |
+| [1298_backtracking_parsing_optimized.go](1298_backtracking_parsing_optimized.go) | Go 1.14 x64 | backtracking, parsing | O(V·8^V) | AC | 0.015 s | 804 KB | 11331017 |
