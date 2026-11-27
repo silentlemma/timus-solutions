@@ -53,6 +53,10 @@ func main() {
 		os.Stdout, "%.4f\n", 2*float64(total)/(float64(n)*float64(n-1)))
 }
 
+const integerBitSize = 64
+const floatBitSize = 64
+const defaultFloatPrecision = 6
+
 var fastInputData []byte
 var fastInputPosition int
 var fastInputLoaded bool
@@ -86,11 +90,11 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		case *int:
 			*value, err = strconv.Atoi(word)
 		case *int64:
-			*value, err = strconv.ParseInt(word, 10, 64)
+			*value, err = strconv.ParseInt(word, 10, integerBitSize)
 		case *uint64:
-			*value, err = strconv.ParseUint(word, 10, 64)
+			*value, err = strconv.ParseUint(word, 10, integerBitSize)
 		case *float64:
-			*value, err = strconv.ParseFloat(word, 64)
+			*value, err = strconv.ParseFloat(word, floatBitSize)
 		default:
 			panic("unsupported input type")
 		}
@@ -123,7 +127,7 @@ func fastFormatted(writer io.Writer, format string, values ...interface{}) (int,
 			width = width*10 + int(format[index]-'0')
 			index++
 		}
-		precision := 6
+		precision := defaultFloatPrecision
 		if format[index] == '.' {
 			index++
 			precision = 0
@@ -159,7 +163,7 @@ func fastFormatted(writer io.Writer, format string, values ...interface{}) (int,
 				panic("unsupported character format")
 			}
 		case 'f':
-			word = strconv.FormatFloat(value.(float64), 'f', precision, 64)
+			word = strconv.FormatFloat(value.(float64), 'f', precision, floatBitSize)
 		default:
 			panic("unsupported fixed format")
 		}
