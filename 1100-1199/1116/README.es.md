@@ -15,6 +15,8 @@ así, `F1` y `F2` (cada una con `1 ≤ N ≤ 15000` intervalos,
 `|A|, |B| < 32000`, `A < B`, `|Y| ≤ 100`), construye `F`: vale `F1` donde
 `F1` está definida y `F2` no, y no está definida en ningún otro sitio.
 
+Todos los extremos A,B y valores Y son enteros.
+
 Límite de tiempo: 0,5 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
@@ -58,6 +60,16 @@ emite el trozo desde el cursor hasta el inicio de ese intervalo (o hasta
 `B`) con el valor `Y`. El puntero en `F2` nunca retrocede, así que todo el
 recorrido es `O(N1 + N2)`.
 
+Sea Q el número de piezas emitidas. Cada intervalo de máscara añade
+a lo sumo un corte a los N1 originales: Q<=N1+N2. Las bases retienen
+ambas listas y piezas o texto acumulado: O(N1+N2+Q) celdas, más P bytes
+cuando guardan salida. Python/Rust conservan I bytes de entrada completa;
+Python añade tokens separados. C++/Go optimizados leen la máscara por
+flujo, pero guardan la primera lista y Q triples de resultado. Python/
+Rust optimizados guardan ambas listas compactas y Q triples; la salida
+por búfer evita una cadena completa. Empaquetar reduce constantes,
+no la cota lineal de almacenamiento.
+
 Los trozos no necesitan unirse: los trozos de un mismo intervalo están
 separados por huecos, y los de dos intervalos distintos solo pueden
 tocarse donde se tocaban los intervalos, que tienen valores distintos.
@@ -75,6 +87,8 @@ funciones en cada celda unitaria del rango de coordenadas y vuelve a unir
 las rachas de valores iguales en intervalos, en todas las pruebas y en 100
 pares aleatorios.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 La revisión C++ mantiene los campos de intervalo de 16 bits con signo y el barrido lineal. Búferes de entrada y salida de 16 KB sustituyen scanf y printf por campo, incluidos extremos y valores negativos. Se conoce la cantidad de resultados antes de imprimir su arreglo compacto.
@@ -83,7 +97,19 @@ Accepted del fuente exacto (G++ 13.2 x64, #11326648: 0.015 s / 412 KB); base did
 
 Las versiones en C++ y Go guardan cada intervalo como tres enteros de 16 bits con signo. Conservan la primera lista y leen la segunda según se necesita, manteniendo solo el intervalo de recorte actual. Cada intervalo de recorte se lee como máximo una vez. Los intervalos de salida se guardan en un vector compacto porque su cantidad se imprime primero. El tiempo es O(N1 + N2).
 
-Las implementaciones base aceptadas [1116_two_pointers.java](1116_two_pointers.java), [1116_two_pointers.py](1116_two_pointers.py), [1116_two_pointers.rs](1116_two_pointers.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché del fuente exacto confirma Java simple por ambos puestos
+ordinarios. Python/Rust simples fallan la comparación aplicable de sus
+envíos de gran memoria. Python queda cubierto por el fuente distinto
+optimizado de 1332 KB, por ambas métricas pequeñas; Rust por la versión
+implementation distinta de 688 KB, solo tiempo del compilador exacto.
+C++ optimizado y ambas Go también cumplen sus métricas. Se reutilizan
+fuentes que cumplen sin copias y se conservan bases significativas
+sin asteriscos de optimización.
+
+Las revisiones Python/Rust optimizadas solo nombran constantes
+intactas: tres campos por intervalo, límite de espacio 32 y token Rust
+inline de 32 bytes. Python Accepted #11328769 (0.187 s / 1332 KB) y
+Rust #11328958 (0.015 s / 688 KB) pertenecen a los bytes anteriores.
 
 ### Nuevas versiones aceptadas
 
@@ -117,7 +143,7 @@ Estas notas describen las implementaciones sencillas.
 | [1116_two_pointers.cpp](1116_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.046 s | 1880 KB | 11279235 |
 | [1116_two_pointers.go](1116_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 6832 KB | 11279236 |
 | [1116_two_pointers.java](1116_two_pointers.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 5400 KB | 11279239 |
-| [1116_two_pointers.py](1116_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.140 s | 13144 KB | 11279238 |
+| [1116_two_pointers.py](1116_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.14 s | 13144 KB | 11279238 |
 | [1116_two_pointers.rs](1116_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 2112 KB | 11279241 |
 
 ### Optimizadas
@@ -126,5 +152,5 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1116_two_pointers_optimized.cpp](1116_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 412 KB | 11326648 |
 | [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
-| [1116_two_pointers_optimized.py](1116_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.187 s | 1332 KB | 11328769 |
-| [1116_two_pointers_implementation_optimized.rs](1116_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(N1 + N2) | AC | 0.015 s | 688 KB | 11328958 |
+| [1116_two_pointers_optimized.py](1116_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N1 + N2) | AC | 0.171 s | 1480 KB | 11331071 |
+| [1116_two_pointers_implementation_optimized.rs](1116_two_pointers_implementation_optimized.rs) | Rust 1.75 x64 | two_pointers, implementation | O(N1 + N2) | AC | 0.031 s | 680 KB | 11331114 |

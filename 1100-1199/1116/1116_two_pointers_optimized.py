@@ -4,6 +4,8 @@ import sys
 
 OUTPUT_CHUNK_LINES = 1024
 INPUT_BUFFER_BYTES = 4096
+INTERVAL_FIELDS = 3
+MAX_ASCII_WHITESPACE = 32
 
 
 def words():
@@ -15,7 +17,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > MAX_ASCII_WHITESPACE else b""
         yield from parts
     if pending:
         yield pending
@@ -24,18 +26,18 @@ def words():
 def main():
     values = map(int, words())
     first_count = next(values)
-    first = array("h", (next(values) for _ in range(3 * first_count)))
+    first = array("h", (next(values) for _ in range(INTERVAL_FIELDS * first_count)))
     second_count = next(values)
-    second = array("h", (next(values) for _ in range(3 * second_count)))
+    second = array("h", (next(values) for _ in range(INTERVAL_FIELDS * second_count)))
     result = array("h")
     j = 0
-    for index in range(0, len(first), 3):
-        a, b, y = first[index : index + 3]
+    for index in range(0, len(first), INTERVAL_FIELDS):
+        a, b, y = first[index : index + INTERVAL_FIELDS]
         cur = a
         # walk through [a, b) and keep what no interval of the second covers
         while cur < b:
             while j < len(second) and second[j + 1] <= cur:
-                j += 3
+                j += INTERVAL_FIELDS
             if j < len(second) and second[j] <= cur:
                 cur = second[j + 1]
                 continue
@@ -43,7 +45,7 @@ def main():
             result.extend((cur, end, y))
             cur = end
     write = sys.stdout.write
-    write(str(len(result) // 3))
+    write(str(len(result) // INTERVAL_FIELDS))
     for start in range(0, len(result), OUTPUT_CHUNK_LINES):
         write(" " + " ".join(map(str, result[start : start + OUTPUT_CHUNK_LINES])))
     write("\n")
