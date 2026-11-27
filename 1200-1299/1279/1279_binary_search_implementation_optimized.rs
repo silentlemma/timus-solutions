@@ -10,9 +10,9 @@ fn solve_entry() {
         .map(|t| parse_integer::<i64>(t));
     let (n, m, k) = (it.next().unwrap(), it.next().unwrap(), it.next().unwrap());
     let heights: Vec<i64> = it.take((n * m) as usize).collect();
-    // filling the lowest sections first raises every section to a level h
-    // and some of them one higher, so the answer is the largest h whose
-    // missing containers, the sum of h - height below h, fit into K
+    // Filling the lowest sections raises stacks below the final minimum h to h.
+    // Some stacks at h may get one more container; initially taller ones stay put.
+    // The answer is the largest h with sum(max(0, h - height)) <= K.
     let mut lo = *heights.iter().min().unwrap();
     let mut hi = lo + k;
     while lo < hi {

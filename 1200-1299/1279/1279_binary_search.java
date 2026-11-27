@@ -17,9 +17,9 @@ public class Main {
             heights[i] = (long)in.nval;
             lo = Math.min(lo, heights[i]);
         }
-        // filling the lowest sections first raises every section to a level h
-        // and some of them one higher, so the answer is the largest h whose
-        // missing containers, the sum of h - height below h, fit into K
+        // Filling the lowest sections raises stacks below the final minimum h to h.
+        // Some stacks at h may get one more container; initially taller ones stay put.
+        // The answer is the largest h with sum(max(0, h - height)) <= K.
         long hi = lo + k;
         while (lo < hi) {
             long mid = (lo + hi + 1) / 2, need = 0;

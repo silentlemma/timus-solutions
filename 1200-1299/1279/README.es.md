@@ -17,11 +17,18 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-N, M y K, y luego N filas de M alturas.
+La primera línea contiene enteros `N`, `M`, `K`: `1 ≤ N, M ≤ 100` y
+`1 ≤ K ≤ 10⁷`. Siguen `N` filas de `M` alturas enteras en `1..1000`.
 
 ## Salida
 
 La menor altura tras colocar los contenedores.
+
+## Comprobación
+
+Comparación de tokens, como en `tests.json`: un entero decimal igual a la
+altura mínima final. Los espacios alrededor no importan; los tokens
+adicionales u otra escritura del mismo número no coinciden.
 
 ## Ejemplos
 
@@ -30,15 +37,14 @@ La menor altura tras colocar los contenedores.
 Entrada:
 
 ```
-2 2 3
-1 3
-2 4
+1 4 5
+2 2 8 8
 ```
 
 Salida:
 
 ```
-3
+4
 ```
 
 ### Ejemplo 2
@@ -46,16 +52,15 @@ Salida:
 Entrada:
 
 ```
-3 3 10
+2 3 26
 1 2 3
 4 5 6
-7 8 9
 ```
 
 Salida:
 
 ```
-5
+7
 ```
 
 ## Solución
@@ -66,7 +71,7 @@ contenedores sobrantes subieron algunas de ellas a h + 1, pero no todas.
 Subir todo al nivel h requiere need(h) = Σ max(0, h − altura)
 contenedores, que crece con h. Así que la respuesta es el mayor h con
 need(h) ≤ K, hallado por búsqueda binaria entre la altura menor y esa
-altura más K. `O(N · M · log K)`.
+altura más K. `O(N · M · log(K+1))`.
 
 Detalles a tener en cuenta:
 
@@ -77,20 +82,32 @@ Detalles a tener en cuenta:
 - simular los contenedores de uno en uno es demasiado lento con
   K = 10⁷.
 
-Las respuestas se compararon con colocar los contenedores de uno en uno
-con un montículo en 199 almacenes pequeños.
+Los nueve fuentes pasan los 19 casos. Cada resultado se certifica
+independientemente con los costes exactos de esa altura y la siguiente;
+los casos pequeños también se simulan contenedor a contenedor con un heap.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
 Go y Rust aprovechan el límite inicial H=1000. Cuentan pilas por altura y elevan el nivel desde 1. Antes de salir de h incorporan sus pilas al número activo; cada capa completa cuesta un contenedor por pila activa. Si el presupuesto restante no basta, h es el mínimo final. Cuando todas están activas, se añaden directamente presupuesto dividido por N·M niveles; una capa incompleta no cambia el mínimo. Tiempo O(N·M+H), espacio O(H), sin ordenar ni repetir comprobaciones. El presupuesto es de 64 bits. Se conservan las búsquedas binarias y C++, Java y Python también cubren el conjunto rápido.
 
-Las implementaciones base aceptadas [1279_binary_search.cpp](1279_binary_search.cpp), [1279_binary_search.java](1279_binary_search.java), [1279_binary_search.py](1279_binary_search.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La instantánea guardada admite [1279_binary_search.cpp](1279_binary_search.cpp)
+y [1279_binary_search.java](1279_binary_search.java) por la regla ordinaria
+de diez primeros o 15% superior solo por tiempo: sus envíos usan 280 y
+600 KB. [1279_binary_search.py](1279_binary_search.py) usa 1344 KB y
+cumple la referencia del grupo pequeño del mismo compilador en tiempo
+y memoria. Estos fuentes base significativos cubren el conjunto rápido
+sin copias idénticas. Go base requiere ambas métricas por ranking ordinario;
+Go voraz solo tiempo por ranking ordinario. Las tres versiones Rust usan
+la referencia del grupo pequeño solo por tiempo. Python ordenado también
+requiere ambas métricas frente a su referencia del grupo pequeño.
 
 ### Nuevas versiones aceptadas
 
 Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
 
-`1279_sorting_optimized.py`. Se ordenan las alturas y se eleva el prefijo más bajo hasta la siguiente mientras alcancen los contenedores. El resto se divide por el tamaño del prefijo. Sustituye la búsqueda binaria por un recorrido ordenado: tiempo O(nm log(nm)) y espacio O(nm). El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+`1279_sorting_optimized.py`. Se ordenan las alturas y se eleva el prefijo más bajo hasta la siguiente mientras alcancen los contenedores. El resto se divide por el tamaño del prefijo. Sustituye la búsqueda binaria por un recorrido ordenado: tiempo O(nm log(nm+1)) y espacio O(nm). El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
 
 Accepted #11328665 (Python 3.12 x64): **0.062 s / 1296 KB**. Comparación archivada: `1279_binary_search.py` (Python 3.12 x64) — 0.109 s / 1344 KB (#11284394).
 
@@ -98,9 +115,23 @@ Accepted #11328665 (Python 3.12 x64): **0.062 s / 1296 KB**. Comparación archiv
 
 Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
 
-`1279_binary_search_implementation_optimized.rs`. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+`1279_binary_search_implementation_optimized.rs`. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver. Además sustituye el análisis estándar de enteros por `parse_integer`: acumula dígitos multiplicando por diez y sumando/restando, con signos opcionales. Los tokens siguen procediendo de la cadena con toda la entrada y la búsqueda binaria no cambia. Se conserva la versión de entrada habitual.
 
 Accepted #11328966 (Rust 1.75 x64): **0.015 s / 460 KB**. Comparación archivada: `1279_binary_search.rs` (Rust 1.75 x64) — 0.031 s / 512 KB (#11284398).
+
+
+Para búsqueda binaria, sean `I` los bytes de entrada y `B` los búferes
+fijos de E/S. El tiempo es `O(I + N·M·log(K+1))`; el espacio auxiliar es
+`O(N·M+B)` en C++/Go/Java con lectura incremental y `O(I+N·M+B)` en
+Python/Rust con lectura completa, incluida la variante de entrada Rust.
+Python ordenado conserva además la entrada y una copia del sufijo:
+espacio `O(I+N·M+B)` y tiempo `O(I+N·M·log(N·M+1))`. Go/Rust con
+histograma usan tiempo `O(I+N·M+H)` y espacio `O(H+B)`, con arrays de
+entrada de 256 bytes y salida de 20 bytes.
+
+Solo se aclaró el comentario del nivel en siete fuentes: las pilas
+inicialmente más altas no cambian. Los dos fuentes con histograma no cambiaron y conservan
+sus correspondencias exactas con Accepted.
 
 ## Notas por lenguaje
 
@@ -115,11 +146,11 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1279_binary_search.cpp](1279_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N · M · log K) | AC | 0.015 s | 280 KB | 11284386 |
-| [1279_binary_search.go](1279_binary_search.go) | Go 1.14 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 1208 KB | 11284389 |
-| [1279_binary_search.java](1279_binary_search.java) | Java 1.8 | binary_search | O(N · M · log K) | AC | 0.109 s | 600 KB | 11284396 |
-| [1279_binary_search.py](1279_binary_search.py) | Python 3.12 x64 | binary_search | O(N · M · log K) | AC | 0.109 s | 1344 KB | 11284394 |
-| [1279_binary_search.rs](1279_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 512 KB | 11284398 |
+| [1279_binary_search.cpp](1279_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(I + N·M·log(K+1)) | AC | 0.015 s | 264 KB | 11331147 |
+| [1279_binary_search.go](1279_binary_search.go) | Go 1.14 x64 | binary_search | O(I + N·M·log(K+1)) | AC | 0.031 s | 1196 KB | 11331027 |
+| [1279_binary_search.java](1279_binary_search.java) | Java 1.8 | binary_search | O(I + N·M·log(K+1)) | AC | 0.109 s | 576 KB | 11331219 |
+| [1279_binary_search.py](1279_binary_search.py) | Python 3.12 x64 | binary_search | O(I + N·M·log(K+1)) | AC | 0.093 s | 1380 KB | 11331078 |
+| [1279_binary_search.rs](1279_binary_search.rs) | Rust 1.75 x64 | binary_search | O(I + N·M·log(K+1)) | AC | 0.031 s | 500 KB | 11331123 |
 
 ### Optimizadas
 
@@ -127,5 +158,5 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1279_greedy.go](1279_greedy.go) | Go 1.14 x64 | greedy | O(N·M + H) | AC | 0.015 s | 320 KB | 11314936 |
 | [1279_greedy.rs](1279_greedy.rs) | Rust 1.75 x64 | greedy | O(N·M + H) | AC | 0.031 s | 56 KB | 11314955 |
-| [1279_sorting_optimized.py](1279_sorting_optimized.py) | Python 3.12 x64 | sorting | O(nm log(nm)) time; O(nm) space | AC | 0.062 s | 1296 KB | 11328665 |
-| [1279_binary_search_implementation_optimized.rs](1279_binary_search_implementation_optimized.rs) | Rust 1.75 x64 | binary_search, implementation | O(N · M · log K) | AC | 0.015 s | 460 KB | 11328966 |
+| [1279_sorting_optimized.py](1279_sorting_optimized.py) | Python 3.12 x64 | sorting | O(nm log(nm+1)) time; O(nm) space | AC | 0.078 s | 1440 KB | 11331079 |
+| [1279_binary_search_implementation_optimized.rs](1279_binary_search_implementation_optimized.rs) | Rust 1.75 x64 | binary_search, implementation | O(I + N·M·log(K+1)) | AC | 0.015 s | 460 KB | 11331213 |

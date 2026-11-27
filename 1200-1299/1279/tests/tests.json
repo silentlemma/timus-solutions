@@ -2,8 +2,8 @@
   "judging": "tokens",
   "reference": "1279_binary_search.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "two sections reach 3, one 3 already" },
-    { "name": "02", "example": true, "note": "the statement's 3 x 3 warehouse" },
+    { "name": "01", "example": true, "note": "own example: an incomplete layer leaves taller initial stacks untouched" },
+    { "name": "02", "example": true, "note": "own example: every stack becomes active, with an incomplete last layer" },
     { "name": "03", "note": "one section and the largest lot" },
     { "name": "04", "note": "equal sections, one container" },
     { "name": "05", "note": "equal sections, five containers for six" },

@@ -15,9 +15,9 @@ func main() {
 	for i := range heights {
 		fmt.Fscan(in, &heights[i])
 	}
-	// filling the lowest sections first raises every section to a level h
-	// and some of them one higher, so the answer is the largest h whose
-	// missing containers, the sum of h - height below h, fit into K
+	// Filling the lowest sections raises stacks below the final minimum h to h.
+	// Some stacks at h may get one more container; initially taller ones stay put.
+	// The answer is the largest h with sum(max(0, h - height)) <= K.
 	lo := heights[0]
 	for _, h := range heights {
 		if h < lo {
