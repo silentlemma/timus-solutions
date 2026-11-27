@@ -13,8 +13,8 @@ def main():
     if mode == 1:
         gold, limit, fee = rng.randint(1, TOP), rng.randint(1, TOP), rng.randint(1, 99)
     else:
-        # the gold shrinks by fee/100 = (100 - keep) / 100 each year; pick
-        # gold so that after some years it is a whole number
+        # Each year retains keep/100 and deducts fee/100 = (100 - keep)/100.
+        # Pick gold so the amount remaining after some years is an integer.
         keep = rng.choice([50, 75, 80, 90, 96])
         years = rng.randint(1, 4)
         gold = 100**years * rng.randint(1, TOP // 100**years)

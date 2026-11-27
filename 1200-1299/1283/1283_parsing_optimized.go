@@ -75,6 +75,7 @@ func main() {
 }
 
 const inputBufferBytes = 256
+const outputBufferBytes = 24
 
 var inputBuffer [inputBufferBytes]byte
 var inputPosition, inputLength int
@@ -144,7 +145,7 @@ func writeBytes(data []byte) {
 	}
 }
 func appendInteger(out []byte, value int64) []byte {
-	var buffer [24]byte
+	var buffer [outputBufferBytes]byte
 	at := len(buffer)
 	negative := value < 0
 	var magnitude uint64
@@ -168,7 +169,7 @@ func appendInteger(out []byte, value int64) []byte {
 	return append(out, buffer[at:]...)
 }
 func writeInteger(value int) {
-	var bytes [24]byte
+	var bytes [outputBufferBytes]byte
 	out := appendInteger(bytes[:0], int64(value))
 	out = append(out, '\n')
 	writeBytes(out)

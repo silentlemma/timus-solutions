@@ -2,8 +2,8 @@
   "judging": "tokens",
   "reference": "1283_math.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "half the gold goes in one year" },
-    { "name": "02", "example": true, "note": "one percent a year from 1000 down to 1" },
+    { "name": "01", "example": true, "note": "own example: one annual fee is insufficient, two cross the limit" },
+    { "name": "02", "example": true, "note": "own example: a reduced four fifths ratio reaches equality after four years" },
     { "name": "03", "note": "already below the limit" },
     { "name": "04", "note": "exactly at the limit" },
     { "name": "05", "note": "exact equality after a nineteen percent fee exposes floating point rounding" },

@@ -35,13 +35,13 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-19 10 50
+81 64 20
 ```
 
 Salida:
 
 ```
-1
+2
 ```
 
 ### Ejemplo 2
@@ -49,13 +49,13 @@ Salida:
 Entrada:
 
 ```
-1000 1 1
+625 256 20
 ```
 
 Salida:
 
 ```
-688
+4
 ```
 
 ## Solución
@@ -70,7 +70,14 @@ G · (100 − p)^k ≤ L · 100^k
 así que cada año se multiplican los dos lados, por 100 − p y por 100,
 hasta que el izquierdo deja de ser mayor. El bucle da como mucho unas
 2140 vueltas, con G = 2³¹ − 1, L = 1 y p = 1, y los números crecen hasta
-unos miles de cifras. `O(Y²)` operaciones con cifras para Y años.
+unos miles de cifras. Para `Y` años e inputs iniciales positivos acotados,
+cada producto tiene `O(Y+1)` cifras o bloques de base fija. Las versiones
+sencillas necesitan `O((Y+1)²)` operaciones con cifras y `O(Y+1)` cifras/
+bloques auxiliares vivos, incluidos los productos temporales. El `+1`
+incluye el retorno inmediato de cero años. Entrada y búferes se cuentan
+aparte: Rust conserva la cadena completa, Python la línea leída y los
+otros usan búferes scanner/stdio acotados. El formato indicado solo
+contiene tres números acotados.
 
 La cota del número de iteraciones supone G y L positivos, y el
 enunciado no les da límites inferiores: con G > 0 y L = 0, el oro sigue
@@ -85,9 +92,11 @@ Detalles a tener en cuenta:
   años en vez de dos (prueba 06);
 - si el oro ya no pasa de L, la respuesta es 0 (pruebas 03, 04).
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
-`1283_binary_search_math.py`. Busca primer año Y con G(100−p)^Y≤L100^Y mediante duplicar cota y búsqueda binaria de potencias enteras exactas. Sin logaritmos,importar gcd/math ni multiplicación por cada año. G≤L incluido cero inmediato, igualdades exactas. Bits D y coste M(D): cota O(log²(Y+1)·M(D)) tiempo,O(D) espacio. Algoritmo de búsqueda con nombre propio, conserva versión anual sencilla.
+`1283_binary_search_math.py`. Busca primer año Y con G(100−p)^Y≤L100^Y mediante duplicar cota y búsqueda binaria de potencias enteras exactas. Sin logaritmos,importar gcd/math ni multiplicación por cada año. G≤L incluido cero inmediato, igualdades exactas. Bits D y coste M(D): cota O(log²(Y+2)·M(D)) tiempo,O(D) espacio. Algoritmo de búsqueda con nombre propio, conserva versión anual sencilla.
 
 Frente a `1283_math.py`: tiempo 0.078 s → 0.125 s; memoria 480 KB → 264 KB.
 
@@ -97,19 +106,20 @@ solo cuando aparece un dígito nuevo, en lugar de crear dos objetos
 `BigInteger` nuevos cada año; un dígito por como mucho 100 más el
 acarreo sigue por debajo de 10¹¹ y cabe en `long`. Lee G, L y p cifra a
 cifra directamente desde `System.in` en `int`, que basta porque no pasan
-de 2³¹ − 1, en lugar de crear un `Scanner`: {1283_math_optimized.java}.
+de 2³¹ − 1, en lugar de crear un `Scanner`: [1283_math_optimized.java](1283_math_optimized.java).
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Los porcentajes siguientes describen los pares históricos de las tablas,
+no otro requisito de mejora del 30%. Se conservan las versiones sencillas
+significativas. Java utiliza la misma comparación anual exacta con bloques
+mutables: con inputs iniciales acotados ocupa `O(Y+1)` bloques vivos más
+búferes, incluidos los arrays temporales al ampliar la capacidad.
 
 - `1283_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +93.57%; base: `1283_math.java`.
 
-`1283_math_optimized.rs`. Conserva la comparación exacta de G*(100-p)^Y y L*100^Y, reduciendo antes G/L y (100-p)/100 por sus mcd. Mantiene ambos productos en u128 mientras la multiplicación comprobada funcione; al desbordar convierte los dos valores previos intactos en dígitos u32 de base 10^9 y continúa exactamente. G<=L devuelve cero antes de reducir. Ningún logaritmo, flotante ni epsilon decide cuándo parar. Con Y años y hasta D dígitos, tiempo O(Y·D), espacio O(D); los dígitos estrechos y la vía de enteros nativos reducen el coste. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+`1283_math_optimized.rs`. Conserva la comparación exacta de G*(100-p)^Y y L*100^Y, reduciendo antes G/L y (100-p)/100 por sus mcd. Mantiene ambos productos en u128 mientras la multiplicación comprobada funcione; al desbordar convierte los dos valores previos intactos en dígitos u32 de base 10^9 y continúa exactamente. G<=L devuelve cero antes de reducir. Ningún logaritmo, flotante ni epsilon decide cuándo parar. Con Y años y hasta D dígitos, tiempo O((Y+1)·D), espacio O(D); los dígitos estrechos y la vía de enteros nativos reducen el coste. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
 Frente a `1283_math.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 68 KB.
 
@@ -117,17 +127,42 @@ Frente a `1283_math.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 68 KB.
 
 Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
 
-`1283_parsing_optimized.go`. Se mantienen productos y comparaciones exactos por pequeños bloques con razón reducida; se especializan las tres entradas enteras y el año final sin conversión genérica de flujos. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+El fuente Go actual solo extrae la capacidad de salida intacta de 24 bytes
+en una constante para el linter estructural. Los demás fuentes de
+solución siguen intactos.
+
+`1283_parsing_optimized.go`. A diferencia de `1283_math.go`, que usa
+`math/big` y los factores sin reducir `100-p` y `100`, introduce bloques
+mutables `[]uint32` de base 10⁹, menos significativo primero. Divide los
+factores anuales por su mcd antes de aumentar los dos productos exactos;
+no reduce el `G/L` inicial. La multiplicación por bloques y la comparación
+por longitud y bloques superiores sustituyen la aritmética genérica. Un
+búfer recargable de 256 bytes analiza los tres enteros con cursor local
+y acumulación decimal negativa; búferes temporales fijos imprimen los años.
+La desigualdad de parada y la igualdad se conservan. Con hasta `D` bloques,
+tiempo `O((Y+1)·D)` y espacio auxiliar vivo `O(D+B)` para búferes fijos `B`;
+los valores iniciales acotados dan `D = O(Y+1)`.
 
 Accepted #11329132 (Go 1.14 x64): **0.015 s / 812 KB**. Comparación archivada: `1283_math.go` (Go 1.14 x64) — 0.031 s / 1276 KB (#11284478).
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Los [criterios compartidos](../../RATING_CRITERIA.md) rigen todos los lenguajes:
+diez primeros o 15% superior para las métricas necesarias, reemplazados
+por la referencia con 1–10 rivales del mismo compilador. Por debajo de
+1024 KB solo se compara tiempo. Se excluyen rivales más rápidos que
+`0.015 s`; solo nuestro tiempo se eleva a ese mínimo. No hay otro
+requisito de primer puesto o mejora del 30%, ni corte por fecha o ID.
 
-`1283_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
-
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La auditoría guardada admite ambos fuentes Rust por ranking ordinario
+de tiempo, incluido el optimizado (`0.031 s / 68 KB`); la explicación
+anterior de falta de referencia queda obsoleta. C++, CPython sencillo y
+Java optimizado también cumplen ranking ordinario de tiempo. Go optimizado
+cumple la referencia del grupo pequeño del mismo compilador solo por tiempo.
+Go y Java sencillos no cumplen sus comparaciones, pero se conservan para
+enseñanza. El PyPy binario adicional no cumple tiempo y mantiene su marca;
+CPython ya cierra la posición Python. La discusión del 18 de noviembre de
+2026 es histórica; se conservan todas las mediciones Accepted emparejadas.
 
 ## Soluciones
 
@@ -135,19 +170,19 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1283_math.cpp](1283_math.cpp) | G++ 13.2 x64 | math | O(Y²) | AC | 0.015 s | 204 KB | 11284476 |
-| [1283_math.go](1283_math.go) | Go 1.14 x64 | math | O(Y²) | AC | 0.031 s | 1276 KB | 11284478 |
-| [1283_math.java](1283_math.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 5600 KB | 11284490 |
-| [1283_math.py](1283_math.py) | Python 3.12 x64 | math | O(Y²) | AC | 0.078 s | 480 KB | 11284484 |
-| [1283_math.rs](1283_math.rs) | Rust 1.75 x64 | math | O(Y²) | AC | 0.015 s | 232 KB | 11284494 |
+| [1283_math.cpp](1283_math.cpp) | G++ 13.2 x64 | math | O((Y+1)²) | AC | 0.015 s | 204 KB | 11284476 |
+| [1283_math.go](1283_math.go) | Go 1.14 x64 | math | O((Y+1)²) | AC | 0.031 s | 1276 KB | 11284478 |
+| [1283_math.java](1283_math.java) | Java 1.8 | math | O((Y+1)²) | AC | 0.109 s | 5600 KB | 11284490 |
+| [1283_math.py](1283_math.py) | Python 3.12 x64 | math | O((Y+1)²) | AC | 0.078 s | 480 KB | 11284484 |
+| [1283_math.rs](1283_math.rs) | Rust 1.75 x64 | math | O((Y+1)²) | AC | 0.015 s | 232 KB | 11284494 |
 
 ### Optimizadas
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 360 KB | 11304347 |
-| [1283_math_optimized.rs](1283_math_optimized.rs) | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
-| [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+1)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
-| [1283_parsing_optimized.go](1283_parsing_optimized.go) | Go 1.14 x64 | parsing | O(Y²) | AC | 0.015 s | 812 KB | 11329132 |
+| [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O((Y+1)²) | AC | 0.109 s | 360 KB | 11304347 |
+| [1283_math_optimized.rs](1283_math_optimized.rs) | Rust 1.75 x64 | math | O((Y+1)·D) | AC | 0.031 s | 68 KB | 11325092 |
+| [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+2)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
+| [1283_parsing_optimized.go](1283_parsing_optimized.go) | Go 1.14 x64 | parsing | O((Y+1)²) | AC | 0.031 s | 808 KB | 11331000 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
