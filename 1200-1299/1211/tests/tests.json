@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1211_graphs.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "trees, a ring and a two-child ring" },
+    { "name": "01", "example": true, "note": "own five tests: singleton confession, self-loop, merged paths, separate cycle, two confessions" },
     { "name": "02", "note": "one child confessing, one accusing itself, two confessors, a pair, a chain" },
     { "name": "big1", "generator": "1 16 25000", "note": "the largest tests of every kind" },
     { "name": "big2", "generator": "2 16 25000", "note": "maximum-size inputs with chains, rings and missing or extra confessions" },

@@ -18,7 +18,7 @@ Límite de tiempo: 2 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-`T` y luego, para cada prueba, `N` y las `N` declaraciones.
+La primera línea contiene el entero `1 ≤ T ≤ 16`. Cada prueba ocupa dos líneas: entero `1 ≤ N ≤ 25000`, seguido de N enteros `0 ≤ a_i ≤ N`. La posición i corresponde al niño i: 0 significa confesión; un valor positivo nombra a ese niño con índice desde 1, incluido posiblemente el propio i.
 
 ## Salida
 
@@ -31,21 +31,24 @@ Límite de tiempo: 2 segundos. Límite de memoria: 64 MB.
 Entrada:
 
 ```
-4
-4
-2 0 2 2
-4
-2 0 2 1
 5
-2 3 4 1 3
-3
-0 3 2
+1
+0
+1
+1
+5
+3 3 0 2 4
+6
+2 3 2 0 4 5
+4
+0 0 2 3
 ```
 
 Salida:
 
 ```
 YES
+NO
 YES
 NO
 NO
@@ -75,11 +78,15 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 200
 archivos de 16 pruebas aleatorias de todos los tipos.
 
+El recorrido de cadenas usa `O(N)` espacio de trabajo por prueba para acusaciones, estados y camino actual. Para las T pruebas, tiempo `O(Σ N_i)`. Sean I los bytes de toda la entrada y H la línea más larga. Python sencillo retiene todos los tokens separados y Rust su String completo: espacio `O(I + max N_i + T)`. C++ y Go leen flujos con búferes acotados y `O(max N_i)` espacio del grafo. Java también conserva la línea actual y T palabras de salida: `O(max N_i + H + T)` más búferes de biblioteca. Rust optimizado guarda búfer/token acotados, acusaciones, estados, camino y T palabras: `O(max N_i + T + B)`, con B fijo. DSU procesa acusaciones al leerlas, en tiempo amortizado `O(N α(N))` por prueba; sus arrays estáticos reales de 25001 enteros con signo de 16 bits y búferes usan `O(M + B)` con M=25000, incluso en pruebas pequeñas. Índices hasta 25000 y tamaños negativos hasta −25000 caben en 16 bits con signo.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 C++ y Go procesan las acusaciones al leerlas mediante conjuntos disjuntos. Una acusación entre vértices ya conectados cierra un ciclo no dirigido. Cada vértice del ciclo puede emitir como máximo una acusación, así que cada uno aporta exactamente una arista y el ciclo resulta dirigido. Esto incluye la autoacusación y la acusación mutua. Se exige una sola confesión y ningún ciclo. Cada entrada con signo de 16 bits guarda un índice de padre o el tamaño negativo de la componente.
 
-Las implementaciones base aceptadas [1211_graphs.java](1211_graphs.java), [1211_graphs.py](1211_graphs.py), [1211_graphs.rs](1211_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché de fuentes exactos aplica los [criterios compartidos](../../RATING_CRITERIA.md). Java y Python sencillos ya cumplen y se reutilizan sin copias. Ambos Go cumplen mediante el grupo del mismo lenguaje, pues no tienen rivales de compilador exacto. La cobertura rápida C++ es `1211_dsu.cpp`; Rust, `1211_graphs_implementation_optimized.rs` (#11328956, 0.031 s / 580 KB). Rust sencillo #11283644 con 0.031 s / 5212 KB falla la memoria exigida y C++ sencillo falla tiempo; ambos quedan didácticos sin estrella. Bajo 1024 KB solo se compara tiempo; los Go/Java/Python que cumplen por encima exigen ambas métricas. No hay meta separada de primer puesto.
 
 ### Nuevas versiones aceptadas
 
@@ -89,12 +96,18 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328956 (Rust 1.75 x64): **0.031 s / 580 KB**. Comparación archivada: `1211_graphs.rs` (Rust 1.75 x64) — 0.031 s / 5212 KB (#11283644).
 
+La fila Accepted #11328956 y su admisión anterior corresponden al fuente histórico exacto. Esta revisión solo nombra la capacidad existente de 32 bytes como `INLINE_TOKEN_BYTES`; sustituir 32 reproduce exactamente los bytes previos. Se conservan comentarios y Rust sencillo.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes recorren las cadenas de forma iterativa con los
   mismos tres estados.
+
+## Evaluación
+
+`tests/tests.json` usa `tokens`: compara exactamente T tokens YES/NO en orden de prueba, ignorando espacios y saltos de línea. Habitualmente se imprime un resultado por línea. El ejemplo propio incluye una confesión individual, un ciclo propio, caminos fusionados a una confesión, un ciclo separado y dos confesiones. Los demás casos cubren cadenas largas, ciclos tardíos, máximos y reinicio de estados.
 
 ## Soluciones
 
@@ -114,4 +127,4 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1211_dsu.cpp](1211_dsu.cpp) | G++ 13.2 x64 | dsu | O(N α(N)) per test | AC | 0.015 s | 136 KB | 11310412 |
 | [1211_dsu.go](1211_dsu.go) | Go 1.14 x64 | dsu | O(N α(N)) per test | AC | 0.046 s | 3228 KB | 11310413 |
-| [1211_graphs_implementation_optimized.rs](1211_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(N) per test | AC | 0.031 s | 580 KB | 11328956 |
+| [1211_graphs_implementation_optimized.rs](1211_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(N) per test | AC | 0.031 s | 592 KB | 11331113 |

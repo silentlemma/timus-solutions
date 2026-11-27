@@ -18,7 +18,7 @@ Time limit: 2 seconds. Memory limit: 64 MB.
 
 ## Input
 
-`T`, then for each test `N` and the `N` statements.
+The first line contains integer `1 ≤ T ≤ 16`. Each test has two lines: integer `1 ≤ N ≤ 25000`, then N integers `0 ≤ a_i ≤ N`. Position i is child i: 0 means a confession; a positive value names that 1-based child, including possibly i itself.
 
 ## Output
 
@@ -31,21 +31,24 @@ Time limit: 2 seconds. Memory limit: 64 MB.
 Input:
 
 ```
-4
-4
-2 0 2 2
-4
-2 0 2 1
 5
-2 3 4 1 3
-3
-0 3 2
+1
+0
+1
+1
+5
+3 3 0 2 4
+6
+2 3 2 0 4 5
+4
+0 0 2 3
 ```
 
 Output:
 
 ```
 YES
+NO
 YES
 NO
 NO
@@ -73,11 +76,13 @@ Pitfalls:
 The answers were compared with a separately written solution on 200
 files of 16 random tests of every kind.
 
+The chain algorithm uses `O(N)` working space per test for accusations, states and a current path. Across T tests its time is `O(Σ N_i)`. Let I be the total input bytes and H the longest input line. Simple Python retains all split input tokens and Rust retains its whole String, so their storage is `O(I + max N_i + T)`. C++ and Go stream with bounded buffers, using `O(max N_i)` graph space. Java also retains its current line and all T output words: `O(max N_i + H + T)` plus library buffers. Optimized Rust retains only a bounded input buffer/token, accusations, states, path and T output words: `O(max N_i + T + B)`, with B the fixed buffer size. The DSU implementations process accusations as they arrive, taking `O(N α(N))` amortized time per test; their actual statically sized 25001-entry signed 16-bit arrays and input buffers use `O(M + B)` storage with M=25000, even for a small test. Indices up to 25000 and negative component sizes down to −25000 fit signed 16-bit entries.
+
 ## Optimized solutions
 
 C++ and Go process accusations as they arrive using union–find. When an accusation joins vertices already connected, it closes an undirected cycle. Every vertex in such a cycle has at most one outgoing accusation, so each must supply exactly one cycle edge and the cycle is directed. This also covers a self-accusation or two mutual accusations. Require exactly one confession and no cycle. The component array stores either a parent index or a negative size in each signed 16-bit entry.
 
-The accepted base implementations [1211_graphs.java](1211_graphs.java), [1211_graphs.py](1211_graphs.py), [1211_graphs.rs](1211_graphs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The cached exact-source audit applies the shared [rating criteria](../../RATING_CRITERIA.md). Java and Python simple sources already qualify and are reused without duplicate files. Both Go versions qualify through the same-language fallback because there are no exact-compiler rivals. C++ fast coverage is `1211_dsu.cpp`; Rust fast coverage is `1211_graphs_implementation_optimized.rs` (#11328956, 0.031 s / 580 KB). Simple Rust #11283644 at 0.031 s / 5212 KB fails its required memory comparison, and simple C++ misses time; both remain meaningful unstarred teaching sources. Below 1024 KB compare only time; qualifying Go/Java/Python above it require both metrics. There is no separate first-place target.
 
 ### Accepted source update
 
@@ -87,11 +92,19 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328956 (Rust 1.75 x64): **0.031 s / 580 KB**. Archived comparison: `1211_graphs.rs` (Rust 1.75 x64) — 0.031 s / 5212 KB (#11283644).
 
+The Accepted #11328956 row and qualification above refer to the historical exact source. This review only names its existing 32-byte inline-token capacity as `INLINE_TOKEN_BYTES`; substituting 32 back reproduces the previous bytes exactly. All comments and the simple Rust version are preserved.
+
 ## Language notes
 
 These notes describe the simple implementations.
 
 - All languages walk the chains iteratively with the same three states.
+
+## Checking
+
+`tests/tests.json` uses `tokens`: compare exactly T YES/NO tokens in test order, ignoring whitespace and line breaks. Output is conventionally one result per line. The own example includes a single confessor, a self-cycle, merged paths to a confessor, a separate cycle and two confessors. Other fixtures exercise long chains, late cycles, maximum sizes and state reset between tests.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -111,4 +124,4 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1211_dsu.cpp](1211_dsu.cpp) | G++ 13.2 x64 | dsu | O(N α(N)) per test | AC | 0.015 s | 136 KB | 11310412 |
 | [1211_dsu.go](1211_dsu.go) | Go 1.14 x64 | dsu | O(N α(N)) per test | AC | 0.046 s | 3228 KB | 11310413 |
-| [1211_graphs_implementation_optimized.rs](1211_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(N) per test | AC | 0.031 s | 580 KB | 11328956 |
+| [1211_graphs_implementation_optimized.rs](1211_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(N) per test | AC | 0.031 s | 592 KB | 11331113 |
