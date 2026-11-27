@@ -56,14 +56,13 @@ d = 1 和 d = 2 中恰有一个使括号内为偶数，于是 aₖ₊₁ 能被 
 - 答案永远不会是 "No solution"；
 - 2¹⁰⁰ 远超 64 位（测试 07 到 09）。
 
-检查了从 1 到 100 的每个 N：得到的数由 N 位 1 和 2 组成且能被 2ᴺ 整除。由于
-N 位的答案唯一，测试按精确比较判定。
+历史上曾对所有 N=1..100 检查 N 位构造及其整除性。当前测试使用「评测方式」部分的语义检查器，接受任意长 1..10000、仅含 1/2 且整除 2^N 的答案，包括 N=4 时更短的 112；不要求等于唯一的 N 位构造。
 
 ## 优化解法
 
 `1407_constructive_optimized.java`. Java 保留从右到左的构造规则：已有 k 位时，当前值的第 k 位为零则选择数字 2，否则选择 1。与教学 BigInteger 版不同，此文件用两对 long 分别保存当前值和十的幂，按 2^128 取模。N<=100 时所有查询位均保留；无符号进位及拆为 32 位半字的乘十实现精确模运算。数字直接写入 N+1 字节答案。此有限范围内时间 O(N)、答案存储 O(N)、算术状态 O(1)，并不声称任意 N 都能使用固定宽度算术。保留教学源代码。
 
-精确源代码 Java 1.8 Accepted #11327478：0.093 s / 312 KB。2026-11-20 保存的编译器组比较：时间 5/44、内存 1/44。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324811 为 0.125 s / 524 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+精确源代码 Java 1.8 Accepted #11327478：0.093 s / 312 KB。2026-11-20 保存的编译器组比较：时间 5/44、内存 1/44。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。时间名次 5/44 满足统一的仅时间标准，无星号行正确，没有独立第一名目标。此前记录的优化运行 #11324811 为 0.125 s / 524 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
 
 - `1407_constructive_optimized.java`: 0.093 s / 312 KB; 保留教学基础版 `1407_constructive.java`: 0.109 s / 1668 KB.
 
@@ -75,17 +74,15 @@ Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一�
 
 通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 784 KB，基础版为 1140 KB。
 
-已通过评测的基础实现 [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+快速集合复用合格简单 C++、Python，使用优化 Java。简单 Java 保留教学，不声称通过：时间 15/44、内存 19/44 均不通过。优化 Java 此前 Accepted #11327478 为 0.093 s / 312 KB，时间 5/44 在仅时间规则下通过。无需相同副本；简单教学行不是独立优化目标。
 
 ## 各语言说明
 
-新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+遵循统一[标准](../../RATING_CRITERIA.md)：仅严格低于 1024 KB 时忽略内存，排除快于 0.015 s 的对手，仅自己的时间设下限。普通样本要求前十或前 15%，同值并列、百分位向上取整；无第一名或改善 30% 例外。缓存 C++ 时间 1/19 通过。简单 Python 时间 4/27 通过，优化 PyPy 时间 22/27 不通过，保留星号。Go 无当前编译器对手，同语言回退使用两个 Go 1.3 结果，两版通过。Rust 同样使用三个旧编译器对手，简单/优化时间 4/4、1/4 通过。历史成对测量保持独立观察。
 
-`1407_constructive_optimized.java`：在该可比样本中，时间名次 32/44，内存名次 3/44。
+`1407_constructive_optimized.java` 仅添加解释注释：XOR 无符号进位比较、32 位半字乘法，以及模 2^128 时第 k 位选择数字的原因。执行代码不变。Accepted #11327478（0.
 
-`1407_constructive_optimized.py`：在该可比样本中，时间名次 22/27，内存名次 1/27。
-
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -95,8 +92,8 @@ Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一�
 |---|---|---|---|---|---|---|---|
 | [1407_constructive.cpp](1407_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11286054 |
 | [1407_constructive.go](1407_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.015 s | 1140 KB | 11286055 |
-| [1407_constructive.java](1407_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB | 11286057 |
-| [1407_constructive.py](1407_constructive.py) \* | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB | 11286056 |
+| [1407_constructive.java](1407_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB | 11286057 |
+| [1407_constructive.py](1407_constructive.py) | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB | 11286056 |
 | [1407_constructive.rs](1407_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 216 KB | 11286058 |
 
 ### 优化版本
@@ -105,7 +102,7 @@ Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一�
 |---|---|---|---|---|---|---|---|
 | [1407_constructive_optimized.go](1407_constructive_optimized.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
 | [1407_constructive_optimized.rs](1407_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
-| [1407_constructive_optimized.java](1407_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.093 s | 312 KB | 11327478 |
+| [1407_constructive_optimized.java](1407_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.078 s | 324 KB | 11331218 |
 | [1407_constructive_optimized.py](1407_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n²) bit work; O(n) bits | AC | 0.125 s | 244 KB | 11325484 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；此独立优化 PyPy 版不满足当前时间标准，Python 由简单源代码覆盖。

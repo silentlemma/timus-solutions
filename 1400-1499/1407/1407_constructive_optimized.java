@@ -1,9 +1,13 @@
 public class Main {
     static final int WORD_BITS = 64, HALF_BITS = 32, DECIMAL = 10, INPUT_SIZE = 64;
     static final long HALF_MASK = (1L << HALF_BITS) - 1, SIGN_BIT = 1L << (WORD_BITS - 1);
+    // Flipping the sign bit maps unsigned order to signed order.
+    // A wrapped low-word sum carries when it is smaller than the old word.
     static long carry(long previous, long sum) {
         return (sum ^ SIGN_BIT) < (previous ^ SIGN_BIT) ? 1 : 0;
     }
+    // Each 32-bit-half product fits in a long; upper >>> 32 is the carry
+    // from ten times the low word. High-word overflow is modulo 2^128.
     static long timesTenHigh(long low, long high) {
         long lower = (low & HALF_MASK) * DECIMAL;
         long upper = (low >>> HALF_BITS) * DECIMAL + (lower >>> HALF_BITS);
@@ -15,6 +19,8 @@ public class Main {
         for (int k = 0; k < n; k++) {
             long word = k < WORD_BITS ? low : high;
             int bit = k < WORD_BITS ? k : k - WORD_BITS;
+            // Lower k bits are zero and 10^k / 2^k is odd: this digit
+            // makes bit k zero. All queried bits survive modulo 2^128.
             int digit = ((word >>> bit) & 1) == 0 ? 2 : 1;
             digits[n - 1 - k] = (byte)('0' + digit);
             for (int count = 0; count < digit; count++) {

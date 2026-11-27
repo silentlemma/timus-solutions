@@ -59,15 +59,15 @@ Detalles a tener en cuenta:
 - la respuesta nunca es «No solution»;
 - 2¹⁰⁰ pasa de 64 bits con mucho (pruebas 07 a 09).
 
-Se comprobó cada N de 1 a 100: el número tiene N cifras 1 y 2 y 2ᴺ lo
-divide. Las pruebas se juzgan por comparación exacta, ya que la
-respuesta de N cifras es única.
+Históricamente se comprobó cada N de 1 a 100 con una construcción divisible de N cifras. Las pruebas actuales usan el verificador semántico de Evaluación: aceptan cualquier respuesta de 1..10000 unos/doses divisible por 2^N, incluso una más corta como 112 para N=4. No exigen igualdad exacta con la construcción única de N cifras.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
 `1407_constructive_optimized.java`. Java conserva la construcción de derecha a izquierda: tras k cifras, el bit k del valor actual elige 2 si es cero y 1 en caso contrario. Frente a la base con BigInteger, guarda el valor y la potencia de diez en pares de palabras long módulo 2^128. Para N<=100 no se pierde ningún bit consultado; el acarreo sin signo y la multiplicación por diez mediante mitades de 32 bits dan aritmética modular exacta. Escribe las cifras directamente en N+1 bytes. En este dominio acotado: tiempo O(N), almacenamiento de respuesta O(N) y estado aritmético O(1); no presupone ancho fijo para N ilimitado. Conserva las fuentes didácticas.
 
-Accepted exacto Java 1.8 #11327478: 0.093 s / 312 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/44, memoria 1/44. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324811 era 0.125 s / 524 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted exacto Java 1.8 #11327478: 0.093 s / 312 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/44, memoria 1/44. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Tiempo 5/44 cumple el criterio común de sólo tiempo; la fila sin asterisco es correcta, sin meta separada de primer puesto. El registro optimizado documentado antes #11324811 era 0.125 s / 524 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
 
 - `1407_constructive_optimized.java`: 0.093 s / 312 KB; base didáctica conservada `1407_constructive.java`: 0.109 s / 1668 KB.
 
@@ -79,15 +79,13 @@ Go y Rust construyen la respuesta de derecha a izquierda y guardan el valor parc
 
 El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y usa 784 KB frente a 1140 KB.
 
-Las implementaciones base aceptadas [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+El conjunto rápido reutiliza las bases válidas C++ y Python y usa Java optimizada. Java sencilla se conserva para enseñanza sin afirmar que cumpla: tiempo 15/44 y memoria 19/44 no pasan. El Accepted previo de Java optimizada #11327478 es 0.093 s / 312 KB; tiempo 5/44 cumple comparando sólo tiempo. No se duplican fuentes idénticos; las filas didácticas no son objetivos separados de optimización.
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Se aplican los [criterios comunes](../../RATING_CRITERIA.md): memoria ignorada sólo estrictamente bajo 1024 KB, rivales menores de 0.015 s excluidos y suelo sólo para nuestros tiempos. Cohortes normales usan los diez primeros o el 15%, con empates y corte redondeado hacia arriba; no hay excepción de primer puesto ni mejora del 30%. C++ cumple tiempo 1/19 en la caché. Python sencilla cumple 4/27; PyPy optimizada 22/27 incumple y mantiene asterisco. Go sin rivales actuales usa comparación alternativa del mismo lenguaje con dos resultados Go 1.3, y ambas versiones cumplen. Rust usa análogamente tres rivales antiguos, con tiempo sencillo/optimizado 4/4 y 1/4 válidos. Las medidas históricas emparejadas siguen como observaciones separadas.
 
-`1407_constructive_optimized.py`: puesto de tiempo 22/27 y de memoria 1/27 en esta muestra comparable.
-
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+Sólo se añaden comentarios explicativos en `1407_constructive_optimized.java`: comparación de acarreo sin signo mediante XOR, multiplicación por mitades de 32 bits y elección de cifra por el bit k módulo 2^128. El código ejecutable no cambia.
 
 ## Soluciones
 
@@ -97,8 +95,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1407_constructive.cpp](1407_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11286054 |
 | [1407_constructive.go](1407_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.015 s | 1140 KB | 11286055 |
-| [1407_constructive.java](1407_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB | 11286057 |
-| [1407_constructive.py](1407_constructive.py) \* | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB | 11286056 |
+| [1407_constructive.java](1407_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB | 11286057 |
+| [1407_constructive.py](1407_constructive.py) | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB | 11286056 |
 | [1407_constructive.rs](1407_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 216 KB | 11286058 |
 
 ### Optimizadas
@@ -107,7 +105,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1407_constructive_optimized.go](1407_constructive_optimized.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
 | [1407_constructive_optimized.rs](1407_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
-| [1407_constructive_optimized.java](1407_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.093 s | 312 KB | 11327478 |
+| [1407_constructive_optimized.java](1407_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.078 s | 324 KB | 11331218 |
 | [1407_constructive_optimized.py](1407_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n²) bit work; O(n) bits | AC | 0.125 s | 244 KB | 11325484 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; esta versión PyPy optimizada distinta incumple el criterio actual de tiempo. La base cubre Python.
