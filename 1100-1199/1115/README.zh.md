@@ -75,13 +75,20 @@ Python 解法通过了全部 7 个保存的测试、全部 5 个指定生成用�
 
 `1115_backtracking_optimized.java`. 保留完整子集回溯、等长对称剪枝、128 次有界确定性重启及最后无界完整搜索，最坏情况仍为指数。每层复用平铺 long 后缀位集和空闲下标数组。后续行目标 t 可改查 min(t,total-t)，因为子集与补集等价；当前行仍保留完整目标以重建。正长度使最大实际查询之外的位可丢弃；复用前清零，各递归层独立。原始类型稳定插入排序替代装箱排序，1024 字节直接输入输出替代 Scanner/StringBuilder。保守界 O(M^N*N^2*ceil(S/64)) 时间、O(M*N*ceil(S/64)) 机器字加搜索状态，S 为最大行目标。实际求解器检查 30935 个小实例和 10000 次稳定排序，最终无界搜索保证完整性。
 
-精确源代码 Java 1.8 Accepted #11327476：0.093 s / 420 KB。2026-11-20 保存的编译器组比较：时间 2/25、内存 1/25。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11325125 为 0.14 s / 2928 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+精确 Java 1.8 Accepted #11327476 为 0.093 s / 420 KB。2026-11-20
+保存的时间/内存名次为 2/25、1/25；低于 1024 KB 只比较时间。
+该项合格，没有单独第一名目标，该行没有星号。旧 #11325125
+（0.14 s / 2928 KB）是不同的历史测量对，不是本源码当前测量。
 
 - `1115_backtracking_optimized.java`: 0.093 s / 420 KB; 保留教学基础版 `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长度为 U，未来一行能取到总长度 T，当且仅当能取到总长度 U − T。可行性检查使用较小者。当前行仍保留完整目标，以便还原所选船只。最后一次搜索不限制调用次数，因此保持完备性。
 
-已通过评测的基础实现 [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+缓存已接受修订确认简单 Python/Rust 通过精确编译器小样本
+时间比较，内存低于 1 MiB。简单 Go/Java 不合格，由不同优化
+Go/Java 覆盖。两个 C++ 版本均通过普通时间名次。这是各源码
+的具体结果，不是所有教学版都准入。保留实质简单版且不加
+优化目标星号。
 
 ### 新的已通过版本
 
@@ -89,15 +96,30 @@ C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长
 
 `1115_implementation_parsing_optimized.go`. 对有界船长和行数组使用专门插入排序，避免反射排序。保留全部启发式、有界后缀位集、可复现重启及最终无限制完整搜索，输出分配时不创建临时字符串列表。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
 
-Accepted #11329250 (Go 1.14 x64): **0.015 s / 916 KB**. 历史对照: `1115_backtracking.go` (Go 1.14 x64) — 0.015 s / 1864 KB (#11325575).
+2026 年 11 月 18 日记录描述历史快照。当前比较在选组前排除低于
+0.015 s 的对手，而本方更低时间只在比较时抬到下限。Accepted
+配对测量仍为原始数据，采用当前统一规则。
 
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-`1115_backtracking_optimized.java`：在该可比样本中，时间名次 16/25，内存名次 19/25。
+`1115_backtracking_optimized.java` 的已记录当前名次为时间 2/25、
+内存 1/25，绑定上文 #11327476；旧的未绑定 16/25、19/25 不再作
+当前结论。
 
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+当前准入使用统一[排名标准](../../RATING_CRITERIA.md)：普通前十/前
+15%，或适用时精确编译器小样本参考；低于 1 MiB 只比时间。改善
+30% 或单独语言第一名不构成准入条件。保留有意义的教学版本，
+不添加优化目标星号。
+
+四个修订把原总长度注释从随机数乘数移到 MAX_SUM/maxSum。表中收据属于之前字节：C++ #11325586、简单 Go #11325575、
+Rust #11325611、优化 Go #11329250。尚未启动队列。
+
+优化 Go 另为原有每物品 4 字节初始预留和 24 字节整数临时缓冲
+命名。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -105,11 +127,11 @@ Accepted #11329250 (Go 1.14 x64): **0.015 s / 916 KB**. 历史对照: `1115_back
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11325586 |
-| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1864 KB | 11325575 |
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11331146 |
+| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1884 KB | 11331025 |
 | [1115_backtracking.java](1115_backtracking.java) | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.125 s | 4464 KB | 11325558 |
 | [1115_backtracking.py](1115_backtracking.py) | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.078 s | 844 KB | 11325596 |
-| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11325611 |
+| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 740 KB | 11331122 |
 
 ### 优化版本
 
@@ -117,4 +139,4 @@ Accepted #11329250 (Go 1.14 x64): **0.015 s / 916 KB**. 历史对照: `1115_back
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
 | [1115_backtracking_optimized.java](1115_backtracking_optimized.java) | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
-| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 916 KB | 11329250 |
+| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 928 KB | 11331026 |

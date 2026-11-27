@@ -107,13 +107,23 @@ oracle, and 406 large or boundary cases.
 
 `1115_backtracking_optimized.java`. Keep complete subset backtracking, equal-length symmetry pruning and 128 bounded deterministic restarts followed by an unrestricted complete search; the worst case is still exponential. At each depth reuse a flat long suffix-bitset workspace and free-index array. A later row of target t can test min(t,total-t), since every subset has a complementary subset; the current row still retains its full target for reconstruction. Cap positive subset sums at the largest actual query, clear reused cells and keep workspaces separate by recursion depth. Primitive stable insertion sorting replaces boxed ordering, and 1024-byte raw input/output replaces Scanner/StringBuilder. A conservative bound is O(M^N*N^2*ceil(S/64)) time and O(M*N*ceil(S/64)) words plus search state for largest row target S. Exact current solver checks covered 30935 small instances and 10000 stable sorts; the final unrestricted search preserves completeness.
 
-Exact-source Java 1.8 Accepted #11327476: 0.093 s / 420 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/25, memory 1/25. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11325125 was 0.14 s / 2928 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 Accepted #11327476: 0.093 s / 420 KB. Saved
+2026-11-20 ranks are time 2/25 and memory 1/25; the applicable
+criterion is time only below 1024 KB. It passes, with no separate
+first-place target and no asterisk in its row. Prior #11325125
+(0.14 s / 2928 KB) is a different historical pair, not this source
+measurement.
 
 - `1115_backtracking_optimized.java`: 0.093 s / 420 KB; retained teaching base `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 The C++ version allocates only the 64-bit words needed by the current suffix-sum table. For a future row of target T, the unused ships of total length U have a subset of length T exactly when they have one of length U − T. The feasibility test uses the smaller value. The current row still keeps its full target for reconstructing the chosen ships. The unbounded final search preserves completeness.
 
-The accepted base implementations [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The current cached accepted revisions confirm simple Python/Rust
+by exact-compiler small-cohort time comparisons below 1 MiB. Simple
+Go/Java do not qualify; distinct optimized Go/Java cover them. C++
+base and optimized both pass ordinary time rank. These are measured
+policy outcomes, not blanket admission of all teaching sources.
+Meaningful simple versions remain without optimization-target stars.
 
 ### Accepted source update
 
@@ -121,13 +131,31 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 `1115_implementation_parsing_optimized.go`. Use specialized insertion ordering for the bounded ship/row arrays instead of reflective sorting. Preserve all search heuristics, bounded suffix bitsets, reproducible restarts and the final unlimited complete search. Write assignments without temporary string lists. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
 
-Accepted #11329250 (Go 1.14 x64): **0.015 s / 916 KB**. Archived comparison: `1115_backtracking.go` (Go 1.14 x64) — 0.015 s / 1864 KB (#11325575).
+The 18 November 2026 notes describe a historical snapshot. Current
+comparisons discard rival times below 0.015 s before cohort selection,
+while our own smaller times are floored only for comparison. Paired
+Accepted measurements remain raw. Use the shared current policy.
 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Current admission uses the shared [rating criteria](../../RATING_CRITERIA.md):
+ordinary top-ten/top-15% comparisons or the exact-compiler small-cohort
+reference when applicable, with time only below 1 MiB. A 30% gain and a
+separate first-place language target are not admission criteria. Keep
+meaningful teaching versions without optimization-target stars.
+
+Four revisions relocate the existing total-length comment to
+MAX_SUM/maxSum, away from the RNG multiplier. Their table receipts
+describe preceding bytes: C++ #11325586, simple Go #11325575, Rust
+#11325611 and optimized Go #11329250. No queue has been started.
+
+Optimized Go also names the unchanged 4-byte-per-item initial reserve
+and 24-byte integer scratch capacity. Values and output are unchanged;
+this revision shares the same pending fresh-source requirement.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -135,11 +163,11 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11325586 |
-| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1864 KB | 11325575 |
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11331146 |
+| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1884 KB | 11331025 |
 | [1115_backtracking.java](1115_backtracking.java) | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.125 s | 4464 KB | 11325558 |
 | [1115_backtracking.py](1115_backtracking.py) | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.078 s | 844 KB | 11325596 |
-| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11325611 |
+| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 740 KB | 11331122 |
 
 ### Optimized
 
@@ -147,4 +175,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
 | [1115_backtracking_optimized.java](1115_backtracking_optimized.java) | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
-| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 916 KB | 11329250 |
+| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 928 KB | 11331026 |

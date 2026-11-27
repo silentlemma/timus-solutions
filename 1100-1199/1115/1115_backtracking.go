@@ -9,7 +9,6 @@ import (
 	"strings"
 )
 
-// no row is longer than all the ships together: 99 * 100
 const rngMultiplier = 97
 const maxShipLength = 100
 
@@ -17,7 +16,7 @@ const (
 	searchLimit = 256
 	attempts    = 128
 	rngMod      = 65536
-	maxSum      = 10000
+	maxSum      = 10000 // no row is longer than all the ships together: 99 * 100
 	bits        = 64
 	words       = (maxSum + bits - 1) / bits
 )

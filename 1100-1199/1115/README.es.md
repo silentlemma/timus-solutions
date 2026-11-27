@@ -109,17 +109,28 @@ La solución de Python se comprobó en las 7 pruebas guardadas, los
 5 casos declarados del generador, 1.500 casos aleatorios pequeños frente
 a un oráculo exacto independiente y 406 casos grandes o de frontera.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1115_backtracking_optimized.java`. Mantiene retroceso completo de subconjuntos, poda por longitudes iguales y 128 reinicios deterministas limitados seguidos de búsqueda completa sin límite: el peor caso sigue exponencial. Reutiliza por profundidad bitsets sufijos long planos e índices libres. Para filas posteriores consulta min(t,total-t), por la equivalencia con el complemento; la fila actual conserva su objetivo completo para reconstruir. Longitudes positivas permiten truncar en la mayor consulta real; limpia las celdas usadas y separa las áreas por profundidad. Inserción estable primitiva sustituye ordenación con objetos, y entrada/salida de 1024 bytes sustituye Scanner/StringBuilder. Cota conservadora O(M^N*N^2*ceil(S/64)) tiempo y O(M*N*ceil(S/64)) palabras más estado, S máximo objetivo. Se comprobaron 30935 instancias pequeñas y 10000 ordenaciones estables; la búsqueda final sin límite conserva completitud.
 
-Accepted exacto Java 1.8 #11327476: 0.093 s / 420 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/25, memoria 1/25. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11325125 era 0.14 s / 2928 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted exacto Java 1.8 #11327476: 0.093 s / 420 KB. Puestos
+guardados del 2026-11-20: tiempo 2/25, memoria 1/25; bajo 1024 KB
+solo se aplica tiempo. Cumple, sin meta separada de primer puesto
+ni asterisco en su fila. El anterior #11325125 (0.14 s / 2928 KB)
+es otro par histórico, no la medición de este fuente.
 
 - `1115_backtracking_optimized.java`: 0.093 s / 420 KB; base didáctica conservada `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 La versión C++ reserva solo las palabras de 64 bits que necesita la tabla de sumas de sufijos. Si los barcos libres suman U, una futura fila con objetivo T tiene un subconjunto válido exactamente cuando existe uno de longitud U − T. La comprobación usa el valor menor. La fila actual conserva su objetivo completo para reconstruir los barcos elegidos. La búsqueda final sin límite mantiene la completitud.
 
-Las implementaciones base aceptadas [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché de revisiones aceptadas confirma Python/Rust simples por
+tiempo de cohorte pequeña del compilador exacto bajo 1 MiB. Go/Java
+simples fallan; los cubren fuentes optimizados distintos. Ambas
+versiones C++ cumplen puesto temporal ordinario. Son resultados
+concretos, no admisión universal de bases. Se conservan versiones
+simples significativas sin asteriscos de optimización.
 
 ### Nuevas versiones aceptadas
 
@@ -127,13 +138,29 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 `1115_implementation_parsing_optimized.go`. Los arreglos acotados de barcos y filas usan inserción especializada, sin ordenación por reflexión. Se conservan heurísticas, bitsets de sufijos, reinicios reproducibles y búsqueda final completa sin límite. Las asignaciones se escriben sin listas temporales de cadenas. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
 
-Accepted #11329250 (Go 1.14 x64): **0.015 s / 916 KB**. Comparación archivada: `1115_backtracking.go` (Go 1.14 x64) — 0.015 s / 1864 KB (#11325575).
+Las notas del 18 de noviembre de 2026 son una instantánea histórica.
+Hoy se excluyen tiempos rivales bajo 0.015 s antes de elegir cohorte;
+nuestros tiempos menores solo se elevan para comparar. Se conservan
+pares Accepted originales y se usa la política común actual.
 
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La admisión actual usa los [criterios compartidos](../../RATING_CRITERIA.md):
+puestos top diez/top 15% o referencia pequeña del compilador exacto
+cuando corresponde; bajo 1 MiB solo tiempo. Mejorar 30% o una meta
+aparte de primer puesto no da admisión. Se conservan bases significativas
+sin asteriscos de objetivos de optimización.
+
+Cuatro revisiones mueven el comentario existente de longitud
+total a MAX_SUM/maxSum, desde el multiplicador aleatorio. Recibos
+anteriores en tabla: C++ #11325586, Go simple #11325575, Rust
+#11325611 y Go optimizado #11329250. No se inició la cola.
+
+Go optimizado también nombra la reserva inicial intacta de 4 bytes
+por artículo y el búfer entero de 24 bytes. Valores y salida no cambian;
+esta revisión también requiere nuevo Accepted del fuente exacto.
 
 ## Soluciones
 
@@ -141,11 +168,11 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11325586 |
-| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1864 KB | 11325575 |
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11331146 |
+| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1884 KB | 11331025 |
 | [1115_backtracking.java](1115_backtracking.java) | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.125 s | 4464 KB | 11325558 |
 | [1115_backtracking.py](1115_backtracking.py) | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.078 s | 844 KB | 11325596 |
-| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11325611 |
+| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 740 KB | 11331122 |
 
 ### Optimizadas
 
@@ -153,4 +180,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
 | [1115_backtracking_optimized.java](1115_backtracking_optimized.java) | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
-| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 916 KB | 11329250 |
+| [1115_implementation_parsing_optimized.go](1115_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 928 KB | 11331026 |

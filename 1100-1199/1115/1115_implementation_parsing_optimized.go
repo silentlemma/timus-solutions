@@ -4,15 +4,16 @@ import (
 	"os"
 )
 
-// no row is longer than all the ships together: 99 * 100
 const rngMultiplier = 97
 const maxShipLength = 100
+const itemTextCapacity = 4
+const integerBufferBytes = 24
 
 const (
 	searchLimit = 256
 	attempts    = 128
 	rngMod      = 65536
-	maxSum      = 10000
+	maxSum      = 10000 // no row is longer than all the ships together: 99 * 100
 	bits        = 64
 )
 
@@ -191,7 +192,7 @@ func main() {
 			ships[j] = value
 		}
 	}
-	out := make([]byte, 0, 4*n+1)
+	out := make([]byte, 0, itemTextCapacity*n+1)
 	for r := 0; r < m; r++ {
 		count := 0
 		for _, row := range owner {
@@ -288,7 +289,7 @@ func writeBytes(data []byte) {
 	}
 }
 func appendInteger(out []byte, value int64) []byte {
-	var buffer [24]byte
+	var buffer [integerBufferBytes]byte
 	at := len(buffer)
 	negative := value < 0
 	var magnitude uint64
@@ -312,7 +313,7 @@ func appendInteger(out []byte, value int64) []byte {
 	return append(out, buffer[at:]...)
 }
 func writeInteger(value int) {
-	var bytes [24]byte
+	var bytes [integerBufferBytes]byte
 	out := appendInteger(bytes[:0], int64(value))
 	out = append(out, '\n')
 	writeBytes(out)

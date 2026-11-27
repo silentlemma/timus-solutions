@@ -1,8 +1,8 @@
 use std::io::{self, Read};
 
-// no row is longer than all the ships together: 99 * 100
 const RNG_MULTIPLIER: usize = 97;
 const MAX_SHIP_LENGTH: usize = 100;
+// no row is longer than all the ships together: 99 * 100
 const MAX_SUM: usize = 10000;
 const SEARCH_LIMIT: usize = 256;
 const ATTEMPTS: usize = 128;

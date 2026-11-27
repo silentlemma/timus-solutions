@@ -4,9 +4,9 @@
 #include <functional>
 #include <vector>
 
-// no row is longer than all the ships together: 99 * 100
 constexpr int RNG_MULTIPLIER = 97;
 constexpr int MAX_SHIP_LENGTH = 100;
+// no row is longer than all the ships together: 99 * 100
 const int MAX_SUM = 10000;
 typedef std::bitset<MAX_SUM> Sums;
 
