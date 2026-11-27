@@ -8,8 +8,8 @@ fn main() {
         .map(|t| t.parse().unwrap())
         .collect();
     let n = v[0] as usize;
-    // v[1] is the whole array; each factor is the next one times the size of
-    // the next dimension, and the first one times the size of the first
+    // v[1] is the total size. A multiplier times its dimension size equals
+    // the preceding multiplier, or the total size for the first dimension.
     let sizes = &v[1..n + 2];
     let bounds: Vec<String> = sizes
         .windows(2)

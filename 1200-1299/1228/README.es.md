@@ -36,16 +36,17 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-3 24
-8
-4
+4 180
+90
+18
+6
 1
 ```
 
 Salida:
 
 ```
-2 1 3
+1 4 2 5
 ```
 
 ## Solución
@@ -55,6 +56,8 @@ siguientes, así que `D(i−1) = Di · (ki + 1)`, y el arreglo entero es un
 bloque de la primera dimensión: `s = D1 · (k1 + 1)`. Leyendo los
 multiplicadores con `s` delante, cada límite es uno menos que el
 cociente de dos vecinos: `k1 = s/D1 − 1` y `ki = D(i−1)/Di − 1`. `O(n)`.
+
+Con enteros acotados la aritmética cuesta O(n). C++/Go/Java sencillos guardan n+1 tamaños, O(n) entradas; Python/Rust sencillos retienen además entrada, enteros y respuestas: O(I+n) para I bytes. C++/Rust optimizados emiten al leer, estado aritmético O(1) más búferes. Java optimizado mantiene entrada escalar pero acumula StringBuilder, O(n) salida. Python optimizado guarda bloque de 65536 bytes/tokens y n respuestas, O(n+B+T), con bloque B y token máximo T. Go optimizado conserva array y toda la entrada O(I+n); cambiar I/O no eliminó el array.
 
 Detalles a tener en cuenta:
 
@@ -66,6 +69,8 @@ Detalles a tener en cuenta:
 Los límites se comprobaron multiplicando `ki + 1` hasta `s` en 59
 arreglos generados, y se compararon con una solución escrita aparte en
 todas las pruebas.
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
@@ -81,12 +86,11 @@ solo el multiplicador anterior en lugar de un arreglo con todos:
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Son diferencias históricas entre valores Accepted originales, no admisión universal por mejora del 30%. C++ de 0.015 a 0.001 s da 93.33% reducción original, pero ambos se comparan como 0.015 s tras el mínimo. Porcentajes bajo un tick no garantizan aceleración portátil. Se conservan bases significativas.
 
-- `1228_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+El par Go actual es base #11283735 de 0.001 s / 1136 KB y optimizado #11328526 de 0.015 s / 956 KB: 15.85% menos memoria, no 30%, y más tiempo original. Ambos tiempos de comparación tienen mínimo 0.015 s. Rige la política común, no una ganancia obligatoria.
+
+- `1228_math_optimized.cpp`: reducción de tiempo +93.33%; reducción de
   memoria +36.00%; base: `1228_math.cpp`.
 
 - `1228_math_optimized.java`: reducción de tiempo +50.40%; reducción de
@@ -108,15 +112,13 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328526 (Go 1.14 x64): **0.015 s / 956 KB**. Comparación archivada: `1228_math.go` (Go 1.14 x64) — 0.001 s / 1136 KB (#11283735).
 
+Go Accepted #11328526 y su admisión corresponden a bytes históricos exactos. Esta revisión nombra `numericBitSize` la anchura existente de 64 bits en cuatro llamadas strconv; sustituir 64 restaura exactamente el archivo previo. Se conservan algoritmo, comentarios y Go sencillo.
+
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+La caché exacta y los [criterios compartidos](../../RATING_CRITERIA.md) confirman ambos C++, Go/Java optimizados, CPython sencillo y ambos Rust históricos. Go/Java sencillos quedan didácticos sin estrella. PyPy de 0.109 s / 212 KB falla tiempo y mantiene marca; puestos antiguos 21/32 tiempo y 1/32 memoria no imponen primer puesto separado. Los Go/Java optimizados que cumplen están bajo 1024 KB, solo exigen tiempo. Go sencillo 1136 KB falla memoria exigida pese al menor tiempo original. Rust usa grupo del mismo lenguaje y cumple numéricamente, no por tabla vacía ni excepción de ahorro.
 
-`1228_math_optimized.py`: puesto de tiempo 21/32 y de memoria 1/32 en esta muestra comparable.
-
-`1228_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
-
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+Solo se completa el comentario de prueba en `1228_math.rs`: multiplicador por tamaño de su dimensión iguala el multiplicador anterior, o tamaño total para la primera. Revertir las dos líneas restaura bytes exactos, conservando texto ejecutable y demás comentarios. La base #11283740 de 0.015 s / 216 KB es del fuente histórico exacto.
 
 ## Soluciones
 
@@ -128,7 +130,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1228_math.go](1228_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.001 s | 1136 KB | 11283735 |
 | [1228_math.java](1228_math.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 1616 KB | 11283739 |
 | [1228_math.py](1228_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 424 KB | 11283737 |
-| [1228_math.rs](1228_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 216 KB | 11283740 |
+| [1228_math.rs](1228_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 208 KB | 11331096 |
 
 ### Optimizadas
 
@@ -138,6 +140,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
 | [1228_math_optimized.py](1228_math_optimized.py) \* | PyPy 3.10 x64 | math | O(n) | AC | 0.109 s | 212 KB | 11325065 |
 | [1228_math_optimized.rs](1228_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
-| [1228_math_optimized.go](1228_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 956 KB | 11328526 |
+| [1228_math_optimized.go](1228_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 988 KB | 11330997 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
