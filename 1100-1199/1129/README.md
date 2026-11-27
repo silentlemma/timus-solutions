@@ -74,6 +74,19 @@ way the walk goes and drop the extra edges: a vertex loses at most one
 edge, so its two counts differ by at most one. For `D` doors, expected
 `O(N + D)` with hash maps, `O(N + D log D)` with the C++ ordered map.
 
+The five simple sources and optimized Rust pair consecutive mentions
+for each unordered room pair in row-scan order, not the k-th mentions
+from opposite rooms. For multiplicity m between distinct rooms, this
+creates floor(m/2) loops in each room and, if m is odd, one connecting
+edge. Every loop paints two slots G/Y and is locally balanced. The
+remaining connecting edge balances the odd remainder. Each room keeps
+its original number of slots; between two rooms exactly m of the 2m
+slots are green, which is the checker condition. Parallel doors have
+no individual identity, so this artificial pairing is sufficient.
+Self-door mentions pair within the same row. Optimized Java instead
+pairs the opposite endpoint halves explicitly; optimized C++/Python
+cancel even multiplicities and orient only the residual graph.
+
 Pitfalls:
 
 - `Impossible` is never the answer;
@@ -102,23 +115,50 @@ Compared with `1129_graphs.java`: time 0.156 s → 0.109 s; memory 3876 KB → 8
 
 C++ and Python count the doors for each pair of rooms. Opposite orientations for each pair of parallel doors cancel in both rooms, so the residual graph has at most one real edge per room pair. After adding dummy edges it has even degrees. Follow unused edges until each walk closes and orient them as visited. C++ scans its adjacency matrix with monotone cursors; Python traverses residual integer bitsets as described above. Both expand original multiplicities in input order.
 
-Retained accepted bases [1129_graphs.go](1129_graphs.go), [1129_graphs.rs](1129_graphs.rs) also pass the strict top-ten or top-15% criterion for required metrics in the saved comparison. They are reused without duplicate source files. Other teaching sources remain; the asterisk denotes the separate language rating target.
+The preceding exact-source cache confirms simple Go by both applicable
+small-cohort metrics. It does not admit simple Rust: 1172 KB requires
+a memory comparison, which fails; the 884 KB optimized Rust receipt
+qualifies by time only. Simple C++/Java/Python also fail their required
+metrics; their optimized variants qualify by time only below 1 MiB.
+Keep all teaching versions without target stars; current admission
+uses the shared criteria rather than a separate language target.
+
+The current five simple sources and optimized Rust have corrected
+explanatory pairing comments; optimized Rust also names its unchanged
+32-byte inline-token capacity. Table submission IDs and measurements
+belong to the preceding source bytes.
 
 ### Accepted source update
 
 The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
 
-`1129_graphs_parsing_optimized.rs`. Release the temporary waiting queues before traversing the constructed graph and store two-way colors as bytes. The greedy updates and partition are unchanged. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. This alternative retains ordinary Rust startup and cleanup with the same compact algorithmic state.
+`1129_graphs_parsing_optimized.rs`. Preserve the scan-order pairing,
+dummy-room parity correction and Euler orientation above, not a greedy
+partition. Release waiting queues before graph traversal and store
+colours as bytes. A 4096-byte native input buffer, inline short tokens
+and direct integer conversion replace the full input String; parsed
+rows, edge endpoints, adjacency, Euler state, colours and complete
+output still use O(N+D) storage. This is bounded raw input, not a
+streaming graph algorithm; time remains expected O(N+D).
 
 Accepted #11329034 (Rust 1.75 x64): **0.015 s / 884 KB**. Archived comparison: `1129_graphs.rs` (Rust 1.75 x64) — 0.015 s / 1172 KB (#11279366).
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+The 18 November 2026 notes describe a historical snapshot. Current
+comparisons discard rival times below 0.015 s before cohort selection,
+while our own smaller times are floored only for comparison. Paired
+Accepted measurements remain raw. Use the shared current policy.
 
-`1129_graphs_optimized.java`: time place 1/23, memory place 1/23 in this comparable sample.
+`1129_graphs_optimized.java`: time place 1/23, memory place 1/23 in this comparable sample. Historical snapshot of 18 November 2026.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Current admission uses the shared [rating criteria](../../RATING_CRITERIA.md):
+ordinary top-ten/top-15% comparisons or the exact-compiler small-cohort
+reference when applicable, with time only below 1 MiB. A 30% gain and a
+separate first-place language target are not admission criteria. Keep
+meaningful teaching versions without optimization-target stars.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -126,11 +166,11 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2096 KB | 11279361 |
-| [1129_graphs.go](1129_graphs.go) | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.015 s | 2424 KB | 11279362 |
-| [1129_graphs.java](1129_graphs.java) | Java 1.8 | graphs | O(N + D) expected | AC | 0.156 s | 3876 KB | 11279365 |
-| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.078 s | 2560 KB | 11328266 |
-| [1129_graphs.rs](1129_graphs.rs) | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1172 KB | 11279366 |
+| [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2080 KB | 11331143 |
+| [1129_graphs.go](1129_graphs.go) | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.031 s | 2416 KB | 11331023 |
+| [1129_graphs.java](1129_graphs.java) | Java 1.8 | graphs | O(N + D) expected | AC | 0.171 s | 3884 KB | 11331050 |
+| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.078 s | 2596 KB | 11331073 |
+| [1129_graphs.rs](1129_graphs.rs) | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1148 KB | 11331116 |
 
 ### Optimized
 
@@ -139,4 +179,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1129_graphs_optimized.cpp](1129_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + D) | AC | 0.015 s | 160 KB | 11310449 |
 | [1129_graphs_optimized.py](1129_graphs_optimized.py) | Python 3.12 x64 | graphs | O(D+N² ceil(N/w)) time; O(N²+max row degree) space | AC | 0.078 s | 752 KB | 11327005 |
 | [1129_graphs_optimized.java](1129_graphs_optimized.java) | Java 1.8 | graphs | O(N+D+S(D)) | AC | 0.109 s | 832 KB | 11325013 |
-| [1129_graphs_parsing_optimized.rs](1129_graphs_parsing_optimized.rs) | Rust 1.75 x64 | graphs, parsing | O(N + D) expected | AC | 0.015 s | 884 KB | 11329034 |
+| [1129_graphs_parsing_optimized.rs](1129_graphs_parsing_optimized.rs) | Rust 1.75 x64 | graphs, parsing | O(N + D) expected | AC | 0.046 s | 892 KB | 11331117 |

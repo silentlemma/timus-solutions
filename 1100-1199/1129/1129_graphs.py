@@ -6,8 +6,9 @@ def main():
     tok = iter(map(int, sys.stdin.read().split()))
     n = next(tok)
     rows = [[next(tok) - 1 for _ in range(next(tok))] for _ in range(n)]
-    # pair the k-th mention of v in room u with the k-th mention of u in room
-    # v; a door to the room itself is mentioned twice in its own row
+    # Pair consecutive mentions of each unordered room pair in scan order.
+    # Same-room pairs are balanced G/Y loops; an odd remainder connects rooms.
+    # Parallel doors are interchangeable; self-door mentions pair in their row.
     ends = []
     waiting = defaultdict(list)
     for u in range(n):

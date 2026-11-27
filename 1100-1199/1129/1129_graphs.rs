@@ -14,8 +14,9 @@ fn main() {
             (0..k).map(|_| tok.next().unwrap() - 1).collect()
         })
         .collect();
-    // pair the k-th mention of v in room u with the k-th mention of u in room
-    // v; a door to the room itself is mentioned twice in its own row
+    // Pair consecutive mentions of each unordered room pair in scan order.
+    // Same-room pairs are balanced G/Y loops; an odd remainder connects rooms.
+    // Parallel doors are interchangeable; self-door mentions pair in their row.
     let mut ends: Vec<[(usize, usize); 2]> = Vec::new();
     let mut waiting: HashMap<(usize, usize), VecDeque<usize>> = HashMap::new();
     for u in 0..n {
