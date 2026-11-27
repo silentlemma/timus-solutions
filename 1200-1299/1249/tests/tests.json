@@ -2,8 +2,8 @@
   "judging": "tokens",
   "reference": "1249_implementation.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "an L of three cells" },
-    { "name": "02", "example": true, "note": "a cell and a square touching only at a corner" },
+    { "name": "01", "example": true, "note": "own connected five-cell region with one missing interior cell" },
+    { "name": "02", "example": true, "note": "own two rectangles of different heights with a separating blank column" },
     { "name": "gen1", "generator": "1 3000 3000 1", "note": "the largest image, rectangles with gaps between them" },
     { "name": "gen2", "generator": "2 3000 3000 2", "note": "the largest image, a single dark cell joins two rectangles" },
     { "name": "gen3", "generator": "3 3000 3000 3", "note": "the largest checkerboard" },
@@ -15,6 +15,7 @@
     { "name": "03", "note": "a minimum-size blank image has no dark regions" },
     { "name": "04", "note": "a hollow frame is connected but does not fill its bounding box" },
     { "name": "05", "note": "maximum width with the only bad window at the final pair of columns" },
-    { "name": "06", "note": "a single dark cell in a two-by-two window is a valid rectangle" }
+    { "name": "06", "note": "a single dark cell in a two-by-two window is a valid rectangle" },
+    { "name": "07", "note": "two diagonal cells stay separate rectangular components" }
   ]
 }

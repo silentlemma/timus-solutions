@@ -19,8 +19,8 @@ fn main() {
         .collect();
     let (n, m) = (v[0], v[1]);
     // every dark region is a rectangle exactly when no 2 x 2 window holds
-    // three dark cells, so two rows are enough, and the image never fits in
-    // 4 MB anyway
+    // three dark cells. Two rows avoid a full byte-per-pixel image,
+    // which can exceed 4 MB at the maximum dimensions.
     let (mut prev, mut cur) = (vec![0u8; m], vec![0u8; m]);
     let mut cells = bytes.filter(|&b| b == b'0' || b == b'1').map(|b| b - b'0');
     for i in 0..n {

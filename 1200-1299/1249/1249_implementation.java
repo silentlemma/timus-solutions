@@ -31,8 +31,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int n = readInt(), m = readInt();
         // every dark region is a rectangle exactly when no 2 x 2 window holds
-        // three dark cells, so two rows are enough, and the image never fits
-        // in 4 MB anyway
+        // three dark cells. Two rows avoid a full byte-per-pixel image,
+        // which can exceed 4 MB at the maximum dimensions.
         int[] prev = new int[m], cur = new int[m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {

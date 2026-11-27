@@ -13,8 +13,8 @@ const three = 3
 func main() {
 	n, m := integer(), integer()
 	// every dark region is a rectangle exactly when no 2 x 2 window holds
-	// three dark cells, so two rows are enough, and the image never fits in
-	// 4 MB anyway
+	// three dark cells. Two rows avoid a full byte-per-pixel image,
+	// which can exceed 4 MB at the maximum dimensions.
 	prev, cur := make([]byte, m), make([]byte, m)
 	for i := 0; i < n; i++ {
 		pixelRow(cur)

@@ -29,9 +29,9 @@
 输入：
 
 ```
-2 2
-0 1
-1 1
+2 3
+1 1 1
+1 0 1
 ```
 
 输出：
@@ -45,10 +45,10 @@ No
 输入：
 
 ```
-3 3
-0 0 1
-1 1 0
-1 1 0
+3 4
+1 1 0 1
+1 1 0 1
+0 0 0 1
 ```
 
 输出：
@@ -63,10 +63,11 @@ Yes
 实心矩形。反过来，不是实心矩形的按边连通块，其边界必有向内凹的角，
 孔洞周围也如此；该角对应一个恰有三个暗格的 2 × 2 窗口。因此只需排除这些窗口。
 
-只保留相邻两行，在窗口最后一个格子到达时检查。简单原生版本直接检查四格；
-简单 Python 用整数位集表示行，并结合奇偶性与至少两格为 1 的条件。
-输入时间为 `O(N M)`，行存储为 `O(M)`；存整幅图像或全部输入文本会超过内存限制。
-仅对角接触的块仍然分开。五份原始 Accepted 源码全部逐字节保留。
+保留相邻行，在最后一格到达时检查每个2×2窗口。基础本地版显式检查格子，Python用整数位集表示行。读取O(NM)，行状态为O(M)项或Python O(M)位加当前输入行。最大3000×3000图若每像素一字节需9000000字节，超过4 MiB；小图可放下，甚至最大位压缩图也可能放下。因此并非任何整图都不能保存，流式处理避免最坏非压缩存储。仅角接触不连接分量。
+
+以下五份仅修正不准确内存注释，保留可执行代码及有意义说明。
+
+`1249_implementation.cpp` (#11283966); `1249_implementation.go` (#11283967); `1249_implementation.java` (#11283977); `1249_implementation.rs` (#11283979); `1249_implementation_parsing_optimized.go` (#11329324).
 
 ## 优化解法
 
@@ -84,14 +85,11 @@ C++ 将列压入 64 位字，采用有界输入缓冲区，并行检查字内窗
 `O(ceil(M/64))`，但读取输入仍需 `O(N M)`，行存储为 `O(M/64)` 个字。
 Python 保存 `O(M)` 位以及当前输入行。
 
-C++ 从 0.531 秒 / 208 KB 降至 0.078 秒 / 128 KB，时间减少 85.3%，内存减少 38.5%。
-Python 从 0.218 秒 / 1532 KB 变为 0.125 秒 / 3684 KB，时间减少 42.7%，但实测内存峰值增大。
-因此 Python 仅按时间改善准入；两个新版本都有各自的 Accepted，并非每项资源都更优。
+保留成对记录：C++ 0.531 s/208 KB→0.078 s/128 KB（时间降85.3%、内存降38.5%）；Python 0.218 s/1532 KB→0.125 s/3684 KB（时间降42.7%、内存升）。快速Python不能仅按时间准入：3684 KB≥1024，必须比较内存。精确编译器参照允许2060.8 KB，故时间虽过，内存未过，星号保留。未变基础Python 1532 KB通过两项并覆盖语言，无单独加速准入例外。
 
+`1249_implementation_parsing_optimized.go`以整数解析维度，将输入块直接解码到当前字节行，再与上一行检查窗口。固定8192输入字节，处理补充/EOF，避免每像素一次字节助手调用。fastPrint只支持字符串，用复用缓冲写固定Yes/No及换行，无数字输出转换；数值函数仅用于输入。几何判定不变。
 
-`1249_implementation_parsing_optimized.go`. 把现有输入块直接解码到当前字节行，再与前行检查 2x2 窗口，避免逐像素调用字节辅助函数，保留空白处理及矩形判据。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
-
-此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
+下列Go Accepted配对属于修订注释前的历史源码。
 
 Accepted #11329324 (Go 1.14 x64): **0.031 s / 820 KB**.
 
@@ -101,9 +99,9 @@ Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小�
 包括行列均不超过四的所有二值图。两个实际程序均在 Docker 中通过仓库的 14 组输入，
 包含 3000 × 3000 大图。另检查了 C++ 与 Python 在字边界处的四种缺角方向及对角接触。
 
-排名快照为 2026 年 11 月 2 日。C++ 在 61 个筛选后的其他作者记录中，时间第 5、
-内存第 1，达到目标。Python 对一个记录为时间第 1、内存第 2，因此保留星号。
-原 Java 对四个记录两项均第 1。Go、Rust 的筛选比较样本为空，形式覆盖不证明竞争优势。
+旧11月2日筛选排名已由精确源码缓存和统一[标准](../../RATING_CRITERIA.md)取代：优化C++、基础Java只按时间达标；Go解析器历史版本只看时间，对两名精确编译器对手中的第二名达标，基础Go未过时间。两份Rust以同语言回退达标，并非空表自动通过。基础C++保留教学。历史哈希数值准入与修订字节新Accepted是两件事。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -111,11 +109,11 @@ Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1249_implementation.cpp](1249_implementation.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.531 s | 208 KB | 11283966 |
-| [1249_implementation.go](1249_implementation.go) | Go 1.14 x64 | implementation | O(N M) | AC | 0.093 s | 1096 KB | 11283967 |
-| [1249_implementation.java](1249_implementation.java) | Java 1.8 | implementation | O(N M) | AC | 0.156 s | 452 KB | 11283977 |
+| [1249_implementation.cpp](1249_implementation.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.562 s | 188 KB | 11331141 |
+| [1249_implementation.go](1249_implementation.go) | Go 1.14 x64 | implementation | O(N M) | AC | 0.062 s | 1052 KB | 11331015 |
+| [1249_implementation.java](1249_implementation.java) | Java 1.8 | implementation | O(N M) | AC | 0.125 s | 476 KB | 11331046 |
 | [1249_implementation.py](1249_implementation.py) | Python 3.12 x64 | implementation | O(N M) | AC | 0.218 s | 1532 KB | 11283970 |
-| [1249_implementation.rs](1249_implementation.rs) | Rust 1.75 x64 | implementation | O(N M) | AC | 0.031 s | 224 KB | 11283979 |
+| [1249_implementation.rs](1249_implementation.rs) | Rust 1.75 x64 | implementation | O(N M) | AC | 0.046 s | 216 KB | 11331109 |
 
 ### 优化版本
 
@@ -124,6 +122,6 @@ Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小�
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
 | [1249_implementation_optimized.rs](1249_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
-| [1249_implementation_parsing_optimized.go](1249_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(nm) time; O(m) row state + bounded input buffer | AC | 0.031 s | 820 KB | 11329324 |
+| [1249_implementation_parsing_optimized.go](1249_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(nm) time; O(m) row state + bounded input buffer | AC | 0.062 s | 816 KB | 11331016 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
