@@ -72,6 +72,17 @@ the maximum of the current window. Each index enters and leaves at most once, so
 the whole pass is `O(N)`; recomputing every window would cost `O(N·M)`,
 up to about 156 million steps.
 
+All simple versions retain N readings. Their live deque needs O(M)
+entries, but Go/Java allocate O(N) queue backing arrays with a moving
+head; expired prefixes do not become O(M) storage. C++/Java/Python/Rust
+retain P output bytes or answer values plus formatted output; Go
+streams through a fixed writer. Python input parsing peaks with I
+bytes/tokens plus its integer list and values slice; Rust retains its
+I-byte input String. Total simple storage is O(N+I+P) where applicable.
+Streaming optimized C++/Java/Rust and packed Python use O(M) queue
+storage plus bounded input/output buffers. The optimized Go remains
+O(N): it still stores all readings and an N-capacity index queue.
+
 Pitfalls:
 
 - the readings end with `-1`, not with a count;
@@ -86,13 +97,24 @@ computed directly, on every test.
 
 `1126_two_pointers_optimized.py`. Keep the monotone deque, but encode each entry as (value<<15)|index in one integer: N<=25000 makes 15 index bits sufficient. Integer ordering compares value first and then age, so an equal newer reading replaces the older one. Expire the head, remove dominated tails, and decode the maximum with >>15. Every reading enters and leaves at most once: O(N) amortized deque work, O(M) entries. A 4096-byte reader preserves partial tokens; output batches of 512 answers bound temporary storage. Raw writes and os._exit(0) inside main avoid normal teardown. The readable pair-based teaching source remains.
 
-Exact-source Python 3.12 x64 Accepted #11327503: 0.093 s / 1452 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/54, memory 2/54. At 1024 KB or above strict admission requires both time and memory: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11326680 (Python 3.12 x64) was 0.109 s / 2152 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Current exact-source Python 3.12 Accepted #11327503: 0.093 s / 1452 KB.
+Saved 2026-11-20 ranks 2/54 in both metrics are historical evidence;
+the cached current-policy audit confirms both applicable metrics.
+There is no separate first-place requirement, and the table row has
+no asterisk. The source uses the shared [rating criteria](../../RATING_CRITERIA.md).
 
 - `1126_two_pointers_optimized.py`: 0.093 s / 1452 KB; retained teaching base `1126_two_pointers.py`: 0.14 s / 3448 KB.
 
-Exact-source CPython 3.12 Accepted #11326680: 0.109 s / 2152 KB. Saved current-compiler comparison, 2026-11-20: time rank 6/54, memory rank 4/54. Both required metrics pass the strict top-ten or top-15% rule, with percentage cutoffs rounded up. The asterisk tracks Python's separate first-place target in both metrics.
+Historical earlier CPython revision #11326680 recorded 0.109 s /
+2152 KB with saved time/memory ranks 6/54 and 4/54. Those measurements
+and ranks belong to that revision, not current #11327503; no separate
+Python first-place target applies.
 
-The previously documented optimized run #11303710 (Python 3.12 x64) recorded 0.125 s / 668 KB. The current CPython 3.12 run has lower recorded time and higher memory. These are separate paired judge measurements; interpreter choice and judge variability are part of the comparison. The 0.016 s difference from the previous optimized run is one timer tick; the saved rankings justify selection.
+Earlier Python revision #11303710 recorded 0.125 s / 668 KB. The
+intermediate #11326680 pair (0.109 s / 2152 KB) differs by one displayed
+timer tick; current #11327503 is 0.093 s / 1452 KB. These are three
+separate runs/revisions. Keep each pair together and use current
+source-bound admission, rather than describing all comparisons as one tick.
 
 The optimized solutions (C++, Java) do not store the readings: each one
 joins the deque together with its index as soon as it is read, and the
@@ -102,10 +124,9 @@ Java parses a byte buffer by hand, keeps the deque in a ring buffer of
 through a byte buffer. C++: 224 KB instead of 776 KB, with the same
 time; Java: 0.109 s instead of 0.156 s and 624 KB instead of 2332 KB.
 
-Rust parses
-the numbers by hand from a 4 KB buffer instead of reading the whole
-input into a string, and writes each answer through a buffered writer as
-soon as it is known: 332 KB instead of 1192 KB, with the same time.
+Rust uses a 4-KB parser and emits answers through a bounded writer
+instead of retaining input/output text. Its pair is 0.031 s / 332 KB
+versus 0.046 s / 1192 KB for the base; the times are not equal.
 
 ### Accepted source update
 
@@ -113,12 +134,23 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 `1126_two_pointers_parsing_implementation_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Use an 8192-byte refillable input buffer instead of retaining the entire input. Tokens and partial/EOF reads retain their original meaning.
 
+Optimized Go refills an 8192-byte raw-input buffer, but still collects
+every reading in values and reserves an N-element queue. It improves
+byte parsing and output conversion without streaming the window
+algorithm itself; O(N) reading/queue storage remains.
+
 Accepted #11328910 (Go 1.14 x64): **0.031 s / 2344 KB**. Archived comparison: `1126_two_pointers.go` (Go 1.14 x64) — 0.062 s / 2896 KB (#11279328).
+
+The current optimized Go revision only names the unchanged 128-byte
+inline token capacity. Window storage, parser values, simple source
+and substantive comments remain unchanged.
 
 ## Language notes
 
 - In the simple solutions, Go and Java keep the queue in an array with a
   moving head; C++, Rust and Python use their library deques.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -129,7 +161,7 @@ Accepted #11328910 (Go 1.14 x64): **0.031 s / 2344 KB**. Archived comparison: `1
 | [1126_two_pointers.cpp](1126_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 776 KB | 11279323 |
 | [1126_two_pointers.go](1126_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.062 s | 2896 KB | 11279328 |
 | [1126_two_pointers.java](1126_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.156 s | 2332 KB | 11279331 |
-| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.140 s | 3448 KB | 11279329 |
+| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.14 s | 3448 KB | 11279329 |
 | [1126_two_pointers.rs](1126_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.046 s | 1192 KB | 11279332 |
 
 ### Optimized
@@ -140,4 +172,4 @@ Accepted #11328910 (Go 1.14 x64): **0.031 s / 2344 KB**. Archived comparison: `1
 | [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
 | [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
 | [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
-| [1126_two_pointers_parsing_implementation_optimized.go](1126_two_pointers_parsing_implementation_optimized.go) | Go 1.14 x64 | two_pointers, parsing, implementation | O(N) | AC | 0.031 s | 2344 KB | 11328910 |
+| [1126_two_pointers_parsing_implementation_optimized.go](1126_two_pointers_parsing_implementation_optimized.go) | Go 1.14 x64 | two_pointers, parsing, implementation | O(N) | AC | 0.031 s | 2356 KB | 11330993 |

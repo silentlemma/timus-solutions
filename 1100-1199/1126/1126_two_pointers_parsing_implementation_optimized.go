@@ -44,6 +44,7 @@ func main() {
 }
 
 const inputBufferBytes = 8192
+const inlineTokenBytes = 128
 
 var fastInputReader io.Reader
 var fastInputBuffer [inputBufferBytes]byte
@@ -64,7 +65,7 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		if err != nil {
 			return index, err
 		}
-		var inline [128]byte
+		var inline [inlineTokenBytes]byte
 		word := inline[:0]
 		for {
 			word = append(word, ch)
