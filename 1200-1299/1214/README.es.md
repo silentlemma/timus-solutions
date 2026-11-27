@@ -36,13 +36,13 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-1 1
+4 7
 ```
 
 Salida:
 
 ```
-1 1
+7 4
 ```
 
 ## Solución
@@ -68,11 +68,13 @@ Detalles a tener en cuenta:
 Ejecutar el procedimiento en cada par de `−3` a `15` y deshacer el
 resultado devolvió cada vez el par original.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1214_math_optimized.java`. Conserva involución: intercambia solo si ambos son positivos y de paridad distinta. Rango ±32000 permite magnitudes int. Lee con 64 bytes; serializa y luego x hacia atrás en 32 bytes, con signos, espacio y salto. Elimina formateador long general y arreglo de cifras. Escribe y vacía todo antes de System.exit(0). Aritmética/estado constantes para estos límites; base intacta. Nuevo par 0.093 s/436 KB usa más memoria que 0.109 s/384 KB; admisión estricta por ranking, sin afirmar mejora de recursos del 30%.
 
-Accepted exacto Java 1.8 #11327866: 0.093 s / 436 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/75, memoria 4/75. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303725 era 0.109 s / 384 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted de fuente exacta Java 1.8 #11327866: 0.093 s / 436 KB. Comparación guardada del 2026-11-20: tiempo 5/75, memoria 4/75. Cumple el criterio temporal compartido bajo 1024 KB sin meta separada de primer puesto ni asterisco. El optimizado anterior #11303725 de 0.109 s / 384 KB es un par histórico distinto, no el comprobante del archivo actual. Java sencillo se conserva intacto.
 
 - `1214_math_optimized.java`: 0.093 s / 436 KB; base didáctica conservada `1214_math.java`: 0.125 s / 1584 KB.
 
@@ -92,15 +94,13 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328523 (Go 1.14 x64): **0.031 s / 948 KB**. Comparación archivada: `1214_math.go` (Go 1.14 x64) — 0.015 s / 1068 KB (#11283657).
 
+Go Accepted #11328523 y su admisión corresponden a bytes históricos exactos. Esta revisión nombra `numericBitSize` la anchura existente de 64 bits en cuatro llamadas strconv; sustituir 64 restaura exactamente el archivo previo. Se conservan algoritmo, comentarios y Go sencillo.
+
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Los registros exactos guardados siguen los [criterios compartidos](../../RATING_CRITERIA.md). Cumplen C++ sencillo, Go/Java optimizados, CPython sencillo y ambos Rust. Go sencillo de 0.015 s / 1068 KB falla memoria exigida; Go optimizado de 0.031 s / 948 KB cumple solo por tiempo: no se afirma que sea más rápido. Java sencillo falla el umbral numérico; las bases significativas quedan didácticas sin estrella. Bajo 1024 KB solo cuenta tiempo; por encima ambas métricas. Go usa referencia de compilador exacto aplicable y Rust el grupo del mismo lenguaje. No hay admisión independiente por falta de rivales, primer puesto o mejora del 30%.
 
-`1214_math_optimized.py`: puesto de tiempo 29/40 y de memoria 1/40 en esta muestra comparable.
-
-`1214_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
-
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La comparación PyPy guardada del 2026-11-18 es histórica: #11324914 de 0.125 s / 204 KB tenía puesto 29/40 en tiempo y 1/40 en memoria. Sigue fallando tiempo y mantiene marca pese a ahorrar memoria. CPython sencillo #11283658 de 0.078 s / 444 KB cubre Python rápido. Las parejas actuales quedan en tablas; las instantáneas anteriores no son rankings actuales nuevos ni garantías entre ejecuciones.
 
 ## Soluciones
 
@@ -121,6 +121,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) bounded arithmetic and storage | AC | 0.093 s | 436 KB | 11327866 |
 | [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
 | [1214_math_optimized.rs](1214_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
-| [1214_math_optimized.go](1214_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 948 KB | 11328523 |
+| [1214_math_optimized.go](1214_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 936 KB | 11330996 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

@@ -35,13 +35,13 @@ Repository tests compare the output tokens exactly; whitespace between tokens is
 Input:
 
 ```
-1 1
+4 7
 ```
 
 Output:
 
 ```
-1 1
+7 4
 ```
 
 ## Solution
@@ -70,7 +70,7 @@ result gave back the original pair each time.
 
 `1214_math_optimized.java`. Keep the same involution: swap exactly when both signed inputs are positive and have opposite parity. Values stay within ±32000, so int magnitudes are safe. Read through a 64-byte buffer; serialize y then x backwards into a 32-byte answer buffer, including signs, space and newline. This removes the general long formatter and separate digit array. Write and flush the complete answer before System.exit(0). Constant arithmetic/state for this bounded input. The teaching implementation remains. The new 0.093 s/436 KB pair uses more memory than the old 0.109 s/384 KB pair; strict admission comes from rank, not a claimed 30% resource gain.
 
-Exact-source Java 1.8 Accepted #11327866: 0.093 s / 436 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/75, memory 4/75. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303725 was 0.109 s / 384 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 Accepted #11327866 is 0.093 s / 436 KB. The saved 2026-11-20 comparison gives time 5/75, memory 4/75. It passes the shared time-only criterion below 1024 KB, without a separate first-place target or asterisk. Earlier optimized #11303725 at 0.109 s / 384 KB is a distinct historical pair, not the current file receipt. The simple Java remains unchanged.
 
 - `1214_math_optimized.java`: 0.093 s / 436 KB; retained teaching base `1214_math.java`: 0.125 s / 1584 KB.
 
@@ -90,15 +90,15 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328523 (Go 1.14 x64): **0.031 s / 948 KB**. Archived comparison: `1214_math.go` (Go 1.14 x64) — 0.015 s / 1068 KB (#11283657).
 
+Go Accepted #11328523 and its qualification refer to the historical exact bytes. This review names the existing 64-bit conversion width `numericBitSize` in four strconv calls; substituting 64 back exactly restores the previous file. The algorithm, all comments and simple Go are preserved.
+
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Apply the shared [rating criteria](../../RATING_CRITERIA.md) to the cached exact-source receipts. Simple C++, optimized Go/Java, simple CPython and both Rust sources qualify. Simple Go at 0.015 s / 1068 KB fails its required memory comparison, whereas optimized Go at 0.031 s / 948 KB passes with time only: the latter is not claimed faster. Simple Java misses the numerical target; meaningful simple sources remain unstarred teaching versions. Below 1024 KB only time is required; above it both metrics apply. Go uses its applicable exact-compiler reference comparison, Rust the same-language fallback. No rival, first-place or 30%-gain exception independently admits a source.
 
-`1214_math_optimized.py`: time place 29/40, memory place 1/40 in this comparable sample.
+The saved 2026-11-18 PyPy comparison is historical: #11324914 at 0.125 s / 204 KB had time place 29/40 and memory place 1/40. It still misses time and keeps its marker despite lower memory. CPython base #11283658 at 0.078 s / 444 KB supplies Python fast coverage. Current paired measurements remain in the tables; old snapshots are not new live rankings or guarantees across runs.
 
-`1214_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
-
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -119,6 +119,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) bounded arithmetic and storage | AC | 0.093 s | 436 KB | 11327866 |
 | [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
 | [1214_math_optimized.rs](1214_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
-| [1214_math_optimized.go](1214_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 948 KB | 11328523 |
+| [1214_math_optimized.go](1214_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 936 KB | 11330996 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
