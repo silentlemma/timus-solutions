@@ -9,7 +9,7 @@ Problema original de Alexander Klepinin, del USU Championship 2004.
 ## Tarea
 
 Una función F está dada en la rejilla entera A, A + 1, …, B, con
-0 ≤ A < B ≤ 100 000 y valores de −100 000 a 100 000. Hay que partir la
+0 ≤ A < B ≤ 100 000 y valores enteros de −100 000 a 100 000. Hay que partir la
 rejilla en el menor número de intervalos en cada uno de los cuales F no
 decrece o no crece, e imprimir cuántos son.
 
@@ -17,12 +17,18 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-A y B, luego los valores F(A), …, F(B), separados por espacios o saltos
+A y B, luego los valores enteros F(A), …, F(B), separados por espacios o saltos
 de línea.
 
 ## Salida
 
 El menor número de intervalos.
+
+## Evaluación
+
+Comparación de tokens (`judging: tokens`): un entero, el mínimo
+número de intervalos monótonos disjuntos de puntos de la rejilla.
+No se piden límites ni partición concreta; el espacio no importa.
 
 ## Ejemplos
 
@@ -65,17 +71,28 @@ Detalles a tener en cuenta:
 Los conteos se compararon con una programación dinámica sobre todos los
 repartos en 500 funciones aleatorias de hasta 12 puntos.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1346_greedy_optimized.cpp`. Mantiene el recorrido voraz de monotonía. Al invertir una dirección no nula abre otro intervalo y borra su dirección: el paso de frontera no pertenece a ninguno. Valores iguales no fijan dirección. Solo conserva valor anterior, dirección y conteo: O(B-A+1) tiempo, O(1) espacio auxiliar. Sustituye entrada formateada por fread de 16384 bytes y un byte centinela, conservando signos/dígitos parciales entre recargas y detectando EOF sin bucle infinito en entrada vacía. Escribe el conteo como bytes decimales. Escáner compartido probado con ambos tamaños, AddressSanitizer/UndefinedBehaviorSanitizer y 100019 valores por tamaño. Conserva la implementación didáctica.
 
-Accepted exacto G++ 13.2 x64 #11327408: 0.015 s / 92 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/71, memoria 1/71. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. También cumple la meta propia de C++: ambas métricas entre diez primeras o 15% superior, sin asterisco. El registro optimizado documentado antes #11310334 era 0.031 s / 84 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+C++ #11327408 `0.015 s / 92 KB` cumple con puesto temporal 1/71
+según los [criterios comunes](../../RATING_CRITERIA.md): bajo
+1024 KB sólo tiempo, sin meta separada de C++. #11310334
+`0.031 s / 84 KB` sigue como otro par histórico.
 
 - `1346_greedy_optimized.cpp`: 0.015 s / 92 KB; base didáctica conservada `1346_greedy.cpp`: 0.062 s / 588 KB.
 
 Comparación histórica de la revisión anterior: Las versiones en C++ y Go conservan el recorrido voraz y procesan cada valor al leerlo. Solo guardan el valor anterior, la dirección del intervalo actual y el número de intervalos. El búfer de entrada tiene tamaño fijo, así que el recorrido tarda O(B − A + 1) y requiere O(1) espacio adicional. El envío aceptado de C++ tardó 0,031 s y usó 84 KB, frente a 0,062 s y 588 KB de la versión base. Go usó 1588 KB en lugar de 2512 KB, con 0,031 s en ambas versiones.
 
-Las implementaciones base aceptadas [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Java reutiliza la base: 900 KB, sólo tiempo, puesto 2/28. Python
+cumple con el archivo en flujo `0.109 s / 724 KB`, no con la base
+`0.140 s / 11140 KB`: seis rivales exactos CPython activan la tercera
+referencia temporal 0.12535 s. Rust cumple con el archivo nativo
+`0.015 s / 56 KB`; la base de 2632 KB supera el límite de 2047 KB.
+Un rival Rust exacto fija tiempo 0.031 s. No se duplican bases
+que cumplen y se conservan todas las versiones didácticas.
 
 ### Nuevas versiones aceptadas
 
@@ -85,8 +102,14 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. Comparación archivada: `1346_greedy.py` (Python 3.12 x64) — 0.14 s / 11140 KB (#11285126).
 
-
-`1346_implementation_parsing_optimized.rs`. La salida directa se especializa a los tipos usados, evitando despacho genérico y cadenas temporales. El texto fijo usa escrituras nativas y los números se convierten exactamente con el signo requerido. Se conservan decisiones matemáticas y versiones simples.
+`1346_implementation_parsing_optimized.rs` conserva el barrido
+voraz en flujo. NativeNumbers analiza i64 con signo atravesando
+rellenos de su búfer de 4096 bytes. NativeOutput imprime el contador
+sin signo con 20 bytes de dígitos y 256 de salida, completa las
+escrituras y vacía la nueva línea. Windows usa _read/_write del
+entorno C en modo binario; otras plataformas read/write. No usa
+impresión numérica con signo ni formato genérico. Tiempo O(B-A+1),
+estado fijo y almacenamiento de E/S acotado.
 
 Este código exacto tiene su propio Accepted y cumple los [criterios compartidos](../../RATING_CRITERIA.md). El tiempo y la memoria siguientes proceden de una misma ejecución; las mediciones repetidas pueden variar. Se conservan las versiones sencillas y optimizadas distintas existentes.
 
@@ -98,6 +121,10 @@ Estas notas describen las implementaciones sencillas.
 
 - Las cinco soluciones hacen la misma pasada.
 
+En `1346_greedy_optimized.py` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11328773 y sus medidas corresponden a los bytes exactos previos.
+
+En `1346_implementation_parsing_optimized.rs` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11329367 y sus medidas corresponden a los bytes exactos previos.
+
 ## Soluciones
 
 ### Sencillas
@@ -107,7 +134,7 @@ Estas notas describen las implementaciones sencillas.
 | [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
 | [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
 | [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
-| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.14 s | 11140 KB | 11285126 |
 | [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
 
 ### Optimizadas
@@ -116,5 +143,5 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(B-A+1) time; O(1) auxiliary storage | AC | 0.015 s | 92 KB | 11327408 |
 | [1346_greedy_optimized.go](1346_greedy_optimized.go) | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
-| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.109 s | 724 KB | 11328773 |
-| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.015 s | 56 KB | 11329367 |
+| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.093 s | 792 KB | 11331069 |
+| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.031 s | 60 KB | 11331112 |

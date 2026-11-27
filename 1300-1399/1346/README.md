@@ -9,7 +9,7 @@ Original problem by Alexander Klepinin, from the USU Championship 2004.
 ## Task
 
 A function F is given on the integer grid A, A + 1, …, B, with
-0 ≤ A < B ≤ 100 000 and values from −100 000 to 100 000. Split the grid
+0 ≤ A < B ≤ 100 000 and integer values from −100 000 to 100 000. Split the grid
 into the fewest intervals on each of which F does not decrease or does
 not increase, and print how many there are.
 
@@ -17,12 +17,18 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
 
-A and B, then the values F(A), …, F(B), separated by spaces or line
+A and B, then the integer values F(A), …, F(B), separated by spaces or line
 breaks.
 
 ## Output
 
 The smallest number of intervals.
+
+## Checking
+
+Token comparison (`judging: tokens`): one integer, the minimum number
+of disjoint monotone intervals of grid points. Endpoints or the actual
+partition are not required; whitespace is ignored.
 
 ## Examples
 
@@ -69,13 +75,22 @@ random functions of up to 12 points.
 
 `1346_greedy_optimized.cpp`. Keep the greedy monotonicity scan. On a nonzero direction reversal, start a new interval and reset its direction: the crossing step belongs to neither interval. Equal values do not set a direction. Only the previous value, direction and count are retained, giving O(B-A+1) time and O(1) auxiliary storage. Replace formatted input with a 16384-byte fread buffer plus one sentinel byte; carry signs and partial digits across refills, checking EOF without a retry loop on empty input. Write the single count as raw decimal bytes. The shared scanner was checked at both buffer sizes with AddressSanitizer/UndefinedBehaviorSanitizer and 100019 values per size. The clearer teaching implementation remains.
 
-Exact-source G++ 13.2 x64 Accepted #11327408: 0.015 s / 92 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/71, memory 1/71. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The separate C++ target also passes: both metrics are in the top ten or top 15%; no asterisk. The previously documented optimized run #11310334 was 0.031 s / 84 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+C++ #11327408 `0.015 s / 92 KB` passes time rank 1/71 under the
+shared [criteria](../../RATING_CRITERIA.md): below 1024 KB only time
+counts, with no separate C++ goal. The earlier #11310334
+`0.031 s / 84 KB` remains a distinct historical pair.
 
 - `1346_greedy_optimized.cpp`: 0.015 s / 92 KB; retained teaching base `1346_greedy.cpp`: 0.062 s / 588 KB.
 
 Historical previous-revision comparison: The C++ and Go versions keep the greedy scan and process each value as it arrives. They retain the previous value, the direction of the current interval and the interval count. The input buffer has fixed size, so the scan takes O(B − A + 1) time and O(1) additional space. The Accepted C++ run took 0.031 s and used 84 KB, compared with 0.062 s and 588 KB for the baseline. Go used 1588 KB instead of 2512 KB, with 0.031 s in both versions.
 
-The accepted base implementations [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Java reuses its base: 900 KB activates time-only ranking, place 2/28.
+Python qualifies through its streaming file `0.109 s / 724 KB`, not
+the base `0.140 s / 11140 KB`: six exact CPython rivals give the third
+reference limit 0.12535 s. Rust qualifies through the native file
+`0.015 s / 56 KB`, not the 2632 KB base, which exceeds its 2047 KB
+memory limit. One exact Rust rival gives a time limit of 0.031 s.
+Qualifying bases need no identical optimized copies; teaching versions remain.
 
 ### Accepted source update
 
@@ -85,8 +100,14 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. Archived comparison: `1346_greedy.py` (Python 3.12 x64) — 0.14 s / 11140 KB (#11285126).
 
-
-`1346_implementation_parsing_optimized.rs`. Specialize direct output to the answer types actually used, avoiding generic formatting dispatch and temporary answer strings. Fixed text uses native writes; numeric writers handle the required signed or unsigned magnitudes exactly. Mathematical decisions and archived simple versions are preserved.
+`1346_implementation_parsing_optimized.rs` retains the streaming
+greedy scan. NativeNumbers parses signed i64 values across refills
+in a 4096-byte buffer. NativeOutput writes the unsigned interval
+count with a 20-byte digit scratch and 256-byte output buffer, then
+flushes the newline with complete-write loops. Windows uses C-runtime
+_read/_write and binary mode; other platforms use read/write. No
+signed output routine or generic formatting dispatch is used.
+Time O(B-A+1), fixed algorithmic state and bounded I/O storage.
 
 This exact source has its own Accepted and meets the shared [rating criteria](../../RATING_CRITERIA.md). Time and memory below come from the same run; repeated runs can differ because of judge timing. Existing simple and distinct optimized implementations are preserved.
 
@@ -98,6 +119,12 @@ These notes describe the simple implementations.
 
 - All five solutions make the same single pass.
 
+Only lint-required constants in `1346_greedy_optimized.py` were given names; their values, algorithm and comments are unchanged. Accepted #11328773 describes the preceding exact bytes and paired metrics.
+
+Only lint-required constants in `1346_implementation_parsing_optimized.rs` were given names; their values, algorithm and comments are unchanged. Accepted #11329367 describes the preceding exact bytes and paired metrics.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
+
 ## Solutions
 
 ### Simple
@@ -107,7 +134,7 @@ These notes describe the simple implementations.
 | [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
 | [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
 | [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
-| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.14 s | 11140 KB | 11285126 |
 | [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
 
 ### Optimized
@@ -116,5 +143,5 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(B-A+1) time; O(1) auxiliary storage | AC | 0.015 s | 92 KB | 11327408 |
 | [1346_greedy_optimized.go](1346_greedy_optimized.go) | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
-| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.109 s | 724 KB | 11328773 |
-| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.015 s | 56 KB | 11329367 |
+| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.093 s | 792 KB | 11331069 |
+| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.031 s | 60 KB | 11331112 |

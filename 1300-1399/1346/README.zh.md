@@ -8,18 +8,23 @@
 
 ## 任务
 
-函数 F 定义在整数网格 A, A + 1, …, B 上，0 ≤ A < B ≤ 100 000，函数值在 −100 000 到 100 000 之间。把网格分成
+函数 F 定义在整数网格 A, A + 1, …, B 上，0 ≤ A < B ≤ 100 000，整数函数值在 −100 000 到 100 000 之间。把网格分成
 尽可能少的区间，使 F 在每个区间上不减或不增，输出区间个数。
 
 时间限制：1 秒。内存限制：64 MB。
 
 ## 输入
 
-A 和 B，然后是 F(A), …, F(B)，以空格或换行分隔。
+A 和 B，然后是整数 F(A), …, F(B)，以空格或换行分隔。
 
 ## 输出
 
 最少的区间数。
+
+## 评测方式
+
+记号比较（`judging: tokens`）：一个整数，表示将网格点划分为不相交
+单调区间的最少数量。不要求边界或具体划分，空白不影响结果。
 
 ## 样例
 
@@ -58,13 +63,19 @@ A 和 B，然后是 F(A), …, F(B)，以空格或换行分隔。
 
 `1346_greedy_optimized.cpp`. 保留单调区间贪心。非零方向反转时开新区间并清空方向：跨界那一步不属于任一区间；相等值不设方向。只存前值、方向和计数，O(B-A+1) 时间、O(1) 辅助空间。格式化读取改为 16384 字节 fread 加一个哨兵字节，符号及半截数字跨重填保留，空输入 EOF 不会无限重试。计数直接写十进制字节。公共扫描器在两种缓冲大小上使用 AddressSanitizer/UndefinedBehaviorSanitizer 检查，每种 100019 个值。保留清楚的教学实现。
 
-精确源代码 G++ 13.2 x64 Accepted #11327408：0.015 s / 92 KB。2026-11-20 保存的编译器组比较：时间 1/71、内存 1/71。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。也满足单独 C++ 目标：两项均前十或前 15%，无需星号。此前记录的优化运行 #11310334 为 0.031 s / 84 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+C++ #11327408 `0.015 s / 92 KB` 时间名次 1/71，按统一的
+[标准](../../RATING_CRITERIA.md)通过：低于 1024 KB 只比较时间，没有
+单独 C++ 目标。此前 #11310334 `0.031 s / 84 KB` 是另一历史测量对。
 
 - `1346_greedy_optimized.cpp`: 0.015 s / 92 KB; 保留教学基础版 `1346_greedy.cpp`: 0.062 s / 588 KB.
 
 旧版本历史比较：C++ 和 Go 版本沿用贪心扫描，读入一个值就立即处理。只保留前一个值、当前区间的单调方向和区间数。输入缓冲区大小固定，所以时间复杂度为 O(B − A + 1)，额外空间为 O(1)。通过评测的 C++ 版本用时 0.031 秒、占用 84 KB，基础版用时 0.062 秒、占用 588 KB。Go 版本占用 1588 KB，基础版占用 2512 KB，两者均用时 0.031 秒。
 
-已通过评测的基础实现 [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+Java 复用基础版，900 KB 时只比较时间，名次 2/28。Python 由流式文件
+`0.109 s / 724 KB` 通过，而非 `0.140 s / 11140 KB` 基础版：六个精确
+CPython 对手的第三参考给出时间上限 0.12535 s。Rust 由原生文件
+`0.015 s / 56 KB` 通过，2632 KB 基础版超过 2047 KB 内存上限；一个
+精确 Rust 对手给出时间上限 0.031 s。达标基础版不复制，教学版保留。
 
 ### 新的已通过版本
 
@@ -74,8 +85,11 @@ A 和 B，然后是 F(A), …, F(B)，以空格或换行分隔。
 
 Accepted #11328773 (Python 3.12 x64): **0.109 s / 724 KB**. 历史对照: `1346_greedy.py` (Python 3.12 x64) — 0.14 s / 11140 KB (#11285126).
 
-
-`1346_implementation_parsing_optimized.rs`. 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+`1346_implementation_parsing_optimized.rs` 保留流式贪心。NativeNumbers
+通过 4096 字节补充缓冲解析有符号 i64；NativeOutput 用 20 字节数字暂存
+和 256 字节输出缓冲打印无符号区间数，完整写出换行并刷新。Windows
+使用 C 运行库 _read/_write 及二进制模式，其他平台用 read/write。没有
+有符号数输出或通用格式分派。时间 O(B-A+1)，固定状态及有界 I/O 空间。
 
 此精确源码有独立 Accepted，并满足统一的[排名标准](../../RATING_CRITERIA.md)。下述时间与内存来自同一次提交，重复测量可能因评测计时而不同。保留已有简单版本和不同的优化版本。
 
@@ -87,6 +101,12 @@ Accepted #11329367 (Rust 1.75 x64): **0.015 s / 56 KB**.
 
 - 五种解答做的是同一遍扫描。
 
+`1346_greedy_optimized.py` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+`1346_implementation_parsing_optimized.rs` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
+
 ## 解答
 
 ### 简单版本
@@ -96,7 +116,7 @@ Accepted #11329367 (Rust 1.75 x64): **0.015 s / 56 KB**.
 | [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
 | [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
 | [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
-| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.14 s | 11140 KB | 11285126 |
 | [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
 
 ### 优化版本
@@ -105,5 +125,5 @@ Accepted #11329367 (Rust 1.75 x64): **0.015 s / 56 KB**.
 |---|---|---|---|---|---|---|---|
 | [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(B-A+1) time; O(1) auxiliary storage | AC | 0.015 s | 92 KB | 11327408 |
 | [1346_greedy_optimized.go](1346_greedy_optimized.go) | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
-| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.109 s | 724 KB | 11328773 |
-| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.015 s | 56 KB | 11329367 |
+| [1346_greedy_optimized.py](1346_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.093 s | 792 KB | 11331069 |
+| [1346_implementation_parsing_optimized.rs](1346_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(B-A+1) time; O(1) state + bounded input buffer | AC | 0.031 s | 60 KB | 11331112 |

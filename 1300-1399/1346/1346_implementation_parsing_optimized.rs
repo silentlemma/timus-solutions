@@ -180,6 +180,7 @@ impl Iterator for NativeNumbers {
 }
 
 const NATIVE_OUTPUT_BYTES: usize = 256;
+const INTEGER_DIGIT_BYTES: usize = 20;
 
 struct NativeOutput {
     data: [u8; NATIVE_OUTPUT_BYTES],
@@ -208,7 +209,7 @@ impl NativeOutput {
         }
     }
     fn unsigned(&mut self, mut value: u64) {
-        let mut digits = [0_u8; 20];
+        let mut digits = [0_u8; INTEGER_DIGIT_BYTES];
         let mut first = digits.len();
         loop {
             first -= 1;

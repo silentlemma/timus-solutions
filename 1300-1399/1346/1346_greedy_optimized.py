@@ -2,6 +2,7 @@ import os
 import sys
 
 INPUT_BUFFER_BYTES = 4096
+WHITESPACE = 32
 
 
 def words():
@@ -13,7 +14,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > WHITESPACE else b""
         yield from parts
     if pending:
         yield pending
