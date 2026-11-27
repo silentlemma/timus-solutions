@@ -93,6 +93,14 @@ la lista de cada grupo es creciente: justo la salida pedida.
 Tiempo `O(24 · 6 · N)`. También se puede precalcular la clave de cada uno de
 los 720 dados posibles y buscarla, como hace la versión en Python.
 
+C++, Go, Python y Rust sencillos conservan `O(N)` índices de grupo; Java
+los guarda como texto por grupo. Conservar toda la entrada o salida añade
+`O(I + O)` bytes, siendo `I` y `O` sus longitudes textuales. Las tablas de
+rotaciones/permutaciones tienen tamaño fijo. C++ optimizado reserva
+`C = 100000` bytes de pertenencia incluso con menos dados, una tabla de
+clases de 720 bytes y búferes fijos (`O(C + 720)` para los arreglos). Python
+optimizado conserva `O(N)` índices compactos y escribe bloques acotados.
+
 Detalles a tener en cuenta:
 
 - reflexiones: las seis caras se pueden permutar de 720 maneras, pero solo
@@ -100,11 +108,19 @@ Detalles a tener en cuenta:
   junta imágenes especulares;
 - hasta `10^5` números de dados en la salida: constrúyela en un búfer.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 El nuevo C++ genera una vez las mismas 24 rotaciones propias y clasifica las 720 permutaciones. El rango por inversiones indexa una tabla de 720 bytes: cada dado requiere un rango y consulta, sin probar todas las rotaciones. Los grupos se numeran al aparecer; se guarda un byte de grupo por dado. Un recorrido por grupo (hasta 30) imprime índices crecientes y grupos en orden de aparición. Los recorridos adicionales evitan vectores de índices y la cadena completa de salida. Ambas versiones son lineales en N; cambian constantes y almacenamiento. Las clases se calculan al ejecutar. Se conservan las bases; las otras cuatro familias reutilizan las ya admitidas.
 
-Las implementaciones base aceptadas [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La auditoría en caché valida las bases Go y Rust por comparación pequeña
+del compilador exacto y Java por clasificación ordinaria. Rust usa 856 KB,
+así que solo compara tiempo. La base Python no cumple el límite de memoria
+de su muestra pequeña; cubre el lenguaje `1015_hashing_optimized.py`. C++
+usa la versión optimizada de consulta. Todas siguen los
+[criterios compartidos](../../RATING_CRITERIA.md), conservando fuentes
+didácticas distintas sin copias idénticas.
 
 ### Nuevas versiones aceptadas
 
@@ -113,6 +129,10 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 `1015_hashing_optimized.py`. Se codifican las seis caras con tres bits por cara. Las 24 rotaciones se generan al ejecutar para normalizar cada permutación; los dados se agrupan en flujo con arreglos compactos de índices. No se incrusta una tabla calculada fuera del programa. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
 
 Accepted #11328767 (Python 3.12 x64): **0.093 s / 1060 KB**. Comparación archivada: `1015_hashing.py` (Python 3.12 x64) — 0.093 s / 2748 KB (#11278138).
+
+La revisión actual de `1015_hashing_optimized.py` nombra el ancho de bits por
+cara y el límite de bytes en blanco. Sustituir las constantes recupera el
+AST ejecutable previo.
 
 ## Notas por lenguaje
 
@@ -135,4 +155,4 @@ Las bases C++, Go, Java y Rust prueban24 rotaciones por dado; Python ya precalcu
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
-| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 1060 KB | 11328767 |
+| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.125 s | 1012 KB | 11331083 |

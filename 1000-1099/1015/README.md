@@ -91,6 +91,14 @@ each group's list is increasing — exactly the required output.
 `O(24 · 6 · N)` time. Alternatively, precompute the key of each of the 720
 possible dice once and look it up, as the Python version does.
 
+Base C++, Go, Python and Rust retain `O(N)` group indices; Java stores
+them as group text. Retaining complete input or output adds `O(I + O)`
+bytes, where `I` and `O` are their text lengths. Rotation and permutation
+tables have fixed sizes, independent of `N`. Optimized C++ reserves
+`C = 100000` membership bytes even for a smaller input, plus a 720-byte
+class table and fixed I/O buffers (`O(C + 720)` array storage). Optimized
+Python stores `O(N)` compact indices and writes bounded output chunks.
+
 Pitfalls:
 
 - reflections: the six faces can be permuted in 720 ways but only 24 of them
@@ -102,7 +110,13 @@ Pitfalls:
 
 The new C++ version generates the same 24 proper rotations once, then assigns a rotation class to every one of the 720 face permutations. The inversion-based permutation rank indexes a 720-byte table, so every input die needs one rank calculation and lookup instead of testing all 24 rotations. Group numbers are assigned on first appearance. Store just that one-byte group per die, then scan the byte array once per group (at most 30) to print increasing indices in first-appearance group order. This trades extra linear scans for avoiding index vectors and a complete output string. Both versions are linear in N; the change reduces constants/storage, with all classes computed at runtime. All five ordinary files remain; the other four families reuse admitted bases.
 
-The accepted base implementations [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The cached audit verifies the Go and Rust bases by exact-compiler
+small-cohort comparisons, and Java by ordinary ranking. Rust uses 856 KB,
+so only time is compared. The Python teaching base does not pass its
+small-cohort memory limit; `1015_hashing_optimized.py` supplies qualifying
+coverage instead. C++ uses its optimized lookup version. All follow the
+shared [rating criteria](../../RATING_CRITERIA.md), and meaningful teaching
+versions remain without identical duplicate files.
 
 ### Accepted source update
 
@@ -112,9 +126,15 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328767 (Python 3.12 x64): **0.093 s / 1060 KB**. Archived comparison: `1015_hashing.py` (Python 3.12 x64) — 0.093 s / 2748 KB (#11278138).
 
+The current `1015_hashing_optimized.py` revision names the face-bit width and
+whitespace boundary explicitly. Substituting the named constants recovers the
+previous executable AST.
+
 ## Language notes
 
 Ordinary C++, Go, Java and Rust test 24 rotations per die. Ordinary Python already precomputes 720 keys. The new C++ lookup also precomputes every permutation, then stores one byte per die and streams output in group scans.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -133,4 +153,4 @@ Ordinary C++, Go, Java and Rust test 24 rotations per die. Ordinary Python alrea
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
-| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 1060 KB | 11328767 |
+| [1015_hashing_optimized.py](1015_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.125 s | 1012 KB | 11331083 |

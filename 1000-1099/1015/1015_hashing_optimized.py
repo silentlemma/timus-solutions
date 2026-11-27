@@ -7,6 +7,8 @@ OUTPUT_CHUNK_LINES = 1024
 INPUT_BUFFER_BYTES = 4096
 
 FACES = 6
+FACE_BITS = 3
+SPACE_BYTE = ord(" ")
 # quarter turns around the vertical and the left-right axes: the new face at
 # position i is the old face at position TURNS[t][i]
 TURNS = ((3, 5, 2, 1, 4, 0), (0, 1, 5, 2, 3, 4))
@@ -21,7 +23,7 @@ def words():
             break
         data = pending + block
         parts = data.split()
-        pending = parts.pop() if data[-1] > 32 else b""
+        pending = parts.pop() if data[-1] > SPACE_BYTE else b""
         yield from parts
     if pending:
         yield pending
@@ -42,7 +44,7 @@ def rotations():
 def packed(faces):
     result = 0
     for face in faces:
-        result = (result << 3) | face
+        result = (result << FACE_BITS) | face
     return result
 
 
@@ -58,7 +60,7 @@ def main():
     for index in range(1, count + 1):
         value = 0
         for _ in range(FACES):
-            value = (value << 3) | next(values)
+            value = (value << FACE_BITS) | next(values)
         canonical = key[value]
         group = groups.get(canonical)
         if group is None:
