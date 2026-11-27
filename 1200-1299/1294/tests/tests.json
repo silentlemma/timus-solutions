@@ -2,7 +2,7 @@
   "judging": "exact",
   "reference": "1294_geometry.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "an ordinary quadrilateral" },
+    { "name": "01", "example": true, "note": "own cyclic quadrilateral on a radius-25 circle: CD is 30" },
     { "name": "02", "note": "a symmetric trapezoid: CD can take many values" },
     { "name": "03", "note": "equal distance products but different sums of squares rule out a quadrilateral" },
     { "name": "04", "note": "the cosine would be 5.5: no quadrilateral" },

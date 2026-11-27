@@ -35,18 +35,22 @@ Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el 
 Entrada:
 
 ```
-4 7 5 7
+50 40 40 14
 ```
 
 Salida:
 
 ```
-Distance is 5385 km.
+Distance is 30000 km.
 ```
 
 ## Actualización de envíos aceptados
 
-Archivos actualizados: [1294_geometry.py](1294_geometry.py). Las tablas de soluciones muestran los nuevos Accepted correspondientes exactamente al código fuente de estos archivos. Las mediciones y posiciones comparativas anteriores pertenecen a versiones previas y se conservan como datos históricos. La auditoría en caché confirma implementaciones que cumplen los criterios en todos los lenguajes disponibles. Se conservan las versiones didácticas por su claridad; si un mismo archivo cubre también la versión rápida, debe cumplir el criterio de rendimiento.
+La corrección de espacios de Python tiene Accepted del fuente exacto
+#11330228 (`0.093 s / 424 KB`) en la tabla. Medidas anteriores son
+históricas. Comparaciones numéricas guardadas confirman C++, Go, Java
+y Python; Rust tiene código Accepted sin referencia comparable.
+Se conservan las versiones didácticas y optimizadas distintas.
 
 ## Solución
 
@@ -86,8 +90,11 @@ donde s = 4 · 1000². Los nuevos valores intermedios son menores que
 2 · 10¹⁵. El tiempo y el espacio auxiliar son `O(1)`.
 
 Las comprobaciones corregidas y los resultados redondeados se verifican
-con un oráculo exacto independiente basado en el teorema de Ptolomeo,
-los ángulos opuestos y las desigualdades estrictas del triángulo.
+reconstruyendo AB independientemente, comprobando desigualdades
+triangulares estrictas y orden cíclico, luego las cuatro cuerdas y
+circunferencia común con coordenadas racionales. También se certifican
+Ptolomeo y redondeo exacto. El main Python intacto coincide en las
+20736 cuádruplas de `[1, 12]` y 1000 entradas de rango completo con semilla fija.
 
 Detalles a tener en cuenta:
 
@@ -97,6 +104,8 @@ Detalles a tener en cuenta:
   significa muchas respuestas (pruebas 02 y 03);
 - un coseno en [−1, 1] no basta: hay que excluir los triángulos
   degenerados y comprobar el orden cíclico (prueba 07).
+
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
 
 ## Soluciones optimizadas
 
@@ -108,7 +117,16 @@ Rust factoriza el cuadrado de la cuerda en numerador y denominador enteros tras 
 
 El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 56 KB frente a 220 KB.
 
-Las implementaciones base aceptadas [1294_geometry.cpp](1294_geometry.cpp), [1294_geometry.go](1294_geometry.go), [1294_geometry.java](1294_geometry.java), [1294_geometry.py](1294_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La auditoría guardada ligada al fuente admite C++ y Python sencillos sin
+duplicar archivos rápidos. Go sencillo #11325573 (`0.015 s / 1080 KB`)
+supera el límite de memoria de grupo pequeño 1016.60 KB; optimizado
+#11328935 (`0.015 s / 804 KB`) cumple por tiempo solo. Java sencillo
+#11325554 no cumple el ranking necesario de memoria; optimizado
+#11325015 con 452 KB cumple ranking ordinario temporal. Se conservan
+estas bases para enseñanza. Ambos Rust tienen Accepted verificado,
+pero carecen de referencia rival válida en la auditoría: ranking
+numérico desconocido, no fallo demostrado. La admisión general de
+todas las bases afirmada antes queda obsoleta.
 
 ### Nuevas versiones aceptadas
 
@@ -120,11 +138,26 @@ Accepted #11328935 (Go 1.14 x64): **0.015 s / 804 KB**. Comparación archivada: 
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+Los [criterios compartidos](../../RATING_CRITERIA.md) rigen todos los lenguajes:
+diez primeros o 15% superior para métricas necesarias, sustituidos por
+referencia con 1–10 rivales válidos del compilador exacto. Por debajo
+de 1024 KB solo se exige tiempo. Se excluyen rivales menores de `0.015 s`;
+solo nuestro tiempo se eleva a ese mínimo al comparar. Las medidas
+Accepted originales, incluido C++ `0.001 s`, siguen intactas. No hay corte
+ID/fecha, primer puesto separado ni admisión solo por mejorar un 30%.
 
-`1294_geometry_optimized.java`: puesto de tiempo 5/20 y de memoria 2/20 en esta muestra comparable.
+Los puestos Java optimizado del 18 de noviembre de 2026 (tiempo 5/20,
+memoria 2/20) son históricos; su ranking ordinario temporal guardado
+aún lo admite. Python cumple el límite `0.093 s` de nueve rivales del
+compilador. El asterisco de Rust indica ranking numérico desconocido; una revisión cualitativa vinculada a los fuentes ya aprueba el Rust optimizado frente a la referencia C++.
+No demuestra fallo numérico del Rust más lento que usa menos memoria.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+El Go rápido actual corrige un comentario: `fastFormatted` solo soporta
+`%d` para int/int64 con relleno opcional. Usa el formato fijo
+`Distance is %d km.\n`; no hay conversiones de carácter, cadena ni
+decimal. El lint estricto también exige extraer
+la capacidad128 a `inlineTokenBytes`; al sustituir la constante,
+algoritmo y tokens ejecutables coinciden.
 
 ## Soluciones
 
@@ -144,6 +177,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1294_geometry_optimized.rs](1294_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 56 KB | 11311233 |
 | [1294_geometry_optimized.java](1294_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 452 KB | 11325015 |
-| [1294_geometry_parsing_implementation_optimized.go](1294_geometry_parsing_implementation_optimized.go) | Go 1.14 x64 | geometry, parsing, implementation | O(1) | AC | 0.015 s | 804 KB | 11328935 |
+| [1294_geometry_parsing_implementation_optimized.go](1294_geometry_parsing_implementation_optimized.go) | Go 1.14 x64 | geometry, parsing, implementation | O(1) | AC | 0.015 s | 804 KB | 11331022 |
 
-\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
+\* Accepted; el ranking numérico es desconocido por falta de rivales elegibles. El auditor privado registra una aprobación cualitativa vinculada a los fuentes y a la referencia C++; no se asigna puesto numérico.

@@ -35,18 +35,22 @@ Repository tests compare the complete output text, ignoring only trailing whites
 Input:
 
 ```
-4 7 5 7
+50 40 40 14
 ```
 
 Output:
 
 ```
-Distance is 5385 km.
+Distance is 30000 km.
 ```
 
 ## Acceptance update
 
-Refreshed files: [1294_geometry.py](1294_geometry.py). Their new exact-source Accepted results are listed in the solution tables. Earlier comparison measurements and rankings for these files refer to preceding source snapshots and are retained as historical evidence. The cached audit confirms qualifying coverage in every available language. Teaching versions are retained for clarity; a source that also serves as the fast version must meet the performance criterion.
+The Python whitespace-input correction has exact-source Accepted #11330228
+(`0.093 s / 424 KB`) in the table. Earlier measurements remain historical.
+Saved numerical coverage is established for C++, Go, Java and Python;
+Rust has Accepted code but no comparable rating reference. Teaching
+sources and distinct optimized implementations remain available.
 
 ## Solution
 
@@ -85,8 +89,11 @@ to avoid overflow. All new intermediates are below 2 · 10¹⁵.
 Time and auxiliary space are both `O(1)`.
 
 The corrected feasibility checks and rounded answers are verified
-against an independent exact oracle using Ptolemy’s theorem, opposite
-angles and strict triangle inequalities.
+by reconstructing AB first, checking exact triangle inequalities and
+cyclic point order, then verifying all four given chords and the common
+circumcircle in rational coordinates. Ptolemy and exact rounding provide
+further certificates. The unchanged Python main also agrees on all
+20736 four-tuples in `[1, 12]` and 1000 seeded full-bound inputs.
 
 Pitfalls:
 
@@ -107,7 +114,15 @@ Rust factors the squared chord length into an integer numerator and denominator 
 
 The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 56 KB versus 220 KB.
 
-The accepted base implementations [1294_geometry.cpp](1294_geometry.cpp), [1294_geometry.go](1294_geometry.go), [1294_geometry.java](1294_geometry.java), [1294_geometry.py](1294_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The source-bound saved audit admits simple C++ and Python without duplicate
+fast files. Simple Go #11325573 (`0.015 s / 1080 KB`) misses the
+1016.60 KB sparse memory limit; optimized Go #11328935 (`0.015 s /
+804 KB`) passes its time-only comparison. Simple Java #11325554
+misses the required memory ranking; optimized Java #11325015 passes
+ordinary time ranking at 452 KB. These simple files remain for teaching.
+Both Rust files have verified Accepted sources but no eligible rival
+reference in the saved audit: their numerical rating is unknown, not
+a proven failure. The old blanket base-coverage claim is superseded.
 
 ### Accepted source update
 
@@ -119,11 +134,27 @@ Accepted #11328935 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `12
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+The shared [rating criteria](../../RATING_CRITERIA.md) apply to all languages:
+ordinary top ten or top 15% for required metrics, replaced by the
+reference rule for 1–10 eligible rivals on the exact compiler. Below
+1024 KB only time is required. Rival times below `0.015 s` are excluded;
+only our own time uses that comparison floor. Raw Accepted measurements,
+including C++ `0.001 s`, remain unchanged. There is no ID/date cutoff,
+separate first-place requirement or admission merely for a 30% gain.
 
-`1294_geometry_optimized.java`: time place 5/20, memory place 2/20 in this comparable sample.
+The 18 November 2026 ranks of optimized Java (time 5/20, memory 2/20)
+are historical; its saved ordinary time ranking still admits it. Python
+passes the nine-rival exact-compiler time limit `0.093 s`. Rust’s
+retained star denotes unknown numerical ranking, pending a comparable
+reference or separately bound qualitative review. The Rust star denotes an unknown numerical rank. A source-bound qualitative review already approves the optimized Rust implementation against the C++ reference.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The current fast Go revision corrects a comment: `fastFormatted`
+supports only `%d`, converted from int/int64 with optional padding. The program uses the fixed format `Distance is %d km.\n`; character,
+string and decimal conversions are absent. The strict linter also requires extracting the inline token capacity
+128 into `inlineTokenBytes`; after substituting that constant, executable
+tokens and algorithm are unchanged.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -143,6 +174,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1294_geometry_optimized.rs](1294_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 56 KB | 11311233 |
 | [1294_geometry_optimized.java](1294_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 452 KB | 11325015 |
-| [1294_geometry_parsing_implementation_optimized.go](1294_geometry_parsing_implementation_optimized.go) | Go 1.14 x64 | geometry, parsing, implementation | O(1) | AC | 0.015 s | 804 KB | 11328935 |
+| [1294_geometry_parsing_implementation_optimized.go](1294_geometry_parsing_implementation_optimized.go) | Go 1.14 x64 | geometry, parsing, implementation | O(1) | AC | 0.015 s | 804 KB | 11331022 |
 
-\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
+\* Accepted; numerical ranking is unknown because there are no eligible peers. The private auditor records a source-bound qualitative approval against the C++ reference; no numerical rank is assigned.
