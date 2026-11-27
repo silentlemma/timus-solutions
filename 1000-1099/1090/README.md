@@ -57,10 +57,21 @@ of those with a smaller number is a prefix count in a Fenwick tree over
 the numbers `1 … N`; the jumps of `x` are `i` minus that count. Then add
 `x` to the tree. `O(K · N log N)`.
 
+The teaching Python version instead keeps earlier values in sorted
+order. bisect returns the insertion index, so i-index earlier values
+are greater and contribute that many inversions; then list.insert
+shifts the suffix to keep it sorted. Values in a row are distinct.
+Binary search costs O(log N), but shifting costs O(N) per insertion,
+so K rows take O(K N^2) time. The current row list/slice uses O(N)
+working words; this exact implementation also retains O(KN) parsed
+input integers, separate from that working state.
+
 Pitfalls:
 
-- the total of a row reaches `N(N − 1)/2 ≈ 5 · 10^7`; it fits 32 bits, but
-  the Fenwick solutions add in 64 bits;
+- the maximum is N(N-1)/2=49 995 000, which fits signed 32 bits.
+  Teaching C++/Go/Java/Rust use 64-bit totals; optimized C++ uses int
+  and optimized Go native int safely within this bound. Python integers
+  are unbounded.
 - on ties the first row wins, so only a strictly larger total replaces
   the best one;
 - the tree must be cleared for every row.
@@ -72,7 +83,13 @@ The answers were checked against inversion counts by merge sort, and for
 
 The C++ and Go versions keep the Fenwick algorithm and parse input through a fixed-size buffer. Each tree cell stores at most N counts and fits in 16 bits. The PyPy version uses a Fenwick tree in place of the sorted list, so each prefix query and insertion takes O(log N). All three versions take O(K·N log N) time and O(N) extra space.
 
-The accepted base implementations [1090_fenwick.java](1090_fenwick.java), [1090_fenwick.rs](1090_fenwick.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The current cached audit confirms simple Java by time rank alone
+below 1 MiB. Simple Rust does not pass both exact-compiler small-cohort
+reference metrics; the separate optimized Rust source now qualifies by
+its time reference below 1 MiB. Optimized C++ uses time rank, Go its
+small-cohort time reference, and PyPy requires and passes both ordinary
+ranks. Apply the shared [rating criteria](../../RATING_CRITERIA.md),
+retain all teaching sources and reuse qualifying files without copies.
 
 ### Accepted source update
 
@@ -82,9 +99,15 @@ The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and
 
 Accepted #11328959 (Rust 1.75 x64): **0.015 s / 224 KB**. Archived comparison: `1090_fenwick.rs` (Rust 1.75 x64) — 0.015 s / 2120 KB (#11279090).
 
+The current 1090_fenwick_implementation_optimized.rs revision only names
+the unchanged 32-byte inline token capacity. Accepted #11328959
+(0.015 s / 224 KB) belongs to the preceding revision.
+
 ## Language notes
 
 The teaching Python version uses a sorted list with binary search and was accepted under PyPy 3.10. The same source under CPython 3.12 exceeded the time limit on test 9 (0.515 s). The optimized Python version uses a Fenwick tree and was also accepted under PyPy 3.10. The table records the actual interpreter of each Accepted submission.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -105,4 +128,4 @@ The teaching Python version uses a sorted list with binary search and was accept
 | [1090_fenwick_optimized.cpp](1090_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 104 KB | 11310324 |
 | [1090_fenwick_optimized.go](1090_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.031 s | 816 KB | 11310344 |
 | [1090_fenwick.py](1090_fenwick.py) | PyPy 3.10 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 9076 KB | 11310319 |
-| [1090_fenwick_implementation_optimized.rs](1090_fenwick_implementation_optimized.rs) | Rust 1.75 x64 | fenwick, implementation | O(K·N log N) | AC | 0.015 s | 224 KB | 11328959 |
+| [1090_fenwick_implementation_optimized.rs](1090_fenwick_implementation_optimized.rs) | Rust 1.75 x64 | fenwick, implementation | O(K·N log N) | AC | 0.015 s | 232 KB | 11331115 |

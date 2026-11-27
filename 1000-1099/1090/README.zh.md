@@ -50,9 +50,17 @@
 读入这一排时边读边统计。位置 `i` 上的新兵 `x` 前面有 `i` 个人，其中编号比他小的人数是在编号 `1 … N` 上建立的
 树状数组中的前缀和；`x` 的跳跃次数就是 `i` 减去这个数。然后把 `x` 加入树中。`O(K · N log N)`。
 
+教学 Python 把之前的值保持有序。bisect 返回插入下标，所以
+i-index 个之前的值更大，贡献相应逆序对；list.insert 再移动后缀
+保持排序。同一行元素互异。二分 O(log N)，但每次移动 O(N)，
+K 行共 O(K N^2) 时间。当前行列表/切片占 O(N) 个工作字；这个
+具体实现还保留全部 O(KN) 个解析输入整数，需与工作状态分开计算。
+
 注意事项：
 
-- 一排的总数最多为 `N(N − 1)/2 ≈ 5 · 10^7`；32 位放得下，但树状数组解法用 64 位累加；
+- 最大 N(N-1)/2=49 995 000 放得进有符号 32 位。教学
+  C++/Go/Java/Rust 用 64 位总数；优化 C++ 用 int、优化 Go 用
+  原生 int，在此界内安全。Python 整数无界。
 - 相同时取第一排，所以只有严格更大的总数才替换当前最优；
 - 每一排都要清空树状数组。
 
@@ -62,7 +70,12 @@
 
 C++ 和 Go 版本保留树状数组算法，并用固定大小的缓冲区读取输入。树中的每个计数不超过 N，可用 16 位存储。PyPy 版本以树状数组替代有序列表，前缀查询和插入均需 O(log N)。这三个版本的时间复杂度均为 O(K·N log N)，额外空间均为 O(N)。
 
-已通过评测的基础实现 [1090_fenwick.java](1090_fenwick.java), [1090_fenwick.rs](1090_fenwick.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+当前缓存确认简单 Java 低于 1 MiB，仅按时间名次准入。简单 Rust
+未过精确编译器小样本参考所需两项；独立优化 Rust 低于 1 MiB，
+按时间参考合格。优化 C++ 用时间名次，Go 用小样本时间参考，
+PyPy 需要且通过两项普通名次。使用统一
+[排名标准](../../RATING_CRITERIA.md)，保留全部教学源码，
+复用合格文件而不复制。
 
 ### 新的已通过版本
 
@@ -72,9 +85,15 @@ C++ 和 Go 版本保留树状数组算法，并用固定大小的缓冲区读取
 
 Accepted #11328959 (Rust 1.75 x64): **0.015 s / 224 KB**. 历史对照: `1090_fenwick.rs` (Rust 1.75 x64) — 0.015 s / 2120 KB (#11279090).
 
+当前 1090_fenwick_implementation_optimized.rs 仅为原有 32 字节
+内联记号容量命名。Accepted #11328959（0.树状数组算法、
+基础源码和实质注释不变。
+
 ## 各语言说明
 
 教学 Python 版本使用有序列表和二分查找，并在 PyPy 3.10 下通过评测。同一源文件在 CPython 3.12 下于测试 9 超时（0.515 秒）。优化 Python 版本使用树状数组，同样在 PyPy 3.10 下通过。表格记录每个已通过提交实际使用的解释器。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -95,4 +114,4 @@ Accepted #11328959 (Rust 1.75 x64): **0.015 s / 224 KB**. 历史对照: `1090_fe
 | [1090_fenwick_optimized.cpp](1090_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 104 KB | 11310324 |
 | [1090_fenwick_optimized.go](1090_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.031 s | 816 KB | 11310344 |
 | [1090_fenwick.py](1090_fenwick.py) | PyPy 3.10 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 9076 KB | 11310319 |
-| [1090_fenwick_implementation_optimized.rs](1090_fenwick_implementation_optimized.rs) | Rust 1.75 x64 | fenwick, implementation | O(K·N log N) | AC | 0.015 s | 224 KB | 11328959 |
+| [1090_fenwick_implementation_optimized.rs](1090_fenwick_implementation_optimized.rs) | Rust 1.75 x64 | fenwick, implementation | O(K·N log N) | AC | 0.015 s | 232 KB | 11331115 |
