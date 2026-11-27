@@ -34,7 +34,7 @@ The output is compared token by token; extra whitespace does not matter.
 Input:
 
 ```
-3 4
+2 6
 ```
 
 Output:
@@ -141,7 +141,18 @@ For a rectangle, the first three sequences below reduce four occupied columns to
   (-1,2)→(1,2)  (1,2)→(3,2)  (3,1)→(3,3)
 ```
 
-The accepted base implementations [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The current cached audit confirms the C++, Go and Python bases as
+covering sources under the shared [rating criteria](../../RATING_CRITERIA.md).
+C++ compares time rank only; Go uses the exact-compiler small-cohort
+reference on both metrics; Python uses that reference on time alone
+below 1 MiB. Simple Python is unstarred. Simple Java still fails its
+required metrics but is retained unstarred as a teaching source; the
+distinct optimized Java source qualifies by time alone at 460 KB.
+
+The current revisions of the five simple 1051_games_math files and
+1051_games_math_optimized.java correct only the reduction comment. An isolated row of three leaves two stones; the two-dimensional reduction
+uses neighbouring stones, as in the constructive proof above. Their
+table Accepted IDs and paired measurements belong to preceding revisions.
 
 `1051_games_math_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
 
@@ -153,23 +164,23 @@ These notes describe the simple implementations.
 
 - All languages evaluate the same formula.
 
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
+
 ## Solutions
 
 ### Simple
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB | 11278686 |
-| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB | 11278689 |
-| [1051_games_math.java](1051_games_math.java) \* | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB | 11278691 |
-| [1051_games_math.py](1051_games_math.py) \* | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB | 11278690 |
-| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB | 11278693 |
+| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.001 s | 112 KB | 11331152 |
+| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.031 s | 1052 KB | 11331034 |
+| [1051_games_math.java](1051_games_math.java) | Java 1.8 | games, math | O(1) | AC | 0.14 s | 1552 KB | 11331055 |
+| [1051_games_math.py](1051_games_math.py) | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 404 KB | 11331088 |
+| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.001 s | 220 KB | 11331131 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1051_games_math_optimized.rs](1051_games_math_optimized.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
-| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.078 s | 456 KB | 11331200 |

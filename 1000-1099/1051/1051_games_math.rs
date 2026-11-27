@@ -1,6 +1,6 @@
 use std::io::{self, Read};
 
-// three stones in a row can be cleared down to one, which settles the 2D case
+// In 2D, neighbouring stones enable three-column/row reductions; isolated rows are separate.
 const GROUP: u32 = 3;
 
 fn main() {

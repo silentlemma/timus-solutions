@@ -20,6 +20,7 @@
     { "name": "16", "note": "the smallest two-dimensional multiple-of-three board with the divisible side first" },
     { "name": "17", "note": "an odd column needs upward rounding when the unit dimension is second" },
     { "name": "18", "generator": "small 16", "note": "seeded random 2 x 5 rectangle with both dimensions two modulo three" },
-    { "name": "19", "generator": "small 23", "note": "seeded random 5 x 3 rectangle has odd area and only the second side divisible by three" }
+    { "name": "19", "generator": "small 23", "note": "seeded random 5 x 3 rectangle has odd area and only the second side divisible by three" },
+    { "name": "20", "note": "an isolated row of three cannot be cleared to one" }
   ]
 }

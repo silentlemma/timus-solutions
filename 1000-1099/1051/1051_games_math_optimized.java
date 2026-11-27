@@ -111,7 +111,7 @@ public class Main {
         FastInput useLocale(java.util.Locale ignored) { return this; }
     }
 
-    // three stones in a row can be cleared down to one, which settles the 2D case
+    // In 2D, neighbouring stones enable three-column/row reductions; isolated rows are separate.
     static final int GROUP = 3;
 
     public static void main(String[] args) {

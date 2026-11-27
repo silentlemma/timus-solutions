@@ -32,7 +32,7 @@
 输入：
 
 ```
-3 4
+2 6
 ```
 
 输出：
@@ -128,7 +128,16 @@ Rust 保持 Accepted 标准库版同一常数公式：一维行留 ceil(longerSi
   (-1,2)→(1,2)  (1,2)→(3,2)  (3,1)→(3,3)
 ```
 
-已通过评测的基础实现 [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+当前缓存审计按统一[排名标准](../../RATING_CRITERIA.md)确认 C++、Go、
+Python 基础版覆盖相应语言。C++ 只比较时间名次；Go 按精确编译器
+小样本参考比较两项；Python 低于 1 MiB，只比较该参考的时间，不加
+星号。简单 Java 仍未满足所需指标，但作为教学版不加星号；独立优化 Java 为
+460 KB，仅按时间通过。
+
+五个简单 1051_games_math 文件和 1051_games_math_optimized.java
+的当前修订只修正缩减注释。孤立的三个一行石子会留下两个；二维缩减
+需要相邻石子，如上面的构造证明。全部简单
+算法和有意义的说明注释保留。
 
 `1051_games_math_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
 
@@ -140,23 +149,23 @@ Rust 保持 Accepted 标准库版同一常数公式：一维行留 ceil(longerSi
 
 - 各语言计算同一个公式。
 
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
+
 ## 解答
 
 ### 简单版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB | 11278686 |
-| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB | 11278689 |
-| [1051_games_math.java](1051_games_math.java) \* | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB | 11278691 |
-| [1051_games_math.py](1051_games_math.py) \* | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB | 11278690 |
-| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB | 11278693 |
+| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.001 s | 112 KB | 11331152 |
+| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.031 s | 1052 KB | 11331034 |
+| [1051_games_math.java](1051_games_math.java) | Java 1.8 | games, math | O(1) | AC | 0.14 s | 1552 KB | 11331055 |
+| [1051_games_math.py](1051_games_math.py) | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 404 KB | 11331088 |
+| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.001 s | 220 KB | 11331131 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1051_games_math_optimized.rs](1051_games_math_optimized.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
-| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.078 s | 456 KB | 11331200 |

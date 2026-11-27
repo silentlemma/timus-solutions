@@ -34,7 +34,7 @@ La salida se compara token a token; los espacios en blanco extra no importan.
 Entrada:
 
 ```
-3 4
+2 6
 ```
 
 Salida:
@@ -98,6 +98,8 @@ Detalles a tener en cuenta:
 - `2 × 3` deja 2, mientras que `2 × 4` deja 1;
 - `M` y `N` pueden venir en cualquier orden.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 Rust conserva la fórmula O(1) del original Accepted: fila de ancho uno deja ceil(ladoMayor/2); en2D un lado múltiplo de3 da2 y el resto1. Leer dos números directamente, min/max sin vector/ordenar y salida C con búfer de cinco dígitos y entrada C. Lados≤10000 implican respuesta≤5000. Cambian representación y E/S, no el teorema ni el orden: tiempo/espacio extra O(1). Se conservan fuentes sencillas y argumento original; C++/Go/Java/Python reutilizan bases.
@@ -142,7 +144,16 @@ Las primeras tres secuencias reducen cuatro columnas ocupadas a la columna derec
   (-1,2)→(1,2)  (1,2)→(3,2)  (3,1)→(3,3)
 ```
 
-Las implementaciones base aceptadas [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché actual confirma las bases C++, Go y Python con los
+[criterios compartidos](../../RATING_CRITERIA.md). C++ usa solo puesto de
+tiempo; Go, referencia pequeña del compilador exacto en ambas métricas;
+Python, esa referencia solo en tiempo bajo 1 MiB, sin asterisco. Java
+simple sigue sin cumplir pero se conserva didáctico sin marcador; Java
+optimizado distinto, de 460 KB, cumple solo por tiempo.
+
+Las revisiones de los cinco archivos simples 1051_games_math y de
+1051_games_math_optimized.java solo corrigen el comentario de reducción. Una fila aislada de tres deja dos piedras; la reducción bidimensional
+usa piedras vecinas, como en la prueba constructiva de arriba. Se conservan algoritmos simples y comentarios explicativos útiles.
 
 `1051_games_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
 
@@ -160,17 +171,15 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB | 11278686 |
-| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB | 11278689 |
-| [1051_games_math.java](1051_games_math.java) \* | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB | 11278691 |
-| [1051_games_math.py](1051_games_math.py) \* | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB | 11278690 |
-| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB | 11278693 |
+| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.001 s | 112 KB | 11331152 |
+| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.031 s | 1052 KB | 11331034 |
+| [1051_games_math.java](1051_games_math.java) | Java 1.8 | games, math | O(1) | AC | 0.14 s | 1552 KB | 11331055 |
+| [1051_games_math.py](1051_games_math.py) | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 404 KB | 11331088 |
+| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.001 s | 220 KB | 11331131 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1051_games_math_optimized.rs](1051_games_math_optimized.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
-| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) | Java 1.8 | games, math | O(1) | AC | 0.078 s | 456 KB | 11331200 |
