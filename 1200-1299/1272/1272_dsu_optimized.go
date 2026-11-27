@@ -35,7 +35,8 @@ func main() {
 		}
 		return v
 	}
-	// tunnels are free; every bridge joins two of the remaining groups
+	// Tunnels are free; some bridges can stay inside a tunnel component.
+	// The connected full network provides enough bridges between components.
 	groups := n
 	for i := 0; i < k; i++ {
 		a, b := find(uint16(next(in))), find(uint16(next(in)))

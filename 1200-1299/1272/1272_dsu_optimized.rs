@@ -57,7 +57,8 @@ fn main() {
     let (n, k) = (input.next(), input.next());
     let m = input.next();
     let mut parent: Vec<usize> = (0..=n).collect();
-    // tunnels are free; every bridge joins two of the remaining groups
+    // Tunnels are free; some bridges can stay inside a tunnel component.
+    // The connected full network provides enough bridges between components.
     let mut groups = n;
     for _ in 0..k {
         let a = find(&mut parent, input.next());

@@ -22,7 +22,8 @@ public class Main {
         parent = new int[n + 1];
         for (int i = 0; i <= n; i++)
             parent[i] = i;
-        // tunnels are free; every bridge joins two of the remaining groups
+        // Tunnels are free; some bridges can stay inside a tunnel component.
+        // The connected full network provides enough bridges between components.
         int groups = n;
         for (int i = 0; i < k; i++) {
             int a = find(next(in)), b = find(next(in));

@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1272_dsu.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "two tunnel groups and a lone island" },
+    { "name": "01", "example": true, "note": "own three tunnel groups with two internal bridges and a connecting bridge chain" },
     { "name": "02", "note": "one island, nothing to build" },
     { "name": "03", "note": "no tunnels: a chain of bridges" },
     { "name": "04", "note": "tunnels alone connect everything" },

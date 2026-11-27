@@ -21,7 +21,8 @@ func main() {
 		}
 		return x
 	}
-	// tunnels are free; every bridge joins two of the remaining groups
+	// Tunnels are free; some bridges can stay inside a tunnel component.
+	// The connected full network provides enough bridges between components.
 	groups := n
 	for i := 0; i < k; i++ {
 		var a, b int

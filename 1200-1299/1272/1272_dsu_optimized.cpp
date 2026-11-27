@@ -39,7 +39,8 @@ int main() {
     int n = next_int(), k = next_int(), m = next_int();
     for (int i = 1; i <= n; i++)
         parent[i] = i;
-    // tunnels are free; every bridge joins two of the remaining groups
+    // Tunnels are free; some bridges can stay inside a tunnel component.
+    // The connected full network provides enough bridges between components.
     int groups = n;
     for (int i = 0; i < k; i++) {
         int a = find(next_int()), b = find(next_int());
