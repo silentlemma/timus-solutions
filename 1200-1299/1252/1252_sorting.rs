@@ -45,6 +45,8 @@ fn main() {
         rank += 1;
         up = gcd(up, position.abs_diff(rank));
         down = gcd(down, position.abs_diff(size + 1 - rank));
+        // Gcd 1 stays 1 after further values. Once both orders reach it,
+        // neither can allow a step above 1, so the final answer is K = 0.
         if up == 1 && down == 1 {
             break;
         }

@@ -24,6 +24,10 @@ N, then the N weights, one per line. Each weight is an integer from 1 to
 
 The largest such K.
 
+## Checking
+
+`tests/tests.json` uses exact `tokens`: one decimal token K in 0..N−1. Whitespace/newlines around it do not matter; extra tokens or a different numeral spelling fail. Both increasing and decreasing target orders are allowed; already sorted rows permit N−1 even though swaps that far apart do not exist.
+
 ## Examples
 
 ### Example 1
@@ -31,18 +35,19 @@ The largest such K.
 Input:
 
 ```
-5
-30
-21
-56
+6
 40
-17
+50
+60
+10
+20
+30
 ```
 
 Output:
 
 ```
-1
+2
 ```
 
 ## Solution
@@ -69,11 +74,15 @@ Pitfalls:
 The rule was compared with a search over all reachable orders for every
 K on 300 random rows of up to 7 stones.
 
+Simple C++/Go retain weights and sorted original-position indices; Java retains one packed long[N] array; all use O(N) array storage including any sorting workspace. Python also keeps whole input, integer list/slices and sorted indices, Rust whole input and parsed/index vectors: O(I+N) for I input bytes. Fast native versions retain a full 130001-entry position table, O(W) for W=130000, regardless of the smaller occupied weight interval. They do not store a second full stone sequence. Input buffers are 16384 bytes in C++, 4096 in Java, and bounded locked standard input in Rust. General gcd processing costs up to O(N log N) arithmetic work; table initialization/scanning adds O(W), input adds O(I).
+
 ## Optimized solutions
 
-C++, Java and Rust use a table indexed by weight. Since weights are distinct, each cell holds either the stone’s original position or zero. Scanning the occupied cells in weight order gives the increasing rank r and the decreasing rank N + 1 − r, so both gcds are updated in one pass. W is the size of the weight table.
+All three native fast versions replace sorting with a zero-initialized weight→original-position table, possible because weights are distinct and bounded. Track minimum/maximum occupied weight and scan only that interval, skipping zero entries; rank gives both increasing and decreasing target positions. C++ and Rust stop once both gcds reach 1: a gcd that is 1 remains 1 after further values, so neither direction can permit d>1 and K=0 is final. Java continues the entire interval. C++ uses a custom fread parser, Java a4096-byte parser, Rust locked byte input. Conservative time O(I+W+N log N), space O(W+B) with bounded input B.
 
-The accepted base implementations [1252_number_theory.go](1252_number_theory.go), [1252_number_theory.py](1252_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The source-bound saved audit qualifies the reused Go 4012 KB base against its applicable sparse exact-compiler reference, requiring both metrics; it is not admitted by an ordinary top-ten/top 15% assertion. Python 13612 KB qualifies both ordinary rankings. Java base1596 KB and Rust base3652 KB qualify both; fast Java 972 KB, C++ 604 KB and Rust 712 KB require only time below 1024 KB. Simple C++ remains teaching despite missing required metrics. The shared [rating criteria](../../RATING_CRITERIA.md) apply without separate first-place or 30%-gain exceptions.
+
+Only explanatory early-exit comments were added to `1252_sorting.cpp` (historical#11310440,0.015 s/604 KB) and `1252_sorting.rs` (historical#11310439,0.015 s/712 KB). Simple versions and unchanged fast Java remain available.
 
 ## Language notes
 
@@ -81,6 +90,8 @@ These notes describe the simple implementations.
 
 - Java sorts weights packed with their positions in one `long` array
   instead of sorting boxed indices with a comparator.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -91,13 +102,13 @@ These notes describe the simple implementations.
 | [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB | 11284003 |
 | [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB | 11284006 |
 | [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB | 11284010 |
-| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB | 11284007 |
+| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.14 s | 13612 KB | 11284007 |
 | [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB | 11284011 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 604 KB | 11310440 |
+| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 608 KB | 11331145 |
 | [1252_sorting.java](1252_sorting.java) | Java 1.8 | sorting | O(W + N log N) | AC | 0.078 s | 972 KB | 11310354 |
-| [1252_sorting.rs](1252_sorting.rs) | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11310439 |
+| [1252_sorting.rs](1252_sorting.rs) | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11331120 |

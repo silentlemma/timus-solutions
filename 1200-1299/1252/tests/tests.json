@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1252_number_theory.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "shifts of 2 and 4: K = 1" },
+    { "name": "01", "example": true, "note": "own swapped halves: increasing step3 beats decreasing step2" },
     { "name": "02", "note": "one stone" },
     { "name": "03", "note": "already in increasing order: K = N - 1" },
     { "name": "04", "note": "already in decreasing order: K = N - 1" },

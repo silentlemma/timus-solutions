@@ -21,6 +21,10 @@ N，然后是 N 个重量，每行一个。每个重量都是 1 到 130 000 之�
 
 最大的这样的 K。
 
+## 检查
+
+`tests/tests.json`使用精确`tokens`：一个范围0..N−1的十进制K。忽略周围空白/换行，额外token或不同数字拼写失败。升序与降序都允许，已排序时即使没有相隔该距离的交换仍可取N−1。
+
 ## 样例
 
 ### 样例 1
@@ -28,18 +32,19 @@ N，然后是 N 个重量，每行一个。每个重量都是 1 到 130 000 之�
 输入：
 
 ```
-5
-30
-21
-56
+6
 40
-17
+50
+60
+10
+20
+30
 ```
 
 输出：
 
 ```
-1
+2
 ```
 
 ## 解法
@@ -59,17 +64,23 @@ N，所以 K = g − 1；如果这一行已经是这个顺序，则 g = 0，任�
 
 该规则在 300 行随机的、至多 7 块石头的行上，与对每个 K 搜索所有可达顺序的结果比较过。
 
+基础C++/Go保存权重及排序原位置索引，Java保存一个打包long[N]，含可能排序临时区均O(N)。Python另有全部输入、整数列表/切片及索引；Rust全部输入和数字/索引向量，O(I+N)。快速本地版固定130001项位置表，W=130000时O(W)，不随较小占用区间缩小，也不保存第二份完整序列。C++输入16384字节，Java 4096，Rust有界锁定stdin。一般GCD工作至多O(N log N)，初始化/扫描表另O(W)，输入O(I)。
+
 ## 优化解法
 
-C++、Java 和 Rust 以重量为下标建表。重量互不相同，每格保存石头的原位置或零。按重量扫描非空格，得到升序排名 r 和降序排名 N + 1 − r，因此一次扫描就能更新两个最大公约数。W 是重量表的大小。
+三份快速本地版利用不同且有界权重，以零初始化权重→原位置表替换排序。跟踪最小/最大权重，仅扫该区间并跳过零；秩给出升/降目标位置。C++/Rust两GCD均为1后即停：1与任何新值的GCD仍为1，两方向均无d>1，因此K=0已确定。Java扫描完整区间。C++用fread解析，Java 4096字节解析，Rust锁定字节输入。保守时间O(I+W+N log N)，空间O(W+B)，B为有界输入缓冲。
 
-已通过评测的基础实现 [1252_number_theory.go](1252_number_theory.go), [1252_number_theory.py](1252_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+精确源码缓存对复用Go 4012 KB基础版要求两项并用适用精确编译器稀疏参照，并非普通前十/前15%准入。Python 13612 KB通过普通两项排名。基础Java 1596 KB、Rust 3652 KB也需两项，快速Java 972 KB、C++ 604 KB、Rust 712 KB低于1024 KB只看时间。基础C++未过必需指标，保留教学。统一[标准](../../RATING_CRITERIA.md)无额外第一或改进30%例外。
+
+只为`1252_sorting.cpp`（历史#11310440，0.015 s/604 KB）及`1252_sorting.rs`（历史#11310439，0.015 s/712 KB）添加提前终止解释。基础版及未变快速Java保留。
 
 ## 各语言说明
 
 以下说明针对基础实现。
 
 - Java 把重量和位置打包进一个 `long` 数组再排序，而不是用比较器对装箱的下标排序。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -80,13 +91,13 @@ C++、Java 和 Rust 以重量为下标建表。重量互不相同，每格保存
 | [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB | 11284003 |
 | [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB | 11284006 |
 | [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB | 11284010 |
-| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB | 11284007 |
+| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.14 s | 13612 KB | 11284007 |
 | [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB | 11284011 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 604 KB | 11310440 |
+| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 608 KB | 11331145 |
 | [1252_sorting.java](1252_sorting.java) | Java 1.8 | sorting | O(W + N log N) | AC | 0.078 s | 972 KB | 11310354 |
-| [1252_sorting.rs](1252_sorting.rs) | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11310439 |
+| [1252_sorting.rs](1252_sorting.rs) | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11331120 |

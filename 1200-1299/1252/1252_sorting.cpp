@@ -49,6 +49,8 @@ int main() {
         ++rank;
         up = std::gcd(up, std::abs(position - rank));
         down = std::gcd(down, std::abs(position - (size + 1 - rank)));
+        // Gcd 1 stays 1 after further values. Once both orders reach it,
+        // neither can allow a step above 1, so the final answer is K = 0.
         if (up == 1 && down == 1)
             break;
     }
