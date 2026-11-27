@@ -2,7 +2,7 @@
   "judging": "tokens",
   "reference": "1296_dp.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "the best segment runs from 59 to 97" },
+    { "name": "01", "example": true, "note": "own example: cross a small dip, but discard a deeper loss" },
     { "name": "02", "example": true, "note": "all negative: the empty segment gives 0" },
     { "name": "03", "note": "an empty sequence" },
     { "name": "04", "note": "a single positive number" },

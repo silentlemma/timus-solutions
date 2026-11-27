@@ -2,7 +2,7 @@ use std::io::{self, BufRead, BufReader};
 
 fn main() {
     const INPUT_BUFFER_SIZE: usize = 1024;
-    // the prices are read line by line through a 1 KB buffered reader instead
+    // the sequence values are read line by line through a 1 KB buffered reader instead
     // of reading the whole input into a string
     let stdin = io::stdin();
     let mut input = BufReader::with_capacity(INPUT_BUFFER_SIZE, stdin.lock());

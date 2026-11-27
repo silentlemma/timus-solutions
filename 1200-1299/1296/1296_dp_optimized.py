@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    # the prices are read line by line, one per line, and the running sums are
+    # the sequence values are read line by line, one per line, and the running sums are
     # compared directly instead of calling max()
     readline = sys.stdin.buffer.readline
     n = int(readline())

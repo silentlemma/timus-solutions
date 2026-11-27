@@ -22,6 +22,11 @@ N, then the N numbers, one per line. N may be 0.
 
 The largest sum.
 
+## Checking
+
+Token comparison (`judging: tokens` in `tests/tests.json`). The answer
+is one integer; surrounding whitespace does not affect the result.
+
 ## Examples
 
 ### Example 1
@@ -29,23 +34,21 @@ The largest sum.
 Input:
 
 ```
-10
-31
--41
-59
-26
--53
-58
-97
--93
--23
-84
+8
+-8
+12
+-3
+9
+-20
+7
+6
+-2
 ```
 
 Output:
 
 ```
-187
+18
 ```
 
 ### Example 2
@@ -53,10 +56,11 @@ Output:
 Input:
 
 ```
-3
--1
--5
--6
+4
+-9
+-2
+-7
+-4
 ```
 
 Output:
@@ -91,8 +95,10 @@ Pitfalls:
 - the sum reaches 60 000 · 30 000 = 1.8 · 10⁹, close to the 32-bit
   limit, so the solutions use 64 bits (test gen2).
 
-The answers were compared with checking every segment on 1500 random
-sequences.
+An independent prefix-pair divide-and-conquer oracle checks every
+stored/generated answer. It is cross-checked by enumerating every
+segment on exhaustive small sequences and 1500 seeded random sequences.
+Both actual Python main functions are exercised separately on the host.
 
 ## Optimized solutions
 
@@ -101,7 +107,10 @@ line, instead of splitting the whole input, and compares the running
 sums directly instead of calling `max()`: 0.078 s instead of 0.125 s and
 388 KB instead of 4788 KB. The optimized Rust solution reads the numbers
 line by line through a 1 KB buffered reader instead of reading the whole
-input into a string: 228 KB instead of 1260 KB, with the same time.
+input into a string. Its paired receipts are base #11297982
+`0.031 s / 1260 KB` and optimized #11303736 `0.015 s / 228 KB`: both
+time and memory decrease. These are measurements of their recorded
+exact source bytes, not portable runtime guarantees.
 
 ## Language notes
 
@@ -111,6 +120,19 @@ input into a string: 228 KB instead of 1260 KB, with the same time.
   total memory for buffered input.
 
 Parse integers in buffered blocks and update the running maximum subarray sum as each value arrives. Accepted submission 11302135 took 0.015 s and used 100 KB. The simple version took 0.046 s and used 132 KB.
+
+The optimized Python and Rust comments now correctly say sequence
+values rather than prices. Only those comments changed; algorithms
+and all other meaningful comments are preserved. The Accepted rows
+#11303735 and #11303736 describe the preceding exact bytes. No queue was started for this review.
+
+Let I be input bytes and H the longest line length. The arithmetic
+uses two running sums. Line readers also retain a line: fast Rust
+uses `O(1024+H)` and fast Python `O(B+H)` including runtime buffers B.
+With the specified bounded-width number per line, this is constant;
+arbitrary padding would increase H. Simple Python/Rust retain I.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -128,6 +150,6 @@ Parse integers in buffered blocks and update the running maximum subarray sum as
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1296_dp_optimized.py](1296_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 388 KB | 11303735 |
-| [1296_dp_optimized.rs](1296_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 228 KB | 11303736 |
+| [1296_dp_optimized.py](1296_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.093 s | 392 KB | 11331059 |
+| [1296_dp_optimized.rs](1296_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 212 KB | 11331094 |
 | [1296_dp_optimized.cpp](1296_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 100 KB | 11302135 |
