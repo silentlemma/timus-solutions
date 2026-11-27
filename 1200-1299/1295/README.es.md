@@ -15,7 +15,7 @@ Límite de tiempo: 0.5 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-El número n.
+Un entero n, `1 ≤ n ≤ 300000`.
 
 ## Salida
 
@@ -32,13 +32,13 @@ Las pruebas del repositorio comparan exactamente los tokens de salida; los espac
 Entrada:
 
 ```
-1
+8
 ```
 
 Salida:
 
 ```
-1
+0
 ```
 
 ### Ejemplo 2
@@ -46,7 +46,7 @@ Salida:
 Entrada:
 
 ```
-3
+7
 ```
 
 Salida:
@@ -87,15 +87,28 @@ Detalles a tener en cuenta:
 Los resultados se compararon con la suma exacta en enteros grandes para
 todos los n hasta 3000.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1295_math.java`. Una fórmula de congruencias sustituye potencias modulares: n divisible por 4 da cero ceros finales; n mod 4=3 o n mod 20=5 da dos; los demás uno. Módulo 5 decide existencia, expansión impar módulo 25 el segundo, módulo 8 excluye tercero; n=1 da 10 aparte. Sin tabla de respuestas. Aritmética y espacio O(1), más lectura decimal. Algoritmo distinto llamado math; conserva potencia modular y enseñanza. Fórmula real contrastada para todo n=1..300000 con potencias independientes.
 
-Fuente exacto: Java 1.8 Accepted #11327403: 0.078 s / 340 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/67; 2/67. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11305839 (Java 1.8): 0.109 s / 324 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+Java 1.8 exacto #11327403 mide `0.078 s / 340 KB`, con puestos
+guardados del 20 de noviembre de 2026 de 2/67 en tiempo y memoria.
+Bajo 1024 KB solo se exige tiempo: la fórmula cumple. La variante
+distinta de potencias modulares #11305839 mide `0.109 s / 324 KB`;
+su tiempo 12/67 no entra en diez primeros ni 15% con corte 11, por
+eso conserva asterisco. No hay meta separada de primer puesto por lenguaje.
 
 - `1295_math.java`: 0.078 s / 340 KB; base didáctica conservada `1295_number_theory.java` (Java 1.8): 0.125 s / 1600 KB.
 
-`1295_number_theory_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327024 mide 0.062 s / 660 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/57, memoria 30/57. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325070, 0.125 s / 200 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+Python intacto selecciona CPython 3.12 #11327024 `0.062 s / 660 KB`,
+tiempo 1/57 y memoria 30/57, cumpliendo solo por tiempo. Base
+#11284644 `0.093 s / 464 KB`: más rápido pero más memoria. Su PyPy
+3.10 anterior documentado #11325070 es `0.125 s / 200 KB`, más lento
+con menos memoria. No se mezclan pares de compiladores/ejecuciones;
+las notas posteriores de ahorro se refieren al PyPy histórico. Se
+reutiliza el archivo sin copia ni otra meta de admisión por lenguaje.
 
 La solución optimizada en Java analiza `n` a mano desde un búfer de 4 KB
 que se llena desde `System.in`, en lugar de crear un `Scanner`, así que
@@ -104,10 +117,12 @@ módulo 100 son las mismas: {1295_number_theory_optimized.java}.
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Los pares siguientes son cambios medidos individuales, no una mejora
+universal del 30% ni otra admisión. Go #11328536 frente a base
+#11284638 mantiene `0.031 s`; memoria de 1080 a 936 KB, solo 13.3%
+menos. Cumple por comparación temporal del grupo pequeño, no por
+ahorrar un 30%. Reducción negativa indica mayor coste; se conservan
+bases didácticas y versiones anteriores distintas.
 
 - `1295_number_theory_optimized.java`: reducción de tiempo +12.80%;
   reducción de memoria +79.75%; base: `1295_number_theory.java`.
@@ -126,11 +141,26 @@ Accepted #11328536 (Go 1.14 x64): **0.031 s / 936 KB**. Comparación archivada: 
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Los [criterios compartidos](../../RATING_CRITERIA.md) rigen todos los lenguajes:
+diez primeros o 15% superior en métricas necesarias, sustituidos por
+referencia con 1–10 rivales válidos del mismo compilador. Bajo 1024 KB
+solo se exige tiempo. Se excluyen rivales menores de `0.015 s`; solo
+nuestro tiempo se eleva a ese mínimo. Empates comparten puesto y corte
+porcentual redondea arriba. No hay corte ID/fecha, primer puesto
+separado ni admisión solo por mejorar 30%. Algoritmos, comentarios y
+celdas Accepted emparejadas siguen intactos.
 
-Comparación PyPy anterior: `1295_number_theory_optimized.py`: puesto de tiempo 37/57 y de memoria 1/57 en esta muestra comparable.
+Los puestos PyPy anteriores del 18 de noviembre (tiempo 37/57, memoria
+1/57) son históricos. La auditoría congelada ligada a fuentes admite
+C++, fórmula Java, CPython seleccionado, Go rápido y Rust sencillo.
+El límite temporal Go de tres rivales es `0.062 s`; Go base supera
+su límite de memoria 1076.40 KB. Rust cumple `0.062 s` frente a un
+rival. Go, Java y Python sencillos se conservan para enseñanza
+aunque no cumplan las comparaciones necesarias.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+El Go actual solo extrae el ancho de conversión64 a `numericBits` por
+lint estricto. #11328536 y las comparaciones anteriores corresponden
+a los bytes previos.
 
 ## Soluciones
 
@@ -151,6 +181,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
 | [1295_math.java](1295_math.java) | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
 | [1295_number_theory_optimized.py](1295_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
-| [1295_number_theory_optimized.go](1295_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 936 KB | 11328536 |
+| [1295_number_theory_optimized.go](1295_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 932 KB | 11331007 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

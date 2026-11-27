@@ -15,7 +15,7 @@ Time limit: 0.5 seconds. Memory limit: 64 MB.
 
 ## Input
 
-The number n.
+One integer n, `1 ≤ n ≤ 300000`.
 
 ## Output
 
@@ -32,13 +32,13 @@ Repository tests compare the output tokens exactly; whitespace between tokens is
 Input:
 
 ```
-1
+8
 ```
 
 Output:
 
 ```
-1
+0
 ```
 
 ### Example 2
@@ -46,7 +46,7 @@ Output:
 Input:
 
 ```
-3
+7
 ```
 
 Output:
@@ -88,11 +88,23 @@ up to 3000.
 
 `1295_math.java`. A closed congruence formula replaces modular exponentiation: n divisible by 4 gives zero trailing zeros; n mod 4=3 or n mod 20=5 gives two; otherwise one. Modulo 5 decides existence, the odd-case expansion modulo 25 decides the second zero, and modulo 8 excludes a third (n=1 separately gives 10). No answer table is embedded. Arithmetic work and storage are O(1), plus reading the decimal input. Name this different algorithm math; retain both the modular-power alternative and the teaching source. The actual formula was checked for every n=1..300000 against independent modular powers.
 
-Exact-source Java 1.8 Accepted #11327403: 0.078 s / 340 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/67; 2/67. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11305839 (Java 1.8): 0.109 s / 324 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+Exact-source Java 1.8 #11327403 is `0.078 s / 340 KB`, with saved
+20 November 2026 time/memory ranks 2/67 and 2/67. Below 1024 KB only
+time is required, so this formula version qualifies. The distinct
+modular-power variant #11305839 is `0.109 s / 324 KB`; its time
+rank 12/67 misses both top ten and the top-15% cutoff 11, explaining
+its retained star. This is not a separate first-place language target.
 
 - `1295_math.java`: 0.078 s / 340 KB; retained teaching base `1295_number_theory.java` (Java 1.8): 0.125 s / 1600 KB.
 
-`1295_number_theory_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327024 measures 0.062 s / 660 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 1/57, memory rank 30/57. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325070, 0.125 s / 200 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+The unchanged Python file has selected CPython 3.12 #11327024
+`0.062 s / 660 KB`, saved time rank 1/57 and memory rank 30/57. It
+qualifies by time only. Base #11284644 is `0.093 s / 464 KB`: the
+selected run is faster but uses more memory. Its earlier documented
+PyPy 3.10 #11325070 is `0.125 s / 200 KB`, slower with less memory.
+Keep these run/compiler pairs separate; later memory-saving remarks
+refer to that historical PyPy pair. Reuse the same file without a
+duplicate source or another language-specific admission target.
 
 The optimized Java solution parses `n` by hand from a 4 KB buffer filled
 from `System.in` instead of creating a `Scanner`, so the JVM does not
@@ -101,10 +113,12 @@ the same: {1295_number_theory_optimized.java}.
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+The pairs below describe individual measured changes, not a universal
+30% gain or an alternative admission rule. In particular Go #11328536
+versus base #11284638 remains `0.031 s`; memory changes from 1080 to
+936 KB, a 13.3% reduction. It qualifies by the sparse time comparison,
+not by a 30% saving. Negative reduction means increased cost; all
+teaching sources and distinct earlier implementations remain.
 
 - `1295_number_theory_optimized.java`: time reduction +12.80%; memory
   reduction +79.75%; base: `1295_number_theory.java`.
@@ -123,11 +137,26 @@ Accepted #11328536 (Go 1.14 x64): **0.031 s / 936 KB**. Archived comparison: `12
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+The shared [rating criteria](../../RATING_CRITERIA.md) apply to all languages:
+ordinary top ten or top 15% for required metrics, replaced by the
+reference comparison with 1–10 eligible exact-compiler rivals. Below
+1024 KB only time is required. Rival times below `0.015 s` are excluded;
+only our own time uses that floor. Ties share rank and percentage
+cutoffs round up. No date/ID cutoff, separate first-place requirement
+or admission just for a 30% improvement applies. All algorithms, comments and paired Accepted cells stay unchanged.
 
-Earlier PyPy comparison: `1295_number_theory_optimized.py`: time place 37/57, memory place 1/57 in this comparable sample.
+The earlier 18 November PyPy ranks 37/57 (time), 1/57 (memory) are
+historical. The source-bound frozen audit admits C++, formula Java,
+selected CPython, optimized Go and simple Rust. Go’s three-rival
+time limit is `0.062 s`; base Go misses its 1076.40 KB memory limit.
+Rust passes the one-rival time limit `0.062 s`. Simple Go, Java and
+Python remain teaching versions despite missing required comparisons.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+Current Go only extracts conversion bit width 64 into `numericBits`
+to satisfy strict lint. #11328536 and the comparisons above describe
+preceding exact bytes.
+
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -148,6 +177,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
 | [1295_math.java](1295_math.java) | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
 | [1295_number_theory_optimized.py](1295_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
-| [1295_number_theory_optimized.go](1295_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 936 KB | 11328536 |
+| [1295_number_theory_optimized.go](1295_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 932 KB | 11331007 |
 
 \* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

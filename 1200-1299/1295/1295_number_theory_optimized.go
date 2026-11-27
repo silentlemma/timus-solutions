@@ -9,6 +9,7 @@ import (
 
 const mod = 100
 const bases = 4
+const numericBits = 64
 
 func power(base, n int) int {
 	r := 1
@@ -73,11 +74,11 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		case *int:
 			*value, err = strconv.Atoi(word)
 		case *int64:
-			*value, err = strconv.ParseInt(word, 10, 64)
+			*value, err = strconv.ParseInt(word, 10, numericBits)
 		case *uint64:
-			*value, err = strconv.ParseUint(word, 10, 64)
+			*value, err = strconv.ParseUint(word, 10, numericBits)
 		case *float64:
-			*value, err = strconv.ParseFloat(word, 64)
+			*value, err = strconv.ParseFloat(word, numericBits)
 		default:
 			panic("unsupported input type")
 		}
@@ -109,7 +110,7 @@ func fastPrint(writer io.Writer, spaced, newline bool, values ...interface{}) (i
 		case uint64:
 			buffer = strconv.AppendUint(buffer, value, 10)
 		case float64:
-			buffer = strconv.AppendFloat(buffer, value, 'g', -1, 64)
+			buffer = strconv.AppendFloat(buffer, value, 'g', -1, numericBits)
 		case bool:
 			buffer = strconv.AppendBool(buffer, value)
 		default:
