@@ -133,8 +133,10 @@ impl TokenInput {
     }
 }
 
+const INLINE_TOKEN_BYTES: usize = 32;
+
 struct InputWord {
-    inline: [u8; 32],
+    inline: [u8; INLINE_TOKEN_BYTES],
     length: usize,
     spill: Vec<u8>,
 }
@@ -186,7 +188,7 @@ impl Iterator for TokenInput {
             first = self.byte()?;
         }
         let mut word = InputWord {
-            inline: [0; 32],
+            inline: [0; INLINE_TOKEN_BYTES],
             length: 0,
             spill: Vec::new(),
         };

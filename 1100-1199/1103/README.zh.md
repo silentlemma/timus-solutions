@@ -58,9 +58,16 @@
 `N − 2` 支铅笔按这个角排序，取中间那支作为 `C`：有 `(N − 3) / 2`
 支铅笔的视角更大，位于圆内；同样多的视角更小，位于圆外。`O(N log N)`。
 
-角的比较不用浮点数。它的余切等于 `dot / cross`，其中 `dot = (A − P)·(B − P)`，`cross` 是 `P`、`A`、`B`
-的有向面积的两倍，对每个 `P` 都为正。角越大余切越小，所以当 `dot_P · cross_Q > dot_Q · cross_P` 时 `P` 排在
-`Q` 之前。
+不用浮点比较角。对 P 定义 dot=(A-P)·(B-P)，cross=cross(P,A,B)>0，
+比值是角 APB 的余切。在 (0,180 度) 上余切严格递减。这里按角递增
+排列，故按余切递减：P 先于 Q 当且仅当
+dot_P*cross_Q > dot_Q*cross_P。原不等式正确且不改；整体反序也
+得到同一中位元素。
+
+C++ 用 std::nth_element 选中位而不完整排序。表中对固定 GCC 13.2
+给出保守最坏 O(N log N)：对数分区深度耗尽后转为堆选择。
+不能无条件宣称最坏 O(N)。各实现保存 O(N) 点及键，保留输入
+和排序/选择工作空间按实际另计。
 
 注意事项：
 
@@ -70,20 +77,26 @@
 
 答案在所有测试上都用精确的“点在圆内”行列式检查过，包括在整个坐标范围内随机生成的数千支铅笔。
 
-## 语言说明
-
-- C++ 和 Rust 用 128 位整数比较乘积，并分别用 `nth_element` 和 `select_nth_unstable_by` 选出中间元素。
-- 这些版本的 Go 和 Java 没有 128 位类型，排序时把乘积当作大整数比较。
-
 ## 优化解法
 
 `1103_geometry_optimized.java`. 保留凸包支撑边与中位角圆构造，用基本类型数组保存坐标、点积、正叉积和排序下标。比较器不再分配 BigInteger 乘积，而精确比较有符号乘积：先处理符号，再无符号比较64乘64积的高、低半部；高半部由32位块组装。坐标界10^8 使点积、叉积低于2^63，绝对值安全，完整乘积容于128位。不引入浮点角或 epsilon。自底向上归并下标耗时 O(N log N)、存储 O(N)，保留中位判定；无三点共线、无四点共圆保证所需平分。
 
 与 `1103_geometry.java` 相比：时间 0.140 s → 0.078 s；内存 7336 KB → 688 KB。
 
-Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切较大的点在前。叉积均为正，先比较点积的符号，零视为非负。同号时用 math/bits.Mul64 得到乘积绝对值的高位和低位，先比较高位。两符号均为负时反转顺序。坐标、点积和叉积共用一个数组。每次分割以三个样本的中位数为枢轴。若剩余区间按固定比例缩小，工作量为 O(N)。至多分割 2·bit_length(N−2) 次后对剩余区间排序，最坏时间为 O(N log N)，空间为 O(N)。其余四种语言复用达标基础版。
+优化 Go 保留支撑凸包边及递增角序。叉积为正，先比 dot 符号
+（零非负），再以 math/bits.Mul64 高低字精确比模，两项为负时
+反向。点及键共用数组。确定性三样本中位 pivot 不保证区间按
+固定比例缩小；只有这种缩小成立时总分区工作才线性。显式
+2*bit_length(N-2) 分区上限使最坏分区工作 O(N log N)，最后
+排序剩余区间也至多 O(N log N)。空间 O(N)，无需随机 pivot
+或几何缩小假设。
 
-已通过评测的基础实现 [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+缓存确认 C++ 基础版低于 1 MiB，仅按时间名次合格；Python
+基础版通过精确编译器小样本参考两项。简单 Java/Rust 不合格，
+独立优化 Java 按时间名次合格，低于 1 MiB 的优化 Rust 按时间
+参考合格。优化 Go 仍未过时间目标，保留标记。采用统一
+[排名标准](../../RATING_CRITERIA.md)，保留教学版，不建相同副本
+或另设语言第一名目标。
 
 ### 新的已通过版本
 
@@ -93,13 +106,29 @@ Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切�
 
 Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. 历史对照: `1103_geometry.rs` (Rust 1.75 x64) — 0.015 s / 1160 KB (#11279171).
 
+当前 1103_geometry_implementation_optimized.rs 仅为原有 32 字节
+内联记号容量命名。Accepted #11328975（0.几何算法、
+基础源码和实质注释不变。
+
 ## 各语言说明
 
-新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+教学 C++/Rust 用 128 位整数比较乘积，分别以
+nth_element/select_nth_unstable_by 选择。教学 Go/Java 排序用
+任意精度乘积，Python 也用精确无界整数。独立优化 Go/Java
+改比精确双字模。这些说明针对各命名版本，不概括全部源码。
+
+2026 年 11 月 18 日记录描述历史快照。当前比较在选组前排除低于
+0.015 s 的对手，而本方更低时间只在比较时抬到下限。Accepted
+配对测量仍为原始数据，采用当前统一规则。
 
 `1103_geometry_optimized.java`：在该可比样本中，时间名次 1/16，内存名次 1/16。
 
-星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+当前准入使用统一[排名标准](../../RATING_CRITERIA.md)：普通前十/前
+15%，或适用时精确编译器小样本参考；低于 1 MiB 只比时间。改善
+30% 或单独语言第一名不构成准入条件。保留有意义的教学版本，
+不添加优化目标星号。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -107,9 +136,9 @@ Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. 历史对照: `1103_ge
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
+| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) worst case (GCC 13.2) | AC | 0.015 s | 444 KB | 11279167 |
 | [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
-| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.14 s | 7336 KB | 11279170 |
 | [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
 | [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
 
@@ -119,6 +148,6 @@ Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. 历史对照: `1103_ge
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.015 s | 980 KB | 11328264 |
 | [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
-| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 236 KB | 11328975 |
+| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 224 KB | 11331130 |
 
 \* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

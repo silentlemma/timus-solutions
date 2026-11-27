@@ -70,11 +70,19 @@ Ordena los otros `N − 2` lápices por ese ángulo y toma el del medio como
 `C`: `(N − 3) / 2` lápices ven `AB` bajo un ángulo mayor y quedan dentro,
 y otros tantos bajo uno menor y quedan fuera. `O(N log N)`.
 
-Los ángulos se comparan sin coma flotante. La cotangente del ángulo es
-`dot / cross`, donde `dot = (A − P)·(B − P)` y `cross` es el doble del área
-orientada de `P`, `A`, `B`, positivo para todo `P`. A mayor ángulo,
-menor cotangente, así que `P` va antes que `Q` cuando
-`dot_P · cross_Q > dot_Q · cross_P`.
+Compara ángulos sin flotantes. Para P, dot=(A-P)·(B-P) y
+cross=cross(P,A,B)>0; su cociente es cot(ángulo APB). En (0,180 grados)
+la cotangente decrece estrictamente. El orden es angular creciente y,
+por tanto, cotangente decreciente: P precede Q exactamente si
+dot_P*cross_Q > dot_Q*cross_P. Se conserva esa desigualdad correcta;
+invertir todo el orden también deja la misma mediana.
+
+C++ selecciona mediana con std::nth_element sin ordenar todos los
+puntos. La tabla da cota conservadora O(N log N) peor caso para GCC 13.2
+fijado: al agotar profundidad logarítmica de particiones usa selección
+por montón. No se justifica O(N) peor caso incondicional. Todos guardan
+O(N) puntos/claves, más entrada retenida y espacio de selección/ordenación
+cuando corresponda.
 
 Detalles a tener en cuenta:
 
@@ -90,15 +98,31 @@ Las respuestas se comprobaron con un determinante exacto de punto en
 circunferencia en todas las pruebas, incluidos conjuntos aleatorios de
 miles de lápices en todo el rango de coordenadas.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1103_geometry_optimized.java`. Conserva la arista soporte de la envolvente y el círculo del ángulo mediano. Guarda coordenadas, productos escalares/cruzados positivos e índices en arreglos primitivos. Sustituye productos BigInteger del comparador por comparación exacta con signo: primero signos y luego mitades alta/baja sin signo de productos64 por64; forma la mitad alta con bloques32. Coordenadas hasta10^8 mantienen valores bajo2^63, valores absolutos seguros y productos completos en128 bits. No usa ángulos flotantes ni epsilon. La mezcla iterativa de índices cuesta O(N log N) y O(N) espacio, con el mismo criterio mediano; las promesas de no colinealidad ni cocircularidad aseguran la partición.
 
 Frente a `1103_geometry.java`: tiempo 0.140 s → 0.078 s; memoria 7336 KB → 688 KB.
 
-Go conserva la arista AB de la envolvente convexa y ordena los demás puntos por ángulo creciente, así que la cotangente mayor va primero. Los productos cruzados son positivos. Se comparan primero los signos de los productos escalares y se trata el cero como no negativo. Si coinciden los signos, math/bits.Mul64 da las palabras alta y baja de las magnitudes exactas. Se compara primero la palabra alta y se invierte el orden si ambos signos son negativos. Las coordenadas y los productos comparten un arreglo. Cada partición usa la mediana de tres muestras. Si el intervalo se reduce geométricamente, el trabajo es O(N). Tras como máximo 2·bit_length(N−2) particiones se ordena el intervalo restante. El peor tiempo es O(N log N) y el espacio es O(N). Los otros cuatro lenguajes reutilizan sus versiones base admitidas.
+Go optimizado mantiene arista soporte y ángulos crecientes. Con cruces
+positivos compara signos de dot (cero no negativo) y magnitudes exactas
+con palabras alta/baja de math/bits.Mul64, invirtiendo para dos productos
+negativos. Puntos/claves comparten arreglo. La mediana determinista de
+tres no garantiza reducción por factor fijo, necesaria para sumar
+trabajo lineal de partición. El límite 2*bit_length(N-2) particiones
+acota ese trabajo a O(N log N) peor caso; ordenar el resto también
+cuesta como máximo O(N log N). Espacio O(N), sin suponer pivotes aleatorios
+ni reducción geométrica.
 
-Las implementaciones base aceptadas [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+La caché confirma base C++ solo por puesto temporal bajo 1 MiB y
+Python por ambas métricas de referencia pequeña del compilador exacto.
+Java/Rust simples no cumplen; Java optimizado separado sí por puesto
+temporal, Rust optimizado bajo 1 MiB por referencia temporal. Go
+optimizado aún falla tiempo y conserva marcador. Rigen los
+[criterios compartidos](../../RATING_CRITERIA.md), conservando bases
+sin copias idénticas ni meta separada de primer puesto.
 
 ### Nuevas versiones aceptadas
 
@@ -108,13 +132,29 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 
 Accepted #11328975 (Rust 1.75 x64): **0.015 s / 236 KB**. Comparación archivada: `1103_geometry.rs` (Rust 1.75 x64) — 0.015 s / 1160 KB (#11279171).
 
+La revisión actual de 1103_geometry_implementation_optimized.rs solo
+nombra la capacidad intacta de token inline de 32 bytes. Se conservan algoritmo geométrico, base y comentarios sustantivos.
+
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+C++/Rust didácticos comparan productos en 128 bits y seleccionan con
+nth_element/select_nth_unstable_by. Go/Java didácticos ordenan con
+productos de precisión arbitraria; Python también usa enteros exactos
+sin límite. Go/Java optimizados separados comparan magnitudes exactas
+de dos palabras. Son notas de las versiones nombradas, no de todas.
+
+Las notas del 18 de noviembre de 2026 son una instantánea histórica.
+Hoy se excluyen tiempos rivales bajo 0.015 s antes de elegir cohorte;
+nuestros tiempos menores solo se elevan para comparar. Se conservan
+pares Accepted originales y se usa la política común actual.
 
 `1103_geometry_optimized.java`: puesto de tiempo 1/16 y de memoria 1/16 en esta muestra comparable.
 
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+La admisión actual usa los [criterios compartidos](../../RATING_CRITERIA.md):
+puestos top diez/top 15% o referencia pequeña del compilador exacto
+cuando corresponde; bajo 1 MiB solo tiempo. Mejorar 30% o una meta
+aparte de primer puesto no da admisión. Se conservan bases significativas
+sin asteriscos de objetivos de optimización.
 
 ## Soluciones
 
@@ -122,9 +162,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
+| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) worst case (GCC 13.2) | AC | 0.015 s | 444 KB | 11279167 |
 | [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
-| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.14 s | 7336 KB | 11279170 |
 | [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
 | [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
 
@@ -134,6 +174,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.015 s | 980 KB | 11328264 |
 | [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
-| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 236 KB | 11328975 |
+| [1103_geometry_implementation_optimized.rs](1103_geometry_implementation_optimized.rs) | Rust 1.75 x64 | geometry, implementation | O(n) expected time; O(n) space | AC | 0.015 s | 224 KB | 11331130 |
 
 \* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
