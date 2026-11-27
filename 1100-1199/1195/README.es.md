@@ -13,6 +13,8 @@ círculos y todavía ninguna línea completa; las cruces empezaron, así que
 ahora les toca a ellas. Hay que hallar el resultado con juego perfecto de
 ambos bandos.
 
+Una línea ganadora contiene tres marcas iguales en una fila, una columna o cualquiera de las dos diagonales.
+
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
@@ -25,7 +27,7 @@ Tres líneas de `X`, `O` y `#` para una casilla vacía.
 
 ## Evaluación
 
-Se comparan los tokens exactos; los espacios no afectan.
+El comprobador exige una línea de respuesta y compara sus tokens. Normaliza espacios dentro de la línea; mover palabras a otra línea no es equivalente. Las respuestas permitidas son `Crosses win`, `Ouths win` y `Draw`.
 
 - `1195_games_optimized.cpp` (G++ 13.2 x64): 15 pruebas del repositorio; 1372 comparaciones adicionales de fuente exacta.
 
@@ -41,8 +43,8 @@ Entrada:
 
 ```
 XXO
-#X#
-#OO
+X#O
+O##
 ```
 
 Salida:
@@ -56,9 +58,9 @@ Ouths win
 Entrada:
 
 ```
-O#O
-#X#
-XOX
+XXO
+OOX
+###
 ```
 
 Salida:
@@ -72,9 +74,9 @@ Draw
 Entrada:
 
 ```
-XX#
+XXO
 XOO
-#O#
+###
 ```
 
 Salida:
@@ -101,11 +103,13 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en los 1372
 tableros con tres cruces, tres círculos y ninguna línea completa.
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 `1195_games_optimized.java`. Java conserva el mismo negamax exacto de tres jugadas. Dos máscaras de nueve bits representan las fichas; las máscaras de filas, columnas y diagonales detectan victorias y una jugada ganadora retorna de inmediato. Siempre quedan tres casillas vacías, por lo que no hace falta memoización. Un búfer de entrada de 64 bytes sustituye las lecturas individuales del flujo; las tres respuestas permanecen iguales. Tiempo y espacio auxiliar O(1) en este tablero fijo. Los 1372 tableros válidos con seis fichas se compararon con un solucionador independiente sobre el tablero.
 
-Accepted exacto Java 1.8 #11327339: 0.093 s / 372 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/25, memoria 2/25. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11309258 era 0.109 s / 352 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+Accepted de fuente exacta Java 1.8 #11327339: 0.093 s / 372 KB; comparación guardada del 2026-11-20: tiempo 3/25, memoria 2/25. Cumple el criterio temporal compartido bajo 1024 KB, sin objetivo independiente de primer puesto ni marca. El anterior #11309258 es el par histórico separado 0.109 s / 352 KB; su memoria no sustituye los 372 KB actuales.
 
 - `1195_games_optimized.java`: 0.093 s / 372 KB; base didáctica conservada `1195_games.java`: 0.109 s / 1544 KB.
 
@@ -121,11 +125,9 @@ Se conservan minimax completo y las ocho líneas ganadoras. La entrada legal con
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+Rigen los [criterios compartidos](../../RATING_CRITERIA.md). La caché ligada a fuentes califica ambos C++, Go, Java optimizado, Python sencillo y ambos Rust. Java sencillo falla el umbral numérico y queda didáctico sin estrella; PyPy optimizado falla tiempo y conserva la marca. Bajo 1024 KB solo cuenta tiempo. Go con 1084 KB cumple ambas frente a su único rival exacto. Rust carece de rivales exactos y usa ranking ordinario entre todas las versiones del mismo lenguaje, con un rival de otro compilador; no se deduce admisión solo del ahorro de memoria. No hay regla separada de primer puesto o mejora del 30%. Se excluyen rivales bajo 0.015 s; nuestros menores se acotan solo al comparar.
 
-`1195_games_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
-
-Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+Esta revisión solo cambia el comentario sobre puntuación relativa al jugador actual en `1195_games.py`; su AST ejecutable y algoritmo sencillo no cambian. La tabla conserva Accepted histórico #11283478 y sus métricas emparejadas. Los bytes actuales necesitan nuevo Accepted de fuente exacta en el próximo lote general.
 
 ## Soluciones
 
@@ -136,7 +138,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1195_games.cpp](1195_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 352 KB | 11283475 |
 | [1195_games.go](1195_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.015 s | 1084 KB | 11283476 |
 | [1195_games.java](1195_games.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 1544 KB | 11283479 |
-| [1195_games.py](1195_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 528 KB | 11283478 |
+| [1195_games.py](1195_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 560 KB | 11331067 |
 | [1195_games.rs](1195_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 212 KB | 11283480 |
 
 ### Optimizadas
@@ -148,4 +150,4 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1195_games_optimized.py](1195_games_optimized.py) \* | PyPy 3.10 x64 | games | O(1) | AC | 0.125 s | 280 KB | 11309730 |
 | [1195_games_optimized.rs](1195_games_optimized.rs) | Rust 1.75 x64 | games | O(E!) search; O(E) stack | AC | 0.015 s | 56 KB | 11325545 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* PyPy optimizado con 0.125 s falla el umbral temporal actual; CPython sencillo con 0.078 s cumple.

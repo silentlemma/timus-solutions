@@ -2,9 +2,9 @@
   "judging": "lines",
   "reference": "1195_games.cpp",
   "cases": [
-    { "name": "01", "example": true, "note": "noughts threaten two lines at once" },
-    { "name": "02", "example": true, "note": "every threat can be blocked" },
-    { "name": "03", "example": true, "note": "crosses complete a column at once" },
+    { "name": "01", "example": true, "note": "own losing position checked by absolute-score minimax" },
+    { "name": "02", "example": true, "note": "own drawn position checked by absolute-score minimax" },
+    { "name": "03", "example": true, "note": "own winning position checked by absolute-score minimax" },
     { "name": "04", "note": "nobody can force a line" },
     { "name": "05", "note": "crosses can complete either diagonal" },
     { "name": "06", "note": "crosses must block and noughts still win" },

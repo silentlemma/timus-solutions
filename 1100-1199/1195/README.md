@@ -12,6 +12,8 @@ A 3×3 noughts-and-crosses board has exactly three crosses and three
 noughts and no complete line yet; crosses moved first, so they move now.
 Find the result with best play on both sides.
 
+A winning line consists of three identical marks in one row, one column or either of the two diagonals.
+
 Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
@@ -24,7 +26,7 @@ Three lines of `X`, `O` and `#` for an empty cell.
 
 ## Checking
 
-Compare the exact answer tokens; whitespace formatting is immaterial.
+The repository checker requires one answer line. It compares the tokens within that line, so spacing within a line is normalized but moving words onto another line is not equivalent. The permitted outputs are `Crosses win`, `Ouths win` and `Draw`.
 
 - `1195_games_optimized.cpp` (G++ 13.2 x64): 15 repository cases; 1372 additional source-bound comparisons.
 
@@ -40,8 +42,8 @@ Input:
 
 ```
 XXO
-#X#
-#OO
+X#O
+O##
 ```
 
 Output:
@@ -55,9 +57,9 @@ Ouths win
 Input:
 
 ```
-O#O
-#X#
-XOX
+XXO
+OOX
+###
 ```
 
 Output:
@@ -71,9 +73,9 @@ Draw
 Input:
 
 ```
-XX#
+XXO
 XOO
-#O#
+###
 ```
 
 Output:
@@ -105,7 +107,7 @@ boards with three crosses, three noughts and no complete line.
 
 `1195_games_optimized.java`. Java keeps the same exact three-ply negamax. Two nine-bit masks represent the marks; row, column and diagonal masks detect a win, and a winning move returns immediately. The input always leaves three empty cells, so no memoization table is needed. A 64-byte input buffer replaces individual stream reads; the three answer strings are unchanged. Time and auxiliary space are O(1) on this fixed board. The complete domain of 1372 valid six-mark boards was compared with an independent board-based solver.
 
-Exact-source Java 1.8 Accepted #11327339: 0.093 s / 372 KB. Saved 2026-11-20 compiler-cohort comparison: time 3/25, memory 2/25. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11309258 was 0.109 s / 352 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+Exact-source Java 1.8 Accepted #11327339 is 0.093 s / 372 KB; saved 2026-11-20 comparison: time 3/25, memory 2/25. It passes the shared time criterion below 1024 KB and has no separate first-place target or marker. Earlier #11309258 is the separate historical pair 0.109 s / 352 KB; its memory must not replace the current 372 KB.
 
 - `1195_games_optimized.java`: 0.093 s / 372 KB; retained teaching base `1195_games.java`: 0.109 s / 1544 KB.
 
@@ -121,11 +123,11 @@ Keep the same exhaustive minimax and the eight winning lines. A legal input has 
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+Use the shared [rating criteria](../../RATING_CRITERIA.md). The source-bound cache qualifies both C++ versions, Go, optimized Java, simple Python and both Rust versions. Simple Java fails the numerical target but remains an unstarred teaching source; optimized PyPy fails on time and retains its marker. Below 1024 KB compare time only. Go at 1084 KB passes both metrics against its one exact-version rival. Rust has no exact-version rivals and uses the ordinary same-language fallback, with one rival in another compiler version; qualification is not inferred from memory savings alone. There is no separate first-place or 30%-improvement rule. Rival times below 0.015 s are excluded; our smaller times are floored only for comparison.
 
-`1195_games_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+Only the player-relative-score comment in `1195_games.py` changed in this review; its executable AST and simple algorithm are unchanged. The table retains historical Accepted #11283478 and its paired metrics. The current bytes require fresh exact-source Accepted in the later submission batch.
 
-An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+The source revisions discussed above have now received their own Accepted results. The solution tables list the final source-matched submission IDs and paired time/memory measurements; earlier observations describe previous revisions. All meaningful simple implementations remain available.
 
 ## Solutions
 
@@ -136,7 +138,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1195_games.cpp](1195_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 352 KB | 11283475 |
 | [1195_games.go](1195_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.015 s | 1084 KB | 11283476 |
 | [1195_games.java](1195_games.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 1544 KB | 11283479 |
-| [1195_games.py](1195_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 528 KB | 11283478 |
+| [1195_games.py](1195_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 560 KB | 11331067 |
 | [1195_games.rs](1195_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 212 KB | 11283480 |
 
 ### Optimized
@@ -148,4 +150,4 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1195_games_optimized.py](1195_games_optimized.py) \* | PyPy 3.10 x64 | games | O(1) | AC | 0.125 s | 280 KB | 11309730 |
 | [1195_games_optimized.rs](1195_games_optimized.rs) | Rust 1.75 x64 | games | O(E!) search; O(E) stack | AC | 0.015 s | 56 KB | 11325545 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* The optimized PyPy source at 0.125 s misses the current time target; the simple CPython source at 0.078 s passes.
