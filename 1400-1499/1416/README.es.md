@@ -18,11 +18,15 @@ Límite de tiempo: 2 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-n y m, luego m líneas a b w.
+Primera línea: n vértices y m aristas no dirigidas, 2≤n≤500 y 1≤m≤n(n−1)/2. Siguen m líneas con extremos a,b en 1..n y coste w en 0..1000. No hay bucles ni aristas paralelas y el grafo es conexo.
 
 ## Salida
 
 «Cost: » y el primer coste, luego «Cost: » y el segundo.
+
+## Comprobación
+
+Se compara exactamente la salida completa tras quitar sólo espacio en blanco final: dos líneas con Cost: y los costes del primer y segundo árbol. Importan mayúsculas, dos puntos, el espacio siguiente y salto interior. El segundo coste puede igualar el primero; -1 sólo si no existe otro conjunto de aristas de árbol generador.
 
 ## Ejemplos
 
@@ -86,11 +90,13 @@ Detalles a tener en cuenta:
   gen2);
 - los costes pueden ser 0 (pruebas 04, 06).
 
+Las revisiones de los fuentes descritas arriba ya obtuvieron sus propios Accepted. Las tablas de soluciones indican los envíos finales que corresponden a cada fuente y sus mediciones conjuntas de tiempo y memoria; las observaciones anteriores describen revisiones previas. Se conservan todas las implementaciones sencillas con valor didáctico.
+
 ## Soluciones optimizadas
 
 La versión compacta en C++ mantiene la recurrencia de Prim y usa entradas de 16 bits para ambas matrices. Al incorporar una arista al árbol, se marca como ausente en la matriz de pesos. Los dos extremos ya están en el árbol y el cambio no afecta a Prim. La pasada final solo examina aristas externas al árbol y puede detenerse si el coste adicional es cero.
 
-Las implementaciones base aceptadas [1416_graphs.go](1416_graphs.go), [1416_graphs.java](1416_graphs.java), [1416_graphs.py](1416_graphs.py), [1416_graphs.rs](1416_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+El conjunto rápido reutiliza las bases válidas Java/Python y usa C++, Go y Rust optimizados. Go/Rust sencillos se conservan para enseñanza, pero incumplen los límites de memoria actuales y no se presentan como fuentes rápidas válidas. No se duplican fuentes idénticos; los pares históricos Accepted permanecen en sus versiones.
 
 ### Nuevas versiones aceptadas
 
@@ -107,6 +113,16 @@ Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Acc
 `1416_graphs_implementation_optimized.rs`. Los pesos acotados y los extremos usan 32 bits; los totales de los árboles conservan 64 bits. Se mantienen ambos cálculos y su orden. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
 
 Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. Comparación archivada: `1416_graphs.rs` (Rust 1.75 x64) — 0.015 s / 9656 KB (#11286115).
+
+## Notas por lenguaje
+
+Las bases guardan matrices de pesos, máximos de caminos y pertenencia al árbol, una lista de aristas y O(n) estado Prim: espacio auxiliar O(n²+m). Los analizadores completos, especialmente Python/Rust sencillo, retienen además I bytes/tokens de entrada, total O(n²+m+I). C++ compacto usa dos matrices uint16, marca aristas del árbol como ausentes y recorre la matriz sin lista/matriz de pertenencia separada, espacio O(n²). El centinela supera todo peso≤1000. Go optimizado mantiene estructuras y rellena un búfer de 8192 bytes; Rust usa entrada acotada, campos de arista de 32 bits y totales de 64 bits. Todos mantienen tiempo algorítmico O(n²+m).
+
+Los [criterios comunes](../../RATING_CRITERIA.md) ignoran memoria sólo estrictamente bajo 1024 KB. C++ optimizado cumple ambas 1/89 y 2/89, Java sencilla ambas 1/14. Python sencilla cumple límites de tercera referencia entre ocho rivales exactos, 0.52095 s / 53847.60 KB. El rival Go da 1.8860 s / 9117.20 KB: optimizado de 8892 KB cumple, sencillo de 10568 KB incumple memoria. El rival Rust da 0.1610 s / 7015 KB: optimizado de 3908 KB cumple, sencillo de 9656 KB no. Se excluyen rivales menores de 0.015 s y sólo nuestros tiempos usan suelo.
+
+En `1416_graphs_parsing_implementation_optimized.go` los comentarios describen entrada con relleno y salida formateada sólo %d; se nombra la capacidad inline de 128 bytes sin cambiarla. Valores, algoritmo y explicaciones sustantivas intactos.
+
+En `1416_graphs_implementation_optimized.rs` sólo se nombran constantes exigidas por el lint; valores, algoritmo y comentarios no cambian. Accepted #11328963 y sus medidas corresponden a los bytes exactos previos.
 
 ## Soluciones
 
@@ -125,5 +141,5 @@ Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. Comparación archivad
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs_optimized.cpp](1416_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 1132 KB | 11310409 |
-| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.031 s | 8892 KB | 11328937 |
-| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11328963 |
+| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.046 s | 8900 KB | 11331024 |
+| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11331119 |

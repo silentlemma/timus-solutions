@@ -16,11 +16,15 @@
 
 ## 输入
 
-n 和 m，然后 m 行 a b w。
+首行给出 n 个顶点、m 条无向边，2≤n≤500，1≤m≤n(n−1)/2。随后 m 行给出端点 a,b（1..n）及代价 w（0..1000）。无自环、无重边，图连通。
 
 ## 输出
 
 "Cost: " 和第一个权值，然后 "Cost: " 和第二个权值。
+
+## 检查
+
+仓库仅去掉完整输出末尾空白后精确比较：两行分别为 Cost: 及第一、第二棵树的代价。大小写、冒号、后面的空格及内部换行均重要。第二代价可等于第一；仅无另一组生成树边时输出 -1。
 
 ## 样例
 
@@ -82,7 +86,7 @@ heaviest(u, v) = max(heaviest(u, p), c)。`O(n² + m)`。
 
 紧凑的 C++ 版本沿用 Prim 的递推，两张矩阵均使用 16 位条目。边加入生成树后就在权重矩阵中标记为不存在。由于两个端点都已加入，这不会影响后续更新。最后只需扫描树外的边，找到增量为零的边即可停止。
 
-已通过评测的基础实现 [1416_graphs.go](1416_graphs.go), [1416_graphs.java](1416_graphs.java), [1416_graphs.py](1416_graphs.py), [1416_graphs.rs](1416_graphs.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+快速集合复用合格简单 Java/Python，使用优化 C++、Go、Rust。简单 Go/Rust 保留教学，但不满足当前内存限额，不声称覆盖快速集合。无需相同副本；历史 Accepted 时间/内存对各自保留。
 
 ### 新的已通过版本
 
@@ -99,6 +103,18 @@ Accepted #11328937 (Go 1.14 x64): **0.031 s / 8892 KB**. 历史对照: `1416_gra
 `1416_graphs_implementation_optimized.rs`. 有界边权和端点用 32 位保存，生成树总权仍为 64 位。两次生成树计算及处理顺序不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
 
 Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. 历史对照: `1416_graphs.rs` (Rust 1.75 x64) — 0.015 s / 9656 KB (#11286115).
+
+## 各语言说明
+
+简单版保留权重、路径最大边、树边标记三种矩阵，边列表及 O(n) Prim 状态，辅助空间 O(n²+m)。完整解析器，尤其 Python、简单 Rust，另保留 I 输入字节/词元，总计 O(n²+m+I)。紧凑 C++ 用两个 uint16 矩阵，把树边标为不存在并扫描矩阵，无独立边列表/标记矩阵，空间 O(n²)；不存在哨兵大于所有≤1000 的权重。优化 Go 保留图结构，但补充 8192 字节输入缓冲；优化 Rust 用有界输入、32 位边字段和 64 位总数。各版算法时间 O(n²+m)。
+
+统一[标准](../../RATING_CRITERIA.md) 仅严格低于 1024 KB 时忽略内存。缓存优化 C++ 两项 1/89、2/89 通过，简单 Java 两项 1/14 通过。简单 Python 通过八个精确对手中第三参考限额 0.52095 s / 53847.60 KB。Go 单个对手给出 1.8860 s / 9117.20 KB，优化 8892 KB 通过、简单 10568 KB 内存不通过；Rust 单个对手给出 0.1610 s / 7015 KB，优化 3908 KB 通过、简单 9656 KB 不通过。排除快于 0.015 s 的对手，仅自己的时间设下限。
+
+`1416_graphs_parsing_implementation_optimized.go` 的辅助注释现描述补充输入缓冲及仅 %d 格式输出，并为不变的 128 字节内联词元容量命名。数值、算法和有意义解释保留。Accepted #11328937（0.
+
+`1416_graphs_implementation_optimized.rs` 仅将检查要求的常量命名，数值、算法及注释未变。
+
+上述源码修订均已取得各自的 Accepted。解答表列出与最终源码对应的提交编号及同次运行的时间和内存；较早的观察对应此前的修订。所有有教学价值的简单实现均保留。
 
 ## 解答
 
@@ -117,5 +133,5 @@ Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. 历史对照: `1416_g
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs_optimized.cpp](1416_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 1132 KB | 11310409 |
-| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.031 s | 8892 KB | 11328937 |
-| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11328963 |
+| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.046 s | 8900 KB | 11331024 |
+| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11331119 |

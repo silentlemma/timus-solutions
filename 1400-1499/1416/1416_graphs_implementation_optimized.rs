@@ -83,6 +83,7 @@ where
 }
 
 const INPUT_BUFFER_BYTES: usize = 4096;
+const INLINE_TOKEN_BYTES: usize = 32;
 
 #[cfg(windows)]
 #[link(name = "msvcrt")]
@@ -147,7 +148,7 @@ impl TokenInput {
 }
 
 struct InputWord {
-    inline: [u8; 32],
+    inline: [u8; INLINE_TOKEN_BYTES],
     length: usize,
     spill: Vec<u8>,
 }
@@ -199,7 +200,7 @@ impl Iterator for TokenInput {
             first = self.byte()?;
         }
         let mut word = InputWord {
-            inline: [0; 32],
+            inline: [0; INLINE_TOKEN_BYTES],
             length: 0,
             spill: Vec::new(),
         };

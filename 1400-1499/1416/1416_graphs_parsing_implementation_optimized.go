@@ -85,13 +85,14 @@ func main() {
 }
 
 const inputBufferBytes = 8192
+const inlineTokenBytes = 128
 
 var fastInputReader io.Reader
 var fastInputBuffer [inputBufferBytes]byte
 var fastInputPosition, fastInputLength int
 var fastInputLoaded bool
 
-// Read the single input stream once and convert tokens without fmt reflection.
+// Refill a bounded input buffer and convert integer tokens without fmt reflection.
 func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 	if !fastInputLoaded {
 		fastInputReader = reader
@@ -105,7 +106,7 @@ func fastScan(reader io.Reader, targets ...interface{}) (int, error) {
 		if err != nil {
 			return index, err
 		}
-		var inline [128]byte
+		var inline [inlineTokenBytes]byte
 		word := inline[:0]
 		for {
 			word = append(word, ch)
@@ -174,7 +175,7 @@ func fastPrint(writer io.Writer, spaced, newline bool, values ...interface{}) (i
 
 var fastFormatBuffer = make([]byte, 0, 64)
 
-// Only the fixed integer, character, string and decimal formats used here are needed.
+// Only the fixed %d integer format used by this solver is supported.
 func fastFormatted(writer io.Writer, format string, values ...interface{}) (int, error) {
 	buffer := fastFormatBuffer[:0]
 	argument := 0
